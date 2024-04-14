@@ -17,7 +17,7 @@ int pageNum = 1;
 *        5        *   Endless Mode   *
 *        6        *    Level Mode    *
 **************************************/
-//test trial for uploading code
+//test trial 2
 
 struct mode {
 	Text modeElement[2];
