@@ -152,8 +152,12 @@ struct mainMenu {
 };
 
 int gameMode(RenderWindow& window, mainMenu& menu, Sound& clickSound);
+// Function of store
+void store(int);
 
-//void endlessMode();
+void movements();
+
+void arcadeMode(RenderWindow& window);
 
 //void  levelsMode();
 
@@ -220,7 +224,7 @@ int main() {
 		if (pageNum == 2) {
 			int modeSelected = gameMode(window, menu, clickSound);
 			if (modeSelected == 5) {
-				//arcadeMode();
+				arcadeMode(window);
 				cout << "Arcade mode!" << endl;
 			}
 			else if (modeSelected == 6) {
@@ -232,7 +236,16 @@ int main() {
 				cout << "Back" << endl;
 			}
 		}
-
+		if (pageNum == 3) {
+			int coins = 500; // it will be got from score function (this value for practice)
+			store(coins);
+			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+				clickSound.play();
+				pageNum = 1;
+				menu.menuElement[1].setFillColor(Color::White);
+				menu.menuElement[1].setCharacterSize(90);
+			}
+		}
 		if (pageNum == 4) {
 			window.close();
 			break;
@@ -275,7 +288,8 @@ int gameMode(RenderWindow& window, mainMenu& menu, Sound& clickSound) {
 				if (event.key.code == Keyboard::Escape) {  // return back to the main menu page
 					clickSound.play();
 					pageNum = 1;
-
+					menu.menuElement[0].setFillColor(Color::White);
+					menu.menuElement[0].setCharacterSize(90);
 					return pageNum;
 				}
 			}

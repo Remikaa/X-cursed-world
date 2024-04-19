@@ -36,18 +36,8 @@ powerUps[NUMBER_OF_POWER_UPS];
 int selectPowerUps[NUMBER_OF_POWER_UPS] = {};
 // Array to check if i click buy
 int buyPowerUps[NUMBER_OF_POWER_UPS] = {};
-
-// Function of store
-void store(int);
 // Function to check how many power-ups are selected (at maximum 2)
 int checkSelectPowerUps(int[NUMBER_OF_POWER_UPS]);
-
-int main()
-{
-	int coins = 500; // it will be got from score function (this value for practice)
-	store(coins);
-	return 0;
-}
 
 void store(int coins)
 {
@@ -55,7 +45,7 @@ void store(int coins)
 
 	// Load font of store
 	Font storeFont;
-	if (!storeFont.loadFromFile("./Fonts/Pixelated.ttf"))
+	if (!storeFont.loadFromFile("./Store/Pixelated.ttf"))
 	{
 		cerr << "Error loading font file" << endl;
 	}
@@ -70,12 +60,12 @@ void store(int coins)
 
 	// Load primary textures
 	Texture background, storeBadge, powerBoard, charBoard, charChain, powerChain;
-	if (!background.loadFromFile("./Textures/background.png") ||
-		!storeBadge.loadFromFile("./Textures/storebanner.png") ||
-		!powerBoard.loadFromFile("./Textures/boardofpowerups.png") ||
-		!charBoard.loadFromFile("./Textures/boardofcharacter.png") ||
-		!charChain.loadFromFile("./Textures/charchain.png") ||
-		!powerChain.loadFromFile("./Textures/chain.png"))
+	if (!background.loadFromFile("Store/Textures/background.png") ||
+		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
+		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
+		!charBoard.loadFromFile("Store/Textures/boardofcharacter.png") ||
+		!charChain.loadFromFile("Store/Textures/charchain.png") ||
+		!powerChain.loadFromFile("Store/Textures/chain.png"))
 	{
 		cerr << "Error loading primary textures files" << endl;
 	}
@@ -94,10 +84,10 @@ void store(int coins)
 
 	// Load button textures
 	Texture buy, select, selected, cancel;
-	if (!buy.loadFromFile("./textures/buy.png") ||
-		!select.loadFromFile("./textures/select.png") ||
-		!selected.loadFromFile("./textures/selected.png") ||
-		!cancel.loadFromFile("./textures/cancel.png"))
+	if (!buy.loadFromFile("Store/Textures/buy.png") ||
+		!select.loadFromFile("Store/Textures/select.png") ||
+		!selected.loadFromFile("Store/Textures/selected.png") ||
+		!cancel.loadFromFile("Store/Textures/cancel.png"))
 	{
 		cerr << "Error loading button texture files" << endl;
 	}
@@ -111,8 +101,8 @@ void store(int coins)
 	selectedButton.setPosition(-1000, -1000);
 
 	// textures of power ups
-	String power_up_textures[NUMBER_OF_POWER_UPS] = { "./Textures/power1.png","./Textures/power2.png","./Textures/power3.png",
-		"./Textures/power4.png","./Textures/power5.png" };
+	String power_up_textures[NUMBER_OF_POWER_UPS] = { "Store/Textures/power1.png","Store/Textures/power2.png","Store/Textures/power3.png",
+		"Store/Textures/power4.png","Store/Textures/power5.png" };
 	Texture perk[NUMBER_OF_POWER_UPS];
 
 	for (int i = 0; i < NUMBER_OF_POWER_UPS; i++)
