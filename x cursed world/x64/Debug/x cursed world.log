@@ -1,0 +1,15 @@
+﻿  Game.cpp
+E:\Projects\VSC C++\X\Game.cpp(52,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         with
+E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         [
+E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:             T=float
+E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         ]
+E:\Projects\VSC C++\X\Game.cpp(63,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\VSC C++\X\Game.cpp(168,16): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\VSC C++\X\Game.cpp(174,17): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\VSC C++\X\Game.cpp(180,16): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\VSC C++\X\Game.cpp(185,17): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\VSC C++\X\Game.cpp(191,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projects\VSC C++\X\Game.cpp(223,18): warning C4305: '=': truncation from 'double' to 'float'
+  x cursed world.vcxproj -> E:\Projects\VSC C++\X\x64\Debug\x cursed world.exe
