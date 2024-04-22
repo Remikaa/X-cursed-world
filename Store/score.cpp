@@ -168,28 +168,28 @@ struct Score{
 	}
 };
 // main is used only for testing purposes.
-int main()
-{
-	Score score;
-	RenderWindow window(VideoMode(800, 600), "Score sys of the Game");
-
-	score.tspl = 100;
-	score.TotalCoin = 500;
-	while (window.isOpen()) {
-		Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed)
-				window.close();
-		}
-
-		window.clear(); // Clear the window
-
-		// Update and display coins and score
-		score.CoinDisplay(window,  score.TotalCoin);
-		score.ScoreDisplay(window, score.tspl);
-
-		window.display(); // Display the contents of the window
-	}
-
-	return 0;
-}
+//int main()
+//{
+//	Score score;
+//	RenderWindow window(VideoMode(800, 600), "Score sys of the Game");
+//
+//	score.tspl = 100;
+//	score.TotalCoin = 500;
+//	while (window.isOpen()) {
+//		Event event;
+//		while (window.pollEvent(event)) {
+//			if (event.type == Event::Closed)
+//				window.close();
+//		}
+//
+//		window.clear(); // Clear the window
+//
+//		// Update and display coins and score
+//		score.CoinDisplay(window,  score.TotalCoin);
+//		score.ScoreDisplay(window, score.tspl);
+//
+//		window.display(); // Display the contents of the window
+//	}
+//
+//	return 0;
+//}
