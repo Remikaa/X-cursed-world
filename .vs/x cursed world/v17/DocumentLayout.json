@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\Desktop\\X-cursed-world\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\Desktop\\X-cursed-world\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\Desktop\\X-cursed-world\\Store\\score.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Store\\score.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "score.cpp",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\X-cursed-world\\Store\\score.cpp",
+              "RelativeDocumentMoniker": "Store\\score.cpp",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\X-cursed-world\\Store\\score.cpp",
+              "RelativeToolTip": "Store\\score.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-24T18:47:03.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\X-cursed-world\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\X-cursed-world\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAA8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-24T17:55:59.63Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +58,7 @@
               "RelativeDocumentMoniker": "Game.cpp",
               "ToolTip": "C:\\Users\\HP\\Desktop\\X-cursed-world\\Game.cpp",
               "RelativeToolTip": "Game.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA3AAAA",
+              "ViewState": "AQIAABUBAAAAAAAAAAAAACMBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-24T17:32:56.147Z",
               "EditorCaption": ""

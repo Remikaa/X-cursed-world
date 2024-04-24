@@ -285,3 +285,12 @@ void arcadeMode(RenderWindow& window) {
 		window.display();
 	}
 }
+//Enemies will be 1 Bosses and 2 small different enemy guards for level 1
+// Enemies for  other levels will be determined later
+struct SecEnemy
+{
+	Sprite shape; // main properties of the enemy character
+	int speed;
+	double animation;
+
+};
