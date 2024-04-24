@@ -289,7 +289,7 @@ void arcadeMode(RenderWindow& window) {
 // Enemies for  other levels will be determined later
 struct SecEnemy
 {
-	Sprite shape; // main properties of the enemy character
+	character properties; // main properties of the enemy character
 	int speed;
 	double animation;
 
