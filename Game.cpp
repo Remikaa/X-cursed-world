@@ -11,7 +11,7 @@ int ground = 820;
 struct character {
 	Sprite sprite;  // The sprite representing the player character
 	float currentFrame;  // The current frame of animation
-	float moveX, moveY;  // Movements on x and y d0irection
+	float moveX, moveY;  // Movements on x and y direction.
 	bool onGround;  // indicate if the player is on the ground
 	FloatRect rect;  // The bounding rectangle of the player
 	int lastKeyPressed;  // The last key pressed by the player

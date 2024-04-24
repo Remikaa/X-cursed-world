@@ -1,22 +1,55 @@
 ﻿  Game.cpp
-E:\Projects\VSC C++\X\Game.cpp(52,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         with
-E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         [
-E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:             T=float
-E:\Projects\VSC C++\X\Game.cpp(58,15): warning C4244:         ]
-E:\Projects\VSC C++\X\Game.cpp(63,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\X\Game.cpp(171,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(177,19): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(183,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(184,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(188,20): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(197,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(198,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(203,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(204,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(212,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(213,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(219,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\X\Game.cpp(225,19): warning C4305: '=': truncation from 'double' to 'float'
-  x cursed world.vcxproj -> E:\Projects\VSC C++\X\x64\Debug\x cursed world.exe
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(52,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(63,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(171,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(177,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(183,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(184,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(188,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(197,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(198,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(203,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(204,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(212,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(213,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(219,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(225,19): warning C4305: '=': truncation from 'double' to 'float'
+  main.cpp
+C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         ]
+  score.cpp
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(71,19): warning C4244: 'initializing': conversion from 'long double' to '__int64', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to '__int64', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(89,13): warning C4244: 'initializing': conversion from '__int64' to 'double', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         ]
+  store.cpp
+  Generating Code...
+  LINK : C:\Users\HP\Desktop\X-cursed-world\x64\Debug\x cursed world.exe not found or not built by the last incremental link; performing full link
+LINK : fatal error LNK1104: cannot open file 'sfml-graphics-d.lib'
