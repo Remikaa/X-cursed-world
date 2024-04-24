@@ -19,36 +19,4 @@ C:\Users\HP\Desktop\X-cursed-world\Game.cpp(212,50): warning C4305: '=': truncat
 C:\Users\HP\Desktop\X-cursed-world\Game.cpp(213,24): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\HP\Desktop\X-cursed-world\Game.cpp(219,18): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\HP\Desktop\X-cursed-world\Game.cpp(225,19): warning C4305: '=': truncation from 'double' to 'float'
-  score.cpp
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(71,19): warning C4244: 'initializing': conversion from 'long double' to '__int64', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to '__int64', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(89,13): warning C4244: 'initializing': conversion from '__int64' to 'double', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,38): warning C4244:         ]
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(105,32): warning C4244:         ]
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,38): warning C4244:         ]
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\Store\score.cpp(137,32): warning C4244:         ]
-  store.cpp
-  main.cpp
-C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\main.cpp(40,44): warning C4244:         ]
-  Generating Code...
   x cursed world.vcxproj -> C:\Users\HP\Desktop\X-cursed-world\x64\Debug\x cursed world.exe

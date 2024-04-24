@@ -290,7 +290,12 @@ void arcadeMode(RenderWindow& window) {
 struct SecEnemy
 {
 	character properties; // main properties of the enemy character
-	int speed;
-	double animation;
+	float speed;
+	float movement_range;
+	float attacking_factor = 0.6;
+	float attacking_range = attacking_factor * movement_range;
+	bool is_player_in_range_x() { // checking if the character is in x position
+		return abs(knight.sprite.getPosition().x - this->properties.sprite.getPosition().x) <= attacking_range;
+	}
 
 };
