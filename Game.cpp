@@ -295,10 +295,11 @@ struct SecEnemy
 	bool onGround;  // indicate if the player is on the ground
 	FloatRect rect;  // The bounding rectangle of the enemy
 	FloatRect killzone; // the range in which the enemy detects
+	bool inkillzone; // true means player in enemy killzone, false means not in enemy kill zone
 	int noOfAttackstaken;   // no of attacks dealt by the player to the enemy
 	string state;  // The current state of the enemy
 	int health;  // Health of the enemy
-	Texture stateTexture[125];  // Array of textures for different states
+	Texture* stateTexture;  // Dynamic Array of textures for different states
 	float speed;
 	float attacking_factor = 0.6;
 	// Function to load textures for different states
