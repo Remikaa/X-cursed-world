@@ -289,13 +289,49 @@ void arcadeMode(RenderWindow& window) {
 // Enemies for  other levels will be determined later
 struct SecEnemy
 {
-	character properties; // main properties of the enemy character
+	Sprite sprite;  // The sprite representing the player character
+	float currentFrame;  // The current frame of animation.
+	float moveX, moveY;  // Movements on x and y direction
+	bool onGround;  // indicate if the player is on the ground
+	FloatRect rect;  // The bounding rectangle of the enemy
+	FloatRect killzone; // the range in which the enemy detects
+	int noOfAttackstaken;   // no of attacks dealt by the player to the enemy
+	string state;  // The current state of the enemy
+	int health;  // Health of the enemy
+	Texture stateTexture[125];  // Array of textures for different states
 	float speed;
-	float movement_range;
 	float attacking_factor = 0.6;
-	float attacking_range = attacking_factor * movement_range;
-	bool is_player_in_range_x() { // checking if the character is in x position
-		return abs(knight.sprite.getPosition().x - this->properties.sprite.getPosition().x) <= attacking_range;
+	// Function to load textures for different states
+	void loadTextures(int size, string stateElementsTX[]) {
+		
+		for (int i = 0; i < size; i++)
+			stateTexture[i].loadFromFile(stateElementsTX[i]);
+	}
+	bool is_in_killzone(FloatRect& killzone, Vector2f& characterPosition) {
+		// Check if the character's position is within the boundaries of the killzone
+		return killzone.contains(characterPosition);
+	}
+	// Function to assign sprite and initialize properties
+	void assignSprite(float scX, float scY,int moveNX,int moveNY, int Health, int size, string stateElementsTX[], string stateElement[]) {
+		sprite.setScale(scX, scY); //Set sprite scale
+		moveX = moveNX;
+		moveY = moveNY;
+		currentFrame = 0;
+		noOfAttackstaken = 0;
+		//lastKeyPressed = 1;
+		state = "Idle";  // Initialize state to idle
+		health = Health;  // Initialize health to 100
+		loadTextures(size, stateElementsTX);  // Loading the textures
+		updateTexture(size, stateElement);  // Update the texture of the sprite to idle
+	}
+	// Function to update the texture based on current state
+	void updateTexture(int size, string stateElement[])
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (state == stateElement[i])
+				sprite.setTexture(stateTexture[i]);
+		}
 	}
 
 };
