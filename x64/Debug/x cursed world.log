@@ -1,0 +1,59 @@
+﻿  Game.cpp
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(52,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(58,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(58,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(58,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(58,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(58,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(63,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(171,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(177,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(183,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(184,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(188,20): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(197,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(198,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(203,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(204,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(212,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(213,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(219,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(225,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(304,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(318,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Game.cpp(319,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(40,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(40,44): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(40,44): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(40,44): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(40,44): warning C4244:         ]
+  score.cpp
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(71,19): warning C4244: 'initializing': conversion from 'long double' to '__int64', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to '__int64', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(89,13): warning C4244: 'initializing': conversion from '__int64' to 'double', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,38): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,38): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,38): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,38): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,32): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,32): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,32): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(105,32): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,38): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,38): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,38): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,38): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,32): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,32): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,32): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\Store\score.cpp(137,32): warning C4244:         ]
+  store.cpp
+  Generating Code...
+  x cursed world.vcxproj -> D:\Visual studio\Vs\Remikaa\X-cursed-world\x64\Debug\x cursed world.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
