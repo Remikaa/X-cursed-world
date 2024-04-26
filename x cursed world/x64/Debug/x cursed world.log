@@ -1,22 +1,40 @@
 ﻿  Game.cpp
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(52,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         with
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         [
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:             T=float
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(58,15): warning C4244:         ]
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(63,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(171,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(177,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(183,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(184,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(188,20): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(197,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(198,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(203,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(204,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(212,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(213,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(219,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\Desktop\X-cursed-world\Game.cpp(225,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(56,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(62,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(62,15): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(62,15): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(62,15): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(62,15): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(67,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(175,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(181,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(187,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(188,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(192,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(201,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(202,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(207,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(208,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(216,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(217,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(223,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(229,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(275,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(275,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(276,27): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(276,27): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(276,27): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(276,27): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(276,27): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(277,26): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(277,26): warning C4244:         with
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(277,26): warning C4244:         [
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(277,26): warning C4244:             T=float
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(277,26): warning C4244:         ]
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(278,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(323,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(350,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(380,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(412,66): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\HP\Desktop\X-cursed-world\Game.cpp(435,24): warning C4390: ';': empty controlled statement found; is this the intent?
   x cursed world.vcxproj -> C:\Users\HP\Desktop\X-cursed-world\x64\Debug\x cursed world.exe

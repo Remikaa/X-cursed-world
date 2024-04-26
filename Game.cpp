@@ -303,7 +303,7 @@ struct SecEnemy
 	int dir = 1; // character direction
 	float speed;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW------------
-	Texture* stateTexture = new Texture[0];  // Array of textures for different states
+	Texture* stateTexture;  // Array of textures for different states
 
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
@@ -325,7 +325,7 @@ struct SecEnemy
 		{
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 13)
-				dead = true; // player dies after playing the full animation
+				dead = true; // enemy dies after playing the full animation
 		}
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (abs(knight.rect.left - rect.left + 60) <= 110)
@@ -333,17 +333,17 @@ struct SecEnemy
 		else
 			state = "walk";
 
-		/*if (Keyboard::isKeyPressed(Keyboard::N))
+		if (Keyboard::isKeyPressed(Keyboard::N))
 		{
 			state = "on hit";
 			currentFrame = 0;
-		}*/ // trying to debug on hit animation
+		} // trying to debug on hit animation
 
 		if (state == "walk")
 		{
 
 			sprite.setTexture(stateTexture[1]);
-			if (currentFrame >= 12)
+			if (currentFrame >= 11)
 				currentFrame = 0;
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
