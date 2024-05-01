@@ -254,10 +254,41 @@ void movements() {
 // Enemies for other levels will be determined later
 struct SecEnemy
 {
+	Sprite sprite;
+	string state;  // The current state of the enemy
+	FloatRect rect;  // The bounding rectangle of the enemy
+	float currentFrame;  // The current frame of animation.
+	float movement_range;
+	//not needed	//float attacking_factor;
+	//not needed	//float attacking_range = attacking_factor * movement_range; // the boundaries of which the enemy will start attacking the character if it exists in it
+	//not needed int curpos; // current x position
+	int num_of_cur_textures = 0; // number of textures for the current type
+	int cur_enemy_idx; // current enemy index (used for loading the textures)
+	int right_boundary; // the boundaries values of x position
+	int left_boundary;
+	int attack;
+	int health;
+	int attack_pause_time;
+	bool dead = false;
+	int dir = 1; // character direction
+	float speed;
+	bool is_attacked;
+	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
+	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 	string enemy_type; // to load different enemies and set ther attributes based on thier type (name)
-	string enemy_textures[num_of_sec_enemies][num_of_enemy_textures] = {
-		{"./enemies/Skeleton_enemy/Skeleton idle.png","./enemies/Skeleton_enemy/Skeleton moving.png","./enemies/Skeleton_enemy/Skeleton attack.png","./enemies/Skeleton_enemy/Skeleton on hit.png","./enemies/Skeleton_enemy/Skeleton dead.png"}
-
+	string enemy_textures[num_of_sec_enemies][num_of_enemy_textures] =
+	{
+		{"./enemies/Skeleton_enemy/Skeleton idle.png",
+		"./enemies/Skeleton_enemy/Skeleton moving.png",
+		"./enemies/Skeleton_enemy/Skeleton attack.png",
+		"./enemies/Skeleton_enemy/Skeleton on hit.png",
+		"./enemies/Skeleton_enemy/Skeleton dead.png"}
+		,
+	    {"./enemies/Evil_Wizard/Idle.png",
+		"./enemies/Evil_Wizard/Move.png",
+		"./enemies/Evil_Wizard/Attack.png",
+		"./enemies/Evil_Wizard/Take Hit.png",
+		"./enemies/Evil_Wizard/Death.png"}
 	};
 	void assign_sec_enemy_info(string enemytype, int posx, int posy, int movementrange, int attackpow, int attpause, int hp) {
 		enemy_type = enemytype;
@@ -280,35 +311,26 @@ struct SecEnemy
 			rect.top = posy;
 			speed = 0.1;
 		}
-		else
+		else if(enemytype == "EvilWizard")
 		{
-			// to be done (other enemies)
+			num_of_cur_textures = 4;
+			cur_enemy_idx = 1;
+			state = "walk";
+			health = hp;
+			//attacking_factor = 1; not needed 
+			sprite.setScale(2.6, 2.6);
+			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
+			right_boundary = posx + movementrange;
+			movement_range = movementrange;
+			attack = attackpow; //current wizard power
+			attack_pause_time = attpause;// current pause time between every two attacks
+			load_sec_enemy_textures();
+			sprite.setPosition(posx, posy);
+			rect.left = posx;
+			rect.top = posy;
+			speed = 0.1696969;
 		}
 	}
-
-
-	Sprite sprite;
-	string state;  // The current state of the enemy
-	FloatRect rect;  // The bounding rectangle of the enemy
-	float currentFrame;  // The current frame of animation.
-	float movement_range;
-	//not needed	//float attacking_factor;
-	//not needed	//float attacking_range = attacking_factor * movement_range; // the boundaries of which the enemy will start attacking the character if it exists in it
-	//not needed int curpos; // current x position
-	int num_of_cur_textures = 0; // number of textures for the current type
-	int cur_enemy_idx; // current enemy index (used for loading the textures)
-	int right_boundary; // the boundaries values of x position
-	int left_boundary;
-	int attack;
-	int health;
-	int attack_pause_time;
-	bool dead = false;
-	int dir = 1; // character direction
-	float speed;
-	bool is_attacked;
-	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
-	Texture* stateTexture = new Texture[0];  // Array of textures for different states
-
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
 		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
@@ -418,7 +440,87 @@ struct SecEnemy
 
 	}
 
-}Skeleton_1;
+	void update_evilwiz_state(float time)
+	{
+		currentFrame += 0.05 * time * speed;
+		if (health <= 0 || state == "dead")
+		{
+			sprite.setTexture(stateTexture[4]);
+			if (currentFrame >= 5)
+				dead = true; // player dies after playing the full animation
+		}
+		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
+		else if (is_knight_sword_touching())
+			state = "on hit";
+		else if (abs(knight.rect.left - rect.left + 60) <= 110)
+			state = "attack";
+		else
+			state = "walk";
+
+		if (state == "walk")
+		{
+			sprite.setTexture(stateTexture[1]);
+			if (currentFrame >= 8)
+				currentFrame = 0;
+			rect.left += speed * time * dir;
+			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
+			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
+			if (is_player_in_range_x())
+			{
+				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+					dir = 1;
+				else
+					dir = -1;
+				left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+			}
+			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			{
+				dir *= -1;
+				turn_time = 10;
+			}
+		}
+		else if (state == "attack")
+		{
+			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
+			if (pause_time <= 0) {
+				sprite.setTexture(stateTexture[2]);
+				if (currentFrame >= 8)
+					currentFrame = 0;
+
+				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
+					dir = -1;
+				else
+					dir = 1;
+				left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
+				{
+					knight.health -= attack;
+				}
+				pause_time = attack_pause_time;
+			}
+
+		}
+		else if (state == "on hit") {
+			sprite.setTexture(stateTexture[3]);
+			if (currentFrame >= 4)
+			{
+				currentFrame = 0;
+				state = "";
+				health -= knight.attack;
+			}
+
+		}
+		if (dir > 0)
+			sprite.setTextureRect(IntRect(150 * int(currentFrame), 0, 150, 150)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+		else
+			sprite.setTextureRect(IntRect(150 * int(currentFrame) + 150, 0, -150, 150)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+
+	}
+
+}Skeleton_1, Evil_Wizard_1;
 
 void arcadeMode(RenderWindow& window) {
 	Texture backgroundTexture;
@@ -432,7 +534,7 @@ void arcadeMode(RenderWindow& window) {
 	knight.rect.top = 850;
 
 	Skeleton_1.assign_sec_enemy_info("skeleton", 500, 900, 100, 12, 0.5, 100);
-
+	Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1000, 830, 100, 12, 0.5, 120);
 	while (window.isOpen()) {
 		// Handle events
 		Event event;
@@ -456,6 +558,9 @@ void arcadeMode(RenderWindow& window) {
 
 		if (!Skeleton_1.dead);
 		Skeleton_1.update_skeleton_state(time);
+
+		if (!Evil_Wizard_1.dead);
+		Evil_Wizard_1.update_evilwiz_state(time);
 		
 		// Clear the window
 		window.clear();
@@ -464,6 +569,7 @@ void arcadeMode(RenderWindow& window) {
 		window.draw(backgroundSprite);
 		window.draw(knight.sprite);
 		window.draw(Skeleton_1.sprite);
+		window.draw(Evil_Wizard_1.sprite);
 		// Display the window
 		window.display();
 	}
