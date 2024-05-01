@@ -15,6 +15,7 @@ const int num_of_enemy_textures = 10;
 struct character {
 	Sprite sprite;  // The sprite representing the player character
 	float currentFrame;  // The current frame of animation.
+	float attack=10;  // characters attack
 	float moveX, moveY;  // Movements on x and y direction
 	bool onGround;  // indicate if the player is on the ground
 	FloatRect rect;  // The bounding rectangle of the player
@@ -104,10 +105,11 @@ struct character {
 			else if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
-		else if (state == "Attack") {
+		else if (state == "Attack") { // -----------------------------------------------------------------------------
 			if (currentFrame > 4) currentFrame -= 4;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
+
 		}
 		else if (state == "Attack2") {
 			if (currentFrame > 6) currentFrame -= 6;
@@ -257,7 +259,7 @@ struct SecEnemy
 		{"./enemies/Skeleton_enemy/Skeleton idle.png","./enemies/Skeleton_enemy/Skeleton moving.png","./enemies/Skeleton_enemy/Skeleton attack.png","./enemies/Skeleton_enemy/Skeleton on hit.png","./enemies/Skeleton_enemy/Skeleton dead.png"}
 
 	};
-	void assign_sec_enemy_info(string enemytype, int posx, int posy, int movement_range, int attackpow, int attpause, int hp) {
+	void assign_sec_enemy_info(string enemytype, int posx, int posy, int movementrange, int attackpow, int attpause, int hp) {
 		enemy_type = enemytype;
 		if (enemytype == "skeleton")
 		{
@@ -267,14 +269,15 @@ struct SecEnemy
 			health = hp;
 			//attacking_factor = 1; not needed 
 			sprite.setScale(4, 4);
-			left_boundary = posx - movement_range; // |   .   | , assigning boundaries on the left/right of the character "."
-			right_boundary = posx + movement_range;
+			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
+			right_boundary = posx + movementrange;
+			movement_range = movementrange;
 			attack = attackpow; //current skeleton power
 			attack_pause_time = attpause;// current pause time between every two attacks
 			load_sec_enemy_textures();
-			Skeleton_1.sprite.setPosition(posx, posy);
-			Skeleton_1.rect.left = posx;
-			Skeleton_1.rect.top = posy;
+			sprite.setPosition(posx, posy);
+			rect.left = posx;
+			rect.top = posy;
 			speed = 0.1;
 		}
 		else
@@ -288,7 +291,7 @@ struct SecEnemy
 	string state;  // The current state of the enemy
 	FloatRect rect;  // The bounding rectangle of the enemy
 	float currentFrame;  // The current frame of animation.
-	//not needed	float movement_range; // The boundaries of which the enemy will move in
+	float movement_range;
 	//not needed	//float attacking_factor;
 	//not needed	//float attacking_range = attacking_factor * movement_range; // the boundaries of which the enemy will start attacking the character if it exists in it
 	//not needed int curpos; // current x position
@@ -302,12 +305,29 @@ struct SecEnemy
 	bool dead = false;
 	int dir = 1; // character direction
 	float speed;
-	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW------------
-	Texture* stateTexture;  // Array of textures for different states
+	bool is_attacked;
+	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
+	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
 		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+	}
+	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
+		is_attacked = false;
+		float diff = rect.left-knight.rect.left;
+		
+		if (knight.lastKeyPressed == 1) // knight is facing right
+		{
+			if (-25 <= diff && diff <= 240)
+				is_attacked = true;
+		}
+		else // knight is facing left
+		{
+			if (-100 <= diff && diff <= 110)
+				is_attacked = true;
+		}
+		return is_attacked&&(knight.state == "Attack" || knight.state == "AttackCombo" || knight.state == "Attack2");
 	}
 
 
@@ -325,25 +345,20 @@ struct SecEnemy
 		{
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 13)
-				dead = true; // enemy dies after playing the full animation
+				dead = true; // player dies after playing the full animation
 		}
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
+		else if (is_knight_sword_touching())
+			state = "on hit";
 		else if (abs(knight.rect.left - rect.left + 60) <= 110)
-			state = "attack";
+				state = "attack";
 		else
 			state = "walk";
 
-		if (Keyboard::isKeyPressed(Keyboard::N))
-		{
-			state = "on hit";
-			currentFrame = 0;
-		} // trying to debug on hit animation
-
 		if (state == "walk")
 		{
-
 			sprite.setTexture(stateTexture[1]);
-			if (currentFrame >= 11)
+			if (currentFrame >= 12)
 				currentFrame = 0;
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
@@ -354,6 +369,8 @@ struct SecEnemy
 					dir = 1;
 				else
 					dir = -1;
+				left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
 			}
 			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
@@ -373,6 +390,9 @@ struct SecEnemy
 					dir = -1;
 				else
 					dir = 1;
+				left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+
 				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
 				{
 					knight.health -= attack;
@@ -381,18 +401,20 @@ struct SecEnemy
 			}
 
 		}
-		else if (state == "on hit") //BUGGY --------------------------------------------------
-		{
-
+		else if (state == "on hit") {
 			sprite.setTexture(stateTexture[3]);
 			if (currentFrame >= 3)
 			{
 				currentFrame = 0;
 				state = "";
+				health -= knight.attack;
 			}
-			// HEALTH REDUCTION AND ANIMATION BEING ACTIVATED WILL BE HANDELED IN PLAYER'S CODE
+			
 		}
-		sprite.setTextureRect(IntRect(64 * int(currentFrame), 0, dir * 64, 64)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+		if(dir>0)
+			sprite.setTextureRect(IntRect(64 * int(currentFrame), 0, 64, 64)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+		else
+			sprite.setTextureRect(IntRect(64 * int(currentFrame)+64, 0, -64, 64)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 
 	}
 
@@ -434,7 +456,7 @@ void arcadeMode(RenderWindow& window) {
 
 		if (!Skeleton_1.dead);
 		Skeleton_1.update_skeleton_state(time);
-
+		
 		// Clear the window
 		window.clear();
 
