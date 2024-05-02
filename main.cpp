@@ -159,7 +159,7 @@ void movements();
 
 void arcadeMode(RenderWindow& window);
 
-//void  levelsMode();
+void levelOne(RenderWindow &window);
 
 int main() {
 
@@ -228,7 +228,7 @@ int main() {
 				cout << "Arcade mode!" << endl;
 			}
 			else if (modeSelected == 6) {
-				//levelsMode();
+				levelOne(window);
 				cout << "Levels Mode!" << endl;
 			}
 			else
