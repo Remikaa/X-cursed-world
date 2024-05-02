@@ -546,7 +546,7 @@ struct BossEnemy
 	float speed;
 	bool is_attacked;
 	int skill_shift = 0;
-	double left_traker;
+	double left_tracker;
 	double right_tracker;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
 	Texture* stateTexture = new Texture[0];  // Array of textures for different states
@@ -574,6 +574,8 @@ struct BossEnemy
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone;
 			kill_zone = killzone;
+			right_tracker = right_boundary + 20;
+			left_tracker = left_boundary + 20;
 			attack1 = attackpow1; //current boss power
 			attack2 = attackpow2;
 			attack_pause_time = attpause;// current pause time between every two attacks
@@ -594,6 +596,8 @@ struct BossEnemy
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone;
 			kill_zone = killzone;
+			right_tracker = right_boundary + 40;
+			left_tracker = left_boundary - 40;
 			attack1 = attackpow1; //current boss power
 			attack_pause_time = attpause;// current pause time between every two attacks
 			load_boss_enemy_textures();
@@ -606,6 +610,10 @@ struct BossEnemy
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
 		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+	}
+	bool is_player_in_killzone_x() { // checking if the character is in our boundaries
+		return (left_tracker <= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_tracker) &&
+			(left_boundary >= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_boundary);
 	}
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
@@ -635,6 +643,124 @@ struct BossEnemy
 	void update_boss1_state(float time)
 	{
 		currentFrame += 0.0157 * time * speed;
+		if (health <= 0 || state == "dead")
+		{
+			sprite.setTexture(stateTexture[5]);
+			if (currentFrame >= 19)
+				dead = true; // player dies after playing the full animation
+		}
+		else if (is_knight_sword_touching())
+			state = "on hit";
+		else if (abs(knight.rect.left - rect.left + 60) <= 120)
+			state = "attack";
+		else if (is_player_in_killzone_x())
+			state = "walk";
+		else
+			state = "idle";
+
+
+		if (state == "walk")
+		{
+			sprite.setTexture(stateTexture[1]);
+			if (currentFrame >= 4)
+				currentFrame = 0;
+			rect.left += speed * time * dir;
+			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
+			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
+			if (is_player_in_range_x())
+			{
+				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+					dir = 1;
+				else
+					dir = -1;
+				left_boundary = rect.getPosition().x - kill_zone;
+				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
+				right_tracker = right_boundary + 40;
+				left_tracker = left_boundary - 40;
+			}
+			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			{
+				dir *= -1;
+				turn_time = 7;
+			}
+		}
+		else if (state == "attack")
+		{
+			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
+			if (pause_time <= 0) {
+
+				if (skill_shift >= 4)
+				{
+					//skill_shift = 0;
+					sprite.setTexture(stateTexture[3]);
+				}
+				else
+				{
+					sprite.setTexture(stateTexture[2]);
+				}
+				if (currentFrame >= 6)
+				{
+					currentFrame = 0;
+					skill_shift++;
+					if (skill_shift > 5)
+					{
+						skill_shift = 0;
+					}
+				}
+
+				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
+					dir = -1;
+				else
+					dir = 1;
+				left_boundary = rect.getPosition().x - kill_zone;
+				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift)
+				{
+					knight.health -= attack1;
+				}
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && !skill_shift)
+				{
+					knight.health -= attack2;
+				}
+				pause_time = attack_pause_time;
+			}
+
+		}
+		else if (state == "on hit") {
+			sprite.setTexture(stateTexture[4]);
+			if (currentFrame >= 4)
+			{
+				currentFrame = 0;
+				state = "";
+				health -= knight.attack;
+			}
+
+		}
+		else if (state == "idle")
+		{
+			sprite.setTexture(stateTexture[0]);
+			if (knight.rect.getPosition().x + 45 >= rect.getPosition().x)
+				dir = -1;
+			else
+				dir = 1;
+			if (currentFrame >= 4)
+			{
+				currentFrame = 0;
+			}
+		}
+		if (dir > 0)
+			sprite.setTextureRect(IntRect(100 * int(currentFrame), 0, 100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+		else
+			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+
+	}
+	//void tracker()
+	//{
+
+	//}
+	void update_boss2_state(float time)
+	{
+		currentFrame += 0.3 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
 			sprite.setTexture(stateTexture[5]);
@@ -741,89 +867,6 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame), 0, 100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 		else
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
-
-	}
-	void tracker()
-	{
-
-	}
-	void update_evilwiz_state(float time)
-	{
-		currentFrame += 0.05 * time * speed;
-		if (health <= 0 || state == "dead")
-		{
-			sprite.setTexture(stateTexture[4]);
-			if (currentFrame >= 13)
-				dead = true; // player dies after playing the full animation
-		}
-		else if (is_knight_sword_touching())
-			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 110)
-			state = "attack";
-		else
-			state = "walk";
-
-		if (state == "walk")
-		{
-			sprite.setTexture(stateTexture[1]);
-			if (currentFrame >= 8)
-				currentFrame = 0;
-			rect.left += speed * time * dir;
-			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
-			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			if (is_player_in_range_x())
-			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-					dir = 1;
-				else
-					dir = -1;
-				left_boundary = rect.getPosition().x - kill_zone;
-				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
-			}
-			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
-			{
-				dir *= -1;
-				turn_time = 10;
-			}
-		}
-		else if (state == "attack")
-		{
-			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
-			if (pause_time <= 0) {
-				sprite.setTexture(stateTexture[2]);
-				if (currentFrame >= 8)
-					currentFrame = 0;
-
-				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
-					dir = -1;
-				else
-					dir = 1;
-				left_boundary = rect.getPosition().x - kill_zone;
-				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
-
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
-				{
-					knight.health -= attack1;
-				}
-				pause_time = attack_pause_time;
-			}
-
-		}
-		else if (state == "on hit") {
-			sprite.setTexture(stateTexture[3]);
-			if (currentFrame >= 4)
-			{
-				currentFrame = 0;
-				state = "";
-				health -= knight.attack;
-			}
-
-		}
-		if (dir > 0)
-			sprite.setTextureRect(IntRect(150 * int(currentFrame), 0, 150, 150)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
-		else
-			sprite.setTextureRect(IntRect(150 * int(currentFrame) + 150, 0, -150, 150)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
-
 	}
 }executioner;
 void arcadeMode(RenderWindow& window) {
