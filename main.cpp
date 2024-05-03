@@ -159,11 +159,14 @@ void movements();
 
 void arcadeMode(RenderWindow& window);
 
-//void  levelsMode();
+void levelOne(RenderWindow& window);
+
+void levelTwo(RenderWindow& window);
 
 int main() {
 
 	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
+	window.setFramerateLimit(60);
 	mainMenu menu;
 	menu.menu(1920, 1080);
 
@@ -228,7 +231,7 @@ int main() {
 				cout << "Arcade mode!" << endl;
 			}
 			else if (modeSelected == 6) {
-				//levelsMode();
+				levelOne(window);
 				cout << "Levels Mode!" << endl;
 			}
 			else
