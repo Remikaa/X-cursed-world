@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "E:\\SP project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP project\\Store\\store.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP Project\\Store\\store.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Store\\store.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP project\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,28 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "store.cpp",
               "DocumentMoniker": "E:\\SP project\\Store\\Store.cpp",
               "RelativeDocumentMoniker": "Store\\Store.cpp",
-              "ToolTip": "E:\\SP project\\Store\\Store.cpp",
-              "RelativeToolTip": "Store\\Store.cpp",
-              "ViewState": "AQIAACQBAAAAAAAAAAAAAEYBAAA2AAAA",
+              "ToolTip": "E:\\SP project\\Store\\Store.cpp*",
+              "RelativeToolTip": "Store\\Store.cpp*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-03T14:05:07.454Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "score.cpp",
               "DocumentMoniker": "E:\\SP project\\Store\\score.cpp",
               "RelativeDocumentMoniker": "Store\\score.cpp",
@@ -59,19 +63,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "E:\\SP project\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "E:\\SP project\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKgAAAAeAAAA",
+              "ViewState": "AQIAAN4AAAAAAAAAAAAAAPMAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-24T17:55:59.63Z"
+              "WhenOpened": "2024-04-24T17:55:59.63Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Game.cpp",
               "DocumentMoniker": "E:\\SP project\\Game.cpp",
               "RelativeDocumentMoniker": "Game.cpp",

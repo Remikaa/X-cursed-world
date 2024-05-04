@@ -187,30 +187,46 @@ void store(int coins)
 				{
 					if (upgradeCheck[0] == 0)
 					{
-						sword.loadFromFile("Store/Textures/sword2.png");
-						perks[0].price.setString("150");
-						clickSound.play();
-						upgradeCheck[0]++;
+						if (coins >= 100)
+						{
+							sword.loadFromFile("Store/Textures/sword2.png");
+							perks[0].price.setString("150");
+							clickSound.play();
+							coins -= 100;
+							upgradeCheck[0]++;
+						}
 					}
 					else if (upgradeCheck[0] == 1)
 					{
-						sword.loadFromFile("Store/Textures/sword3.png");
-						perks[0].price.setString("200");
-						clickSound.play();
-						upgradeCheck[0]++;
+						if (coins >= 150)
+						{
+							sword.loadFromFile("Store/Textures/sword3.png");
+							perks[0].price.setString("200");
+							clickSound.play();
+							coins -= 150;
+							upgradeCheck[0]++;
+						}
 					}
 					else if (upgradeCheck[0] == 2)
 					{
-						sword.loadFromFile("Store/Textures/sword4.png");
-						perks[0].price.setString("250");
-						clickSound.play();
-						upgradeCheck[0]++;
+						if (coins >= 200)
+						{
+							sword.loadFromFile("Store/Textures/sword4.png");
+							perks[0].price.setString("250");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[0]++;
+						}
 					}
 					else if (upgradeCheck[0] == 3)
 					{
-						sword.loadFromFile("Store/Textures/sword5.png");
-						clickSound.play();
-						upgradeCheck[0]++;
+						if (coins >= 250)
+						{
+							sword.loadFromFile("Store/Textures/sword5.png");
+							clickSound.play();
+							coins -= 250;
+							upgradeCheck[0]++;
+						}
 					}
 				}
 
@@ -245,30 +261,46 @@ void store(int coins)
 				{
 					if (upgradeCheck[1] == 0)
 					{
-						resis.loadFromFile("Store/Textures/resis2.png");
-						perks[1].price.setString("120");
-						clickSound.play();
-						upgradeCheck[1]++;
+						if (coins >= 80)
+						{
+							resis.loadFromFile("Store/Textures/resis2.png");
+							perks[1].price.setString("120");
+							clickSound.play();
+							coins -= 80;
+							upgradeCheck[1]++;
+						}
 					}
 					else if (upgradeCheck[1] == 1)
 					{
-						resis.loadFromFile("Store/Textures/resis3.png");
-						perks[1].price.setString("160");
-						clickSound.play();
-						upgradeCheck[1]++;
+						if (coins >= 120)
+						{
+							resis.loadFromFile("Store/Textures/resis3.png");
+							perks[1].price.setString("160");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[1]++;
+						}
 					}
 					else if (upgradeCheck[1] == 2)
 					{
-						resis.loadFromFile("Store/Textures/resis4.png");
-						perks[1].price.setString("200");
-						clickSound.play();
-						upgradeCheck[1]++;
+						if (coins >= 160)
+						{
+							resis.loadFromFile("Store/Textures/resis4.png");
+							perks[1].price.setString("200");
+							clickSound.play();
+							coins -= 160;
+							upgradeCheck[1]++;
+						}
 					}
 					else if (upgradeCheck[1] == 3)
 					{
-						resis.loadFromFile("Store/Textures/resis5.png");
-						clickSound.play();
-						upgradeCheck[1]++;
+						if (coins >= 200)
+						{
+							resis.loadFromFile("Store/Textures/resis5.png");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[1]++;
+						}
 					}
 				}
 
@@ -303,30 +335,46 @@ void store(int coins)
 				{
 					if (upgradeCheck[2] == 0)
 					{
-						heart.loadFromFile("Store/Textures/heart2.png");
-						perks[2].price.setString("170");
-						clickSound.play();
-						upgradeCheck[2]++;
+						if (coins >= 120)
+						{
+							heart.loadFromFile("Store/Textures/heart2.png");
+							perks[2].price.setString("170");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[2]++;
+						}
 					}
 					else if (upgradeCheck[2] == 1)
 					{
-						heart.loadFromFile("Store/Textures/heart3.png");
-						perks[2].price.setString("220");
-						clickSound.play();
-						upgradeCheck[2]++;
+						if (coins >= 170)
+						{
+							heart.loadFromFile("Store/Textures/heart3.png");
+							perks[2].price.setString("220");
+							clickSound.play();
+							coins -= 170;
+							upgradeCheck[2]++;
+						}
 					}
 					else if (upgradeCheck[2] == 2)
 					{
-						heart.loadFromFile("Store/Textures/heart4.png");
-						perks[2].price.setString("270");
-						clickSound.play();
-						upgradeCheck[2]++;
+						if (coins >= 220)
+						{
+							heart.loadFromFile("Store/Textures/heart4.png");
+							perks[2].price.setString("270");
+							clickSound.play();
+							coins -= 220;
+							upgradeCheck[2]++;
+						}
 					}
 					else if (upgradeCheck[2] == 3)
 					{
-						heart.loadFromFile("Store/Textures/heart5.png");
-						clickSound.play();
-						upgradeCheck[2]++;
+						if (coins >= 270)
+						{
+							heart.loadFromFile("Store/Textures/heart5.png");
+							clickSound.play();
+							coins -= 270;
+							upgradeCheck[2]++;
+						}
 					}
 				}
 			}
