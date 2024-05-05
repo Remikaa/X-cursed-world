@@ -10,7 +10,9 @@
 using namespace std;
 using namespace sf;
 
-int pageNum = 1;
+// 3 is the number of Perks
+#define NUMBER_OF_PERKS 3
+
 /*************************************
 *     page no     *     Function     *
 **************************************
@@ -22,6 +24,7 @@ int pageNum = 1;
 *        6        *    Level Mode    *
 **************************************/
 
+int pageNum = 1;
 int score = 0;
 int ground = 1300;
 float const rightWall = 1680;
@@ -36,7 +39,7 @@ int pausedtimes = 0;
 SoundBuffer clickbuffer;
 Sound clicksound;
 
-void store(int);
+void store(int, RenderWindow& window);
 struct mode {
 	Text modeElement[2];
 	int modeSelected = -1;
@@ -336,6 +339,19 @@ struct character {
 		return health > 0;
 	}
 } knight;
+
+struct perk
+{
+	Sprite action;
+	Sprite upgradeButton;
+	Text upgradeText;
+	Text price;
+	FloatRect bounds;
+	FloatRect upgradeBounds;
+}perks[NUMBER_OF_PERKS];
+
+// Array to check how many times i click on ubgrade
+int upgradeCheck[3] = {};
 
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
@@ -1042,7 +1058,7 @@ struct pauseMenu
 
 						if (selected == 1)
 						{
-							store(coins);
+							store(coins, window);
 						}
 
 						if (selected == 2)
@@ -2157,9 +2173,20 @@ struct levelTwo {
 		}
 
 		if (currentScene == 0) {
-			knight.rect.left = 5;
-			knight.rect.top = 510;
 			currentTiles.resize(5);
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 5;
+				knight.rect.top = 510;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+			
 
 			for (int i = 0; i < 5; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -2182,11 +2209,19 @@ struct levelTwo {
 		}
 
 		if (currentScene == 1) {
-			knight.rect.left = 5;
-			knight.rect.top = 510;
-
 			currentTiles.resize(9);
 
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 5;
+				knight.rect.top = 510;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			for (int i = 0; i < 9; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -2221,10 +2256,19 @@ struct levelTwo {
 		}
 
 		if (currentScene == 2) {
-
-			knight.rect.left = 10;
-			knight.rect.top = 250;
 			currentTiles.resize(8);
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 10;
+				knight.rect.top = 250;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			for (int i = 0; i < 8; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -2256,9 +2300,19 @@ struct levelTwo {
 		}
 
 		if (currentScene == 3) {
-			knight.rect.top = 345;
-			knight.rect.left = 25;
 			currentTiles.resize(10);
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.top = 345;
+				knight.rect.left = 25;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			for (int i = 0; i < 10; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -2299,8 +2353,17 @@ struct levelTwo {
 			currentTiles.erase(currentTiles.begin(), currentTiles.end());
 			currentTiles.resize(8);
 
-			knight.rect.left = -30;
-			knight.rect.top = 420;
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -30;
+				knight.rect.top = 420;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			for (int i = 0; i < 8; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -2333,8 +2396,19 @@ struct levelTwo {
 
 		if (currentScene == 5) {
 			currentTiles.erase(currentTiles.begin(), currentTiles.end());
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -40;
+				knight.rect.top = 553;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 			ground = 555;
-			/*if(knight.rect.left){}*/
 		}
 	}
 
@@ -2403,6 +2477,7 @@ struct levelTwo {
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
 			{
 				currentScene++;
+				pausedtimes = 0;
 				placeScene();
 			}
 		}
@@ -2522,6 +2597,7 @@ struct levelTwo {
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds()))
 			{
 				currentScene++;
+				pausedtimes = 0;
 				placeScene();
 			}
 		}
@@ -2583,6 +2659,7 @@ struct levelTwo {
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
 				currentScene++;
+				pausedtimes = 0;
 				knight.rect.top = 0;
 				knight.rect.left = 50;
 				placeScene();
@@ -2688,6 +2765,7 @@ struct levelTwo {
 			{
 				knight.rect.top = 0;
 				knight.rect.left = 25;
+				pausedtimes = 0;
 				currentScene++;
 
 				placeScene();
@@ -2798,8 +2876,7 @@ struct levelTwo {
 			// move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.rect.left = -40;
-				knight.rect.top = 553;
+				pausedtimes = 0;
 				currentScene++;
 				placeScene();
 			}
@@ -2817,7 +2894,7 @@ int main()
 {
 	knight.assignSprite(); // Initialize player character
 
-	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
+	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!", Style::Fullscreen);
 	window.setFramerateLimit(60);
 	mainMenu menu;
 	menu.menu(1920, 1080);
@@ -2844,10 +2921,10 @@ int main()
 					}
 
 					if (event.type == Event::KeyPressed) {
-						if ((event.key.code == Keyboard::W) || event.key.code == Keyboard::Up)
+						if (event.key.code == Keyboard::Up)
 							menu.moveUp();
 
-						if ((event.key.code == Keyboard::S) || event.key.code == Keyboard::Down)
+						if (event.key.code == Keyboard::Down)
 							menu.moveDown();
 
 						if (event.key.code == Keyboard::Enter) {
@@ -2921,7 +2998,8 @@ int main()
 						pageNum = 1;
 						menu.menuElement[0].setFillColor(Color::White);
 						menu.menuElement[0].setCharacterSize(90);
-						return pageNum;
+						menu.selected = -1;
+						break;
 					}
 				}
 
@@ -2935,7 +3013,7 @@ int main()
 		}
 		if (pageNum == 3) {
 			int coins = 500;
-			store(coins);
+			store(coins, window);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
 				pageNum = 1;
@@ -2949,6 +3027,7 @@ int main()
 		}
 		if (pageNum == 5)
 		{
+			Clock clock;
 
 			Texture arcadebackgroundTexture;
 			Sprite backgroundSprite;
@@ -2959,15 +3038,6 @@ int main()
 			int pageNum = 0; // Initialize pageNum to control the game flow
 			bool paused = false;
 			ground = 600;
-
-
-
-			Clock clock;
-			//knight.assignSprite(); // Initialize player character
-
-
-			/*knight.rect.left = 10;
-			knight.rect.top = 850;*/
 
 			while (window.isOpen())
 			{
@@ -3117,6 +3187,408 @@ void movements() {
 
 }
 
+void store(int coins, RenderWindow& window)
+{
+	//RenderWindow window(VideoMode(1920, 1080), "Store", Style::Fullscreen);
+
+	// Load font of store
+	Font storeFont;
+	if (!storeFont.loadFromFile("menu/Pixelated.ttf"))
+	{
+		cerr << "Error loading font file" << "/n";
+	}
+
+	const string COIN_FILE = "storeCoins.txt";
+
+	Text coinText("", storeFont, 50);
+
+	// Text of storeBanner
+	Text textBanner;
+	textBanner.setFont(storeFont);
+	textBanner.setString("Store");
+	textBanner.setFillColor(Color::White);
+	textBanner.setCharacterSize(50);
+	textBanner.setPosition(885, 45);
+
+	// Load primary textures
+	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button;
+	if (!background.loadFromFile("Store/Textures/background.png") ||
+		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
+		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
+		!infoBoard.loadFromFile("Store/Textures/boardofinfo.png") ||
+		!infoChain.loadFromFile("Store/Textures/infochain.png") ||
+		!powerChain.loadFromFile("Store/Textures/chain.png") ||
+		!button.loadFromFile("Store/Textures/button.png"))
+	{
+		cerr << "Error loading primary textures files" << "/n";
+	}
+
+	SoundBuffer clickBuffer;
+	clickBuffer.loadFromFile("menu/ButtonClick.wav");
+	Sound clickSound;
+	clickSound.setBuffer(clickBuffer);
+
+	// Create primary sprites
+	Sprite storeBackground(background), storeBanner(storeBadge), boardOfPowers(powerBoard),
+		boardOfInfo(infoBoard), chainOfInfo(infoChain), chainOne(powerChain), chainTwo(powerChain);
+
+	// Set positions for primary sprites
+	storeBanner.setPosition(760, 25);
+	boardOfPowers.setPosition(1500, 220);
+	boardOfInfo.setPosition(40, 365);
+	chainOfInfo.setPosition(0, 280);
+	chainOne.setPosition(1540, 0);
+	chainTwo.setPosition(1830, 0);
+
+	// Load Perks textures
+	Texture heart, resis, sword;
+	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
+		!resis.loadFromFile("Store/Textures/resis1.png") ||
+		!sword.loadFromFile("Store/Textures/sword1.png"))
+	{
+		cerr << "Error loading Perks textures files" << "/n";
+	}
+
+	for (int i = 0; i < NUMBER_OF_PERKS; i++)
+	{
+		// Create button
+		perks[i].upgradeButton.setTexture(button);
+		perks[i].upgradeButton.setPosition(-1000, -1000);
+
+		// Create text on button
+		perks[i].upgradeText.setFont(storeFont);
+		perks[i].upgradeText.setString("Upgrade");
+		perks[i].upgradeText.setFillColor(Color::White);
+		perks[i].upgradeText.setCharacterSize(45);
+		perks[i].upgradeText.setPosition(-1000, -1000);
+
+		// Create price
+		perks[i].price.setFont(storeFont);
+		perks[i].price.setFillColor(Color::White);
+		perks[i].price.setCharacterSize(40);
+		perks[i].price.setPosition(-1000, -1000);
+
+		// Create perks sprites
+		// position of Perks
+		switch (i)
+		{
+		case 0:
+			perks[i].action.setTexture(sword);
+			perks[i].action.setPosition(1570, 250);
+			perks[i].price.setString("100");
+			break;
+		case 1:
+			perks[i].action.setTexture(resis);
+			perks[i].action.setPosition(1710, 250);
+			perks[i].price.setString("80");
+			break;
+		case 2:
+			perks[i].action.setTexture(heart);
+			perks[i].action.setPosition(1570, 350);
+			perks[i].price.setString("120");
+			break;
+		}
+	}
+
+	while (window.isOpen())
+	{
+		// the mouse position on window
+		Vector2f mouse = window.mapPixelToCoords(Mouse::getPosition(window));
+
+		Event storeEvent;
+		while (window.pollEvent(storeEvent))
+		{
+			if (storeEvent.type == Event::Closed)
+				window.close();
+
+			if (storeEvent.type == Event::KeyPressed)
+			{
+				if (storeEvent.key.code == Keyboard::Escape)
+				{
+					if (pageNum == 5) {
+						pageNum = 5;
+						return;
+					}
+					else if (pageNum == 6) {
+						pageNum = 6;
+						return;
+					}
+					else {
+						pageNum = 1;
+						return;
+
+					}
+				}
+			}
+
+			ofstream coinFileOut(COIN_FILE);
+			if (coinFileOut.is_open()) {
+				coinFileOut << coins;
+				coinFileOut.close();
+			}
+
+			ifstream coinFileIn(COIN_FILE);
+			if (coinFileIn.is_open()) {
+				coinFileIn >> coins;
+				coinFileIn.close();
+			}
+
+			coinText.setString("coins: " + to_string(coins));
+
+			// retrieve the bounding box
+			for (int i = 0; i < NUMBER_OF_PERKS; i++)
+			{
+				perks[i].bounds = perks[i].action.getGlobalBounds();
+				perks[i].upgradeBounds = perks[i].upgradeText.getGlobalBounds();
+			}
+
+			if (Mouse::isButtonPressed(Mouse::Left))
+			{
+				// the sword hit test
+				if (perks[0].bounds.contains(mouse))
+				{
+					if (upgradeCheck[0] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+						perks[0].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[0].upgradeText.setPosition(1607, 827);
+						perks[0].price.setPosition(180, 640);
+					}
+					else if (upgradeCheck[0] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of sword hit test
+				if (perks[0].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[0] == 0)
+					{
+						if (coins >= 100)
+						{
+							sword.loadFromFile("Store/Textures/sword2.png");
+							perks[0].price.setString("150");
+							clickSound.play();
+							coins -= 100;
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 1)
+					{
+						if (coins >= 150)
+						{
+							sword.loadFromFile("Store/Textures/sword3.png");
+							perks[0].price.setString("200");
+							clickSound.play();
+							coins -= 150;
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 2)
+					{
+						if (coins >= 200)
+						{
+							sword.loadFromFile("Store/Textures/sword4.png");
+							perks[0].price.setString("250");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 3)
+					{
+						if (coins >= 250)
+						{
+							sword.loadFromFile("Store/Textures/sword5.png");
+							clickSound.play();
+							coins -= 250;
+							upgradeCheck[0]++;
+						}
+					}
+				}
+
+				// the resis hit test
+				if (perks[1].bounds.contains(mouse))
+				{
+					if (upgradeCheck[1] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+						perks[1].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[1].upgradeText.setPosition(1607, 827);
+						perks[1].price.setPosition(180, 640);
+					}
+					else if (upgradeCheck[1] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of resis hit test
+				if (perks[1].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[1] == 0)
+					{
+						if (coins >= 80)
+						{
+							resis.loadFromFile("Store/Textures/resis2.png");
+							perks[1].price.setString("120");
+							clickSound.play();
+							coins -= 80;
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 1)
+					{
+						if (coins >= 120)
+						{
+							resis.loadFromFile("Store/Textures/resis3.png");
+							perks[1].price.setString("160");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 2)
+					{
+						if (coins >= 160)
+						{
+							resis.loadFromFile("Store/Textures/resis4.png");
+							perks[1].price.setString("200");
+							clickSound.play();
+							coins -= 160;
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 3)
+					{
+						if (coins >= 200)
+						{
+							resis.loadFromFile("Store/Textures/resis5.png");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[1]++;
+						}
+					}
+				}
+
+				// the heart hit test
+				if (perks[2].bounds.contains(mouse))
+				{
+					if (upgradeCheck[2] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+						perks[2].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[2].upgradeText.setPosition(1607, 827);
+						perks[2].price.setPosition(180, 640);
+					}
+					else if (upgradeCheck[2] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of heart hit test
+				if (perks[2].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[2] == 0)
+					{
+						if (coins >= 120)
+						{
+							heart.loadFromFile("Store/Textures/heart2.png");
+							perks[2].price.setString("170");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 1)
+					{
+						if (coins >= 170)
+						{
+							heart.loadFromFile("Store/Textures/heart3.png");
+							perks[2].price.setString("220");
+							clickSound.play();
+							coins -= 170;
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 2)
+					{
+						if (coins >= 220)
+						{
+							heart.loadFromFile("Store/Textures/heart4.png");
+							perks[2].price.setString("270");
+							clickSound.play();
+							coins -= 220;
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 3)
+					{
+						if (coins >= 270)
+						{
+							heart.loadFromFile("Store/Textures/heart5.png");
+							clickSound.play();
+							coins -= 270;
+							upgradeCheck[2]++;
+						}
+					}
+				}
+			}
+		}
+		// Rendering
+		window.clear();
+		window.draw(storeBackground);
+		window.draw(storeBanner);
+		window.draw(textBanner);
+		window.draw(chainOfInfo);
+		window.draw(boardOfInfo);
+		window.draw(chainOne);
+		window.draw(chainTwo);
+		window.draw(boardOfPowers);
+		for (int i = 0; i < NUMBER_OF_PERKS; i++)
+		{
+			window.draw(perks[i].action);
+			window.draw(perks[i].price);
+			window.draw(perks[i].upgradeButton);
+			window.draw(perks[i].upgradeText);
+		}
+		window.draw(coinText);
+		window.display();
+	}
+}
+
 void levelOne(RenderWindow& window) {
 	Clock clock;
 	
@@ -3218,10 +3690,16 @@ void levelOne(RenderWindow& window) {
 
 void levelTwo(RenderWindow& window) {
 	Clock clock;
-	knight.assignSprite(); // Initialize player character
+	//knight.assignSprite(); // Initialize player character
 
 
+	pauseMenu.PauseMenufunc(1920, 1080);
 
+	SoundBuffer clickbuffer;
+	Sound clicksound;
+
+	clickbuffer.loadFromFile("menu/ButtonClick.wav");
+	clicksound.setBuffer(clickbuffer);
 
 	levelTwoMap.loadTextures();
 	levelTwoMap.placeScene();
@@ -3249,31 +3727,28 @@ void levelTwo(RenderWindow& window) {
 
 				}
 			}
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Escape)
+				{
+					knight.rect.left = knight.rect.getPosition().x;
+					knight.rect.top = knight.rect.getPosition().y;
+					pauseMenu.paused = true;
+					pausedtimes++;
+					clicksound.play();
+
+				}
+			}
 		}
 
 
 
 		// Update game logic
+		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelTwoMap.checkCollision(collisionRect);
-		movements();
-
-		float time = (float)clock.getElapsedTime().asMicroseconds();
-		clock.restart();
-		time /= 650;
-		if (time > 20)
-			time = 20;
-		knight.update(time);
-
 
 		// Clear the window
 		window.clear();
-
-		// Draw game elements
-
-
-		window.draw(levelTwoMap.backgroundSprite);
-
-		window.draw(knight.sprite);
 
 		for (int i = 0; i < currentTiles.size(); i++)
 		{
@@ -3283,7 +3758,27 @@ void levelTwo(RenderWindow& window) {
 		window.draw(collisionRect);
 
 
-		// Display the window
+
+		if (!pauseMenu.paused)
+		{
+			window.draw(levelTwoMap.backgroundSprite);
+			window.draw(knight.sprite);
+
+			movements();
+			float time = (float)clock.getElapsedTime().asMicroseconds();
+			clock.restart();
+			time /= 650;
+			if (time > 20)
+				time = 20;
+			knight.update(time);
+
+		}
+		else
+		{
+			pauseMenu.show(window);
+			break;
+
+		}
 		window.display();
 	}
 }

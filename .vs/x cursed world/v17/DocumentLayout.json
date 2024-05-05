@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\SP\\",
+  "WorkspaceRootPath": "E:\\Projects\\VSC C\u002B\u002B\\xTest2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\Projects\\VSC C\u002B\u002B\\xTest2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP\\Store\\store.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Store\\store.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Projects\\VSC C\u002B\u002B\\xTest2\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\SP\\main.cpp",
+              "DocumentMoniker": "E:\\Projects\\VSC C\u002B\u002B\\xTest2\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\SP\\main.cpp*",
-              "RelativeToolTip": "main.cpp*",
-              "ViewState": "AQIAAOEAAAAAAAAAAAAAAPQAAAATAAAA",
+              "ToolTip": "E:\\Projects\\VSC C\u002B\u002B\\xTest2\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAOcMAAAAAAAAAIAwwPMMAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-05T09:32:08.57Z",
               "EditorCaption": ""
@@ -45,27 +41,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Game.cpp",
-              "DocumentMoniker": "E:\\SP\\Game.cpp",
+              "DocumentMoniker": "E:\\Projects\\VSC C\u002B\u002B\\xTest2\\Game.cpp",
               "RelativeDocumentMoniker": "Game.cpp",
-              "ToolTip": "E:\\SP\\Game.cpp",
+              "ToolTip": "E:\\Projects\\VSC C\u002B\u002B\\xTest2\\Game.cpp",
               "RelativeToolTip": "Game.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-05T09:32:06.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "store.cpp",
-              "DocumentMoniker": "E:\\SP\\Store\\Store.cpp",
-              "RelativeDocumentMoniker": "Store\\Store.cpp",
-              "ToolTip": "E:\\SP\\Store\\Store.cpp",
-              "RelativeToolTip": "Store\\Store.cpp",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-03T14:05:07.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T09:32:06.915Z"
             }
           ]
         }
