@@ -1266,10 +1266,11 @@ struct LevelOne {
 			for (int i = 5; i <= 6; i++) {
 				currentTiles[i].setSize(Vector2f(100, 65));
 			}
+			// end of identical tiles 
 
 			currentTiles[5].setPosition(1215, 555);
 			currentTiles[6].setPosition(1345, 445);
-			// end of identical tiles 
+			
 
 
 			currentTiles[7].setSize(Vector2f(450, 440));
@@ -1282,13 +1283,11 @@ struct LevelOne {
 			currentTiles[9].setPosition(1150, 940);
 
 			currentTiles[10].setSize(Vector2f(55, 190));
-			currentTiles[10].setPosition(1845, 760);
+			currentTiles[10].setPosition(1865, 760);
 
 		}
 		if (currentScene == 2)
 		{
-
-
 			currentTiles.resize(13);
 
 			if (pausedtimes == 0)
@@ -1463,7 +1462,7 @@ struct LevelOne {
 	// detect collision of main character and tiles rectangels 
 	void checkCollision(RectangleShape& collisionRect) {
 
-		if (currentScene == 0) {
+		if (currentScene == 0)  {
 			// screen left and right boundaries collision
 			if (collisionRect.getGlobalBounds().left > 1784) {
 				knight.rect.left = 1636;
@@ -1524,8 +1523,8 @@ struct LevelOne {
 			// tile 5 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
 				// right collision
-				if (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 164 || collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 164.5) {
-					knight.rect.left = currentTiles[4].getPosition().x + 22.5;
+				if (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 155 || collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 156) {
+					knight.rect.left = currentTiles[4].getPosition().x + 20.5;
 				}
 
 
@@ -1535,8 +1534,7 @@ struct LevelOne {
 				}
 
 				// top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[4].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[4].getPosition().y + 25) {
-					knight.rect.top = currentTiles[4].getPosition().y - 295.25;
+				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[4].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[4].getPosition().y + 10) {
 					setOnGround();
 
 				}
@@ -1553,14 +1551,14 @@ struct LevelOne {
 				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 275;
 				}
+
 				// right collision
-				else if (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 128 || collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 128.5) {
-					knight.rect.left = currentTiles[5].getPosition().x - 15.5;
+				else if (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 117 || collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 118) {
+					knight.rect.left = currentTiles[5].getPosition().x - 16.5;
 				}
 
 				// top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 50) {
-					knight.rect.top = currentTiles[5].getPosition().y - 295.25;
+				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 10) {
 					setOnGround();
 
 				}
@@ -1575,12 +1573,11 @@ struct LevelOne {
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
 
 				// right collision	
-				if (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 768 || collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 769) {
-					knight.rect.left = currentTiles[6].getPosition().x + 625;
+				if (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 750 || collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 751) {
+					knight.rect.left = currentTiles[6].getPosition().x + 620;
 				}
 				// top collision
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[6].getPosition().y) {
-					knight.rect.top = currentTiles[6].getPosition().y - 292.5;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[6].getPosition().y ) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[6].getPosition().y + 10)) {
 					setOnGround();
 				}
 
@@ -1589,13 +1586,12 @@ struct LevelOne {
 			// tile 8 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[7].getPosition().x) || collisionRect.getGlobalBounds().left + 121 <= currentTiles[7].getPosition().x) {
-					knight.rect.left = currentTiles[7].getPosition().x - 275;
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[7].getPosition().x) || collisionRect.getGlobalBounds().left + 116 <= currentTiles[7].getPosition().x) {
+					knight.rect.left = currentTiles[7].getPosition().x - 271.5;
 				}
 
 				//top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[7].getPosition().y) {
-					knight.rect.top = currentTiles[7].getPosition().y - 293;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[7].getPosition().y + 15)) {
 					setOnGround();
 				}
 			}
@@ -1603,13 +1599,12 @@ struct LevelOne {
 			// tile 9 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[8].getPosition().x) || collisionRect.getGlobalBounds().left + 121 <= currentTiles[8].getPosition().x) {
-					knight.rect.left = currentTiles[8].getPosition().x - 275;
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[8].getPosition().x) || collisionRect.getGlobalBounds().left + 116 <= currentTiles[8].getPosition().x) {
+					knight.rect.left = currentTiles[8].getPosition().x - 271.5;
 				}
 
 				//top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[8].getPosition().y) {
-					knight.rect.top = currentTiles[8].getPosition().y - 293;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[8].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[8].getPosition().y + 15)) {
 					setOnGround();
 				}
 			}
@@ -1650,7 +1645,7 @@ struct LevelOne {
 		}
 		if (currentScene == 1) {
 			// screen left and right boundaries collision
-			if (collisionRect.getGlobalBounds().left > 1784) {
+			if (collisionRect.getGlobalBounds().left > 1800) {
 				knight.rect.left = 1636;
 			}
 			else if (collisionRect.getGlobalBounds().left < 4) {
@@ -1673,7 +1668,7 @@ struct LevelOne {
 			// tile 2
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds())) {
 				// right collision
-				if ((collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 318) || (collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 319)) {
+				if ((collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 308) || (collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 309)) {
 					knight.rect.left = currentTiles[1].getPosition().x + 175;
 				}
 
@@ -1699,12 +1694,12 @@ struct LevelOne {
 			// tile 4 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())) {
 				// left collision 
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[3].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[3].getPosition().x)) {
 					knight.rect.left = currentTiles[3].getPosition().x - 271.5;
 				}
 
 				// right collision
-				else if ((collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 124) || (collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 124.5)) {
+				else if ((collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 114) || (collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 115)) {
 					knight.rect.left = currentTiles[3].getPosition().x - 23;
 				}
 
@@ -1717,13 +1712,13 @@ struct LevelOne {
 			// tile 5
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[4].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 105 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 106 <= currentTiles[4].getPosition().x)) {
 					knight.rect.left = currentTiles[4].getPosition().x - 271.5;
 				}
 
 				// right collision
-				else if ((collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 188) || (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 189.5)) {
-					knight.rect.left = currentTiles[4].getPosition().x + 45.5;
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 177) || (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 178)) {
+					knight.rect.left = currentTiles[4].getPosition().x + 43.5;
 				}
 
 				// top collision
@@ -1735,12 +1730,12 @@ struct LevelOne {
 			// tile 6
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
 				// left collision	
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
 				}
 
 				// right collision 
-				if ((collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 98) || (collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 99.5)) {
+				else if ((collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 97) || (collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 98)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 46;
 				}
 
@@ -1750,9 +1745,8 @@ struct LevelOne {
 				}
 
 
-
 				// bottom  collsion 
-				else if (collisionRect.getGlobalBounds().top > currentTiles[5].getPosition().y + 49) {
+				else if (collisionRect.getGlobalBounds().top > currentTiles[5].getPosition().y + 50) {
 					bottomCollision();
 				}
 			}
@@ -1774,7 +1768,7 @@ struct LevelOne {
 			// tile 8
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
 				//  left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[7].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 105 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 106 <= currentTiles[7].getPosition().x)) {
 
 					knight.rect.left = currentTiles[7].getPosition().x - 271.5;
 				}
@@ -1785,7 +1779,7 @@ struct LevelOne {
 				}
 
 				// bottom  collsion 
-				else if (collisionRect.getGlobalBounds().top > currentTiles[7].getPosition().y + 435) {
+				else if (collisionRect.getGlobalBounds().top > currentTiles[7].getPosition().y + 427.5) {
 					bottomCollision();
 				}
 
@@ -1815,8 +1809,11 @@ struct LevelOne {
 			// door : tile 11
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[10].getGlobalBounds()) && noOFEnemies == 0) {
 
+			
 				currentScene++;
-				placeScene();
+				knight.rect.left = -10;
+				knight.rect.top = 600;
+				placeScene();	
 			}
 		}
 		if (currentScene == 2) {
@@ -1865,17 +1862,17 @@ struct LevelOne {
 				if (i == 2 || i == 3 || i == 4 || i == 7 || i == 8 || i == 9) {
 					if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
 						// left collision
-						if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[i].getPosition().x)) {
+						if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[i].getPosition().x)) {
 							knight.rect.left = currentTiles[i].getPosition().x - 271.5;
 						}
 
 						// right collision
-						else if (((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 128) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 129))) {
+						else if (((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 125) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 126))) {
 							knight.rect.left = currentTiles[i].getPosition().x - 16.5;
 						}
 
 						// top collision
-						else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[i].getPosition().y + 5)) {
+						else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[i].getPosition().y + 20)) {
 							setOnGround();
 						}
 					}
@@ -1888,6 +1885,12 @@ struct LevelOne {
 				if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 10)) {
 					setOnGround();
 				}
+
+				// left collision 
+				else if ((collisionRect.getGlobalBounds().left + 118.5 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
+				}
+
 			}
 
 			// tile 7
@@ -1928,12 +1931,16 @@ struct LevelOne {
 				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[11].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[11].getPosition().y + 10) {
 					setOnGround();
 				}
+
+				// bottom collision
+				else if (collisionRect.getGlobalBounds().top > currentTiles[11].getPosition().y + 55) {
+					bottomCollision();
+				}
 			}
 
 			// tile 13 : Door
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[12].getGlobalBounds())) {
-				knight.rect.left = -10;
-				knight.rect.top = 300;
+				
 				currentScene++;
 				placeScene();
 			}
@@ -1976,7 +1983,7 @@ struct LevelOne {
 			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds())) {
 				// right collison
-				if ((collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 573) || (collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 574)) {
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 565) || (collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 566)) {
 					knight.rect.left = currentTiles[2].getPosition().x + 428.5;
 				}
 
@@ -1987,10 +1994,10 @@ struct LevelOne {
 			}
 
 			// tile 4
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())) {
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())){
 				// right collison
-				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 123) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 124)) {
-					knight.rect.left = currentTiles[3].getPosition().x - 21.5;
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 119) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 120)) {
+					knight.rect.left = currentTiles[3].getPosition().x - 20.5;
 				}
 
 				// top collsion 
@@ -2087,8 +2094,13 @@ struct LevelOne {
 
 				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
 					// right collision
-					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 68) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 69)) {
-						knight.rect.left = currentTiles[i].getGlobalBounds().getPosition().x - 76.5;
+					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 67) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 68)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 76.5;
+					}
+
+					// left collision
+					else if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 116 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 271.5;
 					}
 
 					// top collision
@@ -2101,7 +2113,7 @@ struct LevelOne {
 			// tile 6
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 116 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
 				}
 
@@ -3589,6 +3601,7 @@ void store(int coins, RenderWindow& window)
 	}
 }
 
+
 void levelOne(RenderWindow& window) {
 	Clock clock;
 	
@@ -3616,7 +3629,6 @@ void levelOne(RenderWindow& window) {
 		
 
 
-
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -3628,8 +3640,8 @@ void levelOne(RenderWindow& window) {
 				if (event.mouseButton.button == Mouse::Left) {
 					Vector2i mousePos = Mouse::getPosition(window);
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-					cout << "Knight Rect Left : " << knight.rect.left << " Knight Rect Top : " << knight.rect.top << endl;
 					cout << "Red Rect Left : " << collisionRect.getGlobalBounds().left << " Red Rect Top " << collisionRect.getGlobalBounds().top << endl;
+					cout << "blue rect left : " << knight.rect.left << "blue rect top : "  <<  knight.rect.top <<endl;
 				}
 			}
 
@@ -3655,13 +3667,7 @@ void levelOne(RenderWindow& window) {
 		// Clear the window
 		window.clear();
 
-		for (int i = 0; i < currentTiles.size(); i++)
-		{
-			window.draw(currentTiles[i]);
-		}
-
-		window.draw(collisionRect);
-
+	
 
 
 		if (!pauseMenu.paused)
@@ -3684,6 +3690,13 @@ void levelOne(RenderWindow& window) {
 			break;
 
 		}
+		
+		for (int i = 0; i < currentTiles.size(); i++)
+		{
+			window.draw(currentTiles[i]);
+		}
+
+		window.draw(collisionRect);
 		window.display();
 	}
 }
