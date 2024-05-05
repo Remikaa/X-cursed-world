@@ -242,7 +242,8 @@ int main() {
 			}
 		}
 		if (pageNum == 3) {
-			//store(coins);
+			int coins = 500;
+			store(coins);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
 				pageNum = 1;
