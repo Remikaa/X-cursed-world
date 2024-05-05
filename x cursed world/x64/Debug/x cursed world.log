@@ -1,9 +1,2 @@
 ﻿  store.cpp
-  main.cpp
-E:\SP Project\main.cpp(40,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-E:\SP Project\main.cpp(40,44): warning C4244:         with
-E:\SP Project\main.cpp(40,44): warning C4244:         [
-E:\SP Project\main.cpp(40,44): warning C4244:             T=float
-E:\SP Project\main.cpp(40,44): warning C4244:         ]
-  Generating Code...
   x cursed world.vcxproj -> E:\SP Project\x64\Debug\x cursed world.exe

@@ -3,6 +3,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
+#include <fstream>
 using namespace std;
 using namespace sf;
 
@@ -18,6 +19,8 @@ int pageNum = 1;
 *        6        *    Level Mode    *
 **************************************/
 //test trial 2
+
+int score = 0;
 
 struct mode {
 	Text modeElement[2];
@@ -170,7 +173,6 @@ int main() {
 	mainMenu menu;
 	menu.menu(1920, 1080);
 
-
 	Texture mainMenuPic;
 	mainMenuPic.loadFromFile("menu/menuPic.jpg");
 	Sprite menuPic;
@@ -240,8 +242,7 @@ int main() {
 			}
 		}
 		if (pageNum == 3) {
-			int coins = 500; // it will be got from score function (this value for practice)
-			store(coins);
+			//store(coins);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
 				pageNum = 1;
@@ -253,7 +254,6 @@ int main() {
 			window.close();
 			break;
 		}
-
 	}
 
 	return 0;

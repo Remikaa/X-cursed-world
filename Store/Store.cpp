@@ -3,6 +3,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
+#include <fstream>
 #include <time.h>
 
 // 3 is the number of Perks
@@ -31,7 +32,7 @@ void store(int);
 
 void store(int coins)
 {
-	RenderWindow storeWindow(VideoMode(1920, 1080), "Store", Style::Fullscreen);
+	RenderWindow storeWindow(VideoMode(1920, 1080), "Store");
 
 	// Load font of store
 	Font storeFont;
@@ -39,6 +40,10 @@ void store(int coins)
 	{
 		cerr << "Error loading font file" << "/n";
 	}
+
+	const string COIN_FILE = "storeCoins.txt";
+
+	Text coinText("", storeFont, 50);
 
 	// Text of storeBanner
 	Text textBanner;
@@ -146,6 +151,20 @@ void store(int coins)
 					storeWindow.close();
 				}
 			}
+
+			ofstream coinFileOut(COIN_FILE);
+			if (coinFileOut.is_open()) {
+				coinFileOut << coins;
+				coinFileOut.close();
+			}
+
+			ifstream coinFileIn(COIN_FILE);
+			if (coinFileIn.is_open()) {
+				coinFileIn >> coins;
+				coinFileIn.close();
+			}
+
+			coinText.setString("coins: " + to_string(coins));
 
 			// retrieve the bounding box
 			for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -396,6 +415,7 @@ void store(int coins)
 			storeWindow.draw(perks[i].upgradeButton);
 			storeWindow.draw(perks[i].upgradeText);
 		}
+		storeWindow.draw(coinText);
 		storeWindow.display();
 	}
 }
