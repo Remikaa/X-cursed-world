@@ -29,12 +29,12 @@ int upgradeCheck[3] = {};
 // Function of store
 void store(int);
 
-int main()
-{
-	int coins;
-	store(coins);
-	return 0;
-}
+//int main()
+//{
+//	int coins;
+//	store(coins);
+//	return 0;
+//}
 
 void store(int coins)
 {
@@ -42,7 +42,7 @@ void store(int coins)
 
 	// Load font of store
 	Font storeFont;
-	if (!storeFont.loadFromFile("./Fonts/Pixelated.ttf"))
+	if (!storeFont.loadFromFile("Store/Pixelated.ttf"))
 	{
 		cerr << "Error loading font file" << "/n";
 	}
@@ -57,13 +57,13 @@ void store(int coins)
 
 	// Load primary textures
 	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button;
-	if (!background.loadFromFile("./Textures/background.png") ||
-		!storeBadge.loadFromFile("./Textures/storebanner.png") ||
-		!powerBoard.loadFromFile("./Textures/boardofpowerups.png") ||
-		!infoBoard.loadFromFile("./Textures/boardofcharacter.png") ||
-		!infoChain.loadFromFile("./Textures/charchain.png") ||
-		!powerChain.loadFromFile("./Textures/chain.png") || 
-		!button.loadFromFile("./Textures/button.png"))
+	if (!background.loadFromFile("Store/Textures/background.png") ||
+		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
+		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
+		!infoBoard.loadFromFile("Store/Textures/boardofinfo.png") ||
+		!infoChain.loadFromFile("Store/Textures/infochain.png") ||
+		!powerChain.loadFromFile("Store/Textures/chain.png") || 
+		!button.loadFromFile("Store/Textures/button.png"))
 	{
 		cerr << "Error loading primary textures files" << "/n";
 	}
@@ -82,9 +82,9 @@ void store(int coins)
 
 	// Load Perks textures
 	Texture heart, resis, sword;
-	if (!heart.loadFromFile("./Textures/heart1.png") ||
-		!resis.loadFromFile("./Textures/resis1.png") ||
-		!sword.loadFromFile("./Textures/sword1.png"))
+	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
+		!resis.loadFromFile("Store/Textures/resis1.png") ||
+		!sword.loadFromFile("Store/Textures/sword1.png"))
 	{
 		cerr << "Error loading Perks textures files" << "/n";
 	}
@@ -188,19 +188,19 @@ void store(int coins)
 				{
 					if (upgradeCheck[0] == 0)
 					{
-						sword.loadFromFile("./Textures/sword2.png");
+						sword.loadFromFile("Store/Textures/sword2.png");
 						perks[0].price.setString("120");
 						upgradeCheck[0]++;
 					}
 					else if (upgradeCheck[0] == 1)
 					{
-						sword.loadFromFile("./Textures/sword3.png");
+						sword.loadFromFile("Store/Textures/sword3.png");
 						perks[0].price.setString("140");
 						upgradeCheck[0]++;
 					}
 					else if (upgradeCheck[0] == 2)
 					{
-						sword.loadFromFile("./Textures/sword4.png");
+						sword.loadFromFile("Store/Textures/sword4.png");
 						perks[0].price.setString("160");
 						upgradeCheck[0]++;
 					}
@@ -236,19 +236,19 @@ void store(int coins)
 				{
 					if (upgradeCheck[1] == 0)
 					{
-						resis.loadFromFile("./Textures/resis2.png");
+						resis.loadFromFile("Store/Textures/resis2.png");
 						perks[1].price.setString("100");
 						upgradeCheck[1]++;
 					}
 					else if (upgradeCheck[1] == 1)
 					{
-						resis.loadFromFile("./Textures/resis3.png");
+						resis.loadFromFile("Store/Textures/resis3.png");
 						perks[1].price.setString("140");
 						upgradeCheck[1]++;
 					}
 					else if (upgradeCheck[1] == 2)
 					{
-						resis.loadFromFile("./Textures/resis4.png");
+						resis.loadFromFile("Store/Textures/resis4.png");
 						perks[1].price.setString("180");
 						upgradeCheck[1]++;
 					}
@@ -284,19 +284,19 @@ void store(int coins)
 				{
 					if (upgradeCheck[2] == 0)
 					{
-						heart.loadFromFile("./Textures/heart2.png");
+						heart.loadFromFile("Store/Textures/heart2.png");
 						perks[2].price.setString("110");
 						upgradeCheck[2]++;
 					}
 					else if (upgradeCheck[2] == 1)
 					{
-						heart.loadFromFile("./Textures/heart3.png");
+						heart.loadFromFile("Store/Textures/heart3.png");
 						perks[2].price.setString("140");
 						upgradeCheck[2]++;
 					}
 					else if (upgradeCheck[2] == 2)
 					{
-						heart.loadFromFile("./Textures/heart4.png");
+						heart.loadFromFile("Store/Textures/heart4.png");
 						perks[2].price.setString("170");
 						upgradeCheck[2]++;
 					}

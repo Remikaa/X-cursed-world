@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -6,3 +6,4 @@
 /menu1 zipped.zip
 /.vs/x cursed world/FileContentIndex
 /.vs/x cursed world/v17/Browse.VC.opendb
+/.vs
