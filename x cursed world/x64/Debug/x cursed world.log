@@ -1,449 +1,454 @@
 ﻿  main.cpp
-E:\Projects\VSC C++\xTest2\main.cpp(61,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(61,44): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(61,44): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(61,44): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(61,44): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(200,24): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(200,19): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(221,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(233,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(233,15): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(233,15): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(233,15): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(233,15): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(238,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(408,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(412,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(412,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(413,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(413,16): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(413,16): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(413,16): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(413,16): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(414,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(414,15): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(414,15): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(414,15): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(414,15): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(415,12): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(424,25): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(424,20): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(427,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(431,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(431,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(432,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(432,16): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(432,16): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(432,16): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(432,16): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(433,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(433,15): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(433,15): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(433,15): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(433,15): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(434,12): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(468,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(490,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(497,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(497,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(497,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(497,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(497,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(498,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(518,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(518,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(518,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(518,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(518,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(519,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(525,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(535,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(548,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(570,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(577,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(577,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(577,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(577,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(577,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(578,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(598,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(598,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(598,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(598,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(598,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(599,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(605,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(615,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(675,28): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(675,20): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(678,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(685,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(685,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(686,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(686,16): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(686,16): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(686,16): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(686,16): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(687,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(687,15): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(687,15): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(687,15): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(687,15): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(688,12): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(697,25): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(697,20): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(700,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(706,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(706,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(707,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(707,16): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(707,16): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(707,16): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(707,16): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(708,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(708,15): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(708,15): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(708,15): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(708,15): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(709,12): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(747,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(771,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(778,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(778,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(778,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(778,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(778,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(779,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(817,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(817,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(817,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(817,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(817,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(818,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(827,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(837,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(865,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(887,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(894,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(894,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(894,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(894,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(894,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(895,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(931,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(931,42): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(931,42): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(931,42): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(931,42): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(932,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(942,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(952,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1153,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(1528,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1528,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1528,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1528,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1528,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1539,56): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1539,56): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1539,56): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1539,56): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1539,56): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1558,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1558,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1558,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1558,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1558,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1563,56): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1563,56): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1563,56): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1563,56): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1563,56): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1583,56): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1583,56): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1583,56): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1583,56): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1583,56): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1621,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1621,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1621,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1621,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1621,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1635,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1635,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1635,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1635,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1635,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1695,21): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(1703,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1703,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1703,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1703,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1703,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1721,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1721,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1721,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1721,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1721,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1726,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1726,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1726,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1726,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1726,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1739,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1739,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1739,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1739,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1739,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1764,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1764,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1764,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1764,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1764,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1779,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1779,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1779,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1779,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1779,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1798,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1798,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1798,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1798,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1798,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1845,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1845,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1845,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1845,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1845,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1869,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1869,59): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1869,59): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1869,59): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1869,59): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1874,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1874,59): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1874,59): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1874,59): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1874,59): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1897,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1897,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1897,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1897,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1897,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1924,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1924,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1924,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1924,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1924,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1953,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1953,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1953,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1953,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1953,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1967,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1967,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1967,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1967,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1967,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1980,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1980,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1980,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1980,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1980,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(1993,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(1993,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(1993,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(1993,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(1993,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2014,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2014,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2014,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2014,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2014,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2027,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2027,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2027,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2027,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2027,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2053,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2053,75): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2053,75): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2053,75): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2053,75): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2067,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2067,75): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2067,75): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2067,75): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2067,75): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2091,76): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2091,76): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2091,76): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2091,76): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2091,76): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2105,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2105,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2105,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2105,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2105,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2158,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(2162,19): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(2438,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2438,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2438,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2438,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2438,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2459,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2459,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2459,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2459,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2459,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2492,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2492,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2492,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2492,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2492,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2507,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2507,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2507,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2507,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2507,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2512,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2512,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2512,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2512,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2512,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2534,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2534,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2534,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2534,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2534,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2539,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2539,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2539,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2539,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2539,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2560,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2560,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2560,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2560,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2560,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2565,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2565,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2565,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2565,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2565,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2586,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2586,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2586,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2586,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2586,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2612,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2612,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2612,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2612,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2612,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2629,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2629,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2629,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2629,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2629,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2634,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2634,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2634,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2634,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2634,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2648,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2648,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2648,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2648,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2648,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2675,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2675,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2675,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2675,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2675,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2690,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2690,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2690,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2690,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2690,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2695,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2695,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2695,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2695,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2695,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2718,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2718,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2718,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2718,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2718,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2723,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2723,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2723,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2723,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2723,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2741,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2741,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2741,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2741,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2741,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2754,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2754,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2754,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2754,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2754,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2780,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2780,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2780,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2780,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2780,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2794,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2794,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2794,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2794,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2794,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2799,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2799,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2799,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2799,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2799,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2815,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2815,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2815,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2815,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2815,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2820,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2820,58): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2820,58): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2820,58): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2820,58): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2841,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2841,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2841,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2841,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2841,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2854,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2854,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2854,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2854,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2854,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(2859,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\Projects\VSC C++\xTest2\main.cpp(2859,57): warning C4244:         with
-E:\Projects\VSC C++\xTest2\main.cpp(2859,57): warning C4244:         [
-E:\Projects\VSC C++\xTest2\main.cpp(2859,57): warning C4244:             T=float
-E:\Projects\VSC C++\xTest2\main.cpp(2859,57): warning C4244:         ]
-E:\Projects\VSC C++\xTest2\main.cpp(3114,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3120,19): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3126,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3127,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3131,20): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3140,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3141,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3146,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3147,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3155,50): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3156,24): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3162,18): warning C4305: '=': truncation from 'double' to 'float'
-E:\Projects\VSC C++\xTest2\main.cpp(3168,19): warning C4305: '=': truncation from 'double' to 'float'
-  x cursed world.vcxproj -> E:\Projects\VSC C++\xTest2\x64\Debug\x cursed world.exe
+E:\SP\main.cpp(62,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(62,44): warning C4244:         with
+E:\SP\main.cpp(62,44): warning C4244:         [
+E:\SP\main.cpp(62,44): warning C4244:             T=float
+E:\SP\main.cpp(62,44): warning C4244:         ]
+E:\SP\main.cpp(201,24): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(201,19): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(222,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(234,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(234,15): warning C4244:         with
+E:\SP\main.cpp(234,15): warning C4244:         [
+E:\SP\main.cpp(234,15): warning C4244:             T=float
+E:\SP\main.cpp(234,15): warning C4244:         ]
+E:\SP\main.cpp(239,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(412,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(416,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(416,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(417,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(417,16): warning C4244:         with
+E:\SP\main.cpp(417,16): warning C4244:         [
+E:\SP\main.cpp(417,16): warning C4244:             T=float
+E:\SP\main.cpp(417,16): warning C4244:         ]
+E:\SP\main.cpp(418,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(418,15): warning C4244:         with
+E:\SP\main.cpp(418,15): warning C4244:         [
+E:\SP\main.cpp(418,15): warning C4244:             T=float
+E:\SP\main.cpp(418,15): warning C4244:         ]
+E:\SP\main.cpp(419,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(428,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(428,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(431,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(435,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(435,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(436,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(436,16): warning C4244:         with
+E:\SP\main.cpp(436,16): warning C4244:         [
+E:\SP\main.cpp(436,16): warning C4244:             T=float
+E:\SP\main.cpp(436,16): warning C4244:         ]
+E:\SP\main.cpp(437,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(437,15): warning C4244:         with
+E:\SP\main.cpp(437,15): warning C4244:         [
+E:\SP\main.cpp(437,15): warning C4244:             T=float
+E:\SP\main.cpp(437,15): warning C4244:         ]
+E:\SP\main.cpp(438,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(472,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(494,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(501,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(501,42): warning C4244:         with
+E:\SP\main.cpp(501,42): warning C4244:         [
+E:\SP\main.cpp(501,42): warning C4244:             T=float
+E:\SP\main.cpp(501,42): warning C4244:         ]
+E:\SP\main.cpp(502,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(522,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(522,42): warning C4244:         with
+E:\SP\main.cpp(522,42): warning C4244:         [
+E:\SP\main.cpp(522,42): warning C4244:             T=float
+E:\SP\main.cpp(522,42): warning C4244:         ]
+E:\SP\main.cpp(523,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(529,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(539,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(552,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(574,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(581,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(581,42): warning C4244:         with
+E:\SP\main.cpp(581,42): warning C4244:         [
+E:\SP\main.cpp(581,42): warning C4244:             T=float
+E:\SP\main.cpp(581,42): warning C4244:         ]
+E:\SP\main.cpp(582,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(602,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(602,42): warning C4244:         with
+E:\SP\main.cpp(602,42): warning C4244:         [
+E:\SP\main.cpp(602,42): warning C4244:             T=float
+E:\SP\main.cpp(602,42): warning C4244:         ]
+E:\SP\main.cpp(603,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(609,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(619,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(679,28): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(679,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(682,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(689,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(689,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(690,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(690,16): warning C4244:         with
+E:\SP\main.cpp(690,16): warning C4244:         [
+E:\SP\main.cpp(690,16): warning C4244:             T=float
+E:\SP\main.cpp(690,16): warning C4244:         ]
+E:\SP\main.cpp(691,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(691,15): warning C4244:         with
+E:\SP\main.cpp(691,15): warning C4244:         [
+E:\SP\main.cpp(691,15): warning C4244:             T=float
+E:\SP\main.cpp(691,15): warning C4244:         ]
+E:\SP\main.cpp(692,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(701,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(701,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(704,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(710,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(710,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(711,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(711,16): warning C4244:         with
+E:\SP\main.cpp(711,16): warning C4244:         [
+E:\SP\main.cpp(711,16): warning C4244:             T=float
+E:\SP\main.cpp(711,16): warning C4244:         ]
+E:\SP\main.cpp(712,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(712,15): warning C4244:         with
+E:\SP\main.cpp(712,15): warning C4244:         [
+E:\SP\main.cpp(712,15): warning C4244:             T=float
+E:\SP\main.cpp(712,15): warning C4244:         ]
+E:\SP\main.cpp(713,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(751,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(775,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(782,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(782,42): warning C4244:         with
+E:\SP\main.cpp(782,42): warning C4244:         [
+E:\SP\main.cpp(782,42): warning C4244:             T=float
+E:\SP\main.cpp(782,42): warning C4244:         ]
+E:\SP\main.cpp(783,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(821,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(821,42): warning C4244:         with
+E:\SP\main.cpp(821,42): warning C4244:         [
+E:\SP\main.cpp(821,42): warning C4244:             T=float
+E:\SP\main.cpp(821,42): warning C4244:         ]
+E:\SP\main.cpp(822,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(831,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(841,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(869,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(891,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(898,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(898,42): warning C4244:         with
+E:\SP\main.cpp(898,42): warning C4244:         [
+E:\SP\main.cpp(898,42): warning C4244:             T=float
+E:\SP\main.cpp(898,42): warning C4244:         ]
+E:\SP\main.cpp(899,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(935,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(935,42): warning C4244:         with
+E:\SP\main.cpp(935,42): warning C4244:         [
+E:\SP\main.cpp(935,42): warning C4244:             T=float
+E:\SP\main.cpp(935,42): warning C4244:         ]
+E:\SP\main.cpp(936,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(946,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(956,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(1157,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(1531,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1531,57): warning C4244:         with
+E:\SP\main.cpp(1531,57): warning C4244:         [
+E:\SP\main.cpp(1531,57): warning C4244:             T=float
+E:\SP\main.cpp(1531,57): warning C4244:         ]
+E:\SP\main.cpp(1561,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1561,57): warning C4244:         with
+E:\SP\main.cpp(1561,57): warning C4244:         [
+E:\SP\main.cpp(1561,57): warning C4244:             T=float
+E:\SP\main.cpp(1561,57): warning C4244:         ]
+E:\SP\main.cpp(1594,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1594,57): warning C4244:         with
+E:\SP\main.cpp(1594,57): warning C4244:         [
+E:\SP\main.cpp(1594,57): warning C4244:             T=float
+E:\SP\main.cpp(1594,57): warning C4244:         ]
+E:\SP\main.cpp(1607,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1607,57): warning C4244:         with
+E:\SP\main.cpp(1607,57): warning C4244:         [
+E:\SP\main.cpp(1607,57): warning C4244:             T=float
+E:\SP\main.cpp(1607,57): warning C4244:         ]
+E:\SP\main.cpp(1620,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1620,57): warning C4244:         with
+E:\SP\main.cpp(1620,57): warning C4244:         [
+E:\SP\main.cpp(1620,57): warning C4244:             T=float
+E:\SP\main.cpp(1620,57): warning C4244:         ]
+E:\SP\main.cpp(1634,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1634,57): warning C4244:         with
+E:\SP\main.cpp(1634,57): warning C4244:         [
+E:\SP\main.cpp(1634,57): warning C4244:             T=float
+E:\SP\main.cpp(1634,57): warning C4244:         ]
+E:\SP\main.cpp(1694,21): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(1702,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1702,57): warning C4244:         with
+E:\SP\main.cpp(1702,57): warning C4244:         [
+E:\SP\main.cpp(1702,57): warning C4244:             T=float
+E:\SP\main.cpp(1702,57): warning C4244:         ]
+E:\SP\main.cpp(1720,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1720,57): warning C4244:         with
+E:\SP\main.cpp(1720,57): warning C4244:         [
+E:\SP\main.cpp(1720,57): warning C4244:             T=float
+E:\SP\main.cpp(1720,57): warning C4244:         ]
+E:\SP\main.cpp(1725,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1725,57): warning C4244:         with
+E:\SP\main.cpp(1725,57): warning C4244:         [
+E:\SP\main.cpp(1725,57): warning C4244:             T=float
+E:\SP\main.cpp(1725,57): warning C4244:         ]
+E:\SP\main.cpp(1738,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1738,57): warning C4244:         with
+E:\SP\main.cpp(1738,57): warning C4244:         [
+E:\SP\main.cpp(1738,57): warning C4244:             T=float
+E:\SP\main.cpp(1738,57): warning C4244:         ]
+E:\SP\main.cpp(1762,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1762,57): warning C4244:         with
+E:\SP\main.cpp(1762,57): warning C4244:         [
+E:\SP\main.cpp(1762,57): warning C4244:             T=float
+E:\SP\main.cpp(1762,57): warning C4244:         ]
+E:\SP\main.cpp(1777,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1777,57): warning C4244:         with
+E:\SP\main.cpp(1777,57): warning C4244:         [
+E:\SP\main.cpp(1777,57): warning C4244:             T=float
+E:\SP\main.cpp(1777,57): warning C4244:         ]
+E:\SP\main.cpp(1796,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1796,57): warning C4244:         with
+E:\SP\main.cpp(1796,57): warning C4244:         [
+E:\SP\main.cpp(1796,57): warning C4244:             T=float
+E:\SP\main.cpp(1796,57): warning C4244:         ]
+E:\SP\main.cpp(1846,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1846,57): warning C4244:         with
+E:\SP\main.cpp(1846,57): warning C4244:         [
+E:\SP\main.cpp(1846,57): warning C4244:             T=float
+E:\SP\main.cpp(1846,57): warning C4244:         ]
+E:\SP\main.cpp(1870,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1870,59): warning C4244:         with
+E:\SP\main.cpp(1870,59): warning C4244:         [
+E:\SP\main.cpp(1870,59): warning C4244:             T=float
+E:\SP\main.cpp(1870,59): warning C4244:         ]
+E:\SP\main.cpp(1875,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1875,59): warning C4244:         with
+E:\SP\main.cpp(1875,59): warning C4244:         [
+E:\SP\main.cpp(1875,59): warning C4244:             T=float
+E:\SP\main.cpp(1875,59): warning C4244:         ]
+E:\SP\main.cpp(1895,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1895,57): warning C4244:         with
+E:\SP\main.cpp(1895,57): warning C4244:         [
+E:\SP\main.cpp(1895,57): warning C4244:             T=float
+E:\SP\main.cpp(1895,57): warning C4244:         ]
+E:\SP\main.cpp(1904,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1904,57): warning C4244:         with
+E:\SP\main.cpp(1904,57): warning C4244:         [
+E:\SP\main.cpp(1904,57): warning C4244:             T=float
+E:\SP\main.cpp(1904,57): warning C4244:         ]
+E:\SP\main.cpp(1931,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1931,58): warning C4244:         with
+E:\SP\main.cpp(1931,58): warning C4244:         [
+E:\SP\main.cpp(1931,58): warning C4244:             T=float
+E:\SP\main.cpp(1931,58): warning C4244:         ]
+E:\SP\main.cpp(1964,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1964,57): warning C4244:         with
+E:\SP\main.cpp(1964,57): warning C4244:         [
+E:\SP\main.cpp(1964,57): warning C4244:             T=float
+E:\SP\main.cpp(1964,57): warning C4244:         ]
+E:\SP\main.cpp(1978,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1978,57): warning C4244:         with
+E:\SP\main.cpp(1978,57): warning C4244:         [
+E:\SP\main.cpp(1978,57): warning C4244:             T=float
+E:\SP\main.cpp(1978,57): warning C4244:         ]
+E:\SP\main.cpp(1991,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1991,57): warning C4244:         with
+E:\SP\main.cpp(1991,57): warning C4244:         [
+E:\SP\main.cpp(1991,57): warning C4244:             T=float
+E:\SP\main.cpp(1991,57): warning C4244:         ]
+E:\SP\main.cpp(2004,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2004,57): warning C4244:         with
+E:\SP\main.cpp(2004,57): warning C4244:         [
+E:\SP\main.cpp(2004,57): warning C4244:             T=float
+E:\SP\main.cpp(2004,57): warning C4244:         ]
+E:\SP\main.cpp(2025,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2025,57): warning C4244:         with
+E:\SP\main.cpp(2025,57): warning C4244:         [
+E:\SP\main.cpp(2025,57): warning C4244:             T=float
+E:\SP\main.cpp(2025,57): warning C4244:         ]
+E:\SP\main.cpp(2038,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2038,57): warning C4244:         with
+E:\SP\main.cpp(2038,57): warning C4244:         [
+E:\SP\main.cpp(2038,57): warning C4244:             T=float
+E:\SP\main.cpp(2038,57): warning C4244:         ]
+E:\SP\main.cpp(2064,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2064,75): warning C4244:         with
+E:\SP\main.cpp(2064,75): warning C4244:         [
+E:\SP\main.cpp(2064,75): warning C4244:             T=float
+E:\SP\main.cpp(2064,75): warning C4244:         ]
+E:\SP\main.cpp(2078,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2078,75): warning C4244:         with
+E:\SP\main.cpp(2078,75): warning C4244:         [
+E:\SP\main.cpp(2078,75): warning C4244:             T=float
+E:\SP\main.cpp(2078,75): warning C4244:         ]
+E:\SP\main.cpp(2102,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2102,58): warning C4244:         with
+E:\SP\main.cpp(2102,58): warning C4244:         [
+E:\SP\main.cpp(2102,58): warning C4244:             T=float
+E:\SP\main.cpp(2102,58): warning C4244:         ]
+E:\SP\main.cpp(2107,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2107,58): warning C4244:         with
+E:\SP\main.cpp(2107,58): warning C4244:         [
+E:\SP\main.cpp(2107,58): warning C4244:             T=float
+E:\SP\main.cpp(2107,58): warning C4244:         ]
+E:\SP\main.cpp(2121,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2121,57): warning C4244:         with
+E:\SP\main.cpp(2121,57): warning C4244:         [
+E:\SP\main.cpp(2121,57): warning C4244:             T=float
+E:\SP\main.cpp(2121,57): warning C4244:         ]
+E:\SP\main.cpp(2174,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(2178,19): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(2454,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2454,57): warning C4244:         with
+E:\SP\main.cpp(2454,57): warning C4244:         [
+E:\SP\main.cpp(2454,57): warning C4244:             T=float
+E:\SP\main.cpp(2454,57): warning C4244:         ]
+E:\SP\main.cpp(2475,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2475,57): warning C4244:         with
+E:\SP\main.cpp(2475,57): warning C4244:         [
+E:\SP\main.cpp(2475,57): warning C4244:             T=float
+E:\SP\main.cpp(2475,57): warning C4244:         ]
+E:\SP\main.cpp(2508,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2508,57): warning C4244:         with
+E:\SP\main.cpp(2508,57): warning C4244:         [
+E:\SP\main.cpp(2508,57): warning C4244:             T=float
+E:\SP\main.cpp(2508,57): warning C4244:         ]
+E:\SP\main.cpp(2523,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2523,57): warning C4244:         with
+E:\SP\main.cpp(2523,57): warning C4244:         [
+E:\SP\main.cpp(2523,57): warning C4244:             T=float
+E:\SP\main.cpp(2523,57): warning C4244:         ]
+E:\SP\main.cpp(2528,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2528,57): warning C4244:         with
+E:\SP\main.cpp(2528,57): warning C4244:         [
+E:\SP\main.cpp(2528,57): warning C4244:             T=float
+E:\SP\main.cpp(2528,57): warning C4244:         ]
+E:\SP\main.cpp(2550,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2550,57): warning C4244:         with
+E:\SP\main.cpp(2550,57): warning C4244:         [
+E:\SP\main.cpp(2550,57): warning C4244:             T=float
+E:\SP\main.cpp(2550,57): warning C4244:         ]
+E:\SP\main.cpp(2555,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2555,57): warning C4244:         with
+E:\SP\main.cpp(2555,57): warning C4244:         [
+E:\SP\main.cpp(2555,57): warning C4244:             T=float
+E:\SP\main.cpp(2555,57): warning C4244:         ]
+E:\SP\main.cpp(2576,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2576,57): warning C4244:         with
+E:\SP\main.cpp(2576,57): warning C4244:         [
+E:\SP\main.cpp(2576,57): warning C4244:             T=float
+E:\SP\main.cpp(2576,57): warning C4244:         ]
+E:\SP\main.cpp(2581,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2581,57): warning C4244:         with
+E:\SP\main.cpp(2581,57): warning C4244:         [
+E:\SP\main.cpp(2581,57): warning C4244:             T=float
+E:\SP\main.cpp(2581,57): warning C4244:         ]
+E:\SP\main.cpp(2602,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2602,57): warning C4244:         with
+E:\SP\main.cpp(2602,57): warning C4244:         [
+E:\SP\main.cpp(2602,57): warning C4244:             T=float
+E:\SP\main.cpp(2602,57): warning C4244:         ]
+E:\SP\main.cpp(2628,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2628,57): warning C4244:         with
+E:\SP\main.cpp(2628,57): warning C4244:         [
+E:\SP\main.cpp(2628,57): warning C4244:             T=float
+E:\SP\main.cpp(2628,57): warning C4244:         ]
+E:\SP\main.cpp(2645,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2645,58): warning C4244:         with
+E:\SP\main.cpp(2645,58): warning C4244:         [
+E:\SP\main.cpp(2645,58): warning C4244:             T=float
+E:\SP\main.cpp(2645,58): warning C4244:         ]
+E:\SP\main.cpp(2650,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2650,58): warning C4244:         with
+E:\SP\main.cpp(2650,58): warning C4244:         [
+E:\SP\main.cpp(2650,58): warning C4244:             T=float
+E:\SP\main.cpp(2650,58): warning C4244:         ]
+E:\SP\main.cpp(2664,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2664,57): warning C4244:         with
+E:\SP\main.cpp(2664,57): warning C4244:         [
+E:\SP\main.cpp(2664,57): warning C4244:             T=float
+E:\SP\main.cpp(2664,57): warning C4244:         ]
+E:\SP\main.cpp(2691,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2691,57): warning C4244:         with
+E:\SP\main.cpp(2691,57): warning C4244:         [
+E:\SP\main.cpp(2691,57): warning C4244:             T=float
+E:\SP\main.cpp(2691,57): warning C4244:         ]
+E:\SP\main.cpp(2706,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2706,58): warning C4244:         with
+E:\SP\main.cpp(2706,58): warning C4244:         [
+E:\SP\main.cpp(2706,58): warning C4244:             T=float
+E:\SP\main.cpp(2706,58): warning C4244:         ]
+E:\SP\main.cpp(2711,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2711,58): warning C4244:         with
+E:\SP\main.cpp(2711,58): warning C4244:         [
+E:\SP\main.cpp(2711,58): warning C4244:             T=float
+E:\SP\main.cpp(2711,58): warning C4244:         ]
+E:\SP\main.cpp(2734,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2734,57): warning C4244:         with
+E:\SP\main.cpp(2734,57): warning C4244:         [
+E:\SP\main.cpp(2734,57): warning C4244:             T=float
+E:\SP\main.cpp(2734,57): warning C4244:         ]
+E:\SP\main.cpp(2739,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2739,57): warning C4244:         with
+E:\SP\main.cpp(2739,57): warning C4244:         [
+E:\SP\main.cpp(2739,57): warning C4244:             T=float
+E:\SP\main.cpp(2739,57): warning C4244:         ]
+E:\SP\main.cpp(2757,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2757,57): warning C4244:         with
+E:\SP\main.cpp(2757,57): warning C4244:         [
+E:\SP\main.cpp(2757,57): warning C4244:             T=float
+E:\SP\main.cpp(2757,57): warning C4244:         ]
+E:\SP\main.cpp(2770,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2770,57): warning C4244:         with
+E:\SP\main.cpp(2770,57): warning C4244:         [
+E:\SP\main.cpp(2770,57): warning C4244:             T=float
+E:\SP\main.cpp(2770,57): warning C4244:         ]
+E:\SP\main.cpp(2796,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2796,57): warning C4244:         with
+E:\SP\main.cpp(2796,57): warning C4244:         [
+E:\SP\main.cpp(2796,57): warning C4244:             T=float
+E:\SP\main.cpp(2796,57): warning C4244:         ]
+E:\SP\main.cpp(2810,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2810,57): warning C4244:         with
+E:\SP\main.cpp(2810,57): warning C4244:         [
+E:\SP\main.cpp(2810,57): warning C4244:             T=float
+E:\SP\main.cpp(2810,57): warning C4244:         ]
+E:\SP\main.cpp(2815,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2815,57): warning C4244:         with
+E:\SP\main.cpp(2815,57): warning C4244:         [
+E:\SP\main.cpp(2815,57): warning C4244:             T=float
+E:\SP\main.cpp(2815,57): warning C4244:         ]
+E:\SP\main.cpp(2831,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2831,58): warning C4244:         with
+E:\SP\main.cpp(2831,58): warning C4244:         [
+E:\SP\main.cpp(2831,58): warning C4244:             T=float
+E:\SP\main.cpp(2831,58): warning C4244:         ]
+E:\SP\main.cpp(2836,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2836,58): warning C4244:         with
+E:\SP\main.cpp(2836,58): warning C4244:         [
+E:\SP\main.cpp(2836,58): warning C4244:             T=float
+E:\SP\main.cpp(2836,58): warning C4244:         ]
+E:\SP\main.cpp(2857,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2857,57): warning C4244:         with
+E:\SP\main.cpp(2857,57): warning C4244:         [
+E:\SP\main.cpp(2857,57): warning C4244:             T=float
+E:\SP\main.cpp(2857,57): warning C4244:         ]
+E:\SP\main.cpp(2870,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2870,57): warning C4244:         with
+E:\SP\main.cpp(2870,57): warning C4244:         [
+E:\SP\main.cpp(2870,57): warning C4244:             T=float
+E:\SP\main.cpp(2870,57): warning C4244:         ]
+E:\SP\main.cpp(2875,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2875,57): warning C4244:         with
+E:\SP\main.cpp(2875,57): warning C4244:         [
+E:\SP\main.cpp(2875,57): warning C4244:             T=float
+E:\SP\main.cpp(2875,57): warning C4244:         ]
+E:\SP\main.cpp(3129,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3135,19): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3141,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3142,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3146,20): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3155,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3156,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3161,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3162,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3170,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3171,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3177,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3183,19): warning C4305: '=': truncation from 'double' to 'float'
+  x cursed world.vcxproj -> E:\SP\x64\Debug\x cursed world.exe

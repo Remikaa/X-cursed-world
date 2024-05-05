@@ -39,7 +39,8 @@ int pausedtimes = 0;
 SoundBuffer clickbuffer;
 Sound clicksound;
 
-void store(int, RenderWindow& window);
+void store(RenderWindow& window);
+
 struct mode {
 	Text modeElement[2];
 	int modeSelected = -1;
@@ -352,6 +353,9 @@ struct perk
 
 // Array to check how many times i click on ubgrade
 int upgradeCheck[3] = {};
+string totalCoins;
+int check = 0;
+int storeCoins;
 
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
@@ -1058,7 +1062,7 @@ struct pauseMenu
 
 						if (selected == 1)
 						{
-							store(coins, window);
+							store(window);
 						}
 
 						if (selected == 2)
@@ -3024,8 +3028,7 @@ int main()
 
 		}
 		if (pageNum == 3) {
-			int coins = 500;
-			store(coins, window);
+			store(window);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
 				pageNum = 1;
@@ -3199,7 +3202,7 @@ void movements() {
 
 }
 
-void store(int coins, RenderWindow& window)
+void store(RenderWindow& window)
 {
 	//RenderWindow window(VideoMode(1920, 1080), "Store", Style::Fullscreen);
 
@@ -3210,9 +3213,7 @@ void store(int coins, RenderWindow& window)
 		cerr << "Error loading font file" << "/n";
 	}
 
-	const string COIN_FILE = "storeCoins.txt";
-
-	Text coinText("", storeFont, 50);
+	Text displayCoinText("", storeFont, 50);
 
 	// Text of storeBanner
 	Text textBanner;
@@ -3302,6 +3303,42 @@ void store(int coins, RenderWindow& window)
 		}
 	}
 
+	fstream coinFile;
+
+	if (check == 0)
+	{
+		totalCoins = "200";
+		coinFile.open("coinFile.txt", ios::out);
+		if (coinFile.is_open())
+		{
+			coinFile << totalCoins;
+			coinFile.close();
+		}
+		coinFile.open("coinFile.txt", ios::in);
+		if (coinFile.is_open())
+		{
+			string temp;
+			while (getline(coinFile, temp))
+			{
+				storeCoins = stoi(temp);
+			}
+			coinFile.close();
+		}
+	}
+	else
+	{
+		coinFile.open("coinFile.txt", ios::in);
+		if (coinFile.is_open())
+		{
+			string temp;
+			while (getline(coinFile, temp))
+			{
+				storeCoins = stoi(temp);
+			}
+			coinFile.close();
+		}
+	}
+
 	while (window.isOpen())
 	{
 		// the mouse position on window
@@ -3333,19 +3370,7 @@ void store(int coins, RenderWindow& window)
 				}
 			}
 
-			ofstream coinFileOut(COIN_FILE);
-			if (coinFileOut.is_open()) {
-				coinFileOut << coins;
-				coinFileOut.close();
-			}
-
-			ifstream coinFileIn(COIN_FILE);
-			if (coinFileIn.is_open()) {
-				coinFileIn >> coins;
-				coinFileIn.close();
-			}
-
-			coinText.setString("coins: " + to_string(coins));
+			displayCoinText.setString("coins: " + to_string(storeCoins));
 
 			// retrieve the bounding box
 			for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3359,6 +3384,7 @@ void store(int coins, RenderWindow& window)
 				// the sword hit test
 				if (perks[0].bounds.contains(mouse))
 				{
+					check++;
 					if (upgradeCheck[0] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3387,44 +3413,72 @@ void store(int coins, RenderWindow& window)
 				{
 					if (upgradeCheck[0] == 0)
 					{
-						if (coins >= 100)
+						if (storeCoins >= 100)
 						{
 							sword.loadFromFile("Store/Textures/sword2.png");
 							perks[0].price.setString("150");
 							clickSound.play();
-							coins -= 100;
+							storeCoins -= 100;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[0]++;
 						}
 					}
 					else if (upgradeCheck[0] == 1)
 					{
-						if (coins >= 150)
+						if (storeCoins >= 150)
 						{
 							sword.loadFromFile("Store/Textures/sword3.png");
 							perks[0].price.setString("200");
 							clickSound.play();
-							coins -= 150;
+							storeCoins -= 150;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[0]++;
 						}
 					}
 					else if (upgradeCheck[0] == 2)
 					{
-						if (coins >= 200)
+						if (storeCoins >= 200)
 						{
 							sword.loadFromFile("Store/Textures/sword4.png");
 							perks[0].price.setString("250");
 							clickSound.play();
-							coins -= 200;
+							storeCoins -= 200;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[0]++;
 						}
 					}
 					else if (upgradeCheck[0] == 3)
 					{
-						if (coins >= 250)
+						if (storeCoins >= 250)
 						{
 							sword.loadFromFile("Store/Textures/sword5.png");
 							clickSound.play();
-							coins -= 250;
+							storeCoins -= 250;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[0]++;
 						}
 					}
@@ -3433,6 +3487,7 @@ void store(int coins, RenderWindow& window)
 				// the resis hit test
 				if (perks[1].bounds.contains(mouse))
 				{
+					check++;
 					if (upgradeCheck[1] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3461,44 +3516,72 @@ void store(int coins, RenderWindow& window)
 				{
 					if (upgradeCheck[1] == 0)
 					{
-						if (coins >= 80)
+						if (storeCoins >= 80)
 						{
 							resis.loadFromFile("Store/Textures/resis2.png");
 							perks[1].price.setString("120");
 							clickSound.play();
-							coins -= 80;
+							storeCoins -= 80;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[1]++;
 						}
 					}
 					else if (upgradeCheck[1] == 1)
 					{
-						if (coins >= 120)
+						if (storeCoins >= 120)
 						{
 							resis.loadFromFile("Store/Textures/resis3.png");
 							perks[1].price.setString("160");
 							clickSound.play();
-							coins -= 120;
+							storeCoins -= 120;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[1]++;
 						}
 					}
 					else if (upgradeCheck[1] == 2)
 					{
-						if (coins >= 160)
+						if (storeCoins >= 160)
 						{
 							resis.loadFromFile("Store/Textures/resis4.png");
 							perks[1].price.setString("200");
 							clickSound.play();
-							coins -= 160;
+							storeCoins -= 160;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[1]++;
 						}
 					}
 					else if (upgradeCheck[1] == 3)
 					{
-						if (coins >= 200)
+						if (storeCoins >= 200)
 						{
 							resis.loadFromFile("Store/Textures/resis5.png");
 							clickSound.play();
-							coins -= 200;
+							storeCoins -= 200;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[1]++;
 						}
 					}
@@ -3507,6 +3590,7 @@ void store(int coins, RenderWindow& window)
 				// the heart hit test
 				if (perks[2].bounds.contains(mouse))
 				{
+					check++;
 					if (upgradeCheck[2] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3535,44 +3619,72 @@ void store(int coins, RenderWindow& window)
 				{
 					if (upgradeCheck[2] == 0)
 					{
-						if (coins >= 120)
+						if (storeCoins >= 120)
 						{
 							heart.loadFromFile("Store/Textures/heart2.png");
 							perks[2].price.setString("170");
 							clickSound.play();
-							coins -= 120;
+							storeCoins -= 120;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[2]++;
 						}
 					}
 					else if (upgradeCheck[2] == 1)
 					{
-						if (coins >= 170)
+						if (storeCoins >= 170)
 						{
 							heart.loadFromFile("Store/Textures/heart3.png");
 							perks[2].price.setString("220");
 							clickSound.play();
-							coins -= 170;
+							storeCoins -= 170;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[2]++;
 						}
 					}
 					else if (upgradeCheck[2] == 2)
 					{
-						if (coins >= 220)
+						if (storeCoins >= 220)
 						{
 							heart.loadFromFile("Store/Textures/heart4.png");
 							perks[2].price.setString("270");
 							clickSound.play();
-							coins -= 220;
+							storeCoins -= 220;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[2]++;
 						}
 					}
 					else if (upgradeCheck[2] == 3)
 					{
-						if (coins >= 270)
+						if (storeCoins >= 270)
 						{
 							heart.loadFromFile("Store/Textures/heart5.png");
 							clickSound.play();
-							coins -= 270;
+							storeCoins -= 270;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
 							upgradeCheck[2]++;
 						}
 					}
@@ -3596,11 +3708,10 @@ void store(int coins, RenderWindow& window)
 			window.draw(perks[i].upgradeButton);
 			window.draw(perks[i].upgradeText);
 		}
-		window.draw(coinText);
+		window.draw(displayCoinText);
 		window.display();
 	}
 }
-
 
 void levelOne(RenderWindow& window) {
 	Clock clock;
