@@ -3,6 +3,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
+#include <fstream>
 #include <time.h>
 
 // 3 is the number of Perks
@@ -29,23 +30,20 @@ int upgradeCheck[3] = {};
 // Function of store
 void store(int);
 
-int main()
-{
-	int coins;
-	store(coins);
-	return 0;
-}
-
 void store(int coins)
 {
-	RenderWindow storeWindow(VideoMode(1920, 1080), "Store", Style::Fullscreen);
+	RenderWindow storeWindow(VideoMode(1920, 1080), "Store");
 
 	// Load font of store
 	Font storeFont;
-	if (!storeFont.loadFromFile("./Fonts/Pixelated.ttf"))
+	if (!storeFont.loadFromFile("menu/Pixelated.ttf"))
 	{
 		cerr << "Error loading font file" << "/n";
 	}
+
+	const string COIN_FILE = "storeCoins.txt";
+
+	Text coinText("", storeFont, 50);
 
 	// Text of storeBanner
 	Text textBanner;
@@ -57,16 +55,21 @@ void store(int coins)
 
 	// Load primary textures
 	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button;
-	if (!background.loadFromFile("./Textures/background.png") ||
-		!storeBadge.loadFromFile("./Textures/storebanner.png") ||
-		!powerBoard.loadFromFile("./Textures/boardofpowerups.png") ||
-		!infoBoard.loadFromFile("./Textures/boardofcharacter.png") ||
-		!infoChain.loadFromFile("./Textures/charchain.png") ||
-		!powerChain.loadFromFile("./Textures/chain.png") || 
-		!button.loadFromFile("./Textures/button.png"))
+	if (!background.loadFromFile("Store/Textures/background.png") ||
+		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
+		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
+		!infoBoard.loadFromFile("Store/Textures/boardofinfo.png") ||
+		!infoChain.loadFromFile("Store/Textures/infochain.png") ||
+		!powerChain.loadFromFile("Store/Textures/chain.png") || 
+		!button.loadFromFile("Store/Textures/button.png"))
 	{
 		cerr << "Error loading primary textures files" << "/n";
 	}
+
+	SoundBuffer clickBuffer;
+	clickBuffer.loadFromFile("menu/ButtonClick.wav");
+	Sound clickSound;
+	clickSound.setBuffer(clickBuffer);
 
 	// Create primary sprites
 	Sprite storeBackground(background), storeBanner(storeBadge), boardOfPowers(powerBoard),
@@ -82,9 +85,9 @@ void store(int coins)
 
 	// Load Perks textures
 	Texture heart, resis, sword;
-	if (!heart.loadFromFile("./Textures/heart1.png") ||
-		!resis.loadFromFile("./Textures/resis1.png") ||
-		!sword.loadFromFile("./Textures/sword1.png"))
+	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
+		!resis.loadFromFile("Store/Textures/resis1.png") ||
+		!sword.loadFromFile("Store/Textures/sword1.png"))
 	{
 		cerr << "Error loading Perks textures files" << "/n";
 	}
@@ -120,12 +123,12 @@ void store(int coins)
 		case 1:
 			perks[i].action.setTexture(resis);
 			perks[i].action.setPosition(1710, 250);
-			perks[i].price.setString("60");
+			perks[i].price.setString("80");
 			break;
 		case 2:
 			perks[i].action.setTexture(heart);
 			perks[i].action.setPosition(1570, 350);
-			perks[i].price.setString("80");
+			perks[i].price.setString("120");
 			break;
 		}
 	}
@@ -149,6 +152,20 @@ void store(int coins)
 				}
 			}
 
+			ofstream coinFileOut(COIN_FILE);
+			if (coinFileOut.is_open()) {
+				coinFileOut << coins;
+				coinFileOut.close();
+			}
+
+			ifstream coinFileIn(COIN_FILE);
+			if (coinFileIn.is_open()) {
+				coinFileIn >> coins;
+				coinFileIn.close();
+			}
+
+			coinText.setString("coins: " + to_string(coins));
+
 			// retrieve the bounding box
 			for (int i = 0; i < NUMBER_OF_PERKS; i++)
 			{
@@ -161,7 +178,7 @@ void store(int coins)
 				// the sword hit test
 				if (perks[0].bounds.contains(mouse))
 				{
-					if (upgradeCheck[0] < 3)
+					if (upgradeCheck[0] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -170,10 +187,11 @@ void store(int coins)
 							perks[i].price.setPosition(-1000, -1000);
 						}
 						perks[0].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
 						perks[0].upgradeText.setPosition(1607, 827);
 						perks[0].price.setPosition(180, 640);
 					}
-					else if (upgradeCheck[0] == 3)
+					else if (upgradeCheck[0] == 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -188,28 +206,53 @@ void store(int coins)
 				{
 					if (upgradeCheck[0] == 0)
 					{
-						sword.loadFromFile("./Textures/sword2.png");
-						perks[0].price.setString("120");
-						upgradeCheck[0]++;
+						if (coins >= 100)
+						{
+							sword.loadFromFile("Store/Textures/sword2.png");
+							perks[0].price.setString("150");
+							clickSound.play();
+							coins -= 100;
+							upgradeCheck[0]++;
+						}
 					}
 					else if (upgradeCheck[0] == 1)
 					{
-						sword.loadFromFile("./Textures/sword3.png");
-						perks[0].price.setString("140");
-						upgradeCheck[0]++;
+						if (coins >= 150)
+						{
+							sword.loadFromFile("Store/Textures/sword3.png");
+							perks[0].price.setString("200");
+							clickSound.play();
+							coins -= 150;
+							upgradeCheck[0]++;
+						}
 					}
 					else if (upgradeCheck[0] == 2)
 					{
-						sword.loadFromFile("./Textures/sword4.png");
-						perks[0].price.setString("160");
-						upgradeCheck[0]++;
+						if (coins >= 200)
+						{
+							sword.loadFromFile("Store/Textures/sword4.png");
+							perks[0].price.setString("250");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 3)
+					{
+						if (coins >= 250)
+						{
+							sword.loadFromFile("Store/Textures/sword5.png");
+							clickSound.play();
+							coins -= 250;
+							upgradeCheck[0]++;
+						}
 					}
 				}
 
 				// the resis hit test
 				if (perks[1].bounds.contains(mouse))
 				{
-					if (upgradeCheck[1] < 3)
+					if (upgradeCheck[1] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -218,10 +261,11 @@ void store(int coins)
 							perks[i].price.setPosition(-1000, -1000);
 						}
 						perks[1].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
 						perks[1].upgradeText.setPosition(1607, 827);
 						perks[1].price.setPosition(180, 640);
 					}
-					else if (upgradeCheck[1] == 3)
+					else if (upgradeCheck[1] == 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -236,28 +280,53 @@ void store(int coins)
 				{
 					if (upgradeCheck[1] == 0)
 					{
-						resis.loadFromFile("./Textures/resis2.png");
-						perks[1].price.setString("100");
-						upgradeCheck[1]++;
+						if (coins >= 80)
+						{
+							resis.loadFromFile("Store/Textures/resis2.png");
+							perks[1].price.setString("120");
+							clickSound.play();
+							coins -= 80;
+							upgradeCheck[1]++;
+						}
 					}
 					else if (upgradeCheck[1] == 1)
 					{
-						resis.loadFromFile("./Textures/resis3.png");
-						perks[1].price.setString("140");
-						upgradeCheck[1]++;
+						if (coins >= 120)
+						{
+							resis.loadFromFile("Store/Textures/resis3.png");
+							perks[1].price.setString("160");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[1]++;
+						}
 					}
 					else if (upgradeCheck[1] == 2)
 					{
-						resis.loadFromFile("./Textures/resis4.png");
-						perks[1].price.setString("180");
-						upgradeCheck[1]++;
+						if (coins >= 160)
+						{
+							resis.loadFromFile("Store/Textures/resis4.png");
+							perks[1].price.setString("200");
+							clickSound.play();
+							coins -= 160;
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 3)
+					{
+						if (coins >= 200)
+						{
+							resis.loadFromFile("Store/Textures/resis5.png");
+							clickSound.play();
+							coins -= 200;
+							upgradeCheck[1]++;
+						}
 					}
 				}
 
 				// the heart hit test
 				if (perks[2].bounds.contains(mouse))
 				{
-					if (upgradeCheck[2] < 3)
+					if (upgradeCheck[2] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -266,10 +335,11 @@ void store(int coins)
 							perks[i].price.setPosition(-1000, -1000);
 						}
 						perks[2].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
 						perks[2].upgradeText.setPosition(1607, 827);
 						perks[2].price.setPosition(180, 640);
 					}
-					else if (upgradeCheck[2] == 3)
+					else if (upgradeCheck[2] == 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -284,21 +354,46 @@ void store(int coins)
 				{
 					if (upgradeCheck[2] == 0)
 					{
-						heart.loadFromFile("./Textures/heart2.png");
-						perks[2].price.setString("110");
-						upgradeCheck[2]++;
+						if (coins >= 120)
+						{
+							heart.loadFromFile("Store/Textures/heart2.png");
+							perks[2].price.setString("170");
+							clickSound.play();
+							coins -= 120;
+							upgradeCheck[2]++;
+						}
 					}
 					else if (upgradeCheck[2] == 1)
 					{
-						heart.loadFromFile("./Textures/heart3.png");
-						perks[2].price.setString("140");
-						upgradeCheck[2]++;
+						if (coins >= 170)
+						{
+							heart.loadFromFile("Store/Textures/heart3.png");
+							perks[2].price.setString("220");
+							clickSound.play();
+							coins -= 170;
+							upgradeCheck[2]++;
+						}
 					}
 					else if (upgradeCheck[2] == 2)
 					{
-						heart.loadFromFile("./Textures/heart4.png");
-						perks[2].price.setString("170");
-						upgradeCheck[2]++;
+						if (coins >= 220)
+						{
+							heart.loadFromFile("Store/Textures/heart4.png");
+							perks[2].price.setString("270");
+							clickSound.play();
+							coins -= 220;
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 3)
+					{
+						if (coins >= 270)
+						{
+							heart.loadFromFile("Store/Textures/heart5.png");
+							clickSound.play();
+							coins -= 270;
+							upgradeCheck[2]++;
+						}
 					}
 				}
 			}
@@ -320,6 +415,7 @@ void store(int coins)
 			storeWindow.draw(perks[i].upgradeButton);
 			storeWindow.draw(perks[i].upgradeText);
 		}
+		storeWindow.draw(coinText);
 		storeWindow.display();
 	}
 }

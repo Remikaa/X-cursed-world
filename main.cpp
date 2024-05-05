@@ -3,6 +3,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
+#include <fstream>
 using namespace std;
 using namespace sf;
 
@@ -18,6 +19,8 @@ int pageNum = 1;
 *        6        *    Level Mode    *
 **************************************/
 //test trial 2
+
+int score = 0;
 
 struct mode {
 	Text modeElement[2];
@@ -159,14 +162,16 @@ void movements();
 
 void arcadeMode(RenderWindow& window);
 
-//void  levelsMode();
+void levelOne(RenderWindow& window);
+
+void levelTwo(RenderWindow& window);
 
 int main() {
 
 	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
+	window.setFramerateLimit(60);
 	mainMenu menu;
 	menu.menu(1920, 1080);
-
 
 	Texture mainMenuPic;
 	mainMenuPic.loadFromFile("menu/menuPic.jpg");
@@ -228,7 +233,7 @@ int main() {
 				cout << "Arcade mode!" << endl;
 			}
 			else if (modeSelected == 6) {
-				//levelsMode();
+				levelOne(window);
 				cout << "Levels Mode!" << endl;
 			}
 			else
@@ -237,7 +242,7 @@ int main() {
 			}
 		}
 		if (pageNum == 3) {
-			int coins = 500; // it will be got from score function (this value for practice)
+			int coins = 500;
 			store(coins);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
@@ -250,7 +255,6 @@ int main() {
 			window.close();
 			break;
 		}
-
 	}
 
 	return 0;
