@@ -2124,8 +2124,8 @@ struct levelTwo {
 
 
 	void loadTextures() {
-		string texturesArr[6] = { "external/level2/Forest P1.png", "external/level2/Forest P2.png","external/level2/Forest P3.png", "external/level2/Forest P4.png",
-								  "external/level2/Forest P5.png", "external/level2/Forest P6.png" };
+		string texturesArr[6] = { "./external/level2/Forest P1.png", "./external/level2/Forest P2.png","./external/level2/Forest P3.png", "./external/level2/Forest P4.png",
+								  "./external/level2/Forest P5.png", "./external/level2/Forest P6.png" };
 
 		for (int i = 0; i < 6; i++) {
 			levelTextures[i].loadFromFile(texturesArr[i]);
@@ -2137,6 +2137,11 @@ struct levelTwo {
 		knight.onGround = true;
 	}
 
+	void bottomCollision() {
+		knight.onGround = false;
+		knight.moveY = 0.1;
+	}
+
 	void jump() {
 		knight.moveY = -0.9;
 		knight.onGround = false;
@@ -2144,14 +2149,20 @@ struct levelTwo {
 	}
 
 	// used to change background sprite and create & place tiles rectangles in the correct place
-	void placeScene(RenderWindow& window, Sprite& player) {
+	void placeScene() {
 		backgroundSprite.setTexture(levelTextures[currentScene]);
 
+		if (currentScene == 0 || currentScene == 1 || currentScene == 2 || currentScene == 3 || currentScene == 4) {
+			ground = 1300;
+		}
+
 		if (currentScene == 0) {
+			knight.rect.left = 5;
+			knight.rect.top = 510;
 			currentTiles.resize(5);
 
 			for (int i = 0; i < 5; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(425, 75));
@@ -2171,10 +2182,14 @@ struct levelTwo {
 		}
 
 		if (currentScene == 1) {
+			knight.rect.left = 5;
+			knight.rect.top = 510;
+
 			currentTiles.resize(9);
 
+
 			for (int i = 0; i < 9; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(310, 70));
@@ -2206,13 +2221,16 @@ struct levelTwo {
 		}
 
 		if (currentScene == 2) {
-			currentTiles.resize(12);
 
-			for (int i = 0; i < 12; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+			knight.rect.left = 10;
+			knight.rect.top = 250;
+			currentTiles.resize(8);
+
+			for (int i = 0; i < 8; i++) {
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
-			currentTiles[0].setSize(Vector2f(240, 70));
+			currentTiles[0].setSize(Vector2f(250, 470));
 			currentTiles[0].setPosition(0, 580);
 
 			currentTiles[1].setSize(Vector2f(65, 65));
@@ -2222,7 +2240,7 @@ struct levelTwo {
 			currentTiles[2].setPosition(615, 700);
 
 			currentTiles[3].setSize(Vector2f(65, 65));
-			currentTiles[3].setPosition(870, 750);
+			currentTiles[3].setPosition(870, 730);
 
 			currentTiles[4].setSize(Vector2f(65, 65));
 			currentTiles[4].setPosition(1125, 540);
@@ -2233,30 +2251,17 @@ struct levelTwo {
 			currentTiles[6].setSize(Vector2f(175, 75));
 			currentTiles[6].setPosition(1725, 640);
 
-			currentTiles[7].setSize(Vector2f(205, 135));
-			currentTiles[7].setPosition(955, 970);
-
-			currentTiles[8].setSize(Vector2f(210, 190));
-			currentTiles[8].setPosition(1170, 870);
-
-			currentTiles[9].setSize(Vector2f(225, 255));
-			currentTiles[9].setPosition(1395, 800);
-
-			currentTiles[10].setSize(Vector2f(195, 155));
-			currentTiles[10].setPosition(1620, 900);
-
-			currentTiles[11].setSize(Vector2f(10, 150));
-			currentTiles[11].setPosition(1910, 500);
+			currentTiles[7].setSize(Vector2f(10, 150));
+			currentTiles[7].setPosition(1910, 500);
 		}
 
 		if (currentScene == 3) {
-			knight.rect.top = 0;
+			knight.rect.top = 345;
 			knight.rect.left = 25;
-			currentTiles.erase(currentTiles.begin(), currentTiles.end());
-			currentTiles.resize(16);
+			currentTiles.resize(10);
 
-			for (int i = 0; i < 16; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+			for (int i = 0; i < 10; i++) {
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(255, 70));
@@ -2269,12 +2274,12 @@ struct levelTwo {
 			currentTiles[2].setPosition(615, 700);
 
 			currentTiles[3].setSize(Vector2f(65, 450));
-			currentTiles[3].setPosition(870, 750);
+			currentTiles[3].setPosition(870, 700);
 
 			currentTiles[4].setSize(Vector2f(65, 450));
-			currentTiles[4].setPosition(1125, 510);
+			currentTiles[4].setPosition(1125, 525);
 
-			currentTiles[5].setSize(Vector2f(55, 320));
+			currentTiles[5].setSize(Vector2f(65, 350));
 			currentTiles[5].setPosition(1445, 0);
 
 			currentTiles[6].setSize(Vector2f(225, 70));
@@ -2283,47 +2288,32 @@ struct levelTwo {
 			currentTiles[7].setSize(Vector2f(260, 65));
 			currentTiles[7].setPosition(1660, 650);
 
-			currentTiles[8].setSize(Vector2f(300, 255));
-			currentTiles[8].setPosition(0, 800);
+			currentTiles[8].setSize(Vector2f(60, 110));
+			currentTiles[8].setPosition(1440, 960);
 
-			currentTiles[9].setSize(Vector2f(200, 190));
-			currentTiles[9].setPosition(300, 870);
-
-			currentTiles[10].setSize(Vector2f(225, 255));
-			currentTiles[10].setPosition(550, 800);
-
-			currentTiles[11].setSize(Vector2f(195, 155));
-			currentTiles[11].setPosition(775, 900);
-
-			currentTiles[12].setSize(Vector2f(195, 155));
-			currentTiles[12].setPosition(970, 900);
-
-			currentTiles[13].setSize(Vector2f(195, 155));
-			currentTiles[13].setPosition(1165, 900);
-
-			currentTiles[14].setSize(Vector2f(195, 155));
-			currentTiles[14].setPosition(1360, 900);
-
-			currentTiles[15].setSize(Vector2f(10, 150));
-			currentTiles[15].setPosition(1930, 500);
+			currentTiles[9].setSize(Vector2f(10, 150));
+			currentTiles[9].setPosition(1930, 500);
 		}
 
 		if (currentScene == 4) {
 			currentTiles.erase(currentTiles.begin(), currentTiles.end());
 			currentTiles.resize(8);
 
+			knight.rect.left = -30;
+			knight.rect.top = 420;
+
 			for (int i = 0; i < 8; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(425, 80));
-			currentTiles[0].setPosition(35, 740);
+			currentTiles[0].setPosition(35, 700);
 
 			currentTiles[1].setSize(Vector2f(425, 80));
 			currentTiles[1].setPosition(515, 510);
 
 			currentTiles[2].setSize(Vector2f(200, 75));
-			currentTiles[2].setPosition(1050, 350);
+			currentTiles[2].setPosition(1050, 330);
 
 			currentTiles[3].setSize(Vector2f(200, 75));
 			currentTiles[3].setPosition(1335, 685);
@@ -2332,13 +2322,13 @@ struct levelTwo {
 			currentTiles[4].setPosition(965, 865);
 
 			currentTiles[5].setSize(Vector2f(315, 70));
-			currentTiles[5].setPosition(550, 1050);
+			currentTiles[5].setPosition(550, 1020);
 
 			currentTiles[6].setSize(Vector2f(345, 85));
 			currentTiles[6].setPosition(1575, 870);
 
-			currentTiles[7].setSize(Vector2f(150, 10));
-			currentTiles[7].setPosition(1930, 700);
+			currentTiles[7].setSize(Vector2f(150, 30));
+			currentTiles[7].setPosition(1920, 700);
 		}
 
 		if (currentScene == 5) {
@@ -2349,227 +2339,469 @@ struct levelTwo {
 	}
 
 	// detect collision of main character and tiles rectangels 
-	void checkCollision(RenderWindow& window, RectangleShape& collisionRect) {
+	void checkCollision(RectangleShape& collisionRect) {
 		if (currentScene == 0) {
+			// tile 1
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
 			{
-
-				if (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + (423) || collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + (424)) {
-					knight.rect.left = currentTiles[0].getPosition().x + 267; // in my case diff is 148 
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 423) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 424)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 270;
 				}
-				// top collision
-				else if (collisionRect.getGlobalBounds().top + 170 > currentTiles[0].getPosition().y) {
+
+				// top colliison
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
-					knight.rect.top = currentTiles[0].getPosition().y - 298;
 				}
 			}
 
+
+			// tile 2
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[1].getPosition().y - 300;
-				onGround();
+				// left colision 
+				if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+				// right collision 
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 410) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 411)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 261;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+
+
 			}
 
+			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[2].getPosition().y - 300;
-				onGround();
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[2].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[2].getPosition().x)) {
+					knight.rect.left = currentTiles[2].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[2].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[2].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+
+			// tile 4 : jumper 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
 			{
-				knight.moveY = -0.9;
-				knight.onGround = false;
-				knight.state = "Jump";
+				jump();
 			}
+
+			// tile 5 : next scene move
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
 			{
 				currentScene++;
-				knight.rect.top = 0;
-				knight.rect.left = 0;
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
 		if (currentScene == 1) {
+
+			// tile 0
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[0].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 300) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 301)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 151.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+
+			// tile 1
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[1].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 21.5;
+				}
+
+				// left colision 
+				else if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+
 			}
+
+			// tile 2 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[3].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[3].getPosition().x + 21.5;
+				}
+
+				// left colision 
+				else if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[3].getPosition().x)) {
+					knight.rect.left = currentTiles[3].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[3].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[3].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 4 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 5
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[5].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[5].getPosition().x + 21.5;
+				}
+
+				// left collision
+				else if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[5].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 6 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 7 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[7].getPosition().y - 300;
-				onGround();
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[7].getPosition().x)) {
+					knight.rect.left = currentTiles[7].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[7].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 8 : move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds()))
 			{
 				currentScene++;
-				knight.rect.top = 0;
-				knight.rect.left = 0;
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
-		if (currentScene == 2) {
+		if (currentScene == 2)
+		{
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[0].getPosition().y - 300;
-				onGround();
+			// tile 1 :
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 240) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 241)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 91.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
+					onGround();
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
+			// tiles : 2 , 3, 4 ,5 ,6
+			// index : 1, 2, 3, 4, 5
+
+			for (int i = 1; i <= 5; i++)
 			{
-				onGround();
-				knight.rect.top = currentTiles[1].getPosition().y - 298;
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// left collision
+					if ((collisionRect.getGlobalBounds().left + 89 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 90 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// right collision 
+					else if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 53) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 54)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 93.5;
+					}
+
+					// top collision
+					else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+						onGround();
+					}
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[2].getPosition().y - 300;
-				onGround();
+			// tile 7
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 89 <= currentTiles[6].getPosition().x) || (collisionRect.getGlobalBounds().left + 90 <= currentTiles[6].getPosition().x)) {
+					knight.rect.left = currentTiles[6].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[3].getPosition().y - 300;
-				onGround();
-			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[4].getPosition().y - 300;
-				onGround();
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[5].getPosition().y - 300;
-				onGround();
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[6].getPosition().y - 300;
-				onGround();
-			}
-
+			// tile 8 : move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[9].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[10].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[11].getGlobalBounds()))
 			{
 				currentScene++;
 				knight.rect.top = 0;
 				knight.rect.left = 50;
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
 		if (currentScene == 3) {
 
-			for (int i = 0; i < 8; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.rect.top = currentTiles[i].getPosition().y - 300;
+			// tile 1 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 242) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 243)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 93.5;
+				}
+
+				// top collision
+				if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
 				}
 			}
 
-			for (int i = 8; i < 15; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.moveX = 0;
-					knight.moveY = 0.01;
-					knight.health -= 10;
-					knight.state = "Hit";
+			// tiles : 2, 3, 4, 5, 6
+			// index : 1, 2, 3, 4, 5
+			for (int i = 1; i <= 5; i++) {
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// left collision
+					if ((collisionRect.getGlobalBounds().left + 87 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 88 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// right collision
+					else if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 54) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 55)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 93.5;
+					}
+
+					if (i != 5) {
+						// top collision
+						if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+							onGround();
+						}
+					}
+					else { // top tile
+						// bottom collision
+						if (collisionRect.getGlobalBounds().top > currentTiles[i].getPosition().y + 342) {
+							bottomCollision();
+						}
+					}
+
 				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[15].getGlobalBounds()))
+			// tile 7
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[6].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[6].getPosition().x)) {
+					knight.rect.left = currentTiles[6].getPosition().x - 255.5;
+				}
+
+				// right collision
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 215) || (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 216)) {
+					knight.rect.left = currentTiles[6].getPosition().x + 66.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
+				// bottom collision
+				else if (collisionRect.getGlobalBounds().top > currentTiles[6].getPosition().y + 69) {
+					bottomCollision();
+				}
+			}
+
+
+			// tile 8
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[7].getPosition().x)) {
+					knight.rect.left = currentTiles[7].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[7].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 9 : bottom
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds())) {
+				// right collision :
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[8].getPosition().x + 50) || (collisionRect.getGlobalBounds().left >= currentTiles[8].getPosition().x + 51)) {
+					knight.rect.left = currentTiles[8].getPosition().x - 98.5;;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[8].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[8].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[9].getGlobalBounds()))
 			{
 				knight.rect.top = 0;
 				knight.rect.left = 25;
 				currentScene++;
 
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
 		if (currentScene == 4) {
-			for (int i = 0; i < 7; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.rect.top = currentTiles[i].getPosition().y - 300;
+			// tile 1 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 414) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 415)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 266.6;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
 				}
 			}
 
+			// tile 2 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds())) {
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 414) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 415)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 266.6;
+				}
+
+				// left collision
+				else if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tiles : 3, 4
+			// index : 2, 3
+			for (int i = 2; i <= 3; i++)
+			{
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// right collision
+					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 190) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 191)) {
+						knight.rect.left = currentTiles[i].getPosition().x + 41.5;
+					}
+
+					// left collision
+					else if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// top collision
+					else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+						onGround();
+					}
+
+					else if (i == 2) {
+						// bottom collision
+						if (collisionRect.getGlobalBounds().top > currentTiles[i].getPosition().y + 65) {
+							bottomCollision();
+						}
+					}
+				}
+			}
+
+			// tile 5
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[4].getPosition().x)) {
+					knight.rect.left = currentTiles[4].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[4].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[4].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 6 : bottom 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 255.5;
+				}
+
+				// right collision
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 305) || (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 306)) {
+					knight.rect.left = currentTiles[5].getPosition().x + 156.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[5].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 7 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// top collision
+				if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.rect.top = 0;
-				knight.rect.left = 600;
+				knight.rect.left = -40;
+				knight.rect.top = 553;
 				currentScene++;
-
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 	}
@@ -2798,7 +3030,7 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			levelOne(window);
+			levelTwo(window);
 		}
 	}
 
@@ -2989,23 +3221,20 @@ void levelTwo(RenderWindow& window) {
 	knight.assignSprite(); // Initialize player character
 
 
-	RectangleShape blueRect;
-	blueRect.setOutlineColor(Color::Blue);
-	blueRect.setOutlineThickness(2);
-	blueRect.setFillColor(Color::Transparent);
+
 
 	levelTwoMap.loadTextures();
-	levelTwoMap.placeScene(window, knight.sprite);
+	levelTwoMap.placeScene();
 	while (window.isOpen()) {
 		// redRect for collision detection
-		RectangleShape redRect;
-		redRect.setOutlineColor(Color::Red);
-		redRect.setOutlineThickness(2);
-		redRect.setFillColor(Color::Transparent);
-		redRect.setSize(Vector2f(90, 170));
+		RectangleShape collisionRect;
+		collisionRect.setOutlineColor(Color::Transparent);
+		collisionRect.setOutlineThickness(2);
+		collisionRect.setFillColor(Color::Transparent);
+		collisionRect.setSize(Vector2f(90, 150));
 		Vector2f knightPos = knight.sprite.getPosition();
-		if (knight.lastKeyPressed == 1)  redRect.setPosition(knightPos.x + 160, knightPos.y + 130);
-		else  redRect.setPosition(knightPos.x + 190, knightPos.y + 130);
+		collisionRect.setPosition(knightPos.x + 160, knightPos.y + 146);
+
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -3017,21 +3246,15 @@ void levelTwo(RenderWindow& window) {
 
 				if (event.type == Event::MouseButtonPressed) {
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-					cout << "Knight Rect Left : " << knight.rect.left << " Knight Rect Top : " << knight.rect.top << endl;
-					cout << "Red Rect Left : " << redRect.getGlobalBounds().left << " Red Rect Top " << knight.rect.top << endl;
+
 				}
 			}
 		}
 
 
 
-		// blue rectangle around character 
-		blueRect.setSize(Vector2f(knight.sprite.getGlobalBounds().width, knight.sprite.getGlobalBounds().height));
-		blueRect.setPosition(knight.sprite.getPosition());
-
-
 		// Update game logic
-		levelTwoMap.checkCollision(window, redRect);
+		levelTwoMap.checkCollision(collisionRect);
 		movements();
 
 		float time = (float)clock.getElapsedTime().asMicroseconds();
@@ -3047,18 +3270,18 @@ void levelTwo(RenderWindow& window) {
 
 		// Draw game elements
 
-		for (const auto& tile : currentTiles)
-		{
-			window.draw(tile);
-		}
+
 		window.draw(levelTwoMap.backgroundSprite);
 
 		window.draw(knight.sprite);
 
+		for (int i = 0; i < currentTiles.size(); i++)
+		{
+			window.draw(currentTiles[i]);
+		}
 
+		window.draw(collisionRect);
 
-		window.draw(redRect);
-		window.draw(blueRect);
 
 		// Display the window
 		window.display();
