@@ -33,6 +33,9 @@ const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
 int pausedtimes = 0;
 
+SoundBuffer clickbuffer;
+Sound clicksound;
+
 void store(int);
 struct mode {
 	Text modeElement[2];
@@ -961,8 +964,9 @@ struct pauseMenu
 	int coins = 500;
 	Texture pauseMenuTexture;
 	Sprite pauseMenuBg;
+	
 
-
+	
 	Text pauseElements[3];
 	string elements[3] = { "Resume", "Store", "Quit" };
 	int selected = -1;
@@ -974,7 +978,8 @@ struct pauseMenu
 		pauseFont.loadFromFile("menu/Pixelated.ttf");
 		pauseMenuTexture.loadFromFile("menu/menuPicdark.jpg");
 		pauseMenuBg.setTexture(pauseMenuTexture);
-
+		clickbuffer.loadFromFile("menu/ButtonClick.wav");
+		clicksound.setBuffer(clickbuffer);
 
 
 		if (!pauseFont.loadFromFile("menu/Pixelated.ttf"))
@@ -1026,8 +1031,11 @@ struct pauseMenu
 
 					if (event.key.code == Keyboard::Enter)
 					{
+						clicksound.play();
+
 						if (selected == 0)
 						{
+							clicksound.play();
 							paused = false; //resume
 							return;
 						}
@@ -2746,6 +2754,7 @@ int main()
 					{
 						if (event.key.code == Keyboard::Escape)
 						{
+							clickSound.play();
 							knight.rect.left = knight.rect.getPosition().x;
 							knight.rect.top = knight.rect.getPosition().y;
 							pauseMenu.paused = true;
@@ -2881,6 +2890,12 @@ void levelOne(RenderWindow& window) {
 	
 	pauseMenu.PauseMenufunc(1920, 1080);
 
+	SoundBuffer clickbuffer;
+	Sound clicksound;
+
+	clickbuffer.loadFromFile("menu/ButtonClick.wav");
+	clicksound.setBuffer(clickbuffer);
+
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
 	while (window.isOpen()) {
@@ -2894,7 +2909,7 @@ void levelOne(RenderWindow& window) {
 		// adjusting the collision rect to be more accurate 
 		collisionRect.setPosition(knightPos.x + 150, knightPos.y + 150);
 
-
+		
 
 
 
@@ -2922,6 +2937,7 @@ void levelOne(RenderWindow& window) {
 					knight.rect.top = knight.rect.getPosition().y;
 					pauseMenu.paused = true;
 					pausedtimes++;
+					clicksound.play();
 
 				}
 			}
