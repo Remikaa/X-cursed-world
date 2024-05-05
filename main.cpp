@@ -21,10 +21,9 @@ int pageNum = 1;
 *        5        *   Endless Mode   *
 *        6        *    Level Mode    *
 **************************************/
-//test trial 2
 
 int score = 0;
-int ground = 820;
+int ground = 1300;
 float const rightWall = 1680;
 float const leftWall = -180;
 vector<RectangleShape> currentTiles;
@@ -32,7 +31,9 @@ const int knight_num_of_textures = 15;
 const int num_of_sec_enemies = 4;
 const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
+int pausedtimes = 0;
 
+void store(int);
 struct mode {
 	Text modeElement[2];
 	int modeSelected = -1;
@@ -190,7 +191,7 @@ struct character {
 
 	// Function to assign sprite and initialize properties
 	void assignSprite() {
-		sprite.setScale(3.75, 3.75);  //Set sprite scale
+		sprite.setScale(3.7, 3.7);  //Set sprite scale
 		moveX = 0;  // Character starts not moving in the X-axis
 		moveY = 0;  // Character starts not moving in the Y-axis
 		currentFrame = 0;
@@ -198,8 +199,12 @@ struct character {
 		lastKeyPressed = 1;
 		state = "Idle";  // Initialize state to idle
 		health = 100;  // Initialize health to 100
+
+		knight.rect.left = 10;
+		knight.rect.top = 850;
 		loadTextures();  // Loading the textures
 		updateTexture();  // Update the texture of the sprite to idle
+
 	}
 
 	// Function to update player's position and animation based on state
@@ -948,6 +953,152 @@ struct BossEnemy
 	}
 }executioner;
 
+struct pauseMenu
+{
+	Font pauseFont;
+
+	bool paused = false;
+	int coins = 500;
+	Texture pauseMenuTexture;
+	Sprite pauseMenuBg;
+
+
+	Text pauseElements[3];
+	string elements[3] = { "Resume", "Store", "Quit" };
+	int selected = -1;
+
+
+	void PauseMenufunc(float width, float height)
+	{
+
+		pauseFont.loadFromFile("menu/Pixelated.ttf");
+		pauseMenuTexture.loadFromFile("menu/menuPicdark.jpg");
+		pauseMenuBg.setTexture(pauseMenuTexture);
+
+
+
+		if (!pauseFont.loadFromFile("menu/Pixelated.ttf"))
+		{
+			cerr << "Font did not load" << endl;
+			// Handle error loading font
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			FloatRect boundary = pauseElements[i].getLocalBounds();
+			pauseElements[i].setFont(pauseFont);
+			pauseElements[i].setString(elements[i]);
+			pauseElements[i].setCharacterSize(90);
+			pauseElements[i].setFillColor(Color::White);
+			//ignore the following ,but dont delete plz
+			//pauseElements[i].setOrigin(boundary.left + boundary.width / 2, boundary.top + boundary.height / 2);
+			//pauseElements[i].setPosition(Vector2f((width / 2), (height / 4) + (i * 150)));
+			pauseElements[i].setOrigin(pauseElements[i].getLocalBounds().width / 2, pauseElements[i].getLocalBounds().height / 2);
+			pauseElements[i].setPosition(Vector2f(width / 2, (height / 4) + (i * 150)));
+		}
+	}
+
+
+
+	void show(RenderWindow& window)
+	{
+		while (window.isOpen())
+		{
+			Event event;
+			while (window.pollEvent(event))
+			{
+				if (event.type == Event::Closed)
+				{
+					window.close();
+				}
+
+				if (event.type == Event::KeyPressed)
+				{
+					if (event.key.code == Keyboard::Up)
+					{
+						moveUp();
+					}
+
+					if (event.key.code == Keyboard::Down)
+					{
+						moveDown();
+					}
+
+					if (event.key.code == Keyboard::Enter)
+					{
+						if (selected == 0)
+						{
+							paused = false; //resume
+							return;
+						}
+
+						if (selected == 1)
+						{
+							store(coins);
+						}
+
+						if (selected == 2)
+						{
+							pageNum = 1;
+							paused = false; //resume
+							knight.assignSprite();
+							pausedtimes = 0;
+							//currentScene = 0;   //if we want to restart progress after quitting.
+							return;
+						}
+					}
+				}
+
+			}
+
+			window.clear();
+			window.draw(pauseMenuBg);
+			for (int i = 0; i < 3; i++)
+			{
+				window.draw(pauseElements[i]);
+			}
+			window.display();
+		}
+	}
+
+
+	int pressed()
+	{
+		return selected;
+	}
+
+
+	void moveUp()
+	{
+		if (selected - 1 >= -1)
+		{
+			pauseElements[selected].setFillColor(Color::White);
+			pauseElements[selected].setCharacterSize(90);
+			selected--;
+			sleep(milliseconds(200));
+			if (selected == -1)
+				selected = 2;
+			pauseElements[selected].setFillColor(Color{ 192, 192, 192 });
+			pauseElements[selected].setCharacterSize(80);
+		}
+	}
+
+	void moveDown()
+	{
+		if (selected + 1 <= 3)
+		{
+			pauseElements[selected].setFillColor(Color::White);
+			pauseElements[selected].setCharacterSize(90);
+			selected++;
+			sleep(milliseconds(200));
+			if (selected == 3)
+				selected = 0;
+			pauseElements[selected].setFillColor(Color{ 192, 192, 192 });
+			pauseElements[selected].setCharacterSize(80);
+		}
+	}
+}pauseMenu;
+
 // level 1 map code
 struct LevelOne {
 	int currentScene = 0;
@@ -957,8 +1108,7 @@ struct LevelOne {
 
 
 	void loadTextures() {
-		string texturesArr[6] = { "external/level1/p1.png", "external/level1/p2.png","external/level1/p3.png", "external/level1/p4.png",
-								  "external/level1/p5.png", "external/level1/p6.png" };
+		string texturesArr[6] = { "external/level1/p1.png", "external/level1/p2.png","external/level1/p3.png", "external/level1/p4.png", "external/level1/p5.png", "external/level1/p6.png" };
 
 		for (int i = 0; i < 6; i++) {
 			levelTextures[i].loadFromFile(texturesArr[i]);
@@ -966,13 +1116,15 @@ struct LevelOne {
 	}
 
 	// set character to Ground
-	void setOnGround() {
+	void setOnGround()
+	{
 		knight.onGround = true;
 		knight.moveY = 0;
 	}
 
 	// used in any collision from bottom
-	void bottomCollision() {
+	void bottomCollision()
+	{
 		knight.onGround = false;
 		knight.moveY = 0.1;
 	}
@@ -981,11 +1133,11 @@ struct LevelOne {
 	void placeScene() {
 		backgroundSprite.setTexture(levelTextures[currentScene]);
 
-		// setting common ground values for similar levels 
-		if (currentScene == 0 || currentScene == 1 || currentScene == 2 || currentScene == 3 || currentScene == 4) {
+
+		if (currentScene == 0 || currentScene == 1 || currentScene == 2 || currentScene == 3 || currentScene == 4)
+		{
 			ground = 1300;
 		}
-
 
 		// placing each scene tiles and doors
 		if (currentScene == 0) {
@@ -995,8 +1147,20 @@ struct LevelOne {
 				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
-			knight.rect.left = 5;
-			knight.rect.top = 500;
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 5;
+				knight.rect.top = 500;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+
+
+
 
 			currentTiles[0].setSize(Vector2f(545, 55));
 			currentTiles[0].setPosition(0, 995);
@@ -1036,15 +1200,28 @@ struct LevelOne {
 
 
 		}
-		if (currentScene == 1) {
+		if (currentScene == 1)
+		{
+
+
 			currentTiles.resize(11);
 
 			for (int i = 0; i < 11; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
-			knight.rect.left = 3;
-			knight.rect.top = 400;
+
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 3;
+				knight.rect.top = 400;
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			currentTiles[0].setSize(Vector2f(320, 50));
 			currentTiles[0].setPosition(0, 785);
@@ -1084,11 +1261,22 @@ struct LevelOne {
 			currentTiles[10].setPosition(1845, 760);
 
 		}
-		if (currentScene == 2) {
+		if (currentScene == 2)
+		{
+
+
 			currentTiles.resize(13);
 
-			knight.rect.left = -75;
-			knight.rect.top = 600;
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -75;
+				knight.rect.top = 600;
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			for (int i = 0; i < 13; i++) {
 				currentTiles[i].setFillColor(Color::Transparent);
@@ -1132,9 +1320,19 @@ struct LevelOne {
 			currentTiles[12].setSize(Vector2f(55, 180));
 			currentTiles[12].setPosition(1875, 705);
 		}
-		if (currentScene == 3) {
-			knight.rect.left = -10;
-			knight.rect.top = 300;
+		if (currentScene == 3)
+		{
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -10;
+				knight.rect.top = 300;
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			currentTiles.resize(8);
 
@@ -1170,11 +1368,22 @@ struct LevelOne {
 			currentTiles[7].setPosition(1885, 760);
 
 		}
-		if (currentScene == 4) {
+		if (currentScene == 4)
+		{
 			currentTiles.resize(6);
 
-			knight.rect.top = 570;
-			knight.rect.left = -10;
+
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.top = 570;
+				knight.rect.left = -10;
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 
 			for (int i = 0; i < 6; i++)
@@ -1204,12 +1413,23 @@ struct LevelOne {
 			currentTiles[5].setSize(Vector2f(705, 250));
 			currentTiles[5].setPosition(1215, 625);
 		}
-		if (currentScene == 5) {
+		if (currentScene == 5)
+		{
+
 			if (!currentTiles.empty()) {
 				currentTiles.erase(currentTiles.begin(), currentTiles.end());
 			}
 
-			knight.rect.left = -125;
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -125;
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 
 			ground = 400;
 		}
@@ -1400,6 +1620,7 @@ struct LevelOne {
 			// door : tile 12
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[11].getGlobalBounds()) && noOFEnemies == 0) {
 				currentScene++;
+				pausedtimes = 0;
 				placeScene();
 			}
 		}
@@ -2346,19 +2567,15 @@ struct levelTwo {
 	}
 } levelTwoMap;
 
-int gameMode(RenderWindow& window, mainMenu& menu, Sound& clickSound);
-
-void store(int);
-
 void movements();
-
-void arcadeMode(RenderWindow& window);
 
 void levelOne(RenderWindow& window);
 
 void levelTwo(RenderWindow& window);
 
-int main() {
+int main() 
+{
+	knight.assignSprite(); // Initialize player character
 
 	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
 	window.setFramerateLimit(60);
@@ -2418,20 +2635,63 @@ int main() {
 
 			}
 		}
-		if (pageNum == 2) {
-			int modeSelected = gameMode(window, menu, clickSound);
-			if (modeSelected == 5) {
-				arcadeMode(window);
-				cout << "Arcade mode!" << endl;
-			}
-			else if (modeSelected == 6) {
-				levelOne(window);
-				cout << "Levels Mode!" << endl;
-			}
-			else
+		if (pageNum == 2) 
+		{
+			menu.modeMenu.modeMenuFunc(1920, 1080);
+
+			Texture modeMenuPic;
+			modeMenuPic.loadFromFile("menu/menuPic.jpg");
+			Sprite modeMenuSprite;
+			modeMenuSprite.setTexture(modeMenuPic);
+
+
+
+			Event event;
+			while (window.pollEvent(event))
 			{
-				cout << "Back" << endl;
+				if (event.type == Event::Closed)
+				{
+					window.close();
+					break;
+				}
+				if (event.type == Event::KeyPressed)
+				{
+					if (event.key.code == Keyboard::Right)
+						menu.modeMenu.moveRight();
+					if (event.key.code == Keyboard::Left)
+						menu.modeMenu.moveLeft();
+					if (event.key.code == Keyboard::Enter)
+					{
+						clickSound.play();
+						if (menu.modeMenu.pressed() == 0)
+						{
+							pageNum = 5;
+							break;
+						}
+						if (menu.modeMenu.pressed() == 1)
+						{
+							pageNum = 6;
+							break;
+						}
+
+					}
+					if (event.key.code == Keyboard::Escape)
+					{  // return back to the main menu page
+						clickSound.play();
+						pageNum = 1;
+						menu.menuElement[0].setFillColor(Color::White);
+						menu.menuElement[0].setCharacterSize(90);
+						return pageNum;
+					}
+				}
+
+				// Update
+				window.clear();
+				window.draw(modeMenuSprite);
+				menu.modeMenu.draw(window);
+				window.display();
 			}
+
 		}
 		if (pageNum == 3) {
 			int coins = 500;
@@ -2447,56 +2707,93 @@ int main() {
 			window.close();
 			break;
 		}
+		if (pageNum == 5)
+		{
+
+			Texture arcadebackgroundTexture;
+			Sprite backgroundSprite;
+			arcadebackgroundTexture.loadFromFile("external/background1.png");
+			backgroundSprite.setTexture(arcadebackgroundTexture);
+			pauseMenu.PauseMenufunc(1920, 1080);
+
+			int pageNum = 0; // Initialize pageNum to control the game flow
+			bool paused = false;
+			ground = 600;
+
+
+
+			Clock clock;
+			//knight.assignSprite(); // Initialize player character
+
+
+			/*knight.rect.left = 10;
+			knight.rect.top = 850;*/
+
+			while (window.isOpen())
+			{
+				// Handle events
+				Event event;
+				while (window.pollEvent(event))
+				{
+
+
+					if (event.type == Event::Closed)
+					{
+						window.close();
+					}
+
+					if (event.type == Event::KeyPressed)
+					{
+						if (event.key.code == Keyboard::Escape)
+						{
+							knight.rect.left = knight.rect.getPosition().x;
+							knight.rect.top = knight.rect.getPosition().y;
+							pauseMenu.paused = true;
+						}
+					}
+				}
+
+				// Update game logic
+
+				// Clear the window
+				window.clear();
+
+				if (!pauseMenu.paused)
+				{
+					movements();
+					float time = (float)clock.getElapsedTime().asMicroseconds();
+					clock.restart();
+					time /= 650;
+					if (time > 20)
+						time = 20;
+					knight.update(time);
+				}
+				else
+				{
+
+					pauseMenu.show(window);
+					break;
+				}
+
+				// Draw game elements
+				window.draw(backgroundSprite);
+				window.draw(knight.sprite);
+
+
+
+				// Display the window
+
+				window.display();
+			}
+
+		}
+		if (pageNum == 6)
+		{
+			levelOne(window);
+		}
 	}
 
 	return 0;
-}
-
-int gameMode(RenderWindow& window, mainMenu& menu, Sound& clickSound) {
-
-	menu.modeMenu.modeMenuFunc(1920, 1080);
-
-	Texture modeMenuPic;
-	modeMenuPic.loadFromFile("menu/menuPic.jpg");
-	Sprite modeMenuSprite;
-	modeMenuSprite.setTexture(modeMenuPic);
-
-
-	while (true) {
-		Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed) {
-				window.close();
-				break;
-			}
-			if (event.type == Event::KeyPressed) {
-				if (event.key.code == Keyboard::Right)
-					menu.modeMenu.moveRight();
-				if (event.key.code == Keyboard::Left)
-					menu.modeMenu.moveLeft();
-				if (event.key.code == Keyboard::Enter) {
-					clickSound.play();
-					if (menu.modeMenu.pressed() == 0)
-						return 5; // Return 5 for Arcade/Endless Mode
-					if (menu.modeMenu.pressed() == 1)
-						return 6; // Return 6 for Level Mode
-				}
-				if (event.key.code == Keyboard::Escape) {  // return back to the main menu page
-					clickSound.play();
-					pageNum = 1;
-					menu.menuElement[0].setFillColor(Color::White);
-					menu.menuElement[0].setCharacterSize(90);
-					return pageNum;
-				}
-			}
-
-			// Update
-			window.clear();
-			window.draw(modeMenuSprite);
-			menu.modeMenu.draw(window);
-			window.display();
-		}
-	}
 }
 
 void movements() {
@@ -2579,69 +2876,10 @@ void movements() {
 
 }
 
-void arcadeMode(RenderWindow& window) {
-	Texture backgroundTexture;
-	backgroundTexture.loadFromFile("external/background1.png");
-	Sprite backgroundSprite;
-	backgroundSprite.setTexture(backgroundTexture);
-
-	Clock clock;
-	knight.assignSprite(); // Initialize player character
-	knight.rect.left = 10;
-	knight.rect.top = 850;
-
-	Skeleton_1.assign_sec_enemy_info("skeleton", 500, 900, 100, 12, 0.5, 100);
-	Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1000, 830, 100, 12, 0.5, 120);
-	executioner.assign_boss_enemy_info("Boss1", 1600, 515, 130, 20, 30, 0.3, 190);
-	while (window.isOpen()) {
-		// Handle events
-		Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed) {
-				delete[] Skeleton_1.stateTexture;
-				delete[] Evil_Wizard_1.stateTexture;
-				window.close();
-
-			}
-		}
-
-		// Update game logic
-		movements();
-
-		float time = (float)clock.getElapsedTime().asMicroseconds();
-		clock.restart();
-		time /= 650;
-		if (time > 20)
-			time = 20;
-		knight.update(time);
-
-		if (!Skeleton_1.dead);
-		Skeleton_1.update_skeleton_state(time);
-
-		if (!Evil_Wizard_1.dead);
-		Evil_Wizard_1.update_evilwiz_state(time);
-
-		if (!executioner.dead);
-		executioner.update_boss1_state(time);
-
-		// Clear the window
-		window.clear();
-
-		// Draw game elements
-		window.draw(backgroundSprite);
-		window.draw(knight.sprite);
-		window.draw(Skeleton_1.sprite);
-		window.draw(Evil_Wizard_1.sprite);
-		window.draw(executioner.sprite);
-		// Display the window
-		window.display();
-	}
-}
-
 void levelOne(RenderWindow& window) {
 	Clock clock;
-	knight.assignSprite(); // Initialize player character
-
+	
+	pauseMenu.PauseMenufunc(1920, 1080);
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
@@ -2675,36 +2913,27 @@ void levelOne(RenderWindow& window) {
 					cout << "Red Rect Left : " << collisionRect.getGlobalBounds().left << " Red Rect Top " << collisionRect.getGlobalBounds().top << endl;
 				}
 			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Escape)
+				{
+					knight.rect.left = knight.rect.getPosition().x;
+					knight.rect.top = knight.rect.getPosition().y;
+					pauseMenu.paused = true;
+					pausedtimes++;
+
+				}
+			}
 		}
 
 
 
-
-		// check player collision (always should be placed before movement fn to avoid silly animation bugs :) )
+		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelOneMap.checkCollision(collisionRect);
-
-		// Update game logic
-		movements();
-
-
-
-		float time = (float)clock.getElapsedTime().asMicroseconds();
-		clock.restart();
-		time /= 650;
-		if (time > 20)
-			time = 20;
-		knight.update(time);
-
-
-
-
 
 		// Clear the window
 		window.clear();
-
-		// Draw game elements	
-		window.draw(levelOneMap.backgroundSprite);
-		window.draw(knight.sprite);
 
 		for (int i = 0; i < currentTiles.size(); i++)
 		{
@@ -2713,7 +2942,28 @@ void levelOne(RenderWindow& window) {
 
 		window.draw(collisionRect);
 
-		// Display the window
+
+
+		if (!pauseMenu.paused)
+		{
+			window.draw(levelOneMap.backgroundSprite);
+			window.draw(knight.sprite);
+
+			movements();
+			float time = (float)clock.getElapsedTime().asMicroseconds();
+			clock.restart();
+			time /= 650;
+			if (time > 20)
+				time = 20;
+			knight.update(time);
+
+		}
+		else
+		{
+			pauseMenu.show(window);
+			break;
+
+		}
 		window.display();
 	}
 }
