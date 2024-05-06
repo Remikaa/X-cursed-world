@@ -40,6 +40,16 @@ SoundBuffer clickbuffer;
 Sound clicksound;
 
 void store(RenderWindow& window);
+RectangleShape RectCreator(float x, float y, float posx = 0, float posy = 0)
+{
+	RectangleShape Rect;
+	Rect.setOutlineThickness(2);
+	Rect.setOutlineColor(Color::Red);
+	Rect.setFillColor(Color::Transparent);
+	Rect.setSize(Vector2f(x, y));
+	Rect.setPosition(posx, posy);
+	return Rect;
+}
 
 struct mode {
 	Text modeElement[2];
@@ -185,6 +195,7 @@ struct character {
 	string state;  // The current state of the player
 	int health;  // Health of the player
 	Texture stateTexture[knight_num_of_textures];  // Array of textures for different states
+	RectangleShape collisionRect;
 
 	// Function to load textures for different states
 	void loadTextures() {
@@ -373,6 +384,7 @@ struct SecEnemy
 	int cur_enemy_idx; // current enemy index (used for loading the textures)
 	int right_boundary; // the boundaries values of x position
 	int left_boundary;
+	RectangleShape zone;
 	int attack;
 	int health;
 	int attack_pause_time;
@@ -409,6 +421,7 @@ struct SecEnemy
 			sprite.setScale(4, 4);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
+			//zone = RectCreator(190, 50, posx + 150, posy + 150);
 			movement_range = movementrange;
 			attack = attackpow; //current skeleton power
 			attack_pause_time = attpause;// current pause time between every two attacks
@@ -417,6 +430,8 @@ struct SecEnemy
 			rect.left = posx;
 			rect.top = posy;
 			speed = 0.1;
+			//rect.left = 10;
+			//rect.top = 850;
 		}
 		else if (enemytype == "EvilWizard")
 		{
@@ -428,6 +443,7 @@ struct SecEnemy
 			sprite.setScale(2.6, 2.6);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
+			//zone = RectCreator(300, 100, posx+150,posy+120);
 			movement_range = movementrange;
 			attack = attackpow; //current wizard power
 			attack_pause_time = attpause;// current pause time between every two attacks
@@ -440,7 +456,7 @@ struct SecEnemy
 	}
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
-		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+		return zone.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds());
 	}
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
@@ -479,7 +495,7 @@ struct SecEnemy
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 110)
+		else if (is_player_in_range_x())
 			state = "attack";
 		else
 			state = "walk";
@@ -492,16 +508,16 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			if (is_player_in_range_x())
-			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-					dir = 1;
-				else
-					dir = -1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			}
-			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			//if (is_player_in_range_x())
+			//{
+			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+			//		dir = 1;
+			//	else
+			//		dir = -1;
+			//	left_boundary = rect.getPosition().x - movement_range;
+			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+			//}
+			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
 				turn_time = 10;
@@ -519,8 +535,8 @@ struct SecEnemy
 					dir = -1;
 				else
 					dir = 1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+				//left_boundary = rect.getPosition().x - movement_range;
+				//right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
 
 				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
 				{
@@ -559,7 +575,7 @@ struct SecEnemy
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 110)
+		else if (is_player_in_range_x())
 			state = "attack";
 		else
 			state = "walk";
@@ -572,16 +588,16 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			if (is_player_in_range_x())
-			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-					dir = 1;
-				else
-					dir = -1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			}
-			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			//if (is_player_in_range_x())
+			//{
+			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+			//		dir = 1;
+			//	else
+			//		dir = -1;
+			//	left_boundary = rect.getPosition().x - movement_range;
+			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+			//}
+			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
 				turn_time = 10;
@@ -599,8 +615,8 @@ struct SecEnemy
 					dir = -1;
 				else
 					dir = 1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+				/*left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; */// so we don't use the getPosition() twice ;)
 
 				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
 				{
@@ -627,7 +643,7 @@ struct SecEnemy
 
 	}
 
-}Skeleton_1, Evil_Wizard_1;
+}Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3;
 
 struct BossEnemy
 {
@@ -676,7 +692,7 @@ struct BossEnemy
 			state = "idle";
 			health = hp;
 			//attacking_factor = 1; not needed 
-			sprite.setScale(3.14, 2 * 3.14); // cuz i love pi and i love people who love pi ;)
+			sprite.setScale(3.14, 3.14); // cuz i love pi and i love people who love pi ;)
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone;
 			kill_zone = killzone;
@@ -1180,6 +1196,8 @@ struct LevelOne {
 				knight.rect.left = 5;
 				knight.rect.top = 500;
 				//put the mobs initializations here
+				//Skeleton_1.rect.left = 670;
+				//Skeleton_1.rect.top = 700;
 			}
 			else
 			{
@@ -3115,7 +3133,7 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			levelTwo(window);
+			levelOne(window);
 		}
 	}
 
@@ -3713,6 +3731,7 @@ void store(RenderWindow& window)
 	}
 }
 
+
 void levelOne(RenderWindow& window) {
 	Clock clock;
 	
@@ -3726,20 +3745,17 @@ void levelOne(RenderWindow& window) {
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
+	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 285, 10, 1, 100);
+	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 2, 80);
 	while (window.isOpen()) {
-		// redRect for collision detection
-		RectangleShape collisionRect;
-		collisionRect.setOutlineThickness(2);
-		collisionRect.setOutlineColor(Color::Transparent);
-		collisionRect.setFillColor(Color::Transparent);
-		collisionRect.setSize(Vector2f(120, 145));
 		Vector2f knightPos = knight.sprite.getPosition();
 		// adjusting the collision rect to be more accurate 
-		collisionRect.setPosition(knightPos.x + 150, knightPos.y + 150);
-
-		
-
-
+		// redRect for collision detection
+		knight.collisionRect = RectCreator(120, 145, knightPos.x + 150, knightPos.y + 150);
+		Vector2f SPos1 = Skeleton_1.sprite.getPosition();
+		Vector2f SPos2 = Skeleton_2.sprite.getPosition();
+		Skeleton_1.zone = RectCreator(200, 170, SPos1.x, SPos1.y);
+		Skeleton_2.zone = RectCreator(200, 170, SPos2.x , SPos2.y);
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -3751,7 +3767,7 @@ void levelOne(RenderWindow& window) {
 				if (event.mouseButton.button == Mouse::Left) {
 					Vector2i mousePos = Mouse::getPosition(window);
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-					cout << "Red Rect Left : " << collisionRect.getGlobalBounds().left << " Red Rect Top " << collisionRect.getGlobalBounds().top << endl;
+					cout << "Red Rect Left : " << knight.collisionRect.getGlobalBounds().left << " Red Rect Top " << knight.collisionRect.getGlobalBounds().top << endl;
 					cout << "blue rect left : " << knight.rect.left << "blue rect top : "  <<  knight.rect.top <<endl;
 				}
 			}
@@ -3773,8 +3789,8 @@ void levelOne(RenderWindow& window) {
 
 
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
-		levelOneMap.checkCollision(collisionRect);
-
+		levelOneMap.checkCollision(knight.collisionRect);
+		
 		// Clear the window
 		window.clear();
 
@@ -3785,7 +3801,16 @@ void levelOne(RenderWindow& window) {
 		{
 			window.draw(levelOneMap.backgroundSprite);
 			window.draw(knight.sprite);
-
+			if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
+			{
+				window.draw(Skeleton_1.sprite);
+				window.draw(Skeleton_1.zone);
+			}
+			if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
+			{
+				window.draw(Skeleton_2.sprite);
+				window.draw(Skeleton_2.zone);
+			}
 			movements();
 			float time = (float)clock.getElapsedTime().asMicroseconds();
 			clock.restart();
@@ -3793,6 +3818,8 @@ void levelOne(RenderWindow& window) {
 			if (time > 20)
 				time = 20;
 			knight.update(time);
+			Skeleton_1.update_skeleton_state(time);
+			Skeleton_2.update_skeleton_state(time);
 
 		}
 		else
@@ -3807,7 +3834,7 @@ void levelOne(RenderWindow& window) {
 			window.draw(currentTiles[i]);
 		}
 
-		window.draw(collisionRect);
+		window.draw(knight.collisionRect);
 		window.display();
 	}
 }
@@ -3836,7 +3863,7 @@ void levelTwo(RenderWindow& window) {
 		collisionRect.setSize(Vector2f(90, 150));
 		Vector2f knightPos = knight.sprite.getPosition();
 		collisionRect.setPosition(knightPos.x + 160, knightPos.y + 146);
-
+		//Skeleton_1.assign_sec_enemy_info("skeleton", 670, 700, 285, 10, 1, 100);
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -3887,7 +3914,7 @@ void levelTwo(RenderWindow& window) {
 		{
 			window.draw(levelTwoMap.backgroundSprite);
 			window.draw(knight.sprite);
-
+			//window.draw(Skeleton_1.sprite);
 			movements();
 			float time = (float)clock.getElapsedTime().asMicroseconds();
 			clock.restart();
@@ -3895,7 +3922,7 @@ void levelTwo(RenderWindow& window) {
 			if (time > 20)
 				time = 20;
 			knight.update(time);
-
+			//Skeleton_1.update_skeleton_state(time);
 		}
 		else
 		{

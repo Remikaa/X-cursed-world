@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\SP\\",
+  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\Store\\score.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:Store\\score.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +30,25 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "score.cpp",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\Store\\score.cpp",
+              "RelativeDocumentMoniker": "Store\\score.cpp",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\Store\\score.cpp",
+              "RelativeToolTip": "Store\\score.cpp",
+              "ViewState": "AQIAAKkAAAAAAAAAAAAIwMMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-06T01:24:50.057Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\SP\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\SP\\main.cpp",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAFgBAAAAAAAAAAAAANIDAAAQAAAA",
+              "ViewState": "AQIAAJ0OAAAAAAAAAAAIwLQOAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-05T09:32:08.57Z",
               "EditorCaption": ""
