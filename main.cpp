@@ -364,8 +364,10 @@ struct perk
 {
 	Sprite action;
 	Sprite upgradeButton;
+	Sprite priceTexture;
 	Text upgradeText;
 	Text price;
+	Text info;
 	FloatRect bounds;
 	FloatRect upgradeBounds;
 }perks[NUMBER_OF_PERKS];
@@ -3244,14 +3246,15 @@ void store(RenderWindow& window)
 	textBanner.setPosition(885, 45);
 
 	// Load primary textures
-	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button;
+	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button, coinTexture;
 	if (!background.loadFromFile("Store/Textures/background.png") ||
 		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
 		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
 		!infoBoard.loadFromFile("Store/Textures/boardofinfo.png") ||
 		!infoChain.loadFromFile("Store/Textures/infochain.png") ||
 		!powerChain.loadFromFile("Store/Textures/chain.png") ||
-		!button.loadFromFile("Store/Textures/button.png"))
+		!button.loadFromFile("Store/Textures/button.png") ||
+		!coinTexture.loadFromFile("Store/Textures/coin.png"))
 	{
 		cerr << "Error loading primary textures files" << "/n";
 	}
@@ -3263,7 +3266,7 @@ void store(RenderWindow& window)
 
 	// Create primary sprites
 	Sprite storeBackground(background), storeBanner(storeBadge), boardOfPowers(powerBoard),
-		boardOfInfo(infoBoard), chainOfInfo(infoChain), chainOne(powerChain), chainTwo(powerChain);
+		boardOfInfo(infoBoard), chainOfInfo(infoChain), chainOne(powerChain), chainTwo(powerChain), coinsText(coinTexture);
 
 	// Set positions for primary sprites
 	storeBanner.setPosition(760, 25);
@@ -3272,6 +3275,8 @@ void store(RenderWindow& window)
 	chainOfInfo.setPosition(0, 280);
 	chainOne.setPosition(1540, 0);
 	chainTwo.setPosition(1830, 0);
+	coinsText.setPosition(240, 10);
+	coinsText.setScale(0.7, 0.7);
 
 	// Load Perks textures
 	Texture heart, resis, sword;
@@ -3288,6 +3293,10 @@ void store(RenderWindow& window)
 		perks[i].upgradeButton.setTexture(button);
 		perks[i].upgradeButton.setPosition(-1000, -1000);
 
+		perks[i].priceTexture.setTexture(coinTexture);
+		perks[i].priceTexture.setPosition(-1000, -1000);
+		perks[i].priceTexture.setScale(0.5, 0.5);
+
 		// Create text on button
 		perks[i].upgradeText.setFont(storeFont);
 		perks[i].upgradeText.setString("Upgrade");
@@ -3301,6 +3310,11 @@ void store(RenderWindow& window)
 		perks[i].price.setCharacterSize(40);
 		perks[i].price.setPosition(-1000, -1000);
 
+		perks[i].info.setFont(storeFont);
+		perks[i].info.setFillColor(Color::White);
+		perks[i].info.setCharacterSize(40);
+		perks[i].info.setPosition(-1000, -1000);
+
 		// Create perks sprites
 		// position of Perks
 		switch (i)
@@ -3309,19 +3323,23 @@ void store(RenderWindow& window)
 			perks[i].action.setTexture(sword);
 			perks[i].action.setPosition(1570, 250);
 			perks[i].price.setString("100");
+			perks[i].info.setString("Increase\nAttack\nDamage\nby 25%");
 			break;
 		case 1:
 			perks[i].action.setTexture(resis);
 			perks[i].action.setPosition(1710, 250);
 			perks[i].price.setString("80");
+			perks[i].info.setString("Increase\nResistence\nby 25%");
 			break;
 		case 2:
 			perks[i].action.setTexture(heart);
 			perks[i].action.setPosition(1570, 350);
 			perks[i].price.setString("120");
+			perks[i].info.setString("Increase\nHealth\nby 25%");
 			break;
 		}
 	}
+
 	powerUp1File.open("powerUp1File.txt", ios::in);
 	if (powerUp1File.is_open())
 	{
@@ -3332,6 +3350,7 @@ void store(RenderWindow& window)
 		}
 		powerUp1File.close();
 	}
+
 	powerUp2File.open("powerUp2File.txt", ios::in);
 	if (powerUp2File.is_open())
 	{
@@ -3342,6 +3361,7 @@ void store(RenderWindow& window)
 		}
 		powerUp2File.close();
 	}
+
 	powerUp3File.open("powerUp3File.txt", ios::in);
 	if (powerUp3File.is_open())
 	{
@@ -3475,11 +3495,19 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 						perks[0].upgradeButton.setPosition(1550, 800);
 						clickSound.play();
 						perks[0].upgradeText.setPosition(1607, 827);
-						perks[0].price.setPosition(180, 640);
+						perks[0].price.setPosition(160, 640);
+						perks[0].priceTexture.setPosition(235, 650);
+						perks[0].info.setPosition(100, 400);
+
+						if (upgradeCheck[0] == 1) perks[0].price.setString("150");
+						if (upgradeCheck[0] == 2) perks[0].price.setString("200");
+						if (upgradeCheck[0] == 3) perks[0].price.setString("250");
 					}
 					else if (upgradeCheck[0] == 4)
 					{
@@ -3488,6 +3516,8 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 					}
 				}
@@ -3612,11 +3642,19 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 						perks[1].upgradeButton.setPosition(1550, 800);
 						clickSound.play();
 						perks[1].upgradeText.setPosition(1607, 827);
-						perks[1].price.setPosition(180, 640);
+						perks[1].price.setPosition(160, 640);
+						perks[1].priceTexture.setPosition(235, 650);
+						perks[1].info.setPosition(100, 400);
+
+						if (upgradeCheck[1] == 1) perks[1].price.setString("120");
+						if (upgradeCheck[1] == 2) perks[1].price.setString("160");
+						if (upgradeCheck[1] == 3) perks[1].price.setString("200");
 					}
 					else if (upgradeCheck[1] == 4)
 					{
@@ -3625,6 +3663,8 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 					}
 				}
@@ -3749,11 +3789,19 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 						perks[2].upgradeButton.setPosition(1550, 800);
 						clickSound.play();
 						perks[2].upgradeText.setPosition(1607, 827);
-						perks[2].price.setPosition(180, 640);
+						perks[2].price.setPosition(160, 640);
+						perks[2].priceTexture.setPosition(235, 650);
+						perks[2].info.setPosition(100, 400);
+
+						if (upgradeCheck[2] == 1) perks[2].price.setString("170");
+						if (upgradeCheck[2] == 2) perks[2].price.setString("220");
+						if (upgradeCheck[2] == 3) perks[2].price.setString("270");
 					}
 					else if (upgradeCheck[2] == 4)
 					{
@@ -3762,6 +3810,8 @@ void store(RenderWindow& window)
 							perks[i].upgradeButton.setPosition(-1000, -1000);
 							perks[i].upgradeText.setPosition(-1000, -1000);
 							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
 						}
 					}
 				}
@@ -3885,9 +3935,12 @@ void store(RenderWindow& window)
 			window.draw(perks[i].action);
 			window.draw(perks[i].price);
 			window.draw(perks[i].upgradeButton);
+			window.draw(perks[i].priceTexture);
 			window.draw(perks[i].upgradeText);
+			window.draw(perks[i].info);
 		}
 		window.draw(displayCoinText);
+		window.draw(coinsText);
 		window.display();
 	}
 }

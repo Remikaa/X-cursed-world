@@ -1,430 +1,432 @@
 ﻿  main.cpp
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(72,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(72,44): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(72,44): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(72,44): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(72,44): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(212,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(212,19): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(233,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(245,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(245,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(245,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(245,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(245,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(250,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(425,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(429,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(429,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(430,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(430,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(430,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(430,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(430,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(431,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(431,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(431,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(431,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(431,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(432,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(443,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(443,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(451,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(451,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(452,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(452,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(452,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(452,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(452,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(453,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(453,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(453,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(453,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(453,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(454,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(488,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(510,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(545,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(555,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(568,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(590,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(625,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(635,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(695,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(695,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(698,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(705,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(705,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(707,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(707,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(707,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(707,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(707,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(708,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(720,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(726,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(726,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(727,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(727,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(727,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(727,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(727,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(729,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(767,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(791,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(798,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(798,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(798,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(798,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(798,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(799,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(837,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(837,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(837,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(837,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(837,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(838,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(847,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(857,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(885,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(907,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(914,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(914,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(914,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(914,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(914,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(915,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(951,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(951,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(951,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(951,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(951,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(952,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(962,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(972,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1173,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1549,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1549,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1549,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1549,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1549,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1579,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1579,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1579,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1579,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1579,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1612,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1612,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1612,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1612,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1612,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1625,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1625,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1625,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1625,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1625,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1638,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1638,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1638,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1638,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1638,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1652,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1652,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1652,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1652,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1652,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1712,21): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1720,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1720,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1720,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1720,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1720,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1738,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1738,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1738,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1738,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1738,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1743,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1743,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1743,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1743,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1743,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1756,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1756,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1756,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1756,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1756,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1780,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1780,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1780,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1780,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1780,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1795,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1795,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1795,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1795,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1795,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1814,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1814,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1814,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1814,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1814,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1864,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1864,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1864,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1864,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1864,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1888,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1888,59): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1888,59): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1888,59): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1888,59): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,59): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,59): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,59): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,59): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1913,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1913,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1913,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1913,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1913,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1949,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1949,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1949,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1949,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1949,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1982,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1982,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1982,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1982,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1982,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1996,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1996,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1996,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1996,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1996,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2009,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2009,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2009,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2009,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2009,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2022,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2022,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2022,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2022,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2022,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2043,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2043,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2043,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2043,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2043,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2056,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2056,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2056,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2056,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2056,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2082,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2082,75): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2082,75): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2082,75): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2082,75): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2096,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2096,75): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2096,75): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2096,75): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2096,75): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2120,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2120,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2120,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2120,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2120,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2139,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2139,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2139,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2139,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2139,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2192,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2196,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2472,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2472,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2472,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2472,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2472,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2493,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2493,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2493,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2493,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2493,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2526,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2526,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2526,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2526,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2526,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2541,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2541,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2541,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2541,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2541,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2546,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2546,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2546,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2546,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2546,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2568,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2568,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2568,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2568,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2568,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2573,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2573,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2573,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2573,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2573,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2594,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2594,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2594,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2594,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2594,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2599,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2599,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2599,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2599,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2599,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2620,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2620,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2620,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2620,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2620,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2646,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2646,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2646,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2646,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2646,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2663,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2663,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2663,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2663,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2663,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2668,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2668,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2668,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2668,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2668,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2682,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2682,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2682,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2682,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2682,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2709,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2709,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2709,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2709,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2709,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2724,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2724,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2724,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2724,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2724,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2729,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2729,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2729,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2729,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2729,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2752,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2752,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2752,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2752,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2752,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2757,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2757,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2757,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2757,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2757,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2775,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2775,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2775,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2775,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2775,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2788,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2788,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2788,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2788,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2788,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2814,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2814,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2814,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2814,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2814,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2828,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2828,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2828,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2828,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2828,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2833,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2833,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2833,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2833,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2833,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2849,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2849,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2849,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2849,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2849,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2854,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2854,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2854,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2854,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2854,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2875,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2875,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2875,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2875,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2875,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2888,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2888,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2888,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2888,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2888,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2893,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2893,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2893,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2893,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2893,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3147,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3153,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3159,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3160,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3164,20): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3173,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3174,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3179,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3180,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3188,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3189,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3195,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3201,19): warning C4305: '=': truncation from 'double' to 'float'
-  x cursed world.vcxproj -> C:\Users\HP\OneDrive\Desktop\X-cursed-world\x64\Debug\x cursed world.exe
+E:\SP\main.cpp(80,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(80,44): warning C4244:         with
+E:\SP\main.cpp(80,44): warning C4244:         [
+E:\SP\main.cpp(80,44): warning C4244:             T=float
+E:\SP\main.cpp(80,44): warning C4244:         ]
+E:\SP\main.cpp(220,24): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(220,19): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(241,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(253,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(253,15): warning C4244:         with
+E:\SP\main.cpp(253,15): warning C4244:         [
+E:\SP\main.cpp(253,15): warning C4244:             T=float
+E:\SP\main.cpp(253,15): warning C4244:         ]
+E:\SP\main.cpp(258,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(429,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(433,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(433,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(434,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(434,16): warning C4244:         with
+E:\SP\main.cpp(434,16): warning C4244:         [
+E:\SP\main.cpp(434,16): warning C4244:             T=float
+E:\SP\main.cpp(434,16): warning C4244:         ]
+E:\SP\main.cpp(435,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(435,15): warning C4244:         with
+E:\SP\main.cpp(435,15): warning C4244:         [
+E:\SP\main.cpp(435,15): warning C4244:             T=float
+E:\SP\main.cpp(435,15): warning C4244:         ]
+E:\SP\main.cpp(436,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(447,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(447,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(451,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(455,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(455,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(456,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(456,16): warning C4244:         with
+E:\SP\main.cpp(456,16): warning C4244:         [
+E:\SP\main.cpp(456,16): warning C4244:             T=float
+E:\SP\main.cpp(456,16): warning C4244:         ]
+E:\SP\main.cpp(457,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(457,15): warning C4244:         with
+E:\SP\main.cpp(457,15): warning C4244:         [
+E:\SP\main.cpp(457,15): warning C4244:             T=float
+E:\SP\main.cpp(457,15): warning C4244:         ]
+E:\SP\main.cpp(458,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(492,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(514,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(549,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(559,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(572,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(594,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(629,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(639,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(699,26): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(699,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(702,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(709,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(709,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(710,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(710,16): warning C4244:         with
+E:\SP\main.cpp(710,16): warning C4244:         [
+E:\SP\main.cpp(710,16): warning C4244:             T=float
+E:\SP\main.cpp(710,16): warning C4244:         ]
+E:\SP\main.cpp(711,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(711,15): warning C4244:         with
+E:\SP\main.cpp(711,15): warning C4244:         [
+E:\SP\main.cpp(711,15): warning C4244:             T=float
+E:\SP\main.cpp(711,15): warning C4244:         ]
+E:\SP\main.cpp(712,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(721,25): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(721,20): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(724,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(730,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(730,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(731,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(731,16): warning C4244:         with
+E:\SP\main.cpp(731,16): warning C4244:         [
+E:\SP\main.cpp(731,16): warning C4244:             T=float
+E:\SP\main.cpp(731,16): warning C4244:         ]
+E:\SP\main.cpp(732,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+E:\SP\main.cpp(732,15): warning C4244:         with
+E:\SP\main.cpp(732,15): warning C4244:         [
+E:\SP\main.cpp(732,15): warning C4244:             T=float
+E:\SP\main.cpp(732,15): warning C4244:         ]
+E:\SP\main.cpp(733,12): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(771,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(795,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(802,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(802,42): warning C4244:         with
+E:\SP\main.cpp(802,42): warning C4244:         [
+E:\SP\main.cpp(802,42): warning C4244:             T=float
+E:\SP\main.cpp(802,42): warning C4244:         ]
+E:\SP\main.cpp(803,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(841,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(841,42): warning C4244:         with
+E:\SP\main.cpp(841,42): warning C4244:         [
+E:\SP\main.cpp(841,42): warning C4244:             T=float
+E:\SP\main.cpp(841,42): warning C4244:         ]
+E:\SP\main.cpp(842,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(851,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(861,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(889,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(911,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+E:\SP\main.cpp(918,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(918,42): warning C4244:         with
+E:\SP\main.cpp(918,42): warning C4244:         [
+E:\SP\main.cpp(918,42): warning C4244:             T=float
+E:\SP\main.cpp(918,42): warning C4244:         ]
+E:\SP\main.cpp(919,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(955,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+E:\SP\main.cpp(955,42): warning C4244:         with
+E:\SP\main.cpp(955,42): warning C4244:         [
+E:\SP\main.cpp(955,42): warning C4244:             T=float
+E:\SP\main.cpp(955,42): warning C4244:         ]
+E:\SP\main.cpp(956,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(966,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\SP\main.cpp(976,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+E:\SP\main.cpp(1177,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(1553,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1553,57): warning C4244:         with
+E:\SP\main.cpp(1553,57): warning C4244:         [
+E:\SP\main.cpp(1553,57): warning C4244:             T=float
+E:\SP\main.cpp(1553,57): warning C4244:         ]
+E:\SP\main.cpp(1583,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1583,57): warning C4244:         with
+E:\SP\main.cpp(1583,57): warning C4244:         [
+E:\SP\main.cpp(1583,57): warning C4244:             T=float
+E:\SP\main.cpp(1583,57): warning C4244:         ]
+E:\SP\main.cpp(1616,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1616,57): warning C4244:         with
+E:\SP\main.cpp(1616,57): warning C4244:         [
+E:\SP\main.cpp(1616,57): warning C4244:             T=float
+E:\SP\main.cpp(1616,57): warning C4244:         ]
+E:\SP\main.cpp(1629,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1629,57): warning C4244:         with
+E:\SP\main.cpp(1629,57): warning C4244:         [
+E:\SP\main.cpp(1629,57): warning C4244:             T=float
+E:\SP\main.cpp(1629,57): warning C4244:         ]
+E:\SP\main.cpp(1642,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1642,57): warning C4244:         with
+E:\SP\main.cpp(1642,57): warning C4244:         [
+E:\SP\main.cpp(1642,57): warning C4244:             T=float
+E:\SP\main.cpp(1642,57): warning C4244:         ]
+E:\SP\main.cpp(1656,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1656,57): warning C4244:         with
+E:\SP\main.cpp(1656,57): warning C4244:         [
+E:\SP\main.cpp(1656,57): warning C4244:             T=float
+E:\SP\main.cpp(1656,57): warning C4244:         ]
+E:\SP\main.cpp(1716,21): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(1724,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1724,57): warning C4244:         with
+E:\SP\main.cpp(1724,57): warning C4244:         [
+E:\SP\main.cpp(1724,57): warning C4244:             T=float
+E:\SP\main.cpp(1724,57): warning C4244:         ]
+E:\SP\main.cpp(1742,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1742,57): warning C4244:         with
+E:\SP\main.cpp(1742,57): warning C4244:         [
+E:\SP\main.cpp(1742,57): warning C4244:             T=float
+E:\SP\main.cpp(1742,57): warning C4244:         ]
+E:\SP\main.cpp(1747,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1747,57): warning C4244:         with
+E:\SP\main.cpp(1747,57): warning C4244:         [
+E:\SP\main.cpp(1747,57): warning C4244:             T=float
+E:\SP\main.cpp(1747,57): warning C4244:         ]
+E:\SP\main.cpp(1760,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1760,57): warning C4244:         with
+E:\SP\main.cpp(1760,57): warning C4244:         [
+E:\SP\main.cpp(1760,57): warning C4244:             T=float
+E:\SP\main.cpp(1760,57): warning C4244:         ]
+E:\SP\main.cpp(1784,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1784,57): warning C4244:         with
+E:\SP\main.cpp(1784,57): warning C4244:         [
+E:\SP\main.cpp(1784,57): warning C4244:             T=float
+E:\SP\main.cpp(1784,57): warning C4244:         ]
+E:\SP\main.cpp(1799,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1799,57): warning C4244:         with
+E:\SP\main.cpp(1799,57): warning C4244:         [
+E:\SP\main.cpp(1799,57): warning C4244:             T=float
+E:\SP\main.cpp(1799,57): warning C4244:         ]
+E:\SP\main.cpp(1818,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1818,57): warning C4244:         with
+E:\SP\main.cpp(1818,57): warning C4244:         [
+E:\SP\main.cpp(1818,57): warning C4244:             T=float
+E:\SP\main.cpp(1818,57): warning C4244:         ]
+E:\SP\main.cpp(1868,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1868,57): warning C4244:         with
+E:\SP\main.cpp(1868,57): warning C4244:         [
+E:\SP\main.cpp(1868,57): warning C4244:             T=float
+E:\SP\main.cpp(1868,57): warning C4244:         ]
+E:\SP\main.cpp(1892,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1892,59): warning C4244:         with
+E:\SP\main.cpp(1892,59): warning C4244:         [
+E:\SP\main.cpp(1892,59): warning C4244:             T=float
+E:\SP\main.cpp(1892,59): warning C4244:         ]
+E:\SP\main.cpp(1897,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1897,59): warning C4244:         with
+E:\SP\main.cpp(1897,59): warning C4244:         [
+E:\SP\main.cpp(1897,59): warning C4244:             T=float
+E:\SP\main.cpp(1897,59): warning C4244:         ]
+E:\SP\main.cpp(1917,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1917,57): warning C4244:         with
+E:\SP\main.cpp(1917,57): warning C4244:         [
+E:\SP\main.cpp(1917,57): warning C4244:             T=float
+E:\SP\main.cpp(1917,57): warning C4244:         ]
+E:\SP\main.cpp(1926,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1926,57): warning C4244:         with
+E:\SP\main.cpp(1926,57): warning C4244:         [
+E:\SP\main.cpp(1926,57): warning C4244:             T=float
+E:\SP\main.cpp(1926,57): warning C4244:         ]
+E:\SP\main.cpp(1953,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1953,58): warning C4244:         with
+E:\SP\main.cpp(1953,58): warning C4244:         [
+E:\SP\main.cpp(1953,58): warning C4244:             T=float
+E:\SP\main.cpp(1953,58): warning C4244:         ]
+E:\SP\main.cpp(1986,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(1986,57): warning C4244:         with
+E:\SP\main.cpp(1986,57): warning C4244:         [
+E:\SP\main.cpp(1986,57): warning C4244:             T=float
+E:\SP\main.cpp(1986,57): warning C4244:         ]
+E:\SP\main.cpp(2000,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2000,57): warning C4244:         with
+E:\SP\main.cpp(2000,57): warning C4244:         [
+E:\SP\main.cpp(2000,57): warning C4244:             T=float
+E:\SP\main.cpp(2000,57): warning C4244:         ]
+E:\SP\main.cpp(2013,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2013,57): warning C4244:         with
+E:\SP\main.cpp(2013,57): warning C4244:         [
+E:\SP\main.cpp(2013,57): warning C4244:             T=float
+E:\SP\main.cpp(2013,57): warning C4244:         ]
+E:\SP\main.cpp(2026,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2026,57): warning C4244:         with
+E:\SP\main.cpp(2026,57): warning C4244:         [
+E:\SP\main.cpp(2026,57): warning C4244:             T=float
+E:\SP\main.cpp(2026,57): warning C4244:         ]
+E:\SP\main.cpp(2047,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2047,57): warning C4244:         with
+E:\SP\main.cpp(2047,57): warning C4244:         [
+E:\SP\main.cpp(2047,57): warning C4244:             T=float
+E:\SP\main.cpp(2047,57): warning C4244:         ]
+E:\SP\main.cpp(2060,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2060,57): warning C4244:         with
+E:\SP\main.cpp(2060,57): warning C4244:         [
+E:\SP\main.cpp(2060,57): warning C4244:             T=float
+E:\SP\main.cpp(2060,57): warning C4244:         ]
+E:\SP\main.cpp(2086,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2086,75): warning C4244:         with
+E:\SP\main.cpp(2086,75): warning C4244:         [
+E:\SP\main.cpp(2086,75): warning C4244:             T=float
+E:\SP\main.cpp(2086,75): warning C4244:         ]
+E:\SP\main.cpp(2100,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2100,75): warning C4244:         with
+E:\SP\main.cpp(2100,75): warning C4244:         [
+E:\SP\main.cpp(2100,75): warning C4244:             T=float
+E:\SP\main.cpp(2100,75): warning C4244:         ]
+E:\SP\main.cpp(2124,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2124,58): warning C4244:         with
+E:\SP\main.cpp(2124,58): warning C4244:         [
+E:\SP\main.cpp(2124,58): warning C4244:             T=float
+E:\SP\main.cpp(2124,58): warning C4244:         ]
+E:\SP\main.cpp(2129,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2129,58): warning C4244:         with
+E:\SP\main.cpp(2129,58): warning C4244:         [
+E:\SP\main.cpp(2129,58): warning C4244:             T=float
+E:\SP\main.cpp(2129,58): warning C4244:         ]
+E:\SP\main.cpp(2143,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2143,57): warning C4244:         with
+E:\SP\main.cpp(2143,57): warning C4244:         [
+E:\SP\main.cpp(2143,57): warning C4244:             T=float
+E:\SP\main.cpp(2143,57): warning C4244:         ]
+E:\SP\main.cpp(2196,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(2200,19): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(2476,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2476,57): warning C4244:         with
+E:\SP\main.cpp(2476,57): warning C4244:         [
+E:\SP\main.cpp(2476,57): warning C4244:             T=float
+E:\SP\main.cpp(2476,57): warning C4244:         ]
+E:\SP\main.cpp(2497,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2497,57): warning C4244:         with
+E:\SP\main.cpp(2497,57): warning C4244:         [
+E:\SP\main.cpp(2497,57): warning C4244:             T=float
+E:\SP\main.cpp(2497,57): warning C4244:         ]
+E:\SP\main.cpp(2530,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2530,57): warning C4244:         with
+E:\SP\main.cpp(2530,57): warning C4244:         [
+E:\SP\main.cpp(2530,57): warning C4244:             T=float
+E:\SP\main.cpp(2530,57): warning C4244:         ]
+E:\SP\main.cpp(2545,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2545,57): warning C4244:         with
+E:\SP\main.cpp(2545,57): warning C4244:         [
+E:\SP\main.cpp(2545,57): warning C4244:             T=float
+E:\SP\main.cpp(2545,57): warning C4244:         ]
+E:\SP\main.cpp(2550,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2550,57): warning C4244:         with
+E:\SP\main.cpp(2550,57): warning C4244:         [
+E:\SP\main.cpp(2550,57): warning C4244:             T=float
+E:\SP\main.cpp(2550,57): warning C4244:         ]
+E:\SP\main.cpp(2572,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2572,57): warning C4244:         with
+E:\SP\main.cpp(2572,57): warning C4244:         [
+E:\SP\main.cpp(2572,57): warning C4244:             T=float
+E:\SP\main.cpp(2572,57): warning C4244:         ]
+E:\SP\main.cpp(2577,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2577,57): warning C4244:         with
+E:\SP\main.cpp(2577,57): warning C4244:         [
+E:\SP\main.cpp(2577,57): warning C4244:             T=float
+E:\SP\main.cpp(2577,57): warning C4244:         ]
+E:\SP\main.cpp(2598,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2598,57): warning C4244:         with
+E:\SP\main.cpp(2598,57): warning C4244:         [
+E:\SP\main.cpp(2598,57): warning C4244:             T=float
+E:\SP\main.cpp(2598,57): warning C4244:         ]
+E:\SP\main.cpp(2603,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2603,57): warning C4244:         with
+E:\SP\main.cpp(2603,57): warning C4244:         [
+E:\SP\main.cpp(2603,57): warning C4244:             T=float
+E:\SP\main.cpp(2603,57): warning C4244:         ]
+E:\SP\main.cpp(2624,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2624,57): warning C4244:         with
+E:\SP\main.cpp(2624,57): warning C4244:         [
+E:\SP\main.cpp(2624,57): warning C4244:             T=float
+E:\SP\main.cpp(2624,57): warning C4244:         ]
+E:\SP\main.cpp(2650,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2650,57): warning C4244:         with
+E:\SP\main.cpp(2650,57): warning C4244:         [
+E:\SP\main.cpp(2650,57): warning C4244:             T=float
+E:\SP\main.cpp(2650,57): warning C4244:         ]
+E:\SP\main.cpp(2667,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2667,58): warning C4244:         with
+E:\SP\main.cpp(2667,58): warning C4244:         [
+E:\SP\main.cpp(2667,58): warning C4244:             T=float
+E:\SP\main.cpp(2667,58): warning C4244:         ]
+E:\SP\main.cpp(2672,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2672,58): warning C4244:         with
+E:\SP\main.cpp(2672,58): warning C4244:         [
+E:\SP\main.cpp(2672,58): warning C4244:             T=float
+E:\SP\main.cpp(2672,58): warning C4244:         ]
+E:\SP\main.cpp(2686,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2686,57): warning C4244:         with
+E:\SP\main.cpp(2686,57): warning C4244:         [
+E:\SP\main.cpp(2686,57): warning C4244:             T=float
+E:\SP\main.cpp(2686,57): warning C4244:         ]
+E:\SP\main.cpp(2713,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2713,57): warning C4244:         with
+E:\SP\main.cpp(2713,57): warning C4244:         [
+E:\SP\main.cpp(2713,57): warning C4244:             T=float
+E:\SP\main.cpp(2713,57): warning C4244:         ]
+E:\SP\main.cpp(2728,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2728,58): warning C4244:         with
+E:\SP\main.cpp(2728,58): warning C4244:         [
+E:\SP\main.cpp(2728,58): warning C4244:             T=float
+E:\SP\main.cpp(2728,58): warning C4244:         ]
+E:\SP\main.cpp(2733,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2733,58): warning C4244:         with
+E:\SP\main.cpp(2733,58): warning C4244:         [
+E:\SP\main.cpp(2733,58): warning C4244:             T=float
+E:\SP\main.cpp(2733,58): warning C4244:         ]
+E:\SP\main.cpp(2756,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2756,57): warning C4244:         with
+E:\SP\main.cpp(2756,57): warning C4244:         [
+E:\SP\main.cpp(2756,57): warning C4244:             T=float
+E:\SP\main.cpp(2756,57): warning C4244:         ]
+E:\SP\main.cpp(2761,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2761,57): warning C4244:         with
+E:\SP\main.cpp(2761,57): warning C4244:         [
+E:\SP\main.cpp(2761,57): warning C4244:             T=float
+E:\SP\main.cpp(2761,57): warning C4244:         ]
+E:\SP\main.cpp(2779,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2779,57): warning C4244:         with
+E:\SP\main.cpp(2779,57): warning C4244:         [
+E:\SP\main.cpp(2779,57): warning C4244:             T=float
+E:\SP\main.cpp(2779,57): warning C4244:         ]
+E:\SP\main.cpp(2792,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2792,57): warning C4244:         with
+E:\SP\main.cpp(2792,57): warning C4244:         [
+E:\SP\main.cpp(2792,57): warning C4244:             T=float
+E:\SP\main.cpp(2792,57): warning C4244:         ]
+E:\SP\main.cpp(2818,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2818,57): warning C4244:         with
+E:\SP\main.cpp(2818,57): warning C4244:         [
+E:\SP\main.cpp(2818,57): warning C4244:             T=float
+E:\SP\main.cpp(2818,57): warning C4244:         ]
+E:\SP\main.cpp(2832,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2832,57): warning C4244:         with
+E:\SP\main.cpp(2832,57): warning C4244:         [
+E:\SP\main.cpp(2832,57): warning C4244:             T=float
+E:\SP\main.cpp(2832,57): warning C4244:         ]
+E:\SP\main.cpp(2837,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2837,57): warning C4244:         with
+E:\SP\main.cpp(2837,57): warning C4244:         [
+E:\SP\main.cpp(2837,57): warning C4244:             T=float
+E:\SP\main.cpp(2837,57): warning C4244:         ]
+E:\SP\main.cpp(2853,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2853,58): warning C4244:         with
+E:\SP\main.cpp(2853,58): warning C4244:         [
+E:\SP\main.cpp(2853,58): warning C4244:             T=float
+E:\SP\main.cpp(2853,58): warning C4244:         ]
+E:\SP\main.cpp(2858,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2858,58): warning C4244:         with
+E:\SP\main.cpp(2858,58): warning C4244:         [
+E:\SP\main.cpp(2858,58): warning C4244:             T=float
+E:\SP\main.cpp(2858,58): warning C4244:         ]
+E:\SP\main.cpp(2879,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2879,57): warning C4244:         with
+E:\SP\main.cpp(2879,57): warning C4244:         [
+E:\SP\main.cpp(2879,57): warning C4244:             T=float
+E:\SP\main.cpp(2879,57): warning C4244:         ]
+E:\SP\main.cpp(2892,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2892,57): warning C4244:         with
+E:\SP\main.cpp(2892,57): warning C4244:         [
+E:\SP\main.cpp(2892,57): warning C4244:             T=float
+E:\SP\main.cpp(2892,57): warning C4244:         ]
+E:\SP\main.cpp(2897,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\SP\main.cpp(2897,57): warning C4244:         with
+E:\SP\main.cpp(2897,57): warning C4244:         [
+E:\SP\main.cpp(2897,57): warning C4244:             T=float
+E:\SP\main.cpp(2897,57): warning C4244:         ]
+E:\SP\main.cpp(3151,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3157,19): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3163,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3164,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3168,20): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3177,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3178,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3183,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3184,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3192,50): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3193,24): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3199,18): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3205,19): warning C4305: '=': truncation from 'double' to 'float'
+E:\SP\main.cpp(3279,26): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\SP\main.cpp(3279,21): warning C4305: 'argument': truncation from 'double' to 'float'
+  x cursed world.vcxproj -> E:\SP\x64\Debug\x cursed world.exe
