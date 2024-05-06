@@ -36,10 +36,18 @@ const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
 int pausedtimes = 0;
 
+// Array to check how many times i click on ubgrade
+int upgradeCheck[3] = {};
+string totalCoins, tempCheck, tempPowerUP;
+int check;
+int storeCoins;
+fstream coinFile, checkCoinsFile, powerUp1File, powerUp2File, powerUp3File;
+
 SoundBuffer clickbuffer;
 Sound clicksound;
 
 void store(RenderWindow& window);
+
 RectangleShape RectCreator(float x, float y, float posx = 0, float posy = 0)
 {
 	RectangleShape Rect;
@@ -361,12 +369,6 @@ struct perk
 	FloatRect bounds;
 	FloatRect upgradeBounds;
 }perks[NUMBER_OF_PERKS];
-
-// Array to check how many times i click on ubgrade
-int upgradeCheck[3] = {};
-string totalCoins;
-int check = 0;
-int storeCoins;
 
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
@@ -3320,12 +3322,69 @@ void store(RenderWindow& window)
 			break;
 		}
 	}
+	powerUp1File.open("powerUp1File.txt", ios::in);
+	if (powerUp1File.is_open())
+	{
+		string temp;
+		while (getline(powerUp1File, temp))
+		{
+			upgradeCheck[0] = stoi(temp);
+		}
+		powerUp1File.close();
+	}
+	powerUp2File.open("powerUp2File.txt", ios::in);
+	if (powerUp2File.is_open())
+	{
+		string temp;
+		while (getline(powerUp2File, temp))
+		{
+			upgradeCheck[1] = stoi(temp);
+		}
+		powerUp2File.close();
+	}
+	powerUp3File.open("powerUp3File.txt", ios::in);
+	if (powerUp3File.is_open())
+	{
+		string temp;
+		while (getline(powerUp3File, temp))
+		{
+			upgradeCheck[2] = stoi(temp);
+		}
+		powerUp3File.close();
+	}
 
-	fstream coinFile;
+	if (upgradeCheck[0] == 0) sword.loadFromFile("Store/Textures/sword1.png");
+	if (upgradeCheck[0] == 1) sword.loadFromFile("Store/Textures/sword2.png");
+	if (upgradeCheck[0] == 2) sword.loadFromFile("Store/Textures/sword3.png");
+	if (upgradeCheck[0] == 3) sword.loadFromFile("Store/Textures/sword4.png");
+	if (upgradeCheck[0] == 4) sword.loadFromFile("Store/Textures/sword5.png");
+
+	if (upgradeCheck[1] == 0) resis.loadFromFile("Store/Textures/resis1.png");
+	if (upgradeCheck[1] == 1) resis.loadFromFile("Store/Textures/resis2.png");
+	if (upgradeCheck[1] == 2) resis.loadFromFile("Store/Textures/resis3.png");
+	if (upgradeCheck[1] == 3) resis.loadFromFile("Store/Textures/resis4.png");
+	if (upgradeCheck[1] == 4) resis.loadFromFile("Store/Textures/resis5.png");
+
+	if (upgradeCheck[2] == 0) heart.loadFromFile("Store/Textures/heart1.png");
+	if (upgradeCheck[2] == 1) heart.loadFromFile("Store/Textures/heart2.png");
+	if (upgradeCheck[2] == 2) heart.loadFromFile("Store/Textures/heart3.png");
+	if (upgradeCheck[2] == 3) heart.loadFromFile("Store/Textures/heart4.png");
+	if (upgradeCheck[2] == 4) heart.loadFromFile("Store/Textures/heart5.png");
+
+	checkCoinsFile.open("checkCoinsFile.txt", ios::in);
+	if (checkCoinsFile.is_open())
+	{
+		string temp;
+		while (getline(checkCoinsFile, temp))
+		{
+			check = stoi(temp);
+		}
+		checkCoinsFile.close();
+	}
 
 	if (check == 0)
 	{
-		totalCoins = "200";
+		totalCoins = "500";
 		coinFile.open("coinFile.txt", ios::out);
 		if (coinFile.is_open())
 		{
@@ -3402,7 +3461,13 @@ void store(RenderWindow& window)
 				// the sword hit test
 				if (perks[0].bounds.contains(mouse))
 				{
-					check++;
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
 					if (upgradeCheck[0] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3433,6 +3498,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 100)
 						{
+							tempPowerUP = "1";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
 							sword.loadFromFile("Store/Textures/sword2.png");
 							perks[0].price.setString("150");
 							clickSound.play();
@@ -3451,6 +3523,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 150)
 						{
+							tempPowerUP = "2";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
 							sword.loadFromFile("Store/Textures/sword3.png");
 							perks[0].price.setString("200");
 							clickSound.play();
@@ -3469,6 +3548,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 200)
 						{
+							tempPowerUP = "3";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
 							sword.loadFromFile("Store/Textures/sword4.png");
 							perks[0].price.setString("250");
 							clickSound.play();
@@ -3487,6 +3573,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 250)
 						{
+							tempPowerUP = "4";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
 							sword.loadFromFile("Store/Textures/sword5.png");
 							clickSound.play();
 							storeCoins -= 250;
@@ -3505,7 +3598,13 @@ void store(RenderWindow& window)
 				// the resis hit test
 				if (perks[1].bounds.contains(mouse))
 				{
-					check++;
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
 					if (upgradeCheck[1] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3536,6 +3635,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 80)
 						{
+							tempPowerUP = "1";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
 							resis.loadFromFile("Store/Textures/resis2.png");
 							perks[1].price.setString("120");
 							clickSound.play();
@@ -3554,6 +3660,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 120)
 						{
+							tempPowerUP = "2";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
 							resis.loadFromFile("Store/Textures/resis3.png");
 							perks[1].price.setString("160");
 							clickSound.play();
@@ -3572,6 +3685,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 160)
 						{
+							tempPowerUP = "3";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
 							resis.loadFromFile("Store/Textures/resis4.png");
 							perks[1].price.setString("200");
 							clickSound.play();
@@ -3590,6 +3710,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 200)
 						{
+							tempPowerUP = "4";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
 							resis.loadFromFile("Store/Textures/resis5.png");
 							clickSound.play();
 							storeCoins -= 200;
@@ -3608,7 +3735,13 @@ void store(RenderWindow& window)
 				// the heart hit test
 				if (perks[2].bounds.contains(mouse))
 				{
-					check++;
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
 					if (upgradeCheck[2] < 4)
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
@@ -3639,6 +3772,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 120)
 						{
+							tempPowerUP = "1";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
 							heart.loadFromFile("Store/Textures/heart2.png");
 							perks[2].price.setString("170");
 							clickSound.play();
@@ -3657,6 +3797,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 170)
 						{
+							tempPowerUP = "2";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
 							heart.loadFromFile("Store/Textures/heart3.png");
 							perks[2].price.setString("220");
 							clickSound.play();
@@ -3675,6 +3822,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 220)
 						{
+							tempPowerUP = "3";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
 							heart.loadFromFile("Store/Textures/heart4.png");
 							perks[2].price.setString("270");
 							clickSound.play();
@@ -3693,6 +3847,13 @@ void store(RenderWindow& window)
 					{
 						if (storeCoins >= 270)
 						{
+							tempPowerUP = "4";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
 							heart.loadFromFile("Store/Textures/heart5.png");
 							clickSound.play();
 							storeCoins -= 270;
@@ -3730,7 +3891,6 @@ void store(RenderWindow& window)
 		window.display();
 	}
 }
-
 
 void levelOne(RenderWindow& window) {
 	Clock clock;
