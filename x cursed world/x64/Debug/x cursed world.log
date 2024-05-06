@@ -1,1 +1,154 @@
-﻿  x cursed world.vcxproj -> C:\Users\HP\OneDrive\Desktop\X-cursed-world\x64\Debug\x cursed world.exe
+﻿  Game.cpp
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(58,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(64,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(64,15): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(64,15): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(64,15): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(64,15): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(69,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(178,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(184,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(190,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(191,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(195,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(204,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(205,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(210,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(211,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(219,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(220,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(226,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(232,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(306,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(310,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(310,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(311,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(311,16): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(311,16): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(311,16): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(311,16): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(312,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(312,15): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(312,15): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(312,15): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(312,15): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(313,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(322,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(322,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(325,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(329,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(329,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(330,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(330,16): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(330,16): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(330,16): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(330,16): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(331,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(331,15): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(331,15): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(331,15): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(331,15): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(332,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(366,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(388,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(395,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(395,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(395,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(395,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(395,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(396,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(416,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(416,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(416,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(416,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(416,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(417,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(423,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(433,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(446,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(468,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(475,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(475,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(475,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(475,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(475,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(476,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(496,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(496,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(496,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(496,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(496,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(497,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(503,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(513,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(573,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(573,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(576,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(583,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(583,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(584,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(584,16): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(584,16): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(584,16): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(584,16): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(585,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(585,15): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(585,15): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(585,15): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(585,15): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(586,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(595,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(595,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(598,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(604,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(604,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(605,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(605,16): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(605,16): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(605,16): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(605,16): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(606,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(606,15): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(606,15): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(606,15): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(606,15): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(607,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(645,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(669,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(676,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(676,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(676,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(676,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(676,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(677,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(715,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(715,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(715,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(715,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(715,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(716,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(725,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(735,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(763,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(785,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(792,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(792,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(792,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(792,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(792,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(793,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(829,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(829,42): warning C4244:         with
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(829,42): warning C4244:         [
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(829,42): warning C4244:             T=float
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(829,42): warning C4244:         ]
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(830,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(840,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(850,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(883,66): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(884,72): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(885,70): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(908,24): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(911,27): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\HP\OneDrive\Desktop\X-cursed-world\Game.cpp(914,25): warning C4390: ';': empty controlled statement found; is this the intent?
+  x cursed world.vcxproj -> C:\Users\HP\OneDrive\Desktop\X-cursed-world\x64\Debug\x cursed world.exe
