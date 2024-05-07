@@ -9,7 +9,7 @@
 
 using namespace std;
 using namespace sf;
-
+struct SecEnemy;
 // 3 is the number of Perks
 #define NUMBER_OF_PERKS 3
 
@@ -201,10 +201,12 @@ struct character {
 	int lastKeyPressed;  // The last key pressed by the player
 	int noOfAttacks;   // no of attacks dealt by the player to the enemy 
 	string state;  // The current state of the player
-	int health;  // Health of the player
+	double health;  // Health of the player
 	Texture stateTexture[knight_num_of_textures];  // Array of textures for different states
 	RectangleShape collisionRect;
-
+	bool dead = false;
+	bool is_attacked;
+	bool is_Enemy_weapon_touching(const SecEnemy& enemy); 
 	// Function to load textures for different states
 	void loadTextures() {
 		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png", "knight/_Roll.png", "knight/_Hit.png",
@@ -256,6 +258,10 @@ struct character {
 		}
 
 		currentFrame += 0.005 * time;
+		if (health <= 0)
+		{
+			state = "Death";
+		}
 
 		// Update animation based on state
 		if (state == "Idle") {
@@ -284,8 +290,12 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Hit") {
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(0, 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120, 0, -120, 80));
+			if (currentFrame > 20) {
+				currentFrame = 0;
+				state = "";
+			}
+			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
+			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Slide") {
 			if (currentFrame > 4) {
@@ -335,7 +345,10 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Death") {
-			if (currentFrame > 10) currentFrame -= 10;
+			if (currentFrame > 10) {
+				currentFrame -= 10;
+				dead = true;
+			}
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
@@ -542,10 +555,6 @@ struct SecEnemy
 				//left_boundary = rect.getPosition().x - movement_range;
 				//right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
 
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
-				{
-					knight.health -= attack;
-				}
 				pause_time = attack_pause_time;
 			}
 
@@ -622,10 +631,6 @@ struct SecEnemy
 				/*left_boundary = rect.getPosition().x - movement_range;
 				right_boundary = left_boundary + 2 * movement_range; */// so we don't use the getPosition() twice ;)
 
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
-				{
-					knight.health -= attack;
-				}
 				pause_time = attack_pause_time;
 			}
 
@@ -647,7 +652,7 @@ struct SecEnemy
 
 	}
 
-}Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3;
+}Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Skeleton_5, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3, Evil_Wizard_4;
 
 struct BossEnemy
 {
@@ -674,6 +679,8 @@ struct BossEnemy
 	int skill_shift = 0;
 	double left_tracker;
 	double right_tracker;
+	RectangleShape zone1;
+	RectangleShape zone2;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
 	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 	string enemy_type; // to load different enemies and set ther attributes based on thier type (name)
@@ -734,10 +741,12 @@ struct BossEnemy
 		}
 	}
 
-	bool is_player_in_range_x() { // checking if the character is in our boundaries
-		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+	bool is_player_in_range_x() 
+	{ // checking if the character is in our boundaries
+		return zone1.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds());
 	}
-	bool is_player_in_killzone_x() { // checking if the character is in our boundaries
+	bool is_player_in_killzone_x() { // checking if the character is in our boundaries  
+		//**new** (needed to be edited! by the second big rectangle)
 		return (left_tracker <= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_tracker) &&
 			(left_boundary >= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_boundary);
 	}
@@ -995,7 +1004,23 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
 }executioner;
+bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
+{ // checking if the weapon touching the character
+	is_attacked = false;
+	float diff = knight.rect.left - enemy.rect.left;
 
+	if (enemy.dir == 1) // enemy is facing right
+	{
+		if (-25 <= diff && diff <= 240)
+			is_attacked = true;
+	}
+	else // enemy is facing left
+	{
+		if (-100 <= diff && diff <= 110)
+			is_attacked = true;
+	}
+	return is_attacked && (enemy.state == "attack");
+}
 struct pauseMenu
 {
 	Font pauseFont;
@@ -1149,7 +1174,7 @@ struct pauseMenu
 
 // level 1 map code
 struct LevelOne {
-	int currentScene = 0;
+	int currentScene = 5;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -2933,7 +2958,7 @@ int main()
 	knight.assignSprite(); // Initialize player character
 
 	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!", Style::Fullscreen);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(144);
 	mainMenu menu;
 	menu.menu(1920, 1080);
 
@@ -3944,7 +3969,19 @@ void store(RenderWindow& window)
 		window.display();
 	}
 }
-
+//bool character::azraell(const SecEnemy& enemy)
+//{
+//	bool s;
+//	if (enemy.sprite.getGlobalBounds().intersects(sprite.getGlobalBounds()))
+//	{
+//		health -= enemy.attack;
+//		s = true;
+//	}
+//	else
+//		s = false;
+//
+//	return s;
+//}
 void levelOne(RenderWindow& window) {
 	Clock clock;
 	
@@ -3958,17 +3995,69 @@ void levelOne(RenderWindow& window) {
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
-	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 285, 10, 1, 100);
-	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 2, 80);
+	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 200, 20,50, 2, 200);
+	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 275, 10, 1, 100);
+	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 1, 80);
+	Skeleton_3.assign_sec_enemy_info("skeleton", 1475, 790, 200, 11, 1, 90);
+	Skeleton_4.assign_sec_enemy_info("skeleton", 1587, 440, 200, 11, 1, 90);
+	Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1475, 10, 150, 11, 2, 90);
+	Evil_Wizard_2.assign_sec_enemy_info("EvilWizard", 400, 475, 150, 11, 2, 120);
+	Evil_Wizard_3.assign_sec_enemy_info("EvilWizard", 1300, 695, 150, 11, 2, 130);
 	while (window.isOpen()) {
 		Vector2f knightPos = knight.sprite.getPosition();
 		// adjusting the collision rect to be more accurate 
 		// redRect for collision detection
-		knight.collisionRect = RectCreator(120, 145, knightPos.x + 150, knightPos.y + 150);
+		knight.collisionRect = RectCreator(100, 145, knightPos.x + 150, knightPos.y + 150);
 		Vector2f SPos1 = Skeleton_1.sprite.getPosition();
 		Vector2f SPos2 = Skeleton_2.sprite.getPosition();
-		Skeleton_1.zone = RectCreator(200, 170, SPos1.x, SPos1.y);
-		Skeleton_2.zone = RectCreator(200, 170, SPos2.x , SPos2.y);
+		Vector2f SPos3 = Skeleton_3.sprite.getPosition();
+		Vector2f SPos4 = Skeleton_4.sprite.getPosition();
+		Vector2f EPos1 = Evil_Wizard_1.sprite.getPosition();
+		Vector2f EPos2 = Evil_Wizard_2.sprite.getPosition();
+		Vector2f EPos3 = Evil_Wizard_3.sprite.getPosition();
+		Vector2f ExecPos = executioner.sprite.getPosition();
+		Skeleton_1.zone = RectCreator(170, 150, SPos1.x+ 35, SPos1.y + 35);
+		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
+		Skeleton_3.zone = RectCreator(170, 150, SPos3.x+24, SPos3.y);
+		Skeleton_4.zone = RectCreator(170, 150, SPos4.x + 24, SPos4.y);
+		Evil_Wizard_1.zone = RectCreator(200, 200, EPos1.x + 80, EPos1.y +30);
+		Evil_Wizard_2.zone = RectCreator(200, 200, EPos2.x + 80, EPos2.y+30);
+		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y+30);
+		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
+		executioner.zone2 = RectCreator(600, 300, ExecPos.x , ExecPos.y);
+
+		//bool under_att1 = knight.is_Enemy_weapon_touching(Skeleton_1);
+		//bool under_att2 = knight.is_Enemy_weapon_touching(Skeleton_2);
+		//bool under_att3 = knight.is_Enemy_weapon_touching(Evil_Wizard_1);
+		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double) (Skeleton_1.attack)*0.00711;
+		}
+		if ((Evil_Wizard_1.state == "attack" || Skeleton_3.state == "attack") && levelOneMap.currentScene == 1)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00754;
+		}
+		if ((Evil_Wizard_2.state == "attack" || Evil_Wizard_3.state == "attack") && levelOneMap.currentScene == 3)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00754;
+		}
+		if ((Skeleton_4.state == "attack") && levelOneMap.currentScene == 4)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00711;
+		}
+		if (!knight.isAlive()) 
+		{
+			knight.state = "Death";  
+			knight.updateTexture(); 
+		}
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -4009,11 +4098,10 @@ void levelOne(RenderWindow& window) {
 
 	
 
-
 		if (!pauseMenu.paused)
 		{
 			window.draw(levelOneMap.backgroundSprite);
-			window.draw(knight.sprite);
+			
 			if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
 			{
 				window.draw(Skeleton_1.sprite);
@@ -4024,6 +4112,42 @@ void levelOne(RenderWindow& window) {
 				window.draw(Skeleton_2.sprite);
 				window.draw(Skeleton_2.zone);
 			}
+			if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
+			{
+				window.draw(Skeleton_3.sprite);
+				window.draw(Skeleton_3.zone);
+			}
+			if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
+			{
+				window.draw(Skeleton_4.sprite);
+				window.draw(Skeleton_4.zone);
+			}
+			if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
+			{
+				window.draw(Evil_Wizard_1.sprite);
+				window.draw(Evil_Wizard_1.zone);
+			}
+			if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
+			{
+				window.draw(Evil_Wizard_2.sprite);
+				window.draw(Evil_Wizard_2.zone);
+			}
+			if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
+			{
+				window.draw(Evil_Wizard_3.sprite);
+				window.draw(Evil_Wizard_3.zone);
+			}
+			if (!executioner.dead && levelOneMap.currentScene == 5)
+			{
+				window.draw(executioner.sprite);
+				window.draw(executioner.zone1);
+				window.draw(executioner.zone2);
+			}
+			if (!knight.dead)
+			{
+				window.draw(knight.collisionRect);
+				window.draw(knight.sprite);
+			}
 			movements();
 			float time = (float)clock.getElapsedTime().asMicroseconds();
 			clock.restart();
@@ -4033,7 +4157,12 @@ void levelOne(RenderWindow& window) {
 			knight.update(time);
 			Skeleton_1.update_skeleton_state(time);
 			Skeleton_2.update_skeleton_state(time);
-
+			Skeleton_3.update_skeleton_state(time);
+			Skeleton_4.update_skeleton_state(time);
+			Evil_Wizard_1.update_evilwiz_state(time);
+			Evil_Wizard_2.update_evilwiz_state(time);
+			Evil_Wizard_3.update_evilwiz_state(time);
+			executioner.update_boss1_state(time);
 		}
 		else
 		{
@@ -4047,7 +4176,6 @@ void levelOne(RenderWindow& window) {
 			window.draw(currentTiles[i]);
 		}
 
-		window.draw(knight.collisionRect);
 		window.display();
 	}
 }

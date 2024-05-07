@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Projects\\VSC C\u002B\u002B\\X-CursedWorld\\",
+  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\Projects\\VSC C\u002B\u002B\\X-CursedWorld\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\USERS\\HP\\ONEDRIVE\\DESKTOP\\X-CURSED-WORLD\\EXTERNAL\\SFML-2.6.1\\INCLUDE\\SFML\\GRAPHICS\\GLYPH.HPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:EXTERNAL\\SFML-2.6.1\\INCLUDE\\SFML\\GRAPHICS\\GLYPH.HPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,21 +26,34 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Glyph.hpp",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\external\\SFML-2.6.1\\include\\SFML\\Graphics\\Glyph.hpp",
+              "RelativeDocumentMoniker": "external\\SFML-2.6.1\\include\\SFML\\Graphics\\Glyph.hpp",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\external\\SFML-2.6.1\\include\\SFML\\Graphics\\Glyph.hpp",
+              "RelativeToolTip": "external\\SFML-2.6.1\\include\\SFML\\Graphics\\Glyph.hpp",
+              "ViewState": "AQIAACIAAAAAAAAAAAAkwDAAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-07T15:14:15.8Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\Projects\\VSC C\u002B\u002B\\X-CursedWorld\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\Projects\\VSC C\u002B\u002B\\X-CursedWorld\\main.cpp",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\X-cursed-world\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAHYBAAAAAAAAAAAAAJoMAAAgAAAA",
+              "ViewState": "AQIAAH4LAAAAAAAAAAD4v44LAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-05T09:32:08.57Z",
               "EditorCaption": ""
