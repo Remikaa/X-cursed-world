@@ -478,15 +478,16 @@ struct SecEnemy
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
 		float diff = rect.left - knight.rect.left;
+		float diff2 = rect.top - knight.rect.top;
 
 		if (knight.lastKeyPressed == 1) // knight is facing right
 		{
-			if (-25 <= diff && diff <= 240)
+			if (-25 <= diff && diff <= 240 && (- 25 <= diff2 && diff2 <= 240))
 				is_attacked = true;
 		}
 		else // knight is facing left
 		{
-			if (-100 <= diff && diff <= 110)
+			if (-100 <= diff && diff <= 110 && (- 100 <= diff2 && diff2 <= 110))
 				is_attacked = true;
 		}
 		return is_attacked && (knight.state == "Attack" || knight.state == "AttackCombo" || knight.state == "Attack2");
@@ -716,7 +717,7 @@ struct BossEnemy
 			sprite.setPosition(posx, posy);
 			rect.left = posx;
 			rect.top = posy;
-			speed = 0.3;
+			speed = 0.1;
 		}
 		else if (enemytype == "Boss2")
 		{
@@ -786,7 +787,7 @@ struct BossEnemy
 		}
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 120)
+		else if (abs(knight.rect.left - rect.left + 60) <= 120 /*&& (levelOneMap.currentScene == 5)*/)
 			state = "attack";
 		else if (is_player_in_killzone_x())
 			state = "walk";
@@ -1004,23 +1005,23 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
 }executioner;
-bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
-{ // checking if the weapon touching the character
-	is_attacked = false;
-	float diff = knight.rect.left - enemy.rect.left;
-
-	if (enemy.dir == 1) // enemy is facing right
-	{
-		if (-25 <= diff && diff <= 240)
-			is_attacked = true;
-	}
-	else // enemy is facing left
-	{
-		if (-100 <= diff && diff <= 110)
-			is_attacked = true;
-	}
-	return is_attacked && (enemy.state == "attack");
-}
+//bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
+//{ // checking if the weapon touching the character
+//	is_attacked = false;
+//	float diff = knight.rect.left - enemy.rect.left;
+//
+//	if (enemy.dir == 1) // enemy is facing right
+//	{
+//		if (-25 <= diff && diff <= 240)
+//			is_attacked = true;
+//	}
+//	else // enemy is facing left
+//	{
+//		if (-100 <= diff && diff <= 110)
+//			is_attacked = true;
+//	}
+//	return is_attacked && (enemy.state == "attack");
+//}
 struct pauseMenu
 {
 	Font pauseFont;
@@ -3984,6 +3985,7 @@ void store(RenderWindow& window)
 //}
 void levelOne(RenderWindow& window) {
 	Clock clock;
+	Clock hitTime;
 	
 	pauseMenu.PauseMenufunc(1920, 1080);
 
@@ -4052,6 +4054,12 @@ void levelOne(RenderWindow& window) {
 			knight.state = "Hit";
 			knight.updateTexture();
 			knight.health -= (double)(Skeleton_1.attack) * 0.00711;
+		}
+		if ((executioner.state == "attack") && levelOneMap.currentScene == 5)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(executioner.attack1) * 0.011;
 		}
 		if (!knight.isAlive()) 
 		{
@@ -4137,7 +4145,7 @@ void levelOne(RenderWindow& window) {
 				window.draw(Evil_Wizard_3.sprite);
 				window.draw(Evil_Wizard_3.zone);
 			}
-			if (!executioner.dead && levelOneMap.currentScene == 5)
+			if (!executioner.dead /*&& levelOneMap.currentScene == 5*/)
 			{
 				window.draw(executioner.sprite);
 				window.draw(executioner.zone1);
