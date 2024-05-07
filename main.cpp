@@ -9,8 +9,10 @@
 
 using namespace std;
 using namespace sf;
+struct SecEnemy;
+// 3 is the number of Perks
+#define NUMBER_OF_PERKS 3
 
-int pageNum = 1;
 /*************************************
 *     page no     *     Function     *
 **************************************
@@ -22,6 +24,7 @@ int pageNum = 1;
 *        6        *    Level Mode    *
 **************************************/
 
+int pageNum = 1;
 int score = 0;
 int ground = 1300;
 float const rightWall = 1680;
@@ -33,10 +36,29 @@ const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
 int pausedtimes = 0;
 
+// Array to check how many times i click on ubgrade
+int upgradeCheck[3] = {};
+string totalCoins, tempCheck, tempPowerUP;
+int check;
+int storeCoins;
+fstream coinFile, checkCoinsFile, powerUp1File, powerUp2File, powerUp3File;
+
 SoundBuffer clickbuffer;
 Sound clicksound;
 
-void store(int);
+void store(RenderWindow& window);
+
+RectangleShape RectCreator(float x, float y, float posx = 0, float posy = 0)
+{
+	RectangleShape Rect;
+	Rect.setOutlineThickness(2);
+	Rect.setOutlineColor(Color::Red);
+	Rect.setFillColor(Color::Transparent);
+	Rect.setSize(Vector2f(x, y));
+	Rect.setPosition(posx, posy);
+	return Rect;
+}
+
 struct mode {
 	Text modeElement[2];
 	int modeSelected = -1;
@@ -179,9 +201,12 @@ struct character {
 	int lastKeyPressed;  // The last key pressed by the player
 	int noOfAttacks;   // no of attacks dealt by the player to the enemy 
 	string state;  // The current state of the player
-	int health;  // Health of the player
+	double health;  // Health of the player
 	Texture stateTexture[knight_num_of_textures];  // Array of textures for different states
-
+	RectangleShape collisionRect;
+	bool dead = false;
+	bool is_attacked;
+	bool is_Enemy_weapon_touching(const SecEnemy& enemy); 
 	// Function to load textures for different states
 	void loadTextures() {
 		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png", "knight/_Roll.png", "knight/_Hit.png",
@@ -233,6 +258,10 @@ struct character {
 		}
 
 		currentFrame += 0.005 * time;
+		if (health <= 0)
+		{
+			state = "Death";
+		}
 
 		// Update animation based on state
 		if (state == "Idle") {
@@ -261,8 +290,12 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Hit") {
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(0, 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120, 0, -120, 80));
+			if (currentFrame > 20) {
+				currentFrame = 0;
+				state = "";
+			}
+			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
+			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Slide") {
 			if (currentFrame > 4) {
@@ -312,7 +345,10 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Death") {
-			if (currentFrame > 10) currentFrame -= 10;
+			if (currentFrame > 10) {
+				currentFrame -= 10;
+				dead = true;
+			}
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
@@ -337,6 +373,18 @@ struct character {
 	}
 } knight;
 
+struct perk
+{
+	Sprite action;
+	Sprite upgradeButton;
+	Sprite priceTexture;
+	Text upgradeText;
+	Text price;
+	Text info;
+	FloatRect bounds;
+	FloatRect upgradeBounds;
+}perks[NUMBER_OF_PERKS];
+
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
 struct SecEnemy
@@ -353,6 +401,7 @@ struct SecEnemy
 	int cur_enemy_idx; // current enemy index (used for loading the textures)
 	int right_boundary; // the boundaries values of x position
 	int left_boundary;
+	RectangleShape zone;
 	int attack;
 	int health;
 	int attack_pause_time;
@@ -389,6 +438,7 @@ struct SecEnemy
 			sprite.setScale(4, 4);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
+			//zone = RectCreator(190, 50, posx + 150, posy + 150);
 			movement_range = movementrange;
 			attack = attackpow; //current skeleton power
 			attack_pause_time = attpause;// current pause time between every two attacks
@@ -397,6 +447,8 @@ struct SecEnemy
 			rect.left = posx;
 			rect.top = posy;
 			speed = 0.1;
+			//rect.left = 10;
+			//rect.top = 850;
 		}
 		else if (enemytype == "EvilWizard")
 		{
@@ -408,6 +460,7 @@ struct SecEnemy
 			sprite.setScale(2.6, 2.6);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
+			//zone = RectCreator(300, 100, posx+150,posy+120);
 			movement_range = movementrange;
 			attack = attackpow; //current wizard power
 			attack_pause_time = attpause;// current pause time between every two attacks
@@ -420,7 +473,7 @@ struct SecEnemy
 	}
 
 	bool is_player_in_range_x() { // checking if the character is in our boundaries
-		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+		return zone.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds());
 	}
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
@@ -459,7 +512,7 @@ struct SecEnemy
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 110)
+		else if (is_player_in_range_x())
 			state = "attack";
 		else
 			state = "walk";
@@ -472,16 +525,16 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			if (is_player_in_range_x())
-			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-					dir = 1;
-				else
-					dir = -1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			}
-			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			//if (is_player_in_range_x())
+			//{
+			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+			//		dir = 1;
+			//	else
+			//		dir = -1;
+			//	left_boundary = rect.getPosition().x - movement_range;
+			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+			//}
+			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
 				turn_time = 10;
@@ -499,13 +552,9 @@ struct SecEnemy
 					dir = -1;
 				else
 					dir = 1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+				//left_boundary = rect.getPosition().x - movement_range;
+				//right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
 
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
-				{
-					knight.health -= attack;
-				}
 				pause_time = attack_pause_time;
 			}
 
@@ -539,7 +588,7 @@ struct SecEnemy
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 110)
+		else if (is_player_in_range_x())
 			state = "attack";
 		else
 			state = "walk";
@@ -552,16 +601,16 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			if (is_player_in_range_x())
-			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-					dir = 1;
-				else
-					dir = -1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			}
-			else if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
+			//if (is_player_in_range_x())
+			//{
+			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+			//		dir = 1;
+			//	else
+			//		dir = -1;
+			//	left_boundary = rect.getPosition().x - movement_range;
+			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+			//}
+			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
 				turn_time = 10;
@@ -579,13 +628,9 @@ struct SecEnemy
 					dir = -1;
 				else
 					dir = 1;
-				left_boundary = rect.getPosition().x - movement_range;
-				right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
+				/*left_boundary = rect.getPosition().x - movement_range;
+				right_boundary = left_boundary + 2 * movement_range; */// so we don't use the getPosition() twice ;)
 
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()))
-				{
-					knight.health -= attack;
-				}
 				pause_time = attack_pause_time;
 			}
 
@@ -607,7 +652,7 @@ struct SecEnemy
 
 	}
 
-}Skeleton_1, Evil_Wizard_1;
+}Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Skeleton_5, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3, Evil_Wizard_4;
 
 struct BossEnemy
 {
@@ -634,6 +679,8 @@ struct BossEnemy
 	int skill_shift = 0;
 	double left_tracker;
 	double right_tracker;
+	RectangleShape zone1;
+	RectangleShape zone2;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
 	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 	string enemy_type; // to load different enemies and set ther attributes based on thier type (name)
@@ -656,7 +703,7 @@ struct BossEnemy
 			state = "idle";
 			health = hp;
 			//attacking_factor = 1; not needed 
-			sprite.setScale(3.14, 2 * 3.14); // cuz i love pi and i love people who love pi ;)
+			sprite.setScale(3.14, 3.14); // cuz i love pi and i love people who love pi ;)
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone;
 			kill_zone = killzone;
@@ -694,10 +741,12 @@ struct BossEnemy
 		}
 	}
 
-	bool is_player_in_range_x() { // checking if the character is in our boundaries
-		return left_boundary <= knight.rect.getPosition().x && knight.rect.getPosition().x <= right_boundary;
+	bool is_player_in_range_x() 
+	{ // checking if the character is in our boundaries
+		return zone1.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds());
 	}
-	bool is_player_in_killzone_x() { // checking if the character is in our boundaries
+	bool is_player_in_killzone_x() { // checking if the character is in our boundaries  
+		//**new** (needed to be edited! by the second big rectangle)
 		return (left_tracker <= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_tracker) &&
 			(left_boundary >= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_boundary);
 	}
@@ -955,7 +1004,23 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
 }executioner;
+bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
+{ // checking if the weapon touching the character
+	is_attacked = false;
+	float diff = knight.rect.left - enemy.rect.left;
 
+	if (enemy.dir == 1) // enemy is facing right
+	{
+		if (-25 <= diff && diff <= 240)
+			is_attacked = true;
+	}
+	else // enemy is facing left
+	{
+		if (-100 <= diff && diff <= 110)
+			is_attacked = true;
+	}
+	return is_attacked && (enemy.state == "attack");
+}
 struct pauseMenu
 {
 	Font pauseFont;
@@ -1042,7 +1107,7 @@ struct pauseMenu
 
 						if (selected == 1)
 						{
-							store(coins);
+							store(window);
 						}
 
 						if (selected == 2)
@@ -1109,7 +1174,7 @@ struct pauseMenu
 
 // level 1 map code
 struct LevelOne {
-	int currentScene = 0;
+	int currentScene = 5;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -1160,6 +1225,8 @@ struct LevelOne {
 				knight.rect.left = 5;
 				knight.rect.top = 500;
 				//put the mobs initializations here
+				//Skeleton_1.rect.left = 670;
+				//Skeleton_1.rect.top = 700;
 			}
 			else
 			{
@@ -1250,10 +1317,11 @@ struct LevelOne {
 			for (int i = 5; i <= 6; i++) {
 				currentTiles[i].setSize(Vector2f(100, 65));
 			}
+			// end of identical tiles 
 
 			currentTiles[5].setPosition(1215, 555);
 			currentTiles[6].setPosition(1345, 445);
-			// end of identical tiles 
+			
 
 
 			currentTiles[7].setSize(Vector2f(450, 440));
@@ -1266,13 +1334,11 @@ struct LevelOne {
 			currentTiles[9].setPosition(1150, 940);
 
 			currentTiles[10].setSize(Vector2f(55, 190));
-			currentTiles[10].setPosition(1845, 760);
+			currentTiles[10].setPosition(1865, 760);
 
 		}
 		if (currentScene == 2)
 		{
-
-
 			currentTiles.resize(13);
 
 			if (pausedtimes == 0)
@@ -1447,7 +1513,7 @@ struct LevelOne {
 	// detect collision of main character and tiles rectangels 
 	void checkCollision(RectangleShape& collisionRect) {
 
-		if (currentScene == 0) {
+		if (currentScene == 0)  {
 			// screen left and right boundaries collision
 			if (collisionRect.getGlobalBounds().left > 1784) {
 				knight.rect.left = 1636;
@@ -1508,8 +1574,8 @@ struct LevelOne {
 			// tile 5 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
 				// right collision
-				if (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 164 || collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 164.5) {
-					knight.rect.left = currentTiles[4].getPosition().x + 22.5;
+				if (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 155 || collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 156) {
+					knight.rect.left = currentTiles[4].getPosition().x + 20.5;
 				}
 
 
@@ -1519,8 +1585,7 @@ struct LevelOne {
 				}
 
 				// top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[4].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[4].getPosition().y + 25) {
-					knight.rect.top = currentTiles[4].getPosition().y - 295.25;
+				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[4].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[4].getPosition().y + 10) {
 					setOnGround();
 
 				}
@@ -1537,14 +1602,14 @@ struct LevelOne {
 				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 275;
 				}
+
 				// right collision
-				else if (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 128 || collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 128.5) {
-					knight.rect.left = currentTiles[5].getPosition().x - 15.5;
+				else if (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 117 || collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 118) {
+					knight.rect.left = currentTiles[5].getPosition().x - 16.5;
 				}
 
 				// top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 50) {
-					knight.rect.top = currentTiles[5].getPosition().y - 295.25;
+				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 10) {
 					setOnGround();
 
 				}
@@ -1559,12 +1624,11 @@ struct LevelOne {
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
 
 				// right collision	
-				if (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 768 || collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 769) {
-					knight.rect.left = currentTiles[6].getPosition().x + 625;
+				if (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 750 || collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 751) {
+					knight.rect.left = currentTiles[6].getPosition().x + 620;
 				}
 				// top collision
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[6].getPosition().y) {
-					knight.rect.top = currentTiles[6].getPosition().y - 292.5;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[6].getPosition().y ) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[6].getPosition().y + 10)) {
 					setOnGround();
 				}
 
@@ -1573,13 +1637,12 @@ struct LevelOne {
 			// tile 8 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[7].getPosition().x) || collisionRect.getGlobalBounds().left + 121 <= currentTiles[7].getPosition().x) {
-					knight.rect.left = currentTiles[7].getPosition().x - 275;
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[7].getPosition().x) || collisionRect.getGlobalBounds().left + 116 <= currentTiles[7].getPosition().x) {
+					knight.rect.left = currentTiles[7].getPosition().x - 271.5;
 				}
 
 				//top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[7].getPosition().y) {
-					knight.rect.top = currentTiles[7].getPosition().y - 293;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[7].getPosition().y + 15)) {
 					setOnGround();
 				}
 			}
@@ -1587,13 +1650,12 @@ struct LevelOne {
 			// tile 9 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[8].getPosition().x) || collisionRect.getGlobalBounds().left + 121 <= currentTiles[8].getPosition().x) {
-					knight.rect.left = currentTiles[8].getPosition().x - 275;
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[8].getPosition().x) || collisionRect.getGlobalBounds().left + 116 <= currentTiles[8].getPosition().x) {
+					knight.rect.left = currentTiles[8].getPosition().x - 271.5;
 				}
 
 				//top collision 
-				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[8].getPosition().y) {
-					knight.rect.top = currentTiles[8].getPosition().y - 293;
+				else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[8].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[8].getPosition().y + 15)) {
 					setOnGround();
 				}
 			}
@@ -1634,7 +1696,7 @@ struct LevelOne {
 		}
 		if (currentScene == 1) {
 			// screen left and right boundaries collision
-			if (collisionRect.getGlobalBounds().left > 1784) {
+			if (collisionRect.getGlobalBounds().left > 1800) {
 				knight.rect.left = 1636;
 			}
 			else if (collisionRect.getGlobalBounds().left < 4) {
@@ -1657,7 +1719,7 @@ struct LevelOne {
 			// tile 2
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds())) {
 				// right collision
-				if ((collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 318) || (collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 319)) {
+				if ((collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 308) || (collisionRect.getGlobalBounds().left > currentTiles[1].getPosition().x + 309)) {
 					knight.rect.left = currentTiles[1].getPosition().x + 175;
 				}
 
@@ -1683,12 +1745,12 @@ struct LevelOne {
 			// tile 4 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())) {
 				// left collision 
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[3].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[3].getPosition().x)) {
 					knight.rect.left = currentTiles[3].getPosition().x - 271.5;
 				}
 
 				// right collision
-				else if ((collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 124) || (collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 124.5)) {
+				else if ((collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 114) || (collisionRect.getGlobalBounds().left > currentTiles[3].getPosition().x + 115)) {
 					knight.rect.left = currentTiles[3].getPosition().x - 23;
 				}
 
@@ -1701,13 +1763,13 @@ struct LevelOne {
 			// tile 5
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[4].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 105 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 106 <= currentTiles[4].getPosition().x)) {
 					knight.rect.left = currentTiles[4].getPosition().x - 271.5;
 				}
 
 				// right collision
-				else if ((collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 188) || (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 189.5)) {
-					knight.rect.left = currentTiles[4].getPosition().x + 45.5;
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 177) || (collisionRect.getGlobalBounds().left >= currentTiles[4].getPosition().x + 178)) {
+					knight.rect.left = currentTiles[4].getPosition().x + 43.5;
 				}
 
 				// top collision
@@ -1719,12 +1781,12 @@ struct LevelOne {
 			// tile 6
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
 				// left collision	
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
 				}
 
 				// right collision 
-				if ((collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 98) || (collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 99.5)) {
+				else if ((collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 97) || (collisionRect.getGlobalBounds().left > currentTiles[5].getPosition().x + 98)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 46;
 				}
 
@@ -1734,9 +1796,8 @@ struct LevelOne {
 				}
 
 
-
 				// bottom  collsion 
-				else if (collisionRect.getGlobalBounds().top > currentTiles[5].getPosition().y + 49) {
+				else if (collisionRect.getGlobalBounds().top > currentTiles[5].getPosition().y + 50) {
 					bottomCollision();
 				}
 			}
@@ -1758,7 +1819,7 @@ struct LevelOne {
 			// tile 8
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
 				//  left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[7].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 105 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 106 <= currentTiles[7].getPosition().x)) {
 
 					knight.rect.left = currentTiles[7].getPosition().x - 271.5;
 				}
@@ -1769,7 +1830,7 @@ struct LevelOne {
 				}
 
 				// bottom  collsion 
-				else if (collisionRect.getGlobalBounds().top > currentTiles[7].getPosition().y + 435) {
+				else if (collisionRect.getGlobalBounds().top > currentTiles[7].getPosition().y + 427.5) {
 					bottomCollision();
 				}
 
@@ -1799,8 +1860,11 @@ struct LevelOne {
 			// door : tile 11
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[10].getGlobalBounds()) && noOFEnemies == 0) {
 
+			
 				currentScene++;
-				placeScene();
+				knight.rect.left = -10;
+				knight.rect.top = 600;
+				placeScene();	
 			}
 		}
 		if (currentScene == 2) {
@@ -1849,17 +1913,17 @@ struct LevelOne {
 				if (i == 2 || i == 3 || i == 4 || i == 7 || i == 8 || i == 9) {
 					if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
 						// left collision
-						if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[i].getPosition().x)) {
+						if ((collisionRect.getGlobalBounds().left + 118 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[i].getPosition().x)) {
 							knight.rect.left = currentTiles[i].getPosition().x - 271.5;
 						}
 
 						// right collision
-						else if (((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 128) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 129))) {
+						else if (((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 125) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 126))) {
 							knight.rect.left = currentTiles[i].getPosition().x - 16.5;
 						}
 
 						// top collision
-						else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[i].getPosition().y + 5)) {
+						else if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[i].getPosition().y + 20)) {
 							setOnGround();
 						}
 					}
@@ -1872,6 +1936,12 @@ struct LevelOne {
 				if ((collisionRect.getGlobalBounds().top + 145 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 145 < currentTiles[5].getPosition().y + 10)) {
 					setOnGround();
 				}
+
+				// left collision 
+				else if ((collisionRect.getGlobalBounds().left + 118.5 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 119 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
+				}
+
 			}
 
 			// tile 7
@@ -1912,12 +1982,16 @@ struct LevelOne {
 				else if (collisionRect.getGlobalBounds().top + 145 > currentTiles[11].getPosition().y && collisionRect.getGlobalBounds().top + 145 < currentTiles[11].getPosition().y + 10) {
 					setOnGround();
 				}
+
+				// bottom collision
+				else if (collisionRect.getGlobalBounds().top > currentTiles[11].getPosition().y + 55) {
+					bottomCollision();
+				}
 			}
 
 			// tile 13 : Door
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[12].getGlobalBounds())) {
-				knight.rect.left = -10;
-				knight.rect.top = 300;
+				
 				currentScene++;
 				placeScene();
 			}
@@ -1960,7 +2034,7 @@ struct LevelOne {
 			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds())) {
 				// right collison
-				if ((collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 573) || (collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 574)) {
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 565) || (collisionRect.getGlobalBounds().left >= currentTiles[2].getPosition().x + 566)) {
 					knight.rect.left = currentTiles[2].getPosition().x + 428.5;
 				}
 
@@ -1971,10 +2045,10 @@ struct LevelOne {
 			}
 
 			// tile 4
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())) {
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds())){
 				// right collison
-				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 123) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 124)) {
-					knight.rect.left = currentTiles[3].getPosition().x - 21.5;
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 119) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 120)) {
+					knight.rect.left = currentTiles[3].getPosition().x - 20.5;
 				}
 
 				// top collsion 
@@ -2071,8 +2145,13 @@ struct LevelOne {
 
 				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
 					// right collision
-					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 68) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 69)) {
-						knight.rect.left = currentTiles[i].getGlobalBounds().getPosition().x - 76.5;
+					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 67) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getGlobalBounds().getPosition().x + 68)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 76.5;
+					}
+
+					// left collision
+					else if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 116 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 271.5;
 					}
 
 					// top collision
@@ -2085,7 +2164,7 @@ struct LevelOne {
 			// tile 6
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
 				// left collision
-				if ((collisionRect.getGlobalBounds().left + 120 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 121 <= currentTiles[5].getPosition().x)) {
+				if ((collisionRect.getGlobalBounds().left + 115 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 116 <= currentTiles[5].getPosition().x)) {
 					knight.rect.left = currentTiles[5].getPosition().x - 271.5;
 				}
 
@@ -2124,8 +2203,8 @@ struct levelTwo {
 
 
 	void loadTextures() {
-		string texturesArr[6] = { "external/level2/Forest P1.png", "external/level2/Forest P2.png","external/level2/Forest P3.png", "external/level2/Forest P4.png",
-								  "external/level2/Forest P5.png", "external/level2/Forest P6.png" };
+		string texturesArr[6] = { "./external/level2/Forest P1.png", "./external/level2/Forest P2.png","./external/level2/Forest P3.png", "./external/level2/Forest P4.png",
+								  "./external/level2/Forest P5.png", "./external/level2/Forest P6.png" };
 
 		for (int i = 0; i < 6; i++) {
 			levelTextures[i].loadFromFile(texturesArr[i]);
@@ -2137,6 +2216,11 @@ struct levelTwo {
 		knight.onGround = true;
 	}
 
+	void bottomCollision() {
+		knight.onGround = false;
+		knight.moveY = 0.1;
+	}
+
 	void jump() {
 		knight.moveY = -0.9;
 		knight.onGround = false;
@@ -2144,14 +2228,31 @@ struct levelTwo {
 	}
 
 	// used to change background sprite and create & place tiles rectangles in the correct place
-	void placeScene(RenderWindow& window, Sprite& player) {
+	void placeScene() {
 		backgroundSprite.setTexture(levelTextures[currentScene]);
+
+		if (currentScene == 0 || currentScene == 1 || currentScene == 2 || currentScene == 3 || currentScene == 4) {
+			ground = 1300;
+		}
 
 		if (currentScene == 0) {
 			currentTiles.resize(5);
 
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 5;
+				knight.rect.top = 510;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+			
+
 			for (int i = 0; i < 5; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(425, 75));
@@ -2173,8 +2274,20 @@ struct levelTwo {
 		if (currentScene == 1) {
 			currentTiles.resize(9);
 
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 5;
+				knight.rect.top = 510;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+
 			for (int i = 0; i < 9; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(310, 70));
@@ -2206,13 +2319,25 @@ struct levelTwo {
 		}
 
 		if (currentScene == 2) {
-			currentTiles.resize(12);
+			currentTiles.resize(8);
 
-			for (int i = 0; i < 12; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = 10;
+				knight.rect.top = 250;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
 			}
 
-			currentTiles[0].setSize(Vector2f(240, 70));
+			for (int i = 0; i < 8; i++) {
+				currentTiles[i].setFillColor(Color::Transparent);
+			}
+
+			currentTiles[0].setSize(Vector2f(250, 470));
 			currentTiles[0].setPosition(0, 580);
 
 			currentTiles[1].setSize(Vector2f(65, 65));
@@ -2222,7 +2347,7 @@ struct levelTwo {
 			currentTiles[2].setPosition(615, 700);
 
 			currentTiles[3].setSize(Vector2f(65, 65));
-			currentTiles[3].setPosition(870, 750);
+			currentTiles[3].setPosition(870, 730);
 
 			currentTiles[4].setSize(Vector2f(65, 65));
 			currentTiles[4].setPosition(1125, 540);
@@ -2233,30 +2358,27 @@ struct levelTwo {
 			currentTiles[6].setSize(Vector2f(175, 75));
 			currentTiles[6].setPosition(1725, 640);
 
-			currentTiles[7].setSize(Vector2f(205, 135));
-			currentTiles[7].setPosition(955, 970);
-
-			currentTiles[8].setSize(Vector2f(210, 190));
-			currentTiles[8].setPosition(1170, 870);
-
-			currentTiles[9].setSize(Vector2f(225, 255));
-			currentTiles[9].setPosition(1395, 800);
-
-			currentTiles[10].setSize(Vector2f(195, 155));
-			currentTiles[10].setPosition(1620, 900);
-
-			currentTiles[11].setSize(Vector2f(10, 150));
-			currentTiles[11].setPosition(1910, 500);
+			currentTiles[7].setSize(Vector2f(10, 150));
+			currentTiles[7].setPosition(1910, 500);
 		}
 
 		if (currentScene == 3) {
-			knight.rect.top = 0;
-			knight.rect.left = 25;
-			currentTiles.erase(currentTiles.begin(), currentTiles.end());
-			currentTiles.resize(16);
+			currentTiles.resize(10);
 
-			for (int i = 0; i < 16; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+			if (pausedtimes == 0)
+			{
+				knight.rect.top = 345;
+				knight.rect.left = 25;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+
+			for (int i = 0; i < 10; i++) {
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(255, 70));
@@ -2269,12 +2391,12 @@ struct levelTwo {
 			currentTiles[2].setPosition(615, 700);
 
 			currentTiles[3].setSize(Vector2f(65, 450));
-			currentTiles[3].setPosition(870, 750);
+			currentTiles[3].setPosition(870, 700);
 
 			currentTiles[4].setSize(Vector2f(65, 450));
-			currentTiles[4].setPosition(1125, 510);
+			currentTiles[4].setPosition(1125, 525);
 
-			currentTiles[5].setSize(Vector2f(55, 320));
+			currentTiles[5].setSize(Vector2f(65, 350));
 			currentTiles[5].setPosition(1445, 0);
 
 			currentTiles[6].setSize(Vector2f(225, 70));
@@ -2283,47 +2405,41 @@ struct levelTwo {
 			currentTiles[7].setSize(Vector2f(260, 65));
 			currentTiles[7].setPosition(1660, 650);
 
-			currentTiles[8].setSize(Vector2f(300, 255));
-			currentTiles[8].setPosition(0, 800);
+			currentTiles[8].setSize(Vector2f(60, 110));
+			currentTiles[8].setPosition(1440, 960);
 
-			currentTiles[9].setSize(Vector2f(200, 190));
-			currentTiles[9].setPosition(300, 870);
-
-			currentTiles[10].setSize(Vector2f(225, 255));
-			currentTiles[10].setPosition(550, 800);
-
-			currentTiles[11].setSize(Vector2f(195, 155));
-			currentTiles[11].setPosition(775, 900);
-
-			currentTiles[12].setSize(Vector2f(195, 155));
-			currentTiles[12].setPosition(970, 900);
-
-			currentTiles[13].setSize(Vector2f(195, 155));
-			currentTiles[13].setPosition(1165, 900);
-
-			currentTiles[14].setSize(Vector2f(195, 155));
-			currentTiles[14].setPosition(1360, 900);
-
-			currentTiles[15].setSize(Vector2f(10, 150));
-			currentTiles[15].setPosition(1930, 500);
+			currentTiles[9].setSize(Vector2f(10, 150));
+			currentTiles[9].setPosition(1930, 500);
 		}
 
 		if (currentScene == 4) {
 			currentTiles.erase(currentTiles.begin(), currentTiles.end());
 			currentTiles.resize(8);
 
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -30;
+				knight.rect.top = 420;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
+
 			for (int i = 0; i < 8; i++) {
-				currentTiles[i].setFillColor(Color(255, 0, 0, 128));
+				currentTiles[i].setFillColor(Color::Transparent);
 			}
 
 			currentTiles[0].setSize(Vector2f(425, 80));
-			currentTiles[0].setPosition(35, 740);
+			currentTiles[0].setPosition(35, 700);
 
 			currentTiles[1].setSize(Vector2f(425, 80));
 			currentTiles[1].setPosition(515, 510);
 
 			currentTiles[2].setSize(Vector2f(200, 75));
-			currentTiles[2].setPosition(1050, 350);
+			currentTiles[2].setPosition(1050, 330);
 
 			currentTiles[3].setSize(Vector2f(200, 75));
 			currentTiles[3].setPosition(1335, 685);
@@ -2332,244 +2448,500 @@ struct levelTwo {
 			currentTiles[4].setPosition(965, 865);
 
 			currentTiles[5].setSize(Vector2f(315, 70));
-			currentTiles[5].setPosition(550, 1050);
+			currentTiles[5].setPosition(550, 1020);
 
 			currentTiles[6].setSize(Vector2f(345, 85));
 			currentTiles[6].setPosition(1575, 870);
 
-			currentTiles[7].setSize(Vector2f(150, 10));
-			currentTiles[7].setPosition(1930, 700);
+			currentTiles[7].setSize(Vector2f(150, 30));
+			currentTiles[7].setPosition(1920, 700);
 		}
 
 		if (currentScene == 5) {
 			currentTiles.erase(currentTiles.begin(), currentTiles.end());
+
+			if (pausedtimes == 0)
+			{
+				knight.rect.left = -40;
+				knight.rect.top = 553;
+				//put the mobs initializations here
+			}
+			else
+			{
+				knight.rect.left = knight.rect.getPosition().x;
+				knight.rect.top = knight.rect.getPosition().y;
+			}
 			ground = 555;
-			/*if(knight.rect.left){}*/
 		}
 	}
 
 	// detect collision of main character and tiles rectangels 
-	void checkCollision(RenderWindow& window, RectangleShape& collisionRect) {
+	void checkCollision(RectangleShape& collisionRect) {
 		if (currentScene == 0) {
+			// tile 1
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
 			{
-
-				if (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + (423) || collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + (424)) {
-					knight.rect.left = currentTiles[0].getPosition().x + 267; // in my case diff is 148 
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 423) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 424)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 270;
 				}
-				// top collision
-				else if (collisionRect.getGlobalBounds().top + 170 > currentTiles[0].getPosition().y) {
+
+				// top colliison
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
-					knight.rect.top = currentTiles[0].getPosition().y - 298;
 				}
 			}
 
+
+			// tile 2
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[1].getPosition().y - 300;
-				onGround();
+				// left colision 
+				if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+				// right collision 
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 410) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 411)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 261;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+
+
 			}
 
+			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[2].getPosition().y - 300;
-				onGround();
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[2].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[2].getPosition().x)) {
+					knight.rect.left = currentTiles[2].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[2].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[2].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+
+			// tile 4 : jumper 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
 			{
-				knight.moveY = -0.9;
-				knight.onGround = false;
-				knight.state = "Jump";
+				jump();
 			}
+
+			// tile 5 : next scene move
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
 			{
 				currentScene++;
-				knight.rect.top = 0;
-				knight.rect.left = 0;
-				placeScene(window, knight.sprite);
+				pausedtimes = 0;
+				placeScene();
 			}
 		}
 
 		if (currentScene == 1) {
+
+			// tile 0
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[0].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 300) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 301)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 151.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+
+			// tile 1
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[1].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 21.5;
+				}
+
+				// left colision 
+				else if ((collisionRect.getGlobalBounds().left + 92 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 93 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+
 			}
+
+			// tile 2 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 3
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[3].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[3].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[3].getPosition().x + 21.5;
+				}
+
+				// left colision 
+				else if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[3].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[3].getPosition().x)) {
+					knight.rect.left = currentTiles[3].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[3].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[3].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 4 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 5
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[5].getPosition().y - 300;
-				onGround();
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 170) || (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 171)) {
+					knight.rect.left = currentTiles[5].getPosition().x + 21.5;
+				}
+
+				// left collision
+				else if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[5].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 6 : jumper
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds()))
 			{
 				jump();
 			}
+
+			// tile 7 
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.rect.top = currentTiles[7].getPosition().y - 300;
-				onGround();
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 90 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 91 <= currentTiles[7].getPosition().x)) {
+					knight.rect.left = currentTiles[7].getPosition().x - 255.5;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[7].getPosition().y + 20)) {
+					onGround();
+				}
 			}
+
+			// tile 8 : move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds()))
 			{
 				currentScene++;
-				knight.rect.top = 0;
-				knight.rect.left = 0;
-				placeScene(window, knight.sprite);
+				pausedtimes = 0;
+				placeScene();
 			}
 		}
 
-		if (currentScene == 2) {
+		if (currentScene == 2)
+		{
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[0].getPosition().y - 300;
-				onGround();
+			// tile 1 :
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 240) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 241)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 91.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
+					onGround();
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds()))
+			// tiles : 2 , 3, 4 ,5 ,6
+			// index : 1, 2, 3, 4, 5
+
+			for (int i = 1; i <= 5; i++)
 			{
-				onGround();
-				knight.rect.top = currentTiles[1].getPosition().y - 298;
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// left collision
+					if ((collisionRect.getGlobalBounds().left + 89 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 90 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// right collision 
+					else if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 53) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 54)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 93.5;
+					}
+
+					// top collision
+					else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+						onGround();
+					}
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[2].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[2].getPosition().y - 300;
-				onGround();
+			// tile 7
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 89 <= currentTiles[6].getPosition().x) || (collisionRect.getGlobalBounds().left + 90 <= currentTiles[6].getPosition().x)) {
+					knight.rect.left = currentTiles[6].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[3].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[3].getPosition().y - 300;
-				onGround();
-			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[4].getPosition().y - 300;
-				onGround();
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[5].getPosition().y - 300;
-				onGround();
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds()))
-			{
-				knight.rect.top = currentTiles[6].getPosition().y - 300;
-				onGround();
-			}
-
+			// tile 8 : move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[9].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[10].getGlobalBounds()))
-			{
-				knight.moveX = 0;
-				knight.moveY = 0.01;
-				knight.health -= 10;
-				knight.state = "Hit";
-			}
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[11].getGlobalBounds()))
-			{
 				currentScene++;
+				pausedtimes = 0;
 				knight.rect.top = 0;
 				knight.rect.left = 50;
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
 		if (currentScene == 3) {
 
-			for (int i = 0; i < 8; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.rect.top = currentTiles[i].getPosition().y - 300;
+			// tile 1 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision 
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 242) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 243)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 93.5;
+				}
+
+				// top collision
+				if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
 				}
 			}
 
-			for (int i = 8; i < 15; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.moveX = 0;
-					knight.moveY = 0.01;
-					knight.health -= 10;
-					knight.state = "Hit";
+			// tiles : 2, 3, 4, 5, 6
+			// index : 1, 2, 3, 4, 5
+			for (int i = 1; i <= 5; i++) {
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// left collision
+					if ((collisionRect.getGlobalBounds().left + 87 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 88 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// right collision
+					else if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 54) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 55)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 93.5;
+					}
+
+					if (i != 5) {
+						// top collision
+						if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+							onGround();
+						}
+					}
+					else { // top tile
+						// bottom collision
+						if (collisionRect.getGlobalBounds().top > currentTiles[i].getPosition().y + 342) {
+							bottomCollision();
+						}
+					}
+
 				}
 			}
 
-			if (collisionRect.getGlobalBounds().intersects(currentTiles[15].getGlobalBounds()))
+			// tile 7
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[6].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[6].getPosition().x)) {
+					knight.rect.left = currentTiles[6].getPosition().x - 255.5;
+				}
+
+				// right collision
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 215) || (collisionRect.getGlobalBounds().left >= currentTiles[6].getPosition().x + 216)) {
+					knight.rect.left = currentTiles[6].getPosition().x + 66.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
+				// bottom collision
+				else if (collisionRect.getGlobalBounds().top > currentTiles[6].getPosition().y + 69) {
+					bottomCollision();
+				}
+			}
+
+
+			// tile 8
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[7].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[7].getPosition().x)) {
+					knight.rect.left = currentTiles[7].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[7].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[7].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 9 : bottom
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[8].getGlobalBounds())) {
+				// right collision :
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[8].getPosition().x + 50) || (collisionRect.getGlobalBounds().left >= currentTiles[8].getPosition().x + 51)) {
+					knight.rect.left = currentTiles[8].getPosition().x - 98.5;;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[8].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[8].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[9].getGlobalBounds()))
 			{
 				knight.rect.top = 0;
 				knight.rect.left = 25;
+				pausedtimes = 0;
 				currentScene++;
 
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 
 		if (currentScene == 4) {
-			for (int i = 0; i < 7; i++)
-			{
-				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds()))
-				{
-					knight.rect.top = currentTiles[i].getPosition().y - 300;
+			// tile 1 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[0].getGlobalBounds())) {
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 414) || (collisionRect.getGlobalBounds().left >= currentTiles[0].getPosition().x + 415)) {
+					knight.rect.left = currentTiles[0].getPosition().x + 266.6;
+				}
+
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[0].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[0].getPosition().y + 20)) {
 					onGround();
 				}
 			}
 
+			// tile 2 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[1].getGlobalBounds())) {
+				// right collision
+				if ((collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 414) || (collisionRect.getGlobalBounds().left >= currentTiles[1].getPosition().x + 415)) {
+					knight.rect.left = currentTiles[1].getPosition().x + 266.6;
+				}
+
+				// left collision
+				else if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[1].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[1].getPosition().x)) {
+					knight.rect.left = currentTiles[1].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[1].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[1].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tiles : 3, 4
+			// index : 2, 3
+			for (int i = 2; i <= 3; i++)
+			{
+				if (collisionRect.getGlobalBounds().intersects(currentTiles[i].getGlobalBounds())) {
+					// right collision
+					if ((collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 190) || (collisionRect.getGlobalBounds().left >= currentTiles[i].getPosition().x + 191)) {
+						knight.rect.left = currentTiles[i].getPosition().x + 41.5;
+					}
+
+					// left collision
+					else if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[i].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[i].getPosition().x)) {
+						knight.rect.left = currentTiles[i].getPosition().x - 255.5;
+					}
+
+					// top collision
+					else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[i].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[i].getPosition().y + 20)) {
+						onGround();
+					}
+
+					else if (i == 2) {
+						// bottom collision
+						if (collisionRect.getGlobalBounds().top > currentTiles[i].getPosition().y + 65) {
+							bottomCollision();
+						}
+					}
+				}
+			}
+
+			// tile 5
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[4].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[4].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[4].getPosition().x)) {
+					knight.rect.left = currentTiles[4].getPosition().x - 255.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[4].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[4].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 6 : bottom 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[5].getGlobalBounds())) {
+				// left collision
+				if ((collisionRect.getGlobalBounds().left + 88 <= currentTiles[5].getPosition().x) || (collisionRect.getGlobalBounds().left + 89 <= currentTiles[5].getPosition().x)) {
+					knight.rect.left = currentTiles[5].getPosition().x - 255.5;
+				}
+
+				// right collision
+				else if ((collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 305) || (collisionRect.getGlobalBounds().left >= currentTiles[5].getPosition().x + 306)) {
+					knight.rect.left = currentTiles[5].getPosition().x + 156.5;
+				}
+
+				// top collision
+				else if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[5].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[5].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// tile 7 
+			if (collisionRect.getGlobalBounds().intersects(currentTiles[6].getGlobalBounds())) {
+				// top collision
+				if ((collisionRect.getGlobalBounds().top + 154 > currentTiles[6].getPosition().y) && (collisionRect.getGlobalBounds().top + 154 < currentTiles[6].getPosition().y + 20)) {
+					onGround();
+				}
+			}
+
+			// move to next scene
 			if (collisionRect.getGlobalBounds().intersects(currentTiles[7].getGlobalBounds()))
 			{
-				knight.rect.top = 0;
-				knight.rect.left = 600;
+				pausedtimes = 0;
 				currentScene++;
-
-				placeScene(window, knight.sprite);
+				placeScene();
 			}
 		}
 	}
@@ -2585,8 +2957,8 @@ int main()
 {
 	knight.assignSprite(); // Initialize player character
 
-	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
-	window.setFramerateLimit(60);
+	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!", Style::Fullscreen);
+	window.setFramerateLimit(144);
 	mainMenu menu;
 	menu.menu(1920, 1080);
 
@@ -2612,10 +2984,10 @@ int main()
 					}
 
 					if (event.type == Event::KeyPressed) {
-						if ((event.key.code == Keyboard::W) || event.key.code == Keyboard::Up)
+						if (event.key.code == Keyboard::Up)
 							menu.moveUp();
 
-						if ((event.key.code == Keyboard::S) || event.key.code == Keyboard::Down)
+						if (event.key.code == Keyboard::Down)
 							menu.moveDown();
 
 						if (event.key.code == Keyboard::Enter) {
@@ -2689,7 +3061,8 @@ int main()
 						pageNum = 1;
 						menu.menuElement[0].setFillColor(Color::White);
 						menu.menuElement[0].setCharacterSize(90);
-						return pageNum;
+						menu.selected = -1;
+						break;
 					}
 				}
 
@@ -2702,8 +3075,7 @@ int main()
 
 		}
 		if (pageNum == 3) {
-			int coins = 500;
-			store(coins);
+			store(window);
 			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 				clickSound.play();
 				pageNum = 1;
@@ -2717,6 +3089,7 @@ int main()
 		}
 		if (pageNum == 5)
 		{
+			Clock clock;
 
 			Texture arcadebackgroundTexture;
 			Sprite backgroundSprite;
@@ -2727,15 +3100,6 @@ int main()
 			int pageNum = 0; // Initialize pageNum to control the game flow
 			bool paused = false;
 			ground = 600;
-
-
-
-			Clock clock;
-			//knight.assignSprite(); // Initialize player character
-
-
-			/*knight.rect.left = 10;
-			knight.rect.top = 850;*/
 
 			while (window.isOpen())
 			{
@@ -2885,6 +3249,739 @@ void movements() {
 
 }
 
+void store(RenderWindow& window)
+{
+	//RenderWindow window(VideoMode(1920, 1080), "Store", Style::Fullscreen);
+
+	// Load font of store
+	Font storeFont;
+	if (!storeFont.loadFromFile("menu/Pixelated.ttf"))
+	{
+		cerr << "Error loading font file" << "/n";
+	}
+
+	Text displayCoinText("", storeFont, 50);
+
+	// Text of storeBanner
+	Text textBanner;
+	textBanner.setFont(storeFont);
+	textBanner.setString("Store");
+	textBanner.setFillColor(Color::White);
+	textBanner.setCharacterSize(50);
+	textBanner.setPosition(885, 45);
+
+	// Load primary textures
+	Texture background, storeBadge, powerBoard, infoBoard, infoChain, powerChain, button, coinTexture;
+	if (!background.loadFromFile("Store/Textures/background.png") ||
+		!storeBadge.loadFromFile("Store/Textures/storebanner.png") ||
+		!powerBoard.loadFromFile("Store/Textures/boardofpowerups.png") ||
+		!infoBoard.loadFromFile("Store/Textures/boardofinfo.png") ||
+		!infoChain.loadFromFile("Store/Textures/infochain.png") ||
+		!powerChain.loadFromFile("Store/Textures/chain.png") ||
+		!button.loadFromFile("Store/Textures/button.png") ||
+		!coinTexture.loadFromFile("Store/Textures/coin.png"))
+	{
+		cerr << "Error loading primary textures files" << "/n";
+	}
+
+	SoundBuffer clickBuffer;
+	clickBuffer.loadFromFile("menu/ButtonClick.wav");
+	Sound clickSound;
+	clickSound.setBuffer(clickBuffer);
+
+	// Create primary sprites
+	Sprite storeBackground(background), storeBanner(storeBadge), boardOfPowers(powerBoard),
+		boardOfInfo(infoBoard), chainOfInfo(infoChain), chainOne(powerChain), chainTwo(powerChain), coinsText(coinTexture);
+
+	// Set positions for primary sprites
+	storeBanner.setPosition(760, 25);
+	boardOfPowers.setPosition(1500, 220);
+	boardOfInfo.setPosition(40, 365);
+	chainOfInfo.setPosition(0, 280);
+	chainOne.setPosition(1540, 0);
+	chainTwo.setPosition(1830, 0);
+	coinsText.setPosition(240, 10);
+	coinsText.setScale(0.7, 0.7);
+
+	// Load Perks textures
+	Texture heart, resis, sword;
+	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
+		!resis.loadFromFile("Store/Textures/resis1.png") ||
+		!sword.loadFromFile("Store/Textures/sword1.png"))
+	{
+		cerr << "Error loading Perks textures files" << "/n";
+	}
+
+	for (int i = 0; i < NUMBER_OF_PERKS; i++)
+	{
+		// Create button
+		perks[i].upgradeButton.setTexture(button);
+		perks[i].upgradeButton.setPosition(-1000, -1000);
+
+		perks[i].priceTexture.setTexture(coinTexture);
+		perks[i].priceTexture.setPosition(-1000, -1000);
+		perks[i].priceTexture.setScale(0.5, 0.5);
+
+		// Create text on button
+		perks[i].upgradeText.setFont(storeFont);
+		perks[i].upgradeText.setString("Upgrade");
+		perks[i].upgradeText.setFillColor(Color::White);
+		perks[i].upgradeText.setCharacterSize(45);
+		perks[i].upgradeText.setPosition(-1000, -1000);
+
+		// Create price
+		perks[i].price.setFont(storeFont);
+		perks[i].price.setFillColor(Color::White);
+		perks[i].price.setCharacterSize(40);
+		perks[i].price.setPosition(-1000, -1000);
+
+		perks[i].info.setFont(storeFont);
+		perks[i].info.setFillColor(Color::White);
+		perks[i].info.setCharacterSize(40);
+		perks[i].info.setPosition(-1000, -1000);
+
+		// Create perks sprites
+		// position of Perks
+		switch (i)
+		{
+		case 0:
+			perks[i].action.setTexture(sword);
+			perks[i].action.setPosition(1570, 250);
+			perks[i].price.setString("100");
+			perks[i].info.setString("Increase\nAttack\nDamage\nby 25%");
+			break;
+		case 1:
+			perks[i].action.setTexture(resis);
+			perks[i].action.setPosition(1710, 250);
+			perks[i].price.setString("80");
+			perks[i].info.setString("Increase\nResistence\nby 25%");
+			break;
+		case 2:
+			perks[i].action.setTexture(heart);
+			perks[i].action.setPosition(1570, 350);
+			perks[i].price.setString("120");
+			perks[i].info.setString("Increase\nHealth\nby 25%");
+			break;
+		}
+	}
+
+	powerUp1File.open("powerUp1File.txt", ios::in);
+	if (powerUp1File.is_open())
+	{
+		string temp;
+		while (getline(powerUp1File, temp))
+		{
+			upgradeCheck[0] = stoi(temp);
+		}
+		powerUp1File.close();
+	}
+
+	powerUp2File.open("powerUp2File.txt", ios::in);
+	if (powerUp2File.is_open())
+	{
+		string temp;
+		while (getline(powerUp2File, temp))
+		{
+			upgradeCheck[1] = stoi(temp);
+		}
+		powerUp2File.close();
+	}
+
+	powerUp3File.open("powerUp3File.txt", ios::in);
+	if (powerUp3File.is_open())
+	{
+		string temp;
+		while (getline(powerUp3File, temp))
+		{
+			upgradeCheck[2] = stoi(temp);
+		}
+		powerUp3File.close();
+	}
+
+	if (upgradeCheck[0] == 0) sword.loadFromFile("Store/Textures/sword1.png");
+	if (upgradeCheck[0] == 1) sword.loadFromFile("Store/Textures/sword2.png");
+	if (upgradeCheck[0] == 2) sword.loadFromFile("Store/Textures/sword3.png");
+	if (upgradeCheck[0] == 3) sword.loadFromFile("Store/Textures/sword4.png");
+	if (upgradeCheck[0] == 4) sword.loadFromFile("Store/Textures/sword5.png");
+
+	if (upgradeCheck[1] == 0) resis.loadFromFile("Store/Textures/resis1.png");
+	if (upgradeCheck[1] == 1) resis.loadFromFile("Store/Textures/resis2.png");
+	if (upgradeCheck[1] == 2) resis.loadFromFile("Store/Textures/resis3.png");
+	if (upgradeCheck[1] == 3) resis.loadFromFile("Store/Textures/resis4.png");
+	if (upgradeCheck[1] == 4) resis.loadFromFile("Store/Textures/resis5.png");
+
+	if (upgradeCheck[2] == 0) heart.loadFromFile("Store/Textures/heart1.png");
+	if (upgradeCheck[2] == 1) heart.loadFromFile("Store/Textures/heart2.png");
+	if (upgradeCheck[2] == 2) heart.loadFromFile("Store/Textures/heart3.png");
+	if (upgradeCheck[2] == 3) heart.loadFromFile("Store/Textures/heart4.png");
+	if (upgradeCheck[2] == 4) heart.loadFromFile("Store/Textures/heart5.png");
+
+	checkCoinsFile.open("checkCoinsFile.txt", ios::in);
+	if (checkCoinsFile.is_open())
+	{
+		string temp;
+		while (getline(checkCoinsFile, temp))
+		{
+			check = stoi(temp);
+		}
+		checkCoinsFile.close();
+	}
+
+	if (check == 0)
+	{
+		totalCoins = "500";
+		coinFile.open("coinFile.txt", ios::out);
+		if (coinFile.is_open())
+		{
+			coinFile << totalCoins;
+			coinFile.close();
+		}
+		coinFile.open("coinFile.txt", ios::in);
+		if (coinFile.is_open())
+		{
+			string temp;
+			while (getline(coinFile, temp))
+			{
+				storeCoins = stoi(temp);
+			}
+			coinFile.close();
+		}
+	}
+	else
+	{
+		coinFile.open("coinFile.txt", ios::in);
+		if (coinFile.is_open())
+		{
+			string temp;
+			while (getline(coinFile, temp))
+			{
+				storeCoins = stoi(temp);
+			}
+			coinFile.close();
+		}
+	}
+
+	while (window.isOpen())
+	{
+		// the mouse position on window
+		Vector2f mouse = window.mapPixelToCoords(Mouse::getPosition(window));
+
+		Event storeEvent;
+		while (window.pollEvent(storeEvent))
+		{
+			if (storeEvent.type == Event::Closed)
+				window.close();
+
+			if (storeEvent.type == Event::KeyPressed)
+			{
+				if (storeEvent.key.code == Keyboard::Escape)
+				{
+					if (pageNum == 5) {
+						pageNum = 5;
+						return;
+					}
+					else if (pageNum == 6) {
+						pageNum = 6;
+						return;
+					}
+					else {
+						pageNum = 1;
+						return;
+
+					}
+				}
+			}
+
+			displayCoinText.setString("coins: " + to_string(storeCoins));
+
+			// retrieve the bounding box
+			for (int i = 0; i < NUMBER_OF_PERKS; i++)
+			{
+				perks[i].bounds = perks[i].action.getGlobalBounds();
+				perks[i].upgradeBounds = perks[i].upgradeText.getGlobalBounds();
+			}
+
+			if (Mouse::isButtonPressed(Mouse::Left))
+			{
+				// the sword hit test
+				if (perks[0].bounds.contains(mouse))
+				{
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
+					if (upgradeCheck[0] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						perks[0].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[0].upgradeText.setPosition(1607, 827);
+						perks[0].price.setPosition(160, 640);
+						perks[0].priceTexture.setPosition(235, 650);
+						perks[0].info.setPosition(100, 400);
+
+						if (upgradeCheck[0] == 1) perks[0].price.setString("150");
+						if (upgradeCheck[0] == 2) perks[0].price.setString("200");
+						if (upgradeCheck[0] == 3) perks[0].price.setString("250");
+					}
+					else if (upgradeCheck[0] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of sword hit test
+				if (perks[0].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[0] == 0)
+					{
+						if (storeCoins >= 100)
+						{
+							tempPowerUP = "1";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
+							sword.loadFromFile("Store/Textures/sword2.png");
+							perks[0].price.setString("150");
+							clickSound.play();
+							storeCoins -= 100;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 1)
+					{
+						if (storeCoins >= 150)
+						{
+							tempPowerUP = "2";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
+							sword.loadFromFile("Store/Textures/sword3.png");
+							perks[0].price.setString("200");
+							clickSound.play();
+							storeCoins -= 150;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 2)
+					{
+						if (storeCoins >= 200)
+						{
+							tempPowerUP = "3";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
+							sword.loadFromFile("Store/Textures/sword4.png");
+							perks[0].price.setString("250");
+							clickSound.play();
+							storeCoins -= 200;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[0]++;
+						}
+					}
+					else if (upgradeCheck[0] == 3)
+					{
+						if (storeCoins >= 250)
+						{
+							tempPowerUP = "4";
+							powerUp1File.open("powerUp1File.txt", ios::out);
+							if (powerUp1File.is_open())
+							{
+								powerUp1File << tempPowerUP;
+								powerUp1File.close();
+							}
+							sword.loadFromFile("Store/Textures/sword5.png");
+							clickSound.play();
+							storeCoins -= 250;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[0]++;
+						}
+					}
+				}
+
+				// the resis hit test
+				if (perks[1].bounds.contains(mouse))
+				{
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
+					if (upgradeCheck[1] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						perks[1].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[1].upgradeText.setPosition(1607, 827);
+						perks[1].price.setPosition(160, 640);
+						perks[1].priceTexture.setPosition(235, 650);
+						perks[1].info.setPosition(100, 400);
+
+						if (upgradeCheck[1] == 1) perks[1].price.setString("120");
+						if (upgradeCheck[1] == 2) perks[1].price.setString("160");
+						if (upgradeCheck[1] == 3) perks[1].price.setString("200");
+					}
+					else if (upgradeCheck[1] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of resis hit test
+				if (perks[1].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[1] == 0)
+					{
+						if (storeCoins >= 80)
+						{
+							tempPowerUP = "1";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
+							resis.loadFromFile("Store/Textures/resis2.png");
+							perks[1].price.setString("120");
+							clickSound.play();
+							storeCoins -= 80;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 1)
+					{
+						if (storeCoins >= 120)
+						{
+							tempPowerUP = "2";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
+							resis.loadFromFile("Store/Textures/resis3.png");
+							perks[1].price.setString("160");
+							clickSound.play();
+							storeCoins -= 120;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 2)
+					{
+						if (storeCoins >= 160)
+						{
+							tempPowerUP = "3";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
+							resis.loadFromFile("Store/Textures/resis4.png");
+							perks[1].price.setString("200");
+							clickSound.play();
+							storeCoins -= 160;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[1]++;
+						}
+					}
+					else if (upgradeCheck[1] == 3)
+					{
+						if (storeCoins >= 200)
+						{
+							tempPowerUP = "4";
+							powerUp2File.open("powerUp2File.txt", ios::out);
+							if (powerUp2File.is_open())
+							{
+								powerUp2File << tempPowerUP;
+								powerUp2File.close();
+							}
+							resis.loadFromFile("Store/Textures/resis5.png");
+							clickSound.play();
+							storeCoins -= 200;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[1]++;
+						}
+					}
+				}
+
+				// the heart hit test
+				if (perks[2].bounds.contains(mouse))
+				{
+					tempCheck = "1";
+					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
+					if (checkCoinsFile.is_open())
+					{
+						checkCoinsFile << tempCheck;
+						checkCoinsFile.close();
+					}
+					if (upgradeCheck[2] < 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						perks[2].upgradeButton.setPosition(1550, 800);
+						clickSound.play();
+						perks[2].upgradeText.setPosition(1607, 827);
+						perks[2].price.setPosition(160, 640);
+						perks[2].priceTexture.setPosition(235, 650);
+						perks[2].info.setPosition(100, 400);
+
+						if (upgradeCheck[2] == 1) perks[2].price.setString("170");
+						if (upgradeCheck[2] == 2) perks[2].price.setString("220");
+						if (upgradeCheck[2] == 3) perks[2].price.setString("270");
+					}
+					else if (upgradeCheck[2] == 4)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+					}
+				}
+				// the upgrade button of heart hit test
+				if (perks[2].upgradeBounds.contains(mouse))
+				{
+					if (upgradeCheck[2] == 0)
+					{
+						if (storeCoins >= 120)
+						{
+							tempPowerUP = "1";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
+							heart.loadFromFile("Store/Textures/heart2.png");
+							perks[2].price.setString("170");
+							clickSound.play();
+							storeCoins -= 120;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 1)
+					{
+						if (storeCoins >= 170)
+						{
+							tempPowerUP = "2";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
+							heart.loadFromFile("Store/Textures/heart3.png");
+							perks[2].price.setString("220");
+							clickSound.play();
+							storeCoins -= 170;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 2)
+					{
+						if (storeCoins >= 220)
+						{
+							tempPowerUP = "3";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
+							heart.loadFromFile("Store/Textures/heart4.png");
+							perks[2].price.setString("270");
+							clickSound.play();
+							storeCoins -= 220;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[2]++;
+						}
+					}
+					else if (upgradeCheck[2] == 3)
+					{
+						if (storeCoins >= 270)
+						{
+							tempPowerUP = "4";
+							powerUp3File.open("powerUp3File.txt", ios::out);
+							if (powerUp3File.is_open())
+							{
+								powerUp3File << tempPowerUP;
+								powerUp3File.close();
+							}
+							heart.loadFromFile("Store/Textures/heart5.png");
+							clickSound.play();
+							storeCoins -= 270;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							upgradeCheck[2]++;
+						}
+					}
+				}
+			}
+		}
+		// Rendering
+		window.clear();
+		window.draw(storeBackground);
+		window.draw(storeBanner);
+		window.draw(textBanner);
+		window.draw(chainOfInfo);
+		window.draw(boardOfInfo);
+		window.draw(chainOne);
+		window.draw(chainTwo);
+		window.draw(boardOfPowers);
+		for (int i = 0; i < NUMBER_OF_PERKS; i++)
+		{
+			window.draw(perks[i].action);
+			window.draw(perks[i].price);
+			window.draw(perks[i].upgradeButton);
+			window.draw(perks[i].priceTexture);
+			window.draw(perks[i].upgradeText);
+			window.draw(perks[i].info);
+		}
+		window.draw(displayCoinText);
+		window.draw(coinsText);
+		window.display();
+	}
+}
+//bool character::azraell(const SecEnemy& enemy)
+//{
+//	bool s;
+//	if (enemy.sprite.getGlobalBounds().intersects(sprite.getGlobalBounds()))
+//	{
+//		health -= enemy.attack;
+//		s = true;
+//	}
+//	else
+//		s = false;
+//
+//	return s;
+//}
 void levelOne(RenderWindow& window) {
 	Clock clock;
 	
@@ -2898,21 +3995,69 @@ void levelOne(RenderWindow& window) {
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
+	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 200, 20,50, 2, 200);
+	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 275, 10, 1, 100);
+	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 1, 80);
+	Skeleton_3.assign_sec_enemy_info("skeleton", 1475, 790, 200, 11, 1, 90);
+	Skeleton_4.assign_sec_enemy_info("skeleton", 1587, 440, 200, 11, 1, 90);
+	Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1475, 10, 150, 11, 2, 90);
+	Evil_Wizard_2.assign_sec_enemy_info("EvilWizard", 400, 475, 150, 11, 2, 120);
+	Evil_Wizard_3.assign_sec_enemy_info("EvilWizard", 1300, 695, 150, 11, 2, 130);
 	while (window.isOpen()) {
-		// redRect for collision detection
-		RectangleShape collisionRect;
-		collisionRect.setOutlineThickness(2);
-		collisionRect.setOutlineColor(Color::Transparent);
-		collisionRect.setFillColor(Color::Transparent);
-		collisionRect.setSize(Vector2f(120, 145));
 		Vector2f knightPos = knight.sprite.getPosition();
 		// adjusting the collision rect to be more accurate 
-		collisionRect.setPosition(knightPos.x + 150, knightPos.y + 150);
+		// redRect for collision detection
+		knight.collisionRect = RectCreator(100, 145, knightPos.x + 150, knightPos.y + 150);
+		Vector2f SPos1 = Skeleton_1.sprite.getPosition();
+		Vector2f SPos2 = Skeleton_2.sprite.getPosition();
+		Vector2f SPos3 = Skeleton_3.sprite.getPosition();
+		Vector2f SPos4 = Skeleton_4.sprite.getPosition();
+		Vector2f EPos1 = Evil_Wizard_1.sprite.getPosition();
+		Vector2f EPos2 = Evil_Wizard_2.sprite.getPosition();
+		Vector2f EPos3 = Evil_Wizard_3.sprite.getPosition();
+		Vector2f ExecPos = executioner.sprite.getPosition();
+		Skeleton_1.zone = RectCreator(170, 150, SPos1.x+ 35, SPos1.y + 35);
+		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
+		Skeleton_3.zone = RectCreator(170, 150, SPos3.x+24, SPos3.y);
+		Skeleton_4.zone = RectCreator(170, 150, SPos4.x + 24, SPos4.y);
+		Evil_Wizard_1.zone = RectCreator(200, 200, EPos1.x + 80, EPos1.y +30);
+		Evil_Wizard_2.zone = RectCreator(200, 200, EPos2.x + 80, EPos2.y+30);
+		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y+30);
+		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
+		executioner.zone2 = RectCreator(600, 300, ExecPos.x , ExecPos.y);
 
-		
-
-
-
+		//bool under_att1 = knight.is_Enemy_weapon_touching(Skeleton_1);
+		//bool under_att2 = knight.is_Enemy_weapon_touching(Skeleton_2);
+		//bool under_att3 = knight.is_Enemy_weapon_touching(Evil_Wizard_1);
+		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double) (Skeleton_1.attack)*0.00711;
+		}
+		if ((Evil_Wizard_1.state == "attack" || Skeleton_3.state == "attack") && levelOneMap.currentScene == 1)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00754;
+		}
+		if ((Evil_Wizard_2.state == "attack" || Evil_Wizard_3.state == "attack") && levelOneMap.currentScene == 3)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00754;
+		}
+		if ((Skeleton_4.state == "attack") && levelOneMap.currentScene == 4)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_1.attack) * 0.00711;
+		}
+		if (!knight.isAlive()) 
+		{
+			knight.state = "Death";  
+			knight.updateTexture(); 
+		}
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -2924,8 +4069,8 @@ void levelOne(RenderWindow& window) {
 				if (event.mouseButton.button == Mouse::Left) {
 					Vector2i mousePos = Mouse::getPosition(window);
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-					cout << "Knight Rect Left : " << knight.rect.left << " Knight Rect Top : " << knight.rect.top << endl;
-					cout << "Red Rect Left : " << collisionRect.getGlobalBounds().left << " Red Rect Top " << collisionRect.getGlobalBounds().top << endl;
+					cout << "Red Rect Left : " << knight.collisionRect.getGlobalBounds().left << " Red Rect Top " << knight.collisionRect.getGlobalBounds().top << endl;
+					cout << "blue rect left : " << knight.rect.left << "blue rect top : "  <<  knight.rect.top <<endl;
 				}
 			}
 
@@ -2946,7 +4091,153 @@ void levelOne(RenderWindow& window) {
 
 
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
-		levelOneMap.checkCollision(collisionRect);
+		levelOneMap.checkCollision(knight.collisionRect);
+		
+		// Clear the window
+		window.clear();
+
+	
+
+		if (!pauseMenu.paused)
+		{
+			window.draw(levelOneMap.backgroundSprite);
+			
+			if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
+			{
+				window.draw(Skeleton_1.sprite);
+				window.draw(Skeleton_1.zone);
+			}
+			if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
+			{
+				window.draw(Skeleton_2.sprite);
+				window.draw(Skeleton_2.zone);
+			}
+			if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
+			{
+				window.draw(Skeleton_3.sprite);
+				window.draw(Skeleton_3.zone);
+			}
+			if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
+			{
+				window.draw(Skeleton_4.sprite);
+				window.draw(Skeleton_4.zone);
+			}
+			if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
+			{
+				window.draw(Evil_Wizard_1.sprite);
+				window.draw(Evil_Wizard_1.zone);
+			}
+			if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
+			{
+				window.draw(Evil_Wizard_2.sprite);
+				window.draw(Evil_Wizard_2.zone);
+			}
+			if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
+			{
+				window.draw(Evil_Wizard_3.sprite);
+				window.draw(Evil_Wizard_3.zone);
+			}
+			if (!executioner.dead && levelOneMap.currentScene == 5)
+			{
+				window.draw(executioner.sprite);
+				window.draw(executioner.zone1);
+				window.draw(executioner.zone2);
+			}
+			if (!knight.dead)
+			{
+				window.draw(knight.collisionRect);
+				window.draw(knight.sprite);
+			}
+			movements();
+			float time = (float)clock.getElapsedTime().asMicroseconds();
+			clock.restart();
+			time /= 650;
+			if (time > 20)
+				time = 20;
+			knight.update(time);
+			Skeleton_1.update_skeleton_state(time);
+			Skeleton_2.update_skeleton_state(time);
+			Skeleton_3.update_skeleton_state(time);
+			Skeleton_4.update_skeleton_state(time);
+			Evil_Wizard_1.update_evilwiz_state(time);
+			Evil_Wizard_2.update_evilwiz_state(time);
+			Evil_Wizard_3.update_evilwiz_state(time);
+			executioner.update_boss1_state(time);
+		}
+		else
+		{
+			pauseMenu.show(window);
+			break;
+
+		}
+		
+		for (int i = 0; i < currentTiles.size(); i++)
+		{
+			window.draw(currentTiles[i]);
+		}
+
+		window.display();
+	}
+}
+
+void levelTwo(RenderWindow& window) {
+	Clock clock;
+	//knight.assignSprite(); // Initialize player character
+
+
+	pauseMenu.PauseMenufunc(1920, 1080);
+
+	SoundBuffer clickbuffer;
+	Sound clicksound;
+
+	clickbuffer.loadFromFile("menu/ButtonClick.wav");
+	clicksound.setBuffer(clickbuffer);
+
+	levelTwoMap.loadTextures();
+	levelTwoMap.placeScene();
+	while (window.isOpen()) {
+		// redRect for collision detection
+		RectangleShape collisionRect;
+		collisionRect.setOutlineColor(Color::Transparent);
+		collisionRect.setOutlineThickness(2);
+		collisionRect.setFillColor(Color::Transparent);
+		collisionRect.setSize(Vector2f(90, 150));
+		Vector2f knightPos = knight.sprite.getPosition();
+		collisionRect.setPosition(knightPos.x + 160, knightPos.y + 146);
+		//Skeleton_1.assign_sec_enemy_info("skeleton", 670, 700, 285, 10, 1, 100);
+		// Handle events
+		Event event;
+		while (window.pollEvent(event)) {
+			if (event.type == Event::Closed) {
+				window.close();
+			}
+			if (event.mouseButton.button == Mouse::Left) {
+				Vector2i mousePos = Mouse::getPosition(window);
+
+				if (event.type == Event::MouseButtonPressed) {
+					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
+
+				}
+			}
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Escape)
+				{
+					knight.rect.left = knight.rect.getPosition().x;
+					knight.rect.top = knight.rect.getPosition().y;
+					pauseMenu.paused = true;
+					pausedtimes++;
+					clicksound.play();
+
+				}
+			}
+		}
+
+
+
+		// Update game logic
+		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
+		levelTwoMap.checkCollision(collisionRect);
 
 		// Clear the window
 		window.clear();
@@ -2962,9 +4253,9 @@ void levelOne(RenderWindow& window) {
 
 		if (!pauseMenu.paused)
 		{
-			window.draw(levelOneMap.backgroundSprite);
+			window.draw(levelTwoMap.backgroundSprite);
 			window.draw(knight.sprite);
-
+			//window.draw(Skeleton_1.sprite);
 			movements();
 			float time = (float)clock.getElapsedTime().asMicroseconds();
 			clock.restart();
@@ -2972,7 +4263,7 @@ void levelOne(RenderWindow& window) {
 			if (time > 20)
 				time = 20;
 			knight.update(time);
-
+			//Skeleton_1.update_skeleton_state(time);
 		}
 		else
 		{
@@ -2980,87 +4271,6 @@ void levelOne(RenderWindow& window) {
 			break;
 
 		}
-		window.display();
-	}
-}
-
-void levelTwo(RenderWindow& window) {
-	Clock clock;
-	knight.assignSprite(); // Initialize player character
-
-
-	RectangleShape blueRect;
-	blueRect.setOutlineColor(Color::Blue);
-	blueRect.setOutlineThickness(2);
-	blueRect.setFillColor(Color::Transparent);
-
-	levelTwoMap.loadTextures();
-	levelTwoMap.placeScene(window, knight.sprite);
-	while (window.isOpen()) {
-		// redRect for collision detection
-		RectangleShape redRect;
-		redRect.setOutlineColor(Color::Red);
-		redRect.setOutlineThickness(2);
-		redRect.setFillColor(Color::Transparent);
-		redRect.setSize(Vector2f(90, 170));
-		Vector2f knightPos = knight.sprite.getPosition();
-		if (knight.lastKeyPressed == 1)  redRect.setPosition(knightPos.x + 160, knightPos.y + 130);
-		else  redRect.setPosition(knightPos.x + 190, knightPos.y + 130);
-		// Handle events
-		Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed) {
-				window.close();
-			}
-			if (event.mouseButton.button == Mouse::Left) {
-				Vector2i mousePos = Mouse::getPosition(window);
-
-				if (event.type == Event::MouseButtonPressed) {
-					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-					cout << "Knight Rect Left : " << knight.rect.left << " Knight Rect Top : " << knight.rect.top << endl;
-					cout << "Red Rect Left : " << redRect.getGlobalBounds().left << " Red Rect Top " << knight.rect.top << endl;
-				}
-			}
-		}
-
-
-
-		// blue rectangle around character 
-		blueRect.setSize(Vector2f(knight.sprite.getGlobalBounds().width, knight.sprite.getGlobalBounds().height));
-		blueRect.setPosition(knight.sprite.getPosition());
-
-
-		// Update game logic
-		levelTwoMap.checkCollision(window, redRect);
-		movements();
-
-		float time = (float)clock.getElapsedTime().asMicroseconds();
-		clock.restart();
-		time /= 650;
-		if (time > 20)
-			time = 20;
-		knight.update(time);
-
-
-		// Clear the window
-		window.clear();
-
-		// Draw game elements
-
-		for (const auto& tile : currentTiles)
-		{
-			window.draw(tile);
-		}
-		window.draw(levelTwoMap.backgroundSprite);
-
-		window.draw(knight.sprite);
-
-
-
-		window.draw(redRect);
-		window.draw(blueRect);
-
-		// Display the window
 		window.display();
 	}
 }
