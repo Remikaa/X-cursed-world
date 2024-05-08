@@ -747,22 +747,22 @@ struct BossEnemy
 		return zone1.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds());
 	}
 	bool is_player_in_killzone_x() { // checking if the character is in our boundaries  
-		//**new** (needed to be edited! by the second big rectangle)
-		return (left_tracker <= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_tracker) &&
-			(left_boundary >= knight.rect.getPosition().x || knight.rect.getPosition().x <= right_boundary);
+		
+		return !(zone1.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds()))&&(zone2.getGlobalBounds().intersects(knight.collisionRect.getGlobalBounds()));
 	}
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
 		float diff = rect.left - knight.rect.left;
+		float diff2 = rect.top - knight.rect.top;
 
 		if (knight.lastKeyPressed == 1) // knight is facing right
 		{
-			if (-25 <= diff && diff <= 240)
+			if (-25 <= diff && diff <= 240 && (-25 <= diff2 && diff2 <= 240))
 				is_attacked = true;
 		}
 		else // knight is facing left
 		{
-			if (-100 <= diff && diff <= 110)
+			if (-100 <= diff && diff <= 110 && (-100 <= diff2 && diff2 <= 110))
 				is_attacked = true;
 		}
 		return is_attacked && (knight.state == "Attack" || knight.state == "AttackCombo" || knight.state == "Attack2");
@@ -1004,7 +1004,7 @@ struct BossEnemy
 		else
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
-}executioner;
+}executioner, EvilBoss;
 //bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
 //{ // checking if the weapon touching the character
 //	is_attacked = false;
