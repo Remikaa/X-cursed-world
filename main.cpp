@@ -778,7 +778,7 @@ struct BossEnemy
 	float turn_time = 7, pause_time = 0;
 	void update_boss1_state(float time)
 	{
-		currentFrame += 0.0157 * time * speed;
+		currentFrame += 0.045 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
 			sprite.setTexture(stateTexture[5]);
@@ -824,7 +824,7 @@ struct BossEnemy
 		{
 			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
 			if (pause_time <= 0) {
-
+				
 				if (skill_shift >= 4)
 				{
 					//skill_shift = 0;
@@ -837,11 +837,11 @@ struct BossEnemy
 				if (currentFrame >= 6)
 				{
 					currentFrame = 0;
-					skill_shift++;
 					if (skill_shift > 5)
 					{
 						skill_shift = 0;
 					}
+					skill_shift++;
 				}
 
 				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
@@ -850,13 +850,18 @@ struct BossEnemy
 					dir = 1;
 				left_boundary = rect.getPosition().x - kill_zone;
 				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift)
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift <= 4)
 				{
-					knight.health -= attack1;
+					if (currentFrame == 0) {
+						knight.health -= attack1, cout << "knight health " << knight.health << endl;
+					}
 				}
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && !skill_shift)
+				else if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift > 4)
 				{
-					knight.health -= attack2;
+					if (currentFrame == 0)
+					{
+						knight.health -= attack2, cout << "Knight health " << knight.health << endl;
+					}
 				}
 				pause_time = attack_pause_time;
 			}
@@ -1175,7 +1180,7 @@ struct pauseMenu
 
 // level 1 map code
 struct LevelOne {
-	int currentScene = 5;
+	int currentScene = 0;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -3997,7 +4002,7 @@ void levelOne(RenderWindow& window) {
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
-	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 200, 20,50, 2, 200);
+	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 200, 10,20, 2, 200);
 	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 275, 10, 1, 100);
 	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 1, 80);
 	Skeleton_3.assign_sec_enemy_info("skeleton", 1475, 790, 200, 11, 1, 90);
@@ -4031,7 +4036,12 @@ void levelOne(RenderWindow& window) {
 		//bool under_att1 = knight.is_Enemy_weapon_touching(Skeleton_1);
 		//bool under_att2 = knight.is_Enemy_weapon_touching(Skeleton_2);
 		//bool under_att3 = knight.is_Enemy_weapon_touching(Evil_Wizard_1);
-		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
+
+
+		//----------------------------------- COMMENTED FOR TESTING ----------------------------------------------------------------------------------------------------
+
+
+		/*if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
 		{
 			knight.state = "Hit";
 			knight.updateTexture();
@@ -4060,7 +4070,7 @@ void levelOne(RenderWindow& window) {
 			knight.state = "Hit";
 			knight.updateTexture();
 			knight.health -= (double)(executioner.attack1) * 0.011;
-		}
+		}*/
 		if (!knight.isAlive()) 
 		{
 			knight.state = "Death";  
@@ -4145,7 +4155,7 @@ void levelOne(RenderWindow& window) {
 				window.draw(Evil_Wizard_3.sprite);
 				window.draw(Evil_Wizard_3.zone);
 			}
-			if (!executioner.dead /*&& levelOneMap.currentScene == 5*/)
+			if (!executioner.dead && levelOneMap.currentScene == 5)
 			{
 				window.draw(executioner.sprite);
 				window.draw(executioner.zone1);
