@@ -2967,6 +2967,42 @@ void healthBox(RenderWindow& window) {
 	window.draw(healthSprite);
 }
 
+void exechealthBox(RenderWindow& window) 
+{
+
+	Texture healthIcon;
+	healthIcon.loadFromFile("Store/Textures/darkheart.png");
+
+	Sprite healthSprite;
+	healthSprite.setTexture(healthIcon);
+	healthSprite.setPosition(571, 249);
+
+	RectangleShape healthOutline;
+	healthOutline.setFillColor(Color::Transparent);
+	healthOutline.setOutlineThickness(5);
+	healthOutline.setOutlineColor(Color::Black);
+	healthOutline.setPosition(616, 269);
+	healthOutline.setSize(Vector2f(700, 30));
+
+	RectangleShape healthinline;
+	healthOutline.setFillColor(Color::Black);
+	/*healthOutline.setOutlineThickness(5);
+	healthOutline.setOutlineColor(Color::Black);*/
+	healthOutline.setPosition(616, 269);
+	healthOutline.setSize(Vector2f(700, 30));
+
+	RectangleShape healthBar;
+	healthBar.setFillColor(Color(136, 8, 8));
+	healthBar.setPosition(healthOutline.getPosition().x, healthOutline.getPosition().y);
+	healthBar.setSize(Vector2f(executioner.health * 3.5, healthOutline.getSize().y));
+
+
+
+	window.draw(healthOutline);
+	window.draw(healthBar);
+	window.draw(healthSprite);
+}
+
 void coinBox(RenderWindow& window) {
 
 	Texture coinIcon;
@@ -4560,6 +4596,7 @@ void levelOne(RenderWindow& window)
 					window.draw(executioner.sprite);
 					window.draw(executioner.zone1);
 					window.draw(executioner.zone2);
+					exechealthBox(window);
 				}
 				if (!knight.dead)
 				{
