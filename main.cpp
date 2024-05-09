@@ -1173,7 +1173,7 @@ struct pauseMenu
 
 // level 1 map code
 struct LevelOne {
-	int currentScene = 5;
+	int currentScene = 0;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -2946,6 +2946,70 @@ struct levelTwo {
 	}
 } levelTwoMap;
 
+void healthBox(RenderWindow& window) {
+
+	Texture healthIcon;
+	healthIcon.loadFromFile("Store/Textures/heart2.png");
+
+	Sprite healthSprite;
+	healthSprite.setTexture(healthIcon);
+	healthSprite.setPosition(32.5, 30);
+
+	RectangleShape healthOutline;
+	healthOutline.setFillColor(Color::Transparent);
+	healthOutline.setOutlineThickness(3);
+	healthOutline.setPosition(80, 50);
+	healthOutline.setSize(Vector2f(350, 30));
+
+	RectangleShape healthBar;
+	healthBar.setFillColor(Color(229, 57, 53));
+	healthBar.setPosition(healthOutline.getPosition().x, healthOutline.getPosition().y);
+	healthBar.setSize(Vector2f(knight.health * 3.5,healthOutline.getSize().y));
+
+
+
+	window.draw(healthOutline);
+	window.draw(healthBar);
+	window.draw(healthSprite);
+}
+
+void coinBox(RenderWindow& window) {
+
+	Texture coinIcon;
+	coinIcon.loadFromFile("Store/Textures/coin.png");
+
+	Sprite coinSprite;
+	coinSprite.setTexture(coinIcon);
+	coinSprite.setPosition(1620, 30);
+
+	// font
+	Font coinFont;
+	coinFont.loadFromFile("menu/Pixelated.ttf");
+
+	coinFile.open("coinFile.txt", ios::in);
+	if (coinFile.is_open())
+	{
+		string temp;
+		while (getline(coinFile, temp))
+		{
+			storeCoins = stoi(temp);
+		}
+		coinFile.close();
+	}
+
+	// text
+	Text coinValue;
+	coinValue.setFont(coinFont);
+	coinValue.setString(to_string(storeCoins));
+	coinValue.setFillColor(Color::White);
+	coinValue.setCharacterSize(60);
+	coinValue.setPosition(1710, 30);
+
+
+	window.draw(coinValue);
+	window.draw(coinSprite);
+}
+
 void movements();
 
 void levelOne(RenderWindow& window);
@@ -3288,7 +3352,7 @@ int main()
 {
 	knight.assignSprite(); // Initialize player character
 
-	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!", Style::Fullscreen);
+	RenderWindow window(VideoMode(1920, 1080), "X: Cursed World!");
 	window.setFramerateLimit(144);
 	mainMenu menu;
 	menu.menu(1920, 1080);
@@ -4325,9 +4389,9 @@ void levelOne(RenderWindow& window)
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
 
-	if (!executioner.dead)
+	if (!executioner.dead) 
 	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 2000, 10, 20, 2, 200);
-	if (!Skeleton_1.dead)
+	if (!Skeleton_1.dead) 
 	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 275, 10, 1, 100);
 	if (!Skeleton_2.dead)
 	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 1, 80);
@@ -4439,6 +4503,7 @@ void levelOne(RenderWindow& window)
 		// Clear the window
 		window.clear();
 
+
 		if (!knight.dead)
 		{
 			if (executioner.dead) 
@@ -4449,7 +4514,8 @@ void levelOne(RenderWindow& window)
 			if (!pauseMenu.paused)
 			{
 				window.draw(levelOneMap.backgroundSprite);
-
+				healthBox(window);
+				coinBox(window);
 				if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
 				{
 					window.draw(Skeleton_1.sprite);
@@ -4529,6 +4595,8 @@ void levelOne(RenderWindow& window)
 			window.draw(currentTiles[i]);
 		}
 
+
+
 		window.display();
 	}
 }
@@ -4606,7 +4674,9 @@ void levelTwo(RenderWindow& window) {
 
 		if (!pauseMenu.paused)
 		{
+
 			window.draw(levelTwoMap.backgroundSprite);
+			healthBox(window);
 			window.draw(knight.sprite);
 			//window.draw(Skeleton_1.sprite);
 			movements();
