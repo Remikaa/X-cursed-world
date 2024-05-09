@@ -413,22 +413,22 @@ D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:    
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3572,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3578,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3584,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3585,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3589,20): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3598,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3599,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3604,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3605,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3613,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3614,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3620,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3626,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3700,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3700,21): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4426,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3573,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3579,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3585,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3586,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3590,20): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3599,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3600,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3605,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3606,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3614,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3615,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3621,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3627,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3701,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3701,21): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4427,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   x cursed world.vcxproj -> D:\Visual studio\Vs\Remikaa\X-cursed-world\x64\Debug\x cursed world.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

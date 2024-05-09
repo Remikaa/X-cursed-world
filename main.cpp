@@ -3109,6 +3109,7 @@ struct deathMenu
 							{
 								if (executioner.dead)
 								{
+									
 									levelTwo(window);
 								}
 								else
@@ -3551,7 +3552,7 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			if (executioner.dead) 
+			if (executioner.dead) /////////////////
 			{
 				levelTwo(window);
 			}
@@ -4425,6 +4426,13 @@ void levelOne(RenderWindow& window)
 		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
 		executioner.zone2 = RectCreator(2 * executioner.kill_zone, 300, executioner.left_boundary, ExecPos.y);
 
+
+		if (knight.rect.getPosition().y > 1090)
+		{
+
+			knight.dead = true;
+		}
+
 		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
 		{
 			knight.state = "Hit";
@@ -4603,6 +4611,7 @@ void levelTwo(RenderWindow& window) {
 
 
 	pauseMenu.PauseMenufunc(1920, 1080);
+	deathMenu.deathMenufunc(1920, 1080);
 
 	SoundBuffer clickbuffer;
 	Sound clicksound;
@@ -4650,7 +4659,10 @@ void levelTwo(RenderWindow& window) {
 			}
 		}
 
-
+		if (knight.rect.getPosition().y > 1090)
+		{
+			knight.dead = true;
+		}
 
 		// Update game logic
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
@@ -4667,29 +4679,37 @@ void levelTwo(RenderWindow& window) {
 		window.draw(collisionRect);
 
 
-
-		if (!pauseMenu.paused)
+		if (!knight.dead)
 		{
+			if (!pauseMenu.paused)
+			{
 
-			window.draw(levelTwoMap.backgroundSprite);
-			healthBox(window);
-			window.draw(knight.sprite);
-			//window.draw(Skeleton_1.sprite);
-			movements();
-			float time = (float)clock.getElapsedTime().asMicroseconds();
-			clock.restart();
-			time /= 650;
-			if (time > 20)
-				time = 20;
-			knight.update(time);
-			//Skeleton_1.update_skeleton_state(time);
+				window.draw(levelTwoMap.backgroundSprite);
+				healthBox(window);
+				window.draw(knight.sprite);
+				//window.draw(Skeleton_1.sprite);
+				movements();
+				float time = (float)clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time /= 650;
+				if (time > 20)
+					time = 20;
+				knight.update(time);
+				//Skeleton_1.update_skeleton_state(time);
+			}
+			else
+			{
+				pauseMenu.show(window);
+				break;
+
+			}
 		}
-		else
+		else if (knight.dead)
 		{
-			pauseMenu.show(window);
+			deathMenu.show(window, levelTwoMap.currentScene);
 			break;
-
 		}
+		
 		window.display();
 	}
 }
