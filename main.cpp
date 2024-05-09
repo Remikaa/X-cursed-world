@@ -1167,7 +1167,7 @@ struct pauseMenu
 
 // level 1 map code
 struct LevelOne {
-	int currentScene = 0;
+	int currentScene = 5;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -3551,8 +3551,7 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			//if (executioner.dead) 
-			if(true) // --------------------------------- FOR CREATING LEVEL TWO----------------------------------------------------------------
+			if (executioner.dead) 
 			{
 				levelTwo(window);
 			}
@@ -4424,7 +4423,7 @@ void levelOne(RenderWindow& window)
 		Evil_Wizard_2.zone = RectCreator(200, 200, EPos2.x + 80, EPos2.y + 30);
 		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y + 30);
 		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
-		executioner.zone2 = RectCreator(2*executioner.kill_zone, 300, executioner.left_boundary, ExecPos.y);
+		executioner.zone2 = RectCreator(2 * executioner.kill_zone, 300, executioner.left_boundary, ExecPos.y);
 
 		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
 		{
