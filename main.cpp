@@ -1180,7 +1180,7 @@ struct pauseMenu
 // level 1 map code
 struct LevelOne 
 {
-	int currentScene = 5;
+	int currentScene = 0;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
