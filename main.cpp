@@ -35,6 +35,7 @@ const int num_of_sec_enemies = 4;
 const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
 int pausedtimes = 0;
+bool boss1restarted = false;
 
 // Array to check how many times i click on ubgrade
 int upgradeCheck[3] = {};
@@ -703,8 +704,7 @@ struct BossEnemy
 			cur_enemy_idx = 0;
 			state = "idle";
 			health = hp;
-			//attacking_factor = 1; not needed 
-			sprite.setScale(3.14, 3.14); // cuz i love pi and i love people who love pi ;)
+			sprite.setScale(3.14, 3.14); // cuz i love pi and i love people who love pi ;) , PS. nobody loves you
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone;
 			kill_zone = killzone;
@@ -778,7 +778,7 @@ struct BossEnemy
 	float turn_time = 7, pause_time = 0;
 	void update_boss1_state(float time)
 	{
-		currentFrame += 0.0157 * time * speed;
+		currentFrame += 0.045 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
 			sprite.setTexture(stateTexture[5]);
@@ -787,7 +787,7 @@ struct BossEnemy
 		}
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 120 /*&& (levelOneMap.currentScene == 5)*/)
+		else if (abs(knight.rect.left - rect.left + 60) <= 120)
 			state = "attack";
 		else if (is_player_in_killzone_x())
 			state = "walk";
@@ -823,40 +823,41 @@ struct BossEnemy
 		else if (state == "attack")
 		{
 			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
-			if (pause_time <= 0) {
+			if (pause_time <= 0) 
+			{
 
 				if (skill_shift >= 4)
 				{
 					//skill_shift = 0;
-					sprite.setTexture(stateTexture[3]);
-				}
-				else
-				{
-					sprite.setTexture(stateTexture[2]);
-				}
-				if (currentFrame >= 6)
-				{
-					currentFrame = 0;
-					skill_shift++;
-					if (skill_shift > 5)
+					if (currentFrame >= 6)
 					{
-						skill_shift = 0;
+						currentFrame = 0;
+						if (skill_shift > 5)
+						{
+							skill_shift = 0;
+						}
+						skill_shift++;
 					}
 				}
-
 				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
 					dir = -1;
 				else
 					dir = 1;
 				left_boundary = rect.getPosition().x - kill_zone;
 				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift)
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift <= 4)
 				{
-					knight.health -= attack1;
+					if (currentFrame == 0) 
+					{
+						knight.health -= attack1;
+					}
 				}
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && !skill_shift)
+				else if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift > 4)
 				{
-					knight.health -= attack2;
+					if (currentFrame == 0)
+					{
+						knight.health -= attack2;
+					}
 				}
 				pause_time = attack_pause_time;
 			}
@@ -1005,29 +1006,25 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
 }executioner, EvilBoss;
-//bool character::is_Enemy_weapon_touching(const SecEnemy& enemy)
-//{ // checking if the weapon touching the character
-//	is_attacked = false;
-//	float diff = knight.rect.left - enemy.rect.left;
-//
-//	if (enemy.dir == 1) // enemy is facing right
-//	{
-//		if (-25 <= diff && diff <= 240)
-//			is_attacked = true;
-//	}
-//	else // enemy is facing left
-//	{
-//		if (-100 <= diff && diff <= 110)
-//			is_attacked = true;
-//	}
-//	return is_attacked && (enemy.state == "attack");
-//}
+
+void setBools ()
+{
+		Skeleton_1.dead = false;
+		Skeleton_2.dead = false;
+		Skeleton_3.dead = false;
+		Skeleton_4.dead = false;
+		Skeleton_5.dead = false;
+		Evil_Wizard_1.dead = false;
+		Evil_Wizard_2.dead = false;
+		Evil_Wizard_3.dead = false;
+		Evil_Wizard_4.dead = false;
+}
+
 struct pauseMenu
 {
 	Font pauseFont;
 
 	bool paused = false;
-	int coins = 500;
 	Texture pauseMenuTexture;
 	Sprite pauseMenuBg;
 	
@@ -1117,6 +1114,7 @@ struct pauseMenu
 							paused = false; //resume
 							knight.assignSprite();
 							pausedtimes = 0;
+							setBools();
 							//currentScene = 0;   //if we want to restart progress after quitting.
 							return;
 						}
@@ -2954,6 +2952,338 @@ void levelOne(RenderWindow& window);
 
 void levelTwo(RenderWindow& window);
 
+
+struct deathMenu
+{
+	Font deathFont;
+
+	bool booldead = false;
+	Texture deathMenuTexture;
+	Sprite deathMenuBg;
+
+
+
+	Text deathElements[2], youDied;
+	string elements[2] = { "Restart", "Quit" };
+	int selected = -1;
+
+
+	void deathMenufunc(float width, float height)
+	{
+
+		deathFont.loadFromFile("menu/Pixelated.ttf");
+		deathMenuTexture.loadFromFile("menu/deathMenuPic.jpg");
+		deathMenuBg.setTexture(deathMenuTexture);
+		clickbuffer.loadFromFile("menu/ButtonClick.wav");
+		clicksound.setBuffer(clickbuffer);
+
+
+		youDied.setFont(deathFont);
+		youDied.setFillColor(Color::White);
+		youDied.setString("You Died");
+		youDied.setCharacterSize(150);
+		youDied.setOrigin(youDied.getLocalBounds().width / 2, youDied.getLocalBounds().height / 2);
+		youDied.setPosition(Vector2f(width / 2, 200));
+
+
+		if (!deathFont.loadFromFile("menu/Pixelated.ttf"))
+		{
+			cerr << "Font did not load" << endl;
+			// Handle error loading font
+		}
+
+		for (int i = 0; i < 2; i++)
+		{
+			FloatRect boundary = deathElements[i].getLocalBounds();
+			deathElements[i].setFont(deathFont);
+			deathElements[i].setString(elements[i]);
+			deathElements[i].setCharacterSize(85);
+			deathElements[i].setFillColor(Color::White);
+			deathElements[i].setOrigin(deathElements[i].getLocalBounds().width / 2, deathElements[i].getLocalBounds().height / 2);
+			deathElements[i].setPosition(Vector2f(width / 2, (height / 4) + (i * 150) + 250 ) );
+		}
+	}
+
+
+
+	void show(RenderWindow& window,int& currentScene)
+	{
+		while (window.isOpen())
+		{
+			Event event;
+			while (window.pollEvent(event))
+			{
+				if (event.type == Event::Closed)
+				{
+					window.close();
+				}
+
+				if (event.type == Event::KeyPressed)
+				{
+					if (event.key.code == Keyboard::Up)
+					{
+						moveUp();
+					}
+
+					if (event.key.code == Keyboard::Down)
+					{
+						moveDown();
+					}
+
+					if (event.key.code == Keyboard::Enter)
+					{
+						clicksound.play();
+
+						if (selected == 0) //restart
+						{
+							clicksound.play();
+							booldead = false; //resume
+							knight.assignSprite();
+							pausedtimes = 0;
+							currentScene = 0;
+							knight.dead = false;
+							setBools();
+							if (pageNum == 5)
+							{
+								return;
+							}
+							else if (pageNum == 6)
+							{
+								if (executioner.dead)
+								{
+									levelTwo(window);
+								}
+								else
+								{
+									levelOne(window);
+								}
+							}
+							
+							return;
+						}
+
+						if (selected == 1) //quit
+						{
+							knight.dead = false;
+							clicksound.play();
+							pageNum = 1;
+							booldead = false; //resume
+							knight.assignSprite();
+							pausedtimes = 0;
+							currentScene = 0;  
+							setBools();
+							return;
+						}
+					}
+				}
+
+			}
+
+			window.clear();
+			window.draw(deathMenuBg);
+			window.draw(youDied);
+			for (int i = 0; i < 3; i++)
+			{
+				window.draw(deathElements[i]);
+			}
+			window.display();
+		}
+	}
+
+
+	int pressed()
+	{
+		return selected;
+	}
+
+
+	void moveUp()
+	{
+		if (selected - 1 >= -1)
+		{
+			deathElements[selected].setFillColor(Color::White);
+			deathElements[selected].setCharacterSize(90);
+			selected--;
+			sleep(milliseconds(200));
+			if (selected == -1)
+				selected = 1;
+			deathElements[selected].setFillColor(Color{ 192, 192, 192 });
+			deathElements[selected].setCharacterSize(80);
+		}
+	}
+
+	void moveDown()
+	{
+		if (selected + 1 <= 2)
+		{
+			deathElements[selected].setFillColor(Color::White);
+			deathElements[selected].setCharacterSize(90);
+			selected++;
+			sleep(milliseconds(200));
+			if (selected == 2)
+				selected = 0;
+			deathElements[selected].setFillColor(Color{ 192, 192, 192 });
+			deathElements[selected].setCharacterSize(80);
+		}
+	}
+}deathMenu;
+
+struct completedMenu
+{
+	Font completedFont;
+
+	Texture completedMenuTexture;
+	Sprite completedMenuBg;
+
+
+
+	Text completedElements[2], TheForestOfDreams;
+	string elements[2] = { "Continue", "Quit" };
+	int selected = -1;
+
+
+	void completedMenufunc(float width, float height)
+	{
+
+		completedFont.loadFromFile("menu/Pixelated.ttf");
+		completedMenuTexture.loadFromFile("menu/deathMenuPic.jpg");
+		completedMenuBg.setTexture(completedMenuTexture);
+		clickbuffer.loadFromFile("menu/ButtonClick.wav");
+		clicksound.setBuffer(clickbuffer);
+
+
+		TheForestOfDreams.setFont(completedFont);
+		TheForestOfDreams.setFillColor(Color::White);
+		TheForestOfDreams.setString("Welcome To The Forest Of Dreams");
+		TheForestOfDreams.setCharacterSize(100);
+		TheForestOfDreams.setOrigin(TheForestOfDreams.getLocalBounds().width / 2, TheForestOfDreams.getLocalBounds().height / 2);
+		TheForestOfDreams.setPosition(Vector2f(width / 2, 200));
+
+
+		if (!completedFont.loadFromFile("menu/Pixelated.ttf"))
+		{
+			cerr << "Font did not load" << endl;
+			// Handle error loading font
+		}
+
+		for (int i = 0; i < 2; i++)
+		{
+			FloatRect boundary = completedElements[i].getLocalBounds();
+			completedElements[i].setFont(completedFont);
+			completedElements[i].setString(elements[i]);
+			completedElements[i].setCharacterSize(85);
+			completedElements[i].setFillColor(Color::White);
+			completedElements[i].setOrigin(completedElements[i].getLocalBounds().width / 2, completedElements[i].getLocalBounds().height / 2);
+			completedElements[i].setPosition(Vector2f(width / 2, (height / 4) + (i * 150) + 250));
+		}
+	}
+
+
+
+	void show(RenderWindow& window, int& currentScene)
+	{
+		while (window.isOpen())
+		{
+			Event event;
+			while (window.pollEvent(event))
+			{
+				if (event.type == Event::Closed)
+				{
+					window.close();
+				}
+
+				if (event.type == Event::KeyPressed)
+				{
+					if (event.key.code == Keyboard::Up)
+					{
+						moveUp();
+					}
+
+					if (event.key.code == Keyboard::Down)
+					{
+						moveDown();
+					}
+
+					if (event.key.code == Keyboard::Enter)
+					{
+						clicksound.play();
+
+						if (selected == 0) //Continue
+						{
+							clicksound.play();
+							knight.assignSprite();
+							pausedtimes = 0;
+							currentScene = 0;
+							knight.dead = false;
+							setBools();
+							return;
+						}
+
+						if (selected == 1) //quit
+						{
+							knight.dead = false;
+							clicksound.play();
+							pageNum = 1;
+							knight.assignSprite();
+							pausedtimes = 0;
+							currentScene = 0;
+							setBools();
+							return;
+						}
+					}
+				}
+
+			}
+
+			window.clear();
+			window.draw(completedMenuBg);
+			window.draw(TheForestOfDreams);
+			for (int i = 0; i < 3; i++)
+			{
+				window.draw(completedElements[i]);
+			}
+			window.display();
+		}
+	}
+
+
+	int pressed()
+	{
+		return selected;
+	}
+
+
+	void moveUp()
+	{
+		if (selected - 1 >= -1)
+		{
+			completedElements[selected].setFillColor(Color::White);
+			completedElements[selected].setCharacterSize(90);
+			selected--;
+			sleep(milliseconds(200));
+			if (selected == -1)
+				selected = 1;
+			completedElements[selected].setFillColor(Color{ 192, 192, 192 });
+			completedElements[selected].setCharacterSize(80);
+		}
+	}
+
+	void moveDown()
+	{
+		if (selected + 1 <= 2)
+		{
+			completedElements[selected].setFillColor(Color::White);
+			completedElements[selected].setCharacterSize(90);
+			selected++;
+			sleep(milliseconds(200));
+			if (selected == 2)
+				selected = 0;
+			completedElements[selected].setFillColor(Color{ 192, 192, 192 });
+			completedElements[selected].setCharacterSize(80);
+		}
+	}
+}completedMenu;
+
 int main() 
 {
 	knight.assignSprite(); // Initialize player character
@@ -3163,7 +3493,14 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			levelOne(window);
+			if (executioner.dead) //BADR WORK ON LEVEL 2 HERE keyword
+			{
+				levelTwo(window);
+			}
+			else
+			{
+				levelOne(window);
+			}
 		}
 	}
 
@@ -3970,24 +4307,14 @@ void store(RenderWindow& window)
 		window.display();
 	}
 }
-//bool character::azraell(const SecEnemy& enemy)
-//{
-//	bool s;
-//	if (enemy.sprite.getGlobalBounds().intersects(sprite.getGlobalBounds()))
-//	{
-//		health -= enemy.attack;
-//		s = true;
-//	}
-//	else
-//		s = false;
-//
-//	return s;
-//}
-void levelOne(RenderWindow& window) {
+
+void levelOne(RenderWindow& window) 
+{
 	Clock clock;
-	Clock hitTime;
 	
 	pauseMenu.PauseMenufunc(1920, 1080);
+	deathMenu.deathMenufunc(1920, 1080);
+	completedMenu.completedMenufunc(1920, 1080);
 
 	SoundBuffer clickbuffer;
 	Sound clicksound;
@@ -3997,15 +4324,25 @@ void levelOne(RenderWindow& window) {
 
 	levelOneMap.loadTextures();
 	levelOneMap.placeScene();
-	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 200, 20,50, 2, 200);
+
+	if (!executioner.dead)
+	executioner.assign_boss_enemy_info("Boss1", 1475, 400, 2000, 10, 20, 2, 200);
+	if (!Skeleton_1.dead)
 	Skeleton_1.assign_sec_enemy_info("skeleton", 801, 645, 275, 10, 1, 100);
+	if (!Skeleton_2.dead)
 	Skeleton_2.assign_sec_enemy_info("skeleton", 200, 200, 314, 12, 1, 80);
+	if (!Skeleton_3.dead)
 	Skeleton_3.assign_sec_enemy_info("skeleton", 1475, 790, 200, 11, 1, 90);
+	if (!Skeleton_4.dead)
 	Skeleton_4.assign_sec_enemy_info("skeleton", 1587, 440, 200, 11, 1, 90);
+	if (!Evil_Wizard_1.dead)
 	Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1475, 10, 150, 11, 2, 90);
+	if (!Evil_Wizard_2.dead)
 	Evil_Wizard_2.assign_sec_enemy_info("EvilWizard", 400, 475, 150, 11, 2, 120);
+	if (!Evil_Wizard_3.dead)
 	Evil_Wizard_3.assign_sec_enemy_info("EvilWizard", 1300, 695, 150, 11, 2, 130);
-	while (window.isOpen()) {
+	while (window.isOpen()) 
+	{
 		Vector2f knightPos = knight.sprite.getPosition();
 		// adjusting the collision rect to be more accurate 
 		// redRect for collision detection
@@ -4018,24 +4355,21 @@ void levelOne(RenderWindow& window) {
 		Vector2f EPos2 = Evil_Wizard_2.sprite.getPosition();
 		Vector2f EPos3 = Evil_Wizard_3.sprite.getPosition();
 		Vector2f ExecPos = executioner.sprite.getPosition();
-		Skeleton_1.zone = RectCreator(170, 150, SPos1.x+ 35, SPos1.y + 35);
+		Skeleton_1.zone = RectCreator(170, 150, SPos1.x + 35, SPos1.y + 35);
 		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
-		Skeleton_3.zone = RectCreator(170, 150, SPos3.x+24, SPos3.y);
+		Skeleton_3.zone = RectCreator(170, 150, SPos3.x + 24, SPos3.y);
 		Skeleton_4.zone = RectCreator(170, 150, SPos4.x + 24, SPos4.y);
-		Evil_Wizard_1.zone = RectCreator(200, 200, EPos1.x + 80, EPos1.y +30);
-		Evil_Wizard_2.zone = RectCreator(200, 200, EPos2.x + 80, EPos2.y+30);
-		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y+30);
+		Evil_Wizard_1.zone = RectCreator(200, 200, EPos1.x + 80, EPos1.y + 30);
+		Evil_Wizard_2.zone = RectCreator(200, 200, EPos2.x + 80, EPos2.y + 30);
+		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y + 30);
 		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
-		executioner.zone2 = RectCreator(600, 300, ExecPos.x , ExecPos.y);
+		executioner.zone2 = RectCreator(600, 300, ExecPos.x, ExecPos.y);
 
-		//bool under_att1 = knight.is_Enemy_weapon_touching(Skeleton_1);
-		//bool under_att2 = knight.is_Enemy_weapon_touching(Skeleton_2);
-		//bool under_att3 = knight.is_Enemy_weapon_touching(Evil_Wizard_1);
 		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
 		{
 			knight.state = "Hit";
 			knight.updateTexture();
-			knight.health -= (double) (Skeleton_1.attack)*0.00711;
+			knight.health -= (double)(Skeleton_1.attack) * 0.00711;
 		}
 		if ((Evil_Wizard_1.state == "attack" || Skeleton_3.state == "attack") && levelOneMap.currentScene == 1)
 		{
@@ -4061,10 +4395,11 @@ void levelOne(RenderWindow& window) {
 			knight.updateTexture();
 			knight.health -= (double)(executioner.attack1) * 0.011;
 		}
-		if (!knight.isAlive()) 
+
+		if (!knight.isAlive())
 		{
-			knight.state = "Death";  
-			knight.updateTexture(); 
+			knight.state = "Death";
+			knight.updateTexture();
 		}
 		// Handle events
 		Event event;
@@ -4078,7 +4413,7 @@ void levelOne(RenderWindow& window) {
 					Vector2i mousePos = Mouse::getPosition(window);
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
 					cout << "Red Rect Left : " << knight.collisionRect.getGlobalBounds().left << " Red Rect Top " << knight.collisionRect.getGlobalBounds().top << endl;
-					cout << "blue rect left : " << knight.rect.left << "blue rect top : "  <<  knight.rect.top <<endl;
+					cout << "blue rect left : " << knight.rect.left << "blue rect top : " << knight.rect.top << endl;
 				}
 			}
 
@@ -4100,83 +4435,93 @@ void levelOne(RenderWindow& window) {
 
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelOneMap.checkCollision(knight.collisionRect);
-		
+
 		// Clear the window
 		window.clear();
 
-	
-
-		if (!pauseMenu.paused)
+		if (!knight.dead)
 		{
-			window.draw(levelOneMap.backgroundSprite);
-			
-			if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
+			if (executioner.dead) 
 			{
-				window.draw(Skeleton_1.sprite);
-				window.draw(Skeleton_1.zone);
+				completedMenu.show(window, levelTwoMap.currentScene);
+				break;
 			}
-			if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
+			if (!pauseMenu.paused)
 			{
-				window.draw(Skeleton_2.sprite);
-				window.draw(Skeleton_2.zone);
+				window.draw(levelOneMap.backgroundSprite);
+
+				if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
+				{
+					window.draw(Skeleton_1.sprite);
+					window.draw(Skeleton_1.zone);
+				}
+				if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
+				{
+					window.draw(Skeleton_2.sprite);
+					window.draw(Skeleton_2.zone);
+				}
+				if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
+				{
+					window.draw(Skeleton_3.sprite);
+					window.draw(Skeleton_3.zone);
+				}
+				if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
+				{
+					window.draw(Skeleton_4.sprite);
+					window.draw(Skeleton_4.zone);
+				}
+				if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
+				{
+					window.draw(Evil_Wizard_1.sprite);
+					window.draw(Evil_Wizard_1.zone);
+				}
+				if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
+				{
+					window.draw(Evil_Wizard_2.sprite);
+					window.draw(Evil_Wizard_2.zone);
+				}
+				if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
+				{
+					window.draw(Evil_Wizard_3.sprite);
+					window.draw(Evil_Wizard_3.zone);
+				}
+				if (!executioner.dead && levelOneMap.currentScene == 5)
+				{
+					window.draw(executioner.sprite);
+					window.draw(executioner.zone1);
+					window.draw(executioner.zone2);
+				}
+				if (!knight.dead)
+				{
+					window.draw(knight.collisionRect);
+					window.draw(knight.sprite);
+				}
+				movements();
+				float time = (float)clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time /= 650;
+				if (time > 20)
+					time = 20;
+				knight.update(time);
+				Skeleton_1.update_skeleton_state(time);
+				Skeleton_2.update_skeleton_state(time);
+				Skeleton_3.update_skeleton_state(time);
+				Skeleton_4.update_skeleton_state(time);
+				Evil_Wizard_1.update_evilwiz_state(time);
+				Evil_Wizard_2.update_evilwiz_state(time);
+				Evil_Wizard_3.update_evilwiz_state(time);
+				executioner.update_boss1_state(time);
 			}
-			if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
+			else if (pauseMenu.paused)
 			{
-				window.draw(Skeleton_3.sprite);
-				window.draw(Skeleton_3.zone);
+				pauseMenu.show(window);
+				break;
 			}
-			if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
-			{
-				window.draw(Skeleton_4.sprite);
-				window.draw(Skeleton_4.zone);
-			}
-			if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
-			{
-				window.draw(Evil_Wizard_1.sprite);
-				window.draw(Evil_Wizard_1.zone);
-			}
-			if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
-			{
-				window.draw(Evil_Wizard_2.sprite);
-				window.draw(Evil_Wizard_2.zone);
-			}
-			if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
-			{
-				window.draw(Evil_Wizard_3.sprite);
-				window.draw(Evil_Wizard_3.zone);
-			}
-			if (!executioner.dead /*&& levelOneMap.currentScene == 5*/)
-			{
-				window.draw(executioner.sprite);
-				window.draw(executioner.zone1);
-				window.draw(executioner.zone2);
-			}
-			if (!knight.dead)
-			{
-				window.draw(knight.collisionRect);
-				window.draw(knight.sprite);
-			}
-			movements();
-			float time = (float)clock.getElapsedTime().asMicroseconds();
-			clock.restart();
-			time /= 650;
-			if (time > 20)
-				time = 20;
-			knight.update(time);
-			Skeleton_1.update_skeleton_state(time);
-			Skeleton_2.update_skeleton_state(time);
-			Skeleton_3.update_skeleton_state(time);
-			Skeleton_4.update_skeleton_state(time);
-			Evil_Wizard_1.update_evilwiz_state(time);
-			Evil_Wizard_2.update_evilwiz_state(time);
-			Evil_Wizard_3.update_evilwiz_state(time);
-			executioner.update_boss1_state(time);
 		}
-		else
+		else if (knight.dead)
 		{
-			pauseMenu.show(window);
+			deathMenu.show(window, levelOneMap.currentScene);
 			break;
-
 		}
 		
 		for (int i = 0; i < currentTiles.size(); i++)
