@@ -4,127 +4,115 @@ D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(81,44): warning C4244:      
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(81,44): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(81,44): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(81,44): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(223,24): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(223,19): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(244,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,15): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,15): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,15): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,15): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(261,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(443,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(447,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(447,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(448,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(448,16): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(448,16): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(448,16): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(448,16): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(449,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(449,15): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(449,15): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(449,15): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(449,15): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(450,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,20): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(465,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(469,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(469,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(470,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(470,16): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(470,16): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(470,16): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(470,16): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(471,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(471,15): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(471,15): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(471,15): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(471,15): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(472,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(507,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(529,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(560,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(570,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(583,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(605,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(636,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(646,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(710,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(710,20): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(713,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(718,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(718,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(719,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(719,16): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(719,16): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(719,16): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(719,16): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(720,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(720,15): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(720,15): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(720,15): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(720,15): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(721,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(729,25): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(729,20): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(736,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(736,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(737,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(737,16): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(737,16): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(737,16): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(737,16): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(738,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(738,15): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(738,15): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(738,15): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(738,15): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(739,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(779,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(804,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(811,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(811,42): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(811,42): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(811,42): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(811,42): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(812,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(856,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(866,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(894,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(916,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(923,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(923,42): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(923,42): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(923,42): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(923,42): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(924,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(960,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(960,42): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(960,42): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(960,42): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(960,42): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(961,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(971,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(981,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1195,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1571,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1571,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1571,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1571,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1571,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1601,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1601,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1601,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1601,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1601,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1634,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1634,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1634,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1634,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1634,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(218,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(235,24): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(235,19): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(256,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(268,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(268,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(268,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(268,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(268,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(273,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(455,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(459,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(459,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(460,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(460,16): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(460,16): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(460,16): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(460,16): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(461,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(462,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(473,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(473,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(477,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(481,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(481,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(482,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(482,16): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(482,16): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(482,16): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(482,16): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(483,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(483,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(483,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(483,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(483,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(484,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(520,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(543,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(568,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(578,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(591,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(613,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(637,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(647,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(723,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(723,20): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(726,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(731,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(731,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(732,16): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(733,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(733,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(733,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(733,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(733,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(734,12): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(745,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(749,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(749,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(750,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(750,16): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(750,16): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(750,16): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(750,16): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(751,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(751,15): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(751,15): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(751,15): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(751,15): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(752,12): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(797,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(822,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(829,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(829,42): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(829,42): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(829,42): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(829,42): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(830,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(866,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(876,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(901,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(925,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(932,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(932,42): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(932,42): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(932,42): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(932,42): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(933,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(977,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(986,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1208,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1584,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1584,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1584,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1584,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1584,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1614,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1614,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1614,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1614,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1614,57): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1647,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1647,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1647,57): warning C4244:         [
@@ -135,87 +123,87 @@ D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1660,57): warning C4244:    
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1660,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1660,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1660,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1674,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1674,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1674,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1674,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1674,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1734,21): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1742,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1742,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1742,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1742,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1742,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1760,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1760,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1760,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1760,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1760,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1765,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1765,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1765,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1765,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1765,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1673,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1673,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1673,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1673,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1673,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1687,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1687,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1687,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1687,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1687,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1747,21): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1755,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1755,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1755,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1755,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1755,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1773,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1773,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1773,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1773,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1773,57): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1778,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1778,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1778,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1778,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1778,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1802,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1802,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1802,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1802,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1802,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1817,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1817,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1817,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1817,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1817,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1836,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1836,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1836,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1836,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1836,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1886,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1886,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1886,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1886,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1886,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1910,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1910,59): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1910,59): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1910,59): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1910,59): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1915,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1915,59): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1915,59): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1915,59): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1915,59): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1935,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1935,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1935,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1935,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1935,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1944,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1944,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1944,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1944,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1944,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1971,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1971,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1971,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1971,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1971,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2004,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2004,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2004,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2004,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2004,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2018,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2018,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2018,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2018,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2018,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1791,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1791,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1791,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1791,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1791,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1815,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1815,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1815,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1815,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1815,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1830,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1830,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1830,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1830,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1830,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1849,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1849,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1849,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1849,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1849,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1899,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1899,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1899,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1899,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1899,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1923,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1923,59): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1923,59): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1923,59): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1923,59): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1928,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1928,59): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1928,59): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1928,59): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1928,59): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1948,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1948,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1948,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1948,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1948,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1957,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1957,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1957,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1957,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1957,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1984,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1984,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1984,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1984,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(1984,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2017,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2017,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2017,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2017,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2017,57): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2031,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2031,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2031,57): warning C4244:         [
@@ -226,214 +214,227 @@ D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2044,57): warning C4244:    
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2044,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2044,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2044,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2065,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2065,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2065,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2065,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2065,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2057,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2057,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2057,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2057,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2057,57): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2078,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2078,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2078,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2078,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2078,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2104,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2104,75): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2104,75): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2104,75): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2104,75): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2118,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2118,75): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2118,75): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2118,75): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2118,75): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2142,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2142,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2142,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2142,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2142,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2147,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2147,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2147,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2147,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2147,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2161,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2161,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2161,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2161,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2161,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2214,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2218,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2494,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2494,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2494,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2494,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2494,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2515,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2515,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2515,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2515,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2515,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2548,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2548,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2548,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2548,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2548,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2563,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2563,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2563,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2563,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2563,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2568,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2568,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2568,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2568,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2568,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2590,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2590,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2590,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2590,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2590,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2595,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2595,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2595,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2595,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2595,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2616,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2616,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2616,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2616,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2616,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2621,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2621,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2621,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2621,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2621,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2642,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2642,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2642,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2642,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2642,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2668,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2668,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2668,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2668,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2668,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2685,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2685,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2685,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2685,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2685,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2690,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2690,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2690,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2690,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2690,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2704,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2704,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2704,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2704,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2704,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2731,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2731,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2731,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2731,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2731,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2746,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2746,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2746,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2746,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2746,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2751,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2751,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2751,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2751,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2751,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2774,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2774,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2774,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2774,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2774,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2779,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2779,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2779,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2779,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2779,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2797,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2797,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2797,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2797,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2797,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2091,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2091,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2091,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2091,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2091,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2117,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2117,75): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2117,75): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2117,75): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2117,75): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2131,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2131,75): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2131,75): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2131,75): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2131,75): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2155,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2155,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2155,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2155,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2155,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2160,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2160,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2160,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2160,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2160,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2174,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2174,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2174,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2174,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2174,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2227,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2231,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2507,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2507,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2507,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2507,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2507,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2528,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2528,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2528,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2528,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2528,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2561,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2561,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2561,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2561,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2561,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2576,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2576,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2576,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2576,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2576,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2581,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2581,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2581,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2581,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2581,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2603,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2603,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2603,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2603,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2603,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2608,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2608,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2608,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2608,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2608,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2629,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2629,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2629,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2629,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2629,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2634,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2634,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2634,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2634,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2634,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2655,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2655,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2655,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2655,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2655,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2681,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2681,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2681,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2681,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2681,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2698,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2698,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2698,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2698,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2698,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2703,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2703,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2703,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2703,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2703,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2717,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2717,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2717,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2717,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2717,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2744,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2744,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2744,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2744,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2744,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2759,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2759,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2759,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2759,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2759,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2764,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2764,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2764,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2764,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2764,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2787,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2787,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2787,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2787,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2787,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2792,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2792,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2792,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2792,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2792,57): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2810,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2810,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2810,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2810,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2810,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2836,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2836,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2836,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2836,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2836,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2850,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2850,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2850,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2850,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2850,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2855,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2855,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2855,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2855,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2855,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2871,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2871,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2871,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2871,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2871,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2876,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2876,58): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2876,58): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2876,58): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2876,58): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2897,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2897,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2897,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2897,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2897,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2823,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2823,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2823,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2823,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2823,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2849,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2849,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2849,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2849,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2849,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2863,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2863,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2863,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2863,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2863,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2868,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2868,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2868,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2868,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2868,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2884,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2884,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2884,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2884,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2884,58): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2889,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2889,58): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2889,58): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2889,58): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2889,58): warning C4244:         ]
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2910,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2910,57): warning C4244:         with
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2910,57): warning C4244:         [
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2910,57): warning C4244:             T=float
 D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2910,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2915,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2915,57): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2915,57): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2915,57): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2915,57): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2961,43): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2997,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2997,48): warning C4244:         with
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2997,48): warning C4244:         [
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2997,48): warning C4244:             T=float
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2997,48): warning C4244:         ]
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3609,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3615,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3621,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3622,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3626,20): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3635,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3636,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3641,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3642,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3650,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3651,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3657,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3663,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3737,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3737,21): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4463,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2923,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2923,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2923,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2923,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2923,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2928,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2928,57): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2928,57): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2928,57): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2928,57): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2974,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2974,43): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2974,43): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2974,43): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(2974,43): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3010,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3010,48): warning C4244:         with
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3010,48): warning C4244:         [
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3010,48): warning C4244:             T=float
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3010,48): warning C4244:         ]
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3641,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3647,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3653,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3654,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3658,20): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3667,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3668,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3673,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3674,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3682,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3683,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3689,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3695,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3769,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(3769,21): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4501,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4832,92): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4832,86): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4835,84): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4838,87): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4841,86): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4844,83): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4847,84): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual studio\Vs\Remikaa\X-cursed-world\main.cpp(4881,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   x cursed world.vcxproj -> D:\Visual studio\Vs\Remikaa\X-cursed-world\x64\Debug\x cursed world.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
