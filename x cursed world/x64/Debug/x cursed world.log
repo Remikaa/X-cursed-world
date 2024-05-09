@@ -1,432 +1,432 @@
 ﻿  main.cpp
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(80,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(80,44): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(80,44): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(80,44): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(80,44): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(222,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(222,19): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(243,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(255,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(255,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(255,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(255,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(255,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(260,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(442,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(446,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(446,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(447,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(448,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(448,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(448,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(448,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(448,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(449,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(460,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(460,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(464,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(468,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(468,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(469,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(469,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(469,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(469,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(469,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(470,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(470,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(470,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(470,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(470,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(471,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(505,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(527,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(558,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(568,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(581,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(603,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(634,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(644,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(706,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(709,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(716,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(716,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(717,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(718,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(718,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(718,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(718,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(718,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(719,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(728,20): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(731,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(737,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(737,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(738,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(738,16): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(738,16): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(738,16): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(738,16): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(739,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(739,15): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(739,15): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(739,15): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(739,15): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(740,12): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(780,33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(804,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(811,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(811,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(811,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(811,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(811,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(812,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(850,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(850,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(850,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(850,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(850,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(851,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(860,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(870,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(898,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(920,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(927,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(927,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(927,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(927,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(927,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(928,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(964,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(964,42): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(964,42): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(964,42): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(964,42): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(965,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(975,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(985,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1202,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1578,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1578,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1578,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1578,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1578,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1608,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1608,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1608,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1608,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1608,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1641,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1641,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1641,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1641,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1641,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1654,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1654,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1654,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1654,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1654,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1667,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1667,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1667,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1667,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1667,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1681,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1681,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1681,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1681,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1681,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1741,21): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1749,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1749,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1749,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1749,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1749,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1767,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1767,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1767,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1767,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1767,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1772,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1772,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1772,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1772,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1772,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1785,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1785,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1785,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1785,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1785,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1809,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1809,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1809,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1809,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1809,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1824,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1824,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1824,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1824,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1824,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1843,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1843,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1843,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1843,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1843,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1893,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1917,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1917,59): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1917,59): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1917,59): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1917,59): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,59): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,59): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,59): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1922,59): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1942,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1942,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1942,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1942,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1942,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1951,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1951,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1951,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1951,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1951,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1978,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1978,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1978,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1978,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(1978,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2011,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2011,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2011,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2011,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2011,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2025,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2025,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2025,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2025,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2025,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2038,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2038,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2038,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2038,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2038,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2051,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2051,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2051,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2051,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2051,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2072,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2072,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2072,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2072,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2072,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2085,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2085,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2085,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2085,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2085,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2111,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2111,75): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2111,75): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2111,75): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2111,75): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,75): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,75): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,75): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2125,75): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2149,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2149,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2149,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2149,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2149,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2154,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2154,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2154,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2154,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2154,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2168,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2168,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2168,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2168,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2168,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2221,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2225,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2501,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2501,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2501,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2501,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2501,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2522,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2522,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2522,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2522,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2522,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2555,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2555,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2555,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2555,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2555,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2570,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2570,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2570,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2570,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2570,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2575,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2575,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2575,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2575,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2575,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2597,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2597,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2597,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2597,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2597,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2602,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2602,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2602,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2602,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2602,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2623,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2623,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2623,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2623,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2623,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2628,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2628,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2628,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2628,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2628,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2649,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2649,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2649,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2649,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2649,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2675,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2675,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2675,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2675,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2675,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2692,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2692,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2692,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2692,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2692,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2697,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2697,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2697,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2697,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2697,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2711,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2711,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2711,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2711,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2711,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2738,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2738,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2738,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2738,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2738,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2753,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2753,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2753,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2753,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2753,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2758,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2758,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2758,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2758,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2758,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2781,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2781,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2781,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2781,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2781,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2786,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2786,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2786,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2786,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2786,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2804,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2804,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2804,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2804,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2804,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2817,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2817,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2817,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2817,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2817,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2843,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2843,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2843,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2843,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2843,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2857,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2857,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2857,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2857,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2857,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2862,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2862,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2862,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2862,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2862,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2878,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2878,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2878,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2878,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2878,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2883,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2883,58): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2883,58): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2883,58): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2883,58): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2904,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2904,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2904,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2904,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2904,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2917,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2917,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2917,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2917,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2917,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2922,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2922,57): warning C4244:         with
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2922,57): warning C4244:         [
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2922,57): warning C4244:             T=float
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(2922,57): warning C4244:         ]
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3176,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3182,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3188,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3189,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3193,20): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3202,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3203,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3208,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3209,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3217,50): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3218,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3224,18): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3230,19): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3304,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\HP\OneDrive\Desktop\X-cursed-world\main.cpp(3304,21): warning C4305: 'argument': truncation from 'double' to 'float'
-  x cursed world.vcxproj -> C:\Users\HP\OneDrive\Desktop\X-cursed-world\x64\Debug\x cursed world.exe
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(81,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(81,44): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(81,44): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(81,44): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(81,44): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(223,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(223,19): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(244,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(256,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(256,15): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(256,15): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(256,15): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(256,15): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(261,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(443,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(447,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(447,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(448,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(448,16): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(448,16): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(448,16): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(448,16): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(449,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(449,15): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(449,15): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(449,15): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(449,15): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(450,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(461,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(461,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(465,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(469,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(469,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(470,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(470,16): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(470,16): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(470,16): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(470,16): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(471,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(471,15): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(471,15): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(471,15): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(471,15): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(472,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(507,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(529,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(560,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(570,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(583,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(605,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(636,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(646,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(710,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(710,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(713,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(718,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(718,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(719,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(719,16): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(719,16): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(719,16): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(719,16): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(720,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(720,15): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(720,15): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(720,15): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(720,15): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(721,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(729,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(729,20): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(732,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(736,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(736,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(737,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(737,16): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(737,16): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(737,16): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(737,16): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(738,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(738,15): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(738,15): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(738,15): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(738,15): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(739,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(779,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(804,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(811,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(811,42): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(811,42): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(811,42): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(811,42): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(812,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(856,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(866,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(894,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(916,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(923,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(923,42): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(923,42): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(923,42): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(923,42): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(924,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(960,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(960,42): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(960,42): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(960,42): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(960,42): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(961,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(971,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(981,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1195,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1571,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1571,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1571,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1571,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1571,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1601,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1601,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1601,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1601,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1601,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1634,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1634,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1634,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1634,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1634,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1647,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1647,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1647,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1647,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1647,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1660,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1660,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1660,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1660,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1660,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1674,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1674,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1674,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1674,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1674,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1734,21): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1742,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1742,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1742,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1742,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1742,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1760,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1760,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1760,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1760,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1760,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1765,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1765,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1765,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1765,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1765,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1778,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1778,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1778,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1778,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1778,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1802,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1802,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1802,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1802,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1802,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1817,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1817,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1817,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1817,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1817,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1836,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1836,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1836,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1836,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1836,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1886,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1886,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1886,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1886,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1886,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1910,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1910,59): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1910,59): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1910,59): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1910,59): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1915,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1915,59): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1915,59): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1915,59): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1915,59): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1935,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1935,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1935,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1935,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1935,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1944,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1944,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1944,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1944,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1944,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1971,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1971,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1971,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1971,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(1971,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2004,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2004,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2004,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2004,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2004,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2018,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2018,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2018,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2018,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2018,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2031,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2031,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2031,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2031,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2031,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2044,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2044,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2044,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2044,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2044,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2065,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2065,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2065,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2065,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2065,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2078,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2078,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2078,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2078,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2078,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2104,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2104,75): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2104,75): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2104,75): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2104,75): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2118,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2118,75): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2118,75): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2118,75): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2118,75): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2142,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2142,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2142,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2142,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2142,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2147,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2147,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2147,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2147,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2147,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2161,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2161,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2161,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2161,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2161,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2214,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2218,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2494,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2494,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2494,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2494,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2494,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2515,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2515,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2515,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2515,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2515,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2548,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2548,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2548,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2548,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2548,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2563,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2563,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2563,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2563,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2563,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2568,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2568,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2568,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2568,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2568,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2590,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2590,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2590,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2590,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2590,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2595,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2595,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2595,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2595,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2595,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2616,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2616,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2616,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2616,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2616,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2621,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2621,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2621,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2621,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2621,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2642,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2642,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2642,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2642,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2642,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2668,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2668,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2668,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2668,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2668,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2685,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2685,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2685,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2685,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2685,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2690,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2690,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2690,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2690,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2690,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2704,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2704,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2704,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2704,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2704,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2731,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2731,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2731,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2731,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2731,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2746,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2746,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2746,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2746,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2746,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2751,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2751,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2751,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2751,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2751,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2774,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2774,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2774,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2774,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2774,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2779,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2779,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2779,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2779,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2779,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2797,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2797,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2797,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2797,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2797,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2810,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2810,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2810,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2810,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2810,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2836,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2836,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2836,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2836,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2836,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2850,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2850,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2850,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2850,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2850,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2855,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2855,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2855,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2855,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2855,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2871,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2871,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2871,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2871,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2871,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2876,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2876,58): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2876,58): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2876,58): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2876,58): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2897,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2897,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2897,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2897,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2897,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2910,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2910,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2910,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2910,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2910,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2915,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2915,57): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2915,57): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2915,57): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2915,57): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2961,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2961,43): warning C4244:         with
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2961,43): warning C4244:         [
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2961,43): warning C4244:             T=float
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(2961,43): warning C4244:         ]
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3573,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3579,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3585,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3586,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3590,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3599,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3600,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3605,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3606,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3614,50): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3615,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3621,18): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3627,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3701,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(3701,21): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\main.cpp(4427,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  x cursed world.vcxproj -> C:\Users\TOP TECH\Documents\GitHub\X-cursed-world\x64\Debug\x cursed world.exe
