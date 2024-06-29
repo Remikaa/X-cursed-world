@@ -4807,6 +4807,8 @@ void levelTwo(RenderWindow& window)
 	Clock clock;
 
 
+	bool monsterCoins[10] = { 0 };
+
 	pauseMenu.PauseMenufunc(1920, 1080);
 	deathMenu.deathMenufunc(1920, 1080);
 
@@ -4924,6 +4926,158 @@ void levelTwo(RenderWindow& window)
 			knight.state = "Death";
 			knight.updateTexture();
 		}
+
+		if (Skeleton_5.dead)
+		{
+			if (monsterCoins[0] == false)
+			{
+				monsterCoins[0] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_6.dead)
+		{
+			if (monsterCoins[1] == false)
+			{
+				monsterCoins[1] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_7.dead)
+		{
+			if (monsterCoins[2] == false)
+			{
+				monsterCoins[2] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_8.dead)
+		{
+			if (monsterCoins[3] == false)
+			{
+				monsterCoins[3] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_4.dead)
+		{
+			if (monsterCoins[4] == false)
+			{
+				monsterCoins[4] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_5.dead)
+		{
+			if (monsterCoins[5] == false)
+			{
+				monsterCoins[5] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_6.dead)
+		{
+			if (monsterCoins[6] == false)
+			{
+				monsterCoins[6] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_7.dead)
+		{
+			if (monsterCoins[7] == false)
+			{
+				monsterCoins[7] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_8.dead)
+		{
+			if (monsterCoins[8] == false)
+			{
+				monsterCoins[8] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (EvilBoss.dead)
+		{
+			if (monsterCoins[9] == false)
+			{
+				monsterCoins[9] = true;
+				storeCoins += 100;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {

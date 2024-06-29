@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\SP\\",
+  "WorkspaceRootPath": "D:\\Work \u0026 Learn\\Learn\\SP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|E:\\SP\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\SP\\main.cpp",
+              "DocumentMoniker": "D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\SP\\main.cpp",
+              "ToolTip": "D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAOYLAAAAAAAAAAAiwDYRAAAjAAAA",
+              "ViewState": "AQIAAI8BAAAAAAAAAAAAAGoUAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-05T09:32:08.57Z",
               "EditorCaption": ""
