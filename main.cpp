@@ -38,11 +38,11 @@ int pausedtimes = 0;
 bool boss1restarted = false;
 
 // Array to check how many times i click on ubgrade
-int upgradeCheck[3] = {};
+int upgradeCheck[NUMBER_OF_PERKS] = {};
+int skinCkeck, isSkinBuyed;
 string totalCoins, tempCheck, tempPowerUP;
-int check;
 int storeCoins;
-fstream coinFile, checkCoinsFile, powerUp1File, powerUp2File, powerUp3File;
+fstream coinFile, powerUp1File, powerUp2File, powerUp3File, skinFile, buySkinFile;
 
 SoundBuffer clickbuffer;
 Sound clicksound;
@@ -397,6 +397,17 @@ struct perk
 	FloatRect bounds;
 	FloatRect upgradeBounds;
 }perks[NUMBER_OF_PERKS];
+
+struct skins
+{
+	Sprite action;
+	Sprite button;
+	Sprite priceTexture;
+	Text buttonText;
+	Text price;
+	FloatRect bounds;
+	FloatRect buttonBounds;
+}knightSkin[2];
 
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
@@ -3769,10 +3780,12 @@ void store(RenderWindow& window)
 	coinsText.setScale(0.7, 0.7);
 
 	// Load Perks textures
-	Texture heart, resis, sword;
+	Texture heart, resis, sword, knightSkin1, knightSkin2;
 	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
 		!resis.loadFromFile("Store/Textures/resis1.png") ||
-		!sword.loadFromFile("Store/Textures/sword1.png"))
+		!sword.loadFromFile("Store/Textures/sword1.png") ||
+		!knightSkin1.loadFromFile("Store/Textures/knight1.png") ||
+		!knightSkin2.loadFromFile("Store/Textures/knight2.png"))
 	{
 		cerr << "Error loading Perks textures files" << "/n";
 	}
@@ -3830,6 +3843,43 @@ void store(RenderWindow& window)
 		}
 	}
 
+	for (int i = 0; i < 2; i++)
+	{
+		knightSkin[i].button.setTexture(button);
+		knightSkin[i].button.setPosition(-1000, -1000);
+
+		knightSkin[i].buttonText.setFont(storeFont);
+		knightSkin[i].buttonText.setFillColor(Color::White);
+		knightSkin[i].buttonText.setCharacterSize(45);
+		knightSkin[i].buttonText.setPosition(-1000, -1000);
+
+		knightSkin[i].priceTexture.setTexture(coinTexture);
+		knightSkin[i].priceTexture.setPosition(-1000, -1000);
+		knightSkin[i].priceTexture.setScale(0.5, 0.5);
+
+		knightSkin[i].price.setFont(storeFont);
+		knightSkin[i].price.setFillColor(Color::White);
+		knightSkin[i].price.setCharacterSize(40);
+		knightSkin[i].price.setPosition(-1000, -1000);
+
+		switch (i)
+		{
+		case 0:
+			knightSkin[i].action.setTexture(knightSkin1);
+			knightSkin[i].action.setPosition(1550, 435);
+			knightSkin[i].action.setScale(2, 2);
+			knightSkin[i].price.setString("");
+			break;
+
+		case 1:
+			knightSkin[i].action.setTexture(knightSkin2);
+			knightSkin[i].action.setPosition(1700, 485);
+			knightSkin[i].action.setScale(2, 2);
+			knightSkin[i].price.setString("1000");
+			break;
+		}
+	}
+
 	powerUp1File.open("powerUp1File.txt", ios::in);
 	if (powerUp1File.is_open())
 	{
@@ -3863,6 +3913,28 @@ void store(RenderWindow& window)
 		powerUp3File.close();
 	}
 
+	skinFile.open("skinFile.txt", ios::in);
+	if (skinFile.is_open())
+	{
+		string temp;
+		while (getline(skinFile, temp))
+		{
+			skinCkeck = stoi(temp);
+		}
+		skinFile.close();
+	}
+
+	buySkinFile.open("buySkinFile.txt", ios::in);
+	if (buySkinFile.is_open())
+	{
+		string temp;
+		while (getline(buySkinFile, temp))
+		{
+			isSkinBuyed = stoi(temp);
+		}
+		buySkinFile.close();
+	}
+
 	if (upgradeCheck[0] == 0) sword.loadFromFile("Store/Textures/sword1.png");
 	if (upgradeCheck[0] == 1) sword.loadFromFile("Store/Textures/sword2.png");
 	if (upgradeCheck[0] == 2) sword.loadFromFile("Store/Textures/sword3.png");
@@ -3881,49 +3953,15 @@ void store(RenderWindow& window)
 	if (upgradeCheck[2] == 3) heart.loadFromFile("Store/Textures/heart4.png");
 	if (upgradeCheck[2] == 4) heart.loadFromFile("Store/Textures/heart5.png");
 
-	checkCoinsFile.open("checkCoinsFile.txt", ios::in);
-	if (checkCoinsFile.is_open())
+	coinFile.open("coinFile.txt", ios::in);
+	if (coinFile.is_open())
 	{
 		string temp;
-		while (getline(checkCoinsFile, temp))
+		while (getline(coinFile, temp))
 		{
-			check = stoi(temp);
+			storeCoins = stoi(temp);
 		}
-		checkCoinsFile.close();
-	}
-
-	if (check == 0)
-	{
-		totalCoins = "300";
-		coinFile.open("coinFile.txt", ios::out);
-		if (coinFile.is_open())
-		{
-			coinFile << totalCoins;
-			coinFile.close();
-		}
-		coinFile.open("coinFile.txt", ios::in);
-		if (coinFile.is_open())
-		{
-			string temp;
-			while (getline(coinFile, temp))
-			{
-				storeCoins = stoi(temp);
-			}
-			coinFile.close();
-		}
-	}
-	else
-	{
-		coinFile.open("coinFile.txt", ios::in);
-		if (coinFile.is_open())
-		{
-			string temp;
-			while (getline(coinFile, temp))
-			{
-				storeCoins = stoi(temp);
-			}
-			coinFile.close();
-		}
+		coinFile.close();
 	}
 
 	while (window.isOpen())
@@ -3966,20 +4004,27 @@ void store(RenderWindow& window)
 				perks[i].upgradeBounds = perks[i].upgradeText.getGlobalBounds();
 			}
 
+			for (int i = 0; i < 2; i++)
+			{
+				knightSkin[i].bounds = knightSkin[i].action.getGlobalBounds();
+				knightSkin[i].buttonBounds = knightSkin[i].buttonText.getGlobalBounds();
+			}
+
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
 				// the sword hit test
 				if (perks[0].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[0] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4001,6 +4046,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[0] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4119,14 +4171,15 @@ void store(RenderWindow& window)
 				if (perks[1].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[1] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4148,6 +4201,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[1] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4266,14 +4326,15 @@ void store(RenderWindow& window)
 				if (perks[2].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[2] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4295,6 +4356,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[2] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4408,6 +4476,248 @@ void store(RenderWindow& window)
 						}
 					}
 				}
+				// the skin hit test
+				if (knightSkin[0].bounds.contains(mouse))
+				{
+					skinFile.open("skinFile.txt", ios::in);
+					if (skinFile.is_open())
+					{
+						string temp;
+						while (getline(skinFile, temp))
+						{
+							skinCkeck = stoi(temp);
+						}
+						skinFile.close();
+					}
+
+					if (skinCkeck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+					if (skinCkeck == 1)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1630, 827);
+						knightSkin[0].buttonText.setString("Select");
+					}
+				}
+				// the skin button hit test
+				if (knightSkin[0].buttonBounds.contains(mouse))
+				{
+					if (skinCkeck == 1)
+					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						skinFile.open("skinFile.txt", ios::out);
+						if (skinFile.is_open())
+						{
+							skinFile << "0";
+							skinFile.close();
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+				}
+				// the skin hit test
+				if (knightSkin[1].bounds.contains(mouse))
+				{
+					buySkinFile.open("buySkinFile.txt", ios::in);
+					if (buySkinFile.is_open())
+					{
+						string temp;
+						while (getline(buySkinFile, temp))
+						{
+							isSkinBuyed = stoi(temp);
+						}
+						buySkinFile.close();
+					}
+
+					if (isSkinBuyed == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1660, 827);
+						knightSkin[1].buttonText.setString("Buy");
+						knightSkin[1].price.setPosition(150, 640);
+						knightSkin[1].priceTexture.setPosition(235, 650);
+						break;
+					}
+
+					skinFile.open("skinFile.txt", ios::in);
+					if (skinFile.is_open())
+					{
+						string temp;
+						while (getline(skinFile, temp))
+						{
+							skinCkeck = stoi(temp);
+						}
+						skinFile.close();
+					}
+
+					if (skinCkeck == 1)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1607, 827);
+						knightSkin[1].buttonText.setString("Selected");
+					}
+					else if (skinCkeck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1630, 827);
+						knightSkin[1].buttonText.setString("Select");
+					}
+				}
+				// the skin button hit test
+				if (knightSkin[1].buttonBounds.contains(mouse))
+				{
+					if (isSkinBuyed == 0)
+					{
+						if (storeCoins >= 1000)
+						{
+							for (int i = 0; i < 2; i++)
+							{
+								knightSkin[i].button.setPosition(-1000, -1000);
+								knightSkin[i].buttonText.setPosition(-1000, -1000);
+								knightSkin[i].price.setPosition(-1000, -1000);
+								knightSkin[i].priceTexture.setPosition(-1000, -1000);
+							}
+							buySkinFile.open("buySkinFile.txt", ios::out);
+							if (buySkinFile.is_open())
+							{
+								buySkinFile << "1";
+								buySkinFile.close();
+							}
+							storeCoins -= 1000;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							knightSkin[1].button.setPosition(1550, 800);
+							clickSound.play();
+							knightSkin[1].buttonText.setPosition(1607, 827);
+							knightSkin[1].buttonText.setString("Selected");
+						}
+					}
+					if (skinCkeck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						skinFile.open("skinFile.txt", ios::out);
+						if (skinFile.is_open())
+						{
+							skinFile << "1";
+							skinFile.close();
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+				}
 			}
 		}
 		// Rendering
@@ -4427,8 +4737,15 @@ void store(RenderWindow& window)
 			window.draw(perks[i].upgradeButton);
 			window.draw(perks[i].priceTexture);
 			window.draw(perks[i].upgradeText);
-			window.draw(perks[i].upgradeText);
 			window.draw(perks[i].info);
+		}
+		for (int i = 0; i < 2; i++)
+		{
+			window.draw(knightSkin[i].action);
+			window.draw(knightSkin[i].price);
+			window.draw(knightSkin[i].button);
+			window.draw(knightSkin[i].priceTexture);
+			window.draw(knightSkin[i].buttonText);
 		}
 		window.draw(displayCoinText);
 		window.draw(coinsText);
@@ -4807,7 +5124,7 @@ void levelTwo(RenderWindow& window)
 	Clock clock;
 
 
-	bool monsterCoins[10] = { 0 };
+	bool monsterCoins2[8] = { 0 };
 
 	pauseMenu.PauseMenufunc(1920, 1080);
 	deathMenu.deathMenufunc(1920, 1080);
@@ -4927,11 +5244,26 @@ void levelTwo(RenderWindow& window)
 			knight.updateTexture();
 		}
 
+		if (Skeleton_2.dead)
+		{
+			if (monsterCoins2[0] == false)
+			{
+				monsterCoins2[0] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
 		if (Skeleton_5.dead)
 		{
-			if (monsterCoins[0] == false)
+			if (monsterCoins2[1] == false)
 			{
-				monsterCoins[0] = true;
+				monsterCoins2[1] = true;
 				storeCoins += 20;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
@@ -4944,9 +5276,9 @@ void levelTwo(RenderWindow& window)
 		}
 		if (Skeleton_6.dead)
 		{
-			if (monsterCoins[1] == false)
+			if (monsterCoins2[2] == false)
 			{
-				monsterCoins[1] = true;
+				monsterCoins2[2] = true;
 				storeCoins += 20;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
@@ -4957,27 +5289,12 @@ void levelTwo(RenderWindow& window)
 				}
 			}
 		}
-		if (Skeleton_7.dead)
+		if (Evil_Wizard_1.dead)
 		{
-			if (monsterCoins[2] == false)
+			if (monsterCoins2[3] == false)
 			{
-				monsterCoins[2] = true;
-				storeCoins += 20;
-				totalCoins = to_string(storeCoins);
-				coinFile.open("coinFile.txt", ios::out);
-				if (coinFile.is_open())
-				{
-					coinFile << totalCoins;
-					coinFile.close();
-				}
-			}
-		}
-		if (Skeleton_8.dead)
-		{
-			if (monsterCoins[3] == false)
-			{
-				monsterCoins[3] = true;
-				storeCoins += 20;
+				monsterCoins2[3] = true;
+				storeCoins += 30;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
 				if (coinFile.is_open())
@@ -4989,9 +5306,9 @@ void levelTwo(RenderWindow& window)
 		}
 		if (Evil_Wizard_4.dead)
 		{
-			if (monsterCoins[4] == false)
+			if (monsterCoins2[4] == false)
 			{
-				monsterCoins[4] = true;
+				monsterCoins2[4] = true;
 				storeCoins += 30;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
@@ -5004,9 +5321,9 @@ void levelTwo(RenderWindow& window)
 		}
 		if (Evil_Wizard_5.dead)
 		{
-			if (monsterCoins[5] == false)
+			if (monsterCoins2[5] == false)
 			{
-				monsterCoins[5] = true;
+				monsterCoins2[5] = true;
 				storeCoins += 30;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
@@ -5019,39 +5336,9 @@ void levelTwo(RenderWindow& window)
 		}
 		if (Evil_Wizard_6.dead)
 		{
-			if (monsterCoins[6] == false)
+			if (monsterCoins2[6] == false)
 			{
-				monsterCoins[6] = true;
-				storeCoins += 30;
-				totalCoins = to_string(storeCoins);
-				coinFile.open("coinFile.txt", ios::out);
-				if (coinFile.is_open())
-				{
-					coinFile << totalCoins;
-					coinFile.close();
-				}
-			}
-		}
-		if (Evil_Wizard_7.dead)
-		{
-			if (monsterCoins[7] == false)
-			{
-				monsterCoins[7] = true;
-				storeCoins += 30;
-				totalCoins = to_string(storeCoins);
-				coinFile.open("coinFile.txt", ios::out);
-				if (coinFile.is_open())
-				{
-					coinFile << totalCoins;
-					coinFile.close();
-				}
-			}
-		}
-		if (Evil_Wizard_8.dead)
-		{
-			if (monsterCoins[8] == false)
-			{
-				monsterCoins[8] = true;
+				monsterCoins2[6] = true;
 				storeCoins += 30;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);
@@ -5064,9 +5351,9 @@ void levelTwo(RenderWindow& window)
 		}
 		if (EvilBoss.dead)
 		{
-			if (monsterCoins[9] == false)
+			if (monsterCoins2[7] == false)
 			{
-				monsterCoins[9] = true;
+				monsterCoins2[7] = true;
 				storeCoins += 100;
 				totalCoins = to_string(storeCoins);
 				coinFile.open("coinFile.txt", ios::out);

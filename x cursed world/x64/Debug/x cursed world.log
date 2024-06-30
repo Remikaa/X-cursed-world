@@ -14,450 +14,425 @@ D:\Work & Learn\Learn\SP\main.cpp(268,15): warning C4244:         [
 D:\Work & Learn\Learn\SP\main.cpp(268,15): warning C4244:             T=float
 D:\Work & Learn\Learn\SP\main.cpp(268,15): warning C4244:         ]
 D:\Work & Learn\Learn\SP\main.cpp(273,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(455,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(459,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(459,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(460,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(460,16): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(460,16): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(460,16): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(460,16): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(461,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(461,15): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(461,15): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(461,15): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(461,15): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(462,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(473,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(473,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(477,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(481,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(481,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(482,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(482,16): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(482,16): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(482,16): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(482,16): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(483,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(483,15): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(483,15): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(483,15): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(483,15): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(484,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(520,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(543,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(568,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(578,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(591,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(613,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(637,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(647,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(723,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(723,20): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(726,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(731,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(731,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(732,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(732,16): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(732,16): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(732,16): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(732,16): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(733,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(733,15): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(733,15): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(733,15): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(733,15): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(734,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(745,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(749,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(749,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(750,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(750,16): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(750,16): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(750,16): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(750,16): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(751,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(751,15): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(751,15): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(751,15): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(751,15): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(752,12): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(797,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(822,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(829,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(829,42): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(829,42): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(829,42): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(829,42): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(830,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(866,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(876,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(901,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(925,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(932,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(932,42): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(932,42): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(932,42): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(932,42): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(933,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(977,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(986,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1208,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(1584,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1584,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1584,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1584,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1584,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1614,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1614,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1614,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1614,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1614,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1647,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1647,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1647,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1647,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1647,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1660,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1660,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1660,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1660,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1660,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1673,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1673,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1673,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1673,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1673,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1687,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1687,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1687,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1687,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1687,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1747,21): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(1755,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1755,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1755,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1755,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1755,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1773,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1773,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1773,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1773,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1773,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1778,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1778,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1778,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1778,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1778,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1791,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1791,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1791,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1791,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1791,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1815,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1815,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1815,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1815,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1815,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1830,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1830,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1830,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1830,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1830,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1849,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1849,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1849,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1849,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1849,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1899,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1899,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1899,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1899,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1899,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1923,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1923,59): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1923,59): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1923,59): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1923,59): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1928,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1928,59): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1928,59): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1928,59): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1928,59): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1948,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1948,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1948,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1948,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1948,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1957,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1957,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1957,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1957,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1957,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(1984,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(1984,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(1984,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(1984,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(1984,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2017,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2017,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2017,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2017,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2017,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2031,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2031,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2031,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2031,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2031,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2044,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2044,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2044,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2044,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2044,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2057,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2057,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2057,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2057,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2057,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2078,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2078,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2078,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2078,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2078,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2091,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2091,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2091,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2091,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2091,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2117,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2117,75): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2117,75): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2117,75): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2117,75): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2131,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2131,75): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2131,75): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2131,75): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2131,75): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2155,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2155,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2155,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2155,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2155,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2160,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2160,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2160,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2160,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2160,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2174,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2174,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2174,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2174,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2174,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2227,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(2231,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(2507,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2507,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2507,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2507,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2507,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2528,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2528,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2528,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2528,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2528,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2561,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2561,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2561,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2561,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2561,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2576,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2576,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2576,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2576,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2576,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2581,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2581,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2581,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2581,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2581,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2603,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2603,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2603,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2603,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2603,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2608,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2608,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2608,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2608,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2608,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2629,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2629,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2629,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2629,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2629,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2634,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2634,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2634,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2634,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2634,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2655,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2655,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2655,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2655,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2655,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2681,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2681,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2681,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2681,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2681,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2698,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2698,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2698,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2698,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2698,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2703,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2703,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2703,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2703,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2703,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2717,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2717,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2717,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2717,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2717,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2744,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2744,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2744,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2744,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2744,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2759,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2759,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2759,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2759,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2759,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2764,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2764,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2764,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2764,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2764,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2787,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2787,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2787,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2787,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2787,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2792,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2792,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2792,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2792,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2792,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2810,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2810,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2810,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2810,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2810,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2823,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2823,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2823,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2823,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2823,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2849,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2849,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2849,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2849,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2849,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2863,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2863,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2863,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2863,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2863,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2868,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2868,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2868,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2868,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2868,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2884,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2884,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2884,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2884,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2884,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2889,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2889,58): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2889,58): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2889,58): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2889,58): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2910,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2910,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2910,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2910,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2910,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2923,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2923,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2923,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2923,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2923,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2928,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2928,57): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2928,57): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2928,57): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2928,57): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(2974,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(2974,43): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(2974,43): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(2974,43): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(2974,43): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(3010,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(3010,48): warning C4244:         with
-D:\Work & Learn\Learn\SP\main.cpp(3010,48): warning C4244:         [
-D:\Work & Learn\Learn\SP\main.cpp(3010,48): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\main.cpp(3010,48): warning C4244:         ]
-D:\Work & Learn\Learn\SP\main.cpp(3641,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3647,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3653,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3654,23): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3658,19): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3667,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3668,23): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3673,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3674,23): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3682,50): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3683,23): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3689,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3695,18): warning C4305: '=': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3769,26): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(3769,21): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4501,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Work & Learn\Learn\SP\main.cpp(4834,91): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4834,86): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4837,83): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4840,86): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4843,85): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4846,82): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4849,83): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Work & Learn\Learn\SP\main.cpp(4883,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  score.cpp
-D:\Work & Learn\Learn\SP\Store\score.cpp(71,19): warning C4244: 'initializing': conversion from 'long double' to '__int64', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(80,18): warning C4244: 'initializing': conversion from 'double' to '__int64', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(89,13): warning C4244: 'initializing': conversion from '__int64' to 'double', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,38): warning C4244:         with
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,38): warning C4244:         [
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,38): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,38): warning C4244:         ]
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,32): warning C4244:         with
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,32): warning C4244:         [
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,32): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\Store\score.cpp(105,32): warning C4244:         ]
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,38): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,38): warning C4244:         with
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,38): warning C4244:         [
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,38): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,38): warning C4244:         ]
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,32): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,32): warning C4244:         with
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,32): warning C4244:         [
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,32): warning C4244:             T=float
-D:\Work & Learn\Learn\SP\Store\score.cpp(137,32): warning C4244:         ]
-  Generating Code...
+D:\Work & Learn\Learn\SP\main.cpp(466,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(470,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(470,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(471,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(471,16): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(471,16): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(471,16): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(471,16): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(472,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(472,15): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(472,15): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(472,15): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(472,15): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(473,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(484,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(484,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(488,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(492,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(492,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(493,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(493,16): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(493,16): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(493,16): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(493,16): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(494,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(494,15): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(494,15): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(494,15): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(494,15): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(495,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(531,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(554,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(579,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(589,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(602,31): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(624,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(648,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(658,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(734,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(734,20): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(737,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(742,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(742,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(743,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(743,16): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(743,16): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(743,16): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(743,16): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(744,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(744,15): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(744,15): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(744,15): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(744,15): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(745,12): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(756,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(760,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(760,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(761,16): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(761,16): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(761,16): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(761,16): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(761,16): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(762,15): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(762,15): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(762,15): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(762,15): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(762,15): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(763,12): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(808,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(833,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(840,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(840,42): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(840,42): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(840,42): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(840,42): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(841,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(877,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(887,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(912,32): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(936,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(943,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(943,42): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(943,42): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(943,42): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(943,42): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(944,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(988,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(997,21): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1219,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(1595,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1595,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1595,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1595,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1595,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1625,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1625,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1625,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1625,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1625,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1658,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1658,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1658,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1658,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1658,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1671,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1671,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1671,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1671,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1671,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1684,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1684,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1684,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1684,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1684,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1698,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1698,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1698,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1698,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1698,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1758,21): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(1766,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1766,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1766,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1766,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1766,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1784,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1784,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1784,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1784,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1784,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1789,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1789,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1789,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1789,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1789,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1802,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1802,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1802,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1802,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1802,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1826,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1826,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1826,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1826,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1826,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1841,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1841,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1841,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1841,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1841,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1860,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1860,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1860,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1860,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1860,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1910,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1910,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1910,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1910,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1910,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1934,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1934,59): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1934,59): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1934,59): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1934,59): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1939,59): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1939,59): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1939,59): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1939,59): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1939,59): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1959,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1959,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1959,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1959,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1959,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1968,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1968,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1968,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1968,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1968,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(1995,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(1995,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(1995,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(1995,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(1995,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2028,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2028,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2028,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2028,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2028,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2042,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2042,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2042,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2042,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2042,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2055,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2055,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2055,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2055,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2055,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2068,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2068,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2068,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2068,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2068,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2089,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2089,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2089,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2089,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2089,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2102,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2102,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2102,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2102,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2102,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2128,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2128,75): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2128,75): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2128,75): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2128,75): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2142,75): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2142,75): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2142,75): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2142,75): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2142,75): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2166,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2166,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2166,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2166,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2166,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2171,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2171,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2171,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2171,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2171,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2185,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2185,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2185,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2185,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2185,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2238,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(2242,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(2518,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2518,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2518,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2518,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2518,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2539,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2539,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2539,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2539,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2539,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2572,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2572,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2572,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2572,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2572,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2587,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2587,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2587,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2587,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2587,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2592,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2592,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2592,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2592,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2592,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2614,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2614,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2614,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2614,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2614,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2619,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2619,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2619,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2619,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2619,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2640,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2640,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2640,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2640,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2640,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2645,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2645,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2645,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2645,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2645,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2666,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2666,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2666,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2666,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2666,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2692,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2692,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2692,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2692,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2692,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2709,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2709,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2709,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2709,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2709,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2714,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2714,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2714,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2714,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2714,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2728,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2728,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2728,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2728,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2728,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2755,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2755,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2755,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2755,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2755,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2770,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2770,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2770,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2770,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2770,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2775,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2775,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2775,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2775,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2775,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2798,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2798,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2798,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2798,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2798,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2803,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2803,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2803,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2803,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2803,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2821,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2821,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2821,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2821,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2821,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2834,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2834,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2834,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2834,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2834,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2860,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2860,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2860,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2860,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2860,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2874,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2874,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2874,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2874,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2874,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2879,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2879,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2879,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2879,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2879,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2895,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2895,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2895,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2895,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2895,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2900,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2900,58): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2900,58): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2900,58): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2900,58): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2921,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2921,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2921,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2921,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2921,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2934,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2934,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2934,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2934,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2934,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2939,57): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2939,57): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2939,57): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2939,57): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2939,57): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(2985,43): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(2985,43): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(2985,43): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(2985,43): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(2985,43): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(3021,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(3021,48): warning C4244:         with
+D:\Work & Learn\Learn\SP\main.cpp(3021,48): warning C4244:         [
+D:\Work & Learn\Learn\SP\main.cpp(3021,48): warning C4244:             T=float
+D:\Work & Learn\Learn\SP\main.cpp(3021,48): warning C4244:         ]
+D:\Work & Learn\Learn\SP\main.cpp(3652,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3658,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3664,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3665,23): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3669,19): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3678,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3679,23): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3684,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3685,23): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3693,50): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3694,23): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3700,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3706,18): warning C4305: '=': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3780,26): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(3780,21): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(4818,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Work & Learn\Learn\SP\main.cpp(5151,91): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5151,86): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5154,83): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5157,86): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5160,85): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5163,82): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5166,83): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Work & Learn\Learn\SP\main.cpp(5200,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   x cursed world.vcxproj -> D:\Work & Learn\Learn\SP\x64\Debug\x cursed world.exe
