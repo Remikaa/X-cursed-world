@@ -30,7 +30,7 @@ int ground = 1300;
 float const rightWall = 1680;
 float const leftWall = -180;
 vector<RectangleShape> currentTiles;
-const int knight_num_of_textures = 15;
+const int knight_num_of_textures = 13;
 const int num_of_sec_enemies = 4;
 const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
@@ -39,7 +39,11 @@ bool boss1restarted = false;
 
 // Array to check how many times i click on ubgrade
 int upgradeCheck[NUMBER_OF_PERKS] = {};
+<<<<<<< HEAD
 int skinCkeck, isSkinBuyed;
+=======
+int skinCheck, isSkinBuyed;
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 string totalCoins, tempCheck, tempPowerUP;
 int storeCoins;
 fstream coinFile, powerUp1File, powerUp2File, powerUp3File, skinFile, buySkinFile;
@@ -208,26 +212,74 @@ struct character {
 	bool dead = false;
 	bool is_attacked;
 
+<<<<<<< HEAD
 	void knightattck()
 	{
 		
+=======
+	SoundBuffer jumpBuffer;
+	SoundBuffer deathBuffer;
+	SoundBuffer slideBuffer;
+	Sound jumpSound;
+	Sound deathSound;
+	Sound slideSound;
+
+	void knightattck()
+	{
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		for (int i = 1; i < 5; i++)
 		{
 			if (upgradeCheck[0] == i)
 			{
+<<<<<<< HEAD
 				attack = 10 * (i*2);
+=======
+				attack = 10 * (i * 2);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 			}
 		}
 	}
 
 	// Function to load textures for different states
 	void loadTextures() {
-		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png", "knight/_Roll.png", "knight/_Hit.png",
-										"knight/_SlideAll.png", "knight/_Attack.png", "knight/_Attack2.png","knight/_AttackCombo.png", "knight/_CrouchAll.png",
-										"knight/_CrouchAttack.png", "knight/_CrouchWalk.png", "knight/_Fall.png", "knight/_Death.png" };  //Array of string for 
 
-		for (int i = 0; i < knight_num_of_textures; i++)
-			stateTexture[i].loadFromFile(stateElementsTX[i]);
+		skinFile.open("skinFile.txt", ios::in);
+		if (skinFile.is_open())
+		{
+			string temp;
+			while (getline(skinFile, temp))
+			{
+				skinCheck = stoi(temp);
+			}
+			skinFile.close();
+		}
+
+		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png",
+			"knight/_Roll.png", "knight/_Hit.png", "knight/_SlideAll.png","knight/_AttackCombo.png", "knight/_CrouchAll.png","knight/_CrouchAttack.png", 
+			"knight/_CrouchWalk.png", "knight/_Fall.png", "knight/_Death.png" };  //Array of string
+
+		string stateElementsTX2[knight_num_of_textures] = { "knight2/_Idle.png", "knight2/_Run.png", "knight2/_Dash.png", "knight2/_Jump.png",
+			"knight2/_Roll.png", "knight2/_Hit.png", "knight2/_SlideAll.png","knight2/_AttackCombo.png", "knight2/_CrouchAll.png","knight2/_CrouchAttack.png",
+			"knight/_CrouchWalk.png", "knight/_Fall.png", "knight2/_Death.png" };  //Array of string
+
+		for (int i = 0; i < knight_num_of_textures; i++) {
+			if (skinCheck == 0) stateTexture[i].loadFromFile(stateElementsTX[i]);
+			else stateTexture[i].loadFromFile(stateElementsTX2[i]);
+		}
+
+		if (!jumpBuffer.loadFromFile("external/SoundEffects/knightJumpSoundEffect.wav")) {
+			cout << "Failed to load sound: knightJumpSoundEffect" << endl;
+		}
+		if (!deathBuffer.loadFromFile("external/SoundEffects/knightDeathSound.wav")) {
+			cout << "Failed to load sound: knightDeathSound.wav" << endl;
+		}
+		if (!slideBuffer.loadFromFile("external/SoundEffects/knightSlideSoundEffect.wav")) {
+			cout << "Failed to load sound: knightSlideSoundEffect.wav" << endl;
+		}
+
+		jumpSound.setBuffer(jumpBuffer);
+		deathSound.setBuffer(deathBuffer);
+		slideSound.setBuffer(slideBuffer);
 	}
 
 	// Function to assign sprite and initialize properties
@@ -274,6 +326,7 @@ struct character {
 		if (health <= 0)
 		{
 			state = "Death";
+			deathSound.play();
 		}
 
 		// Update animation based on state
@@ -296,6 +349,7 @@ struct character {
 			if (currentFrame > 3) currentFrame -= 3;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
+			jumpSound.play();
 		}
 		else if (state == "Roll") {
 			if (currentFrame > 12) currentFrame -= 12;
@@ -303,10 +357,7 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Hit") {
-			if (currentFrame > 20) {
-				currentFrame = 0;
-				state = "";
-			}
+			if (currentFrame > 20) currentFrame -= 20;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
@@ -317,19 +368,9 @@ struct character {
 			}
 			else if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
+			slideSound.play();
 		}
-		else if (state == "Attack") { // -----------------------------------------------------------------------------
-			if (currentFrame > 4) currentFrame -= 4;
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
-
-		}
-		else if (state == "Attack2") {
-			if (currentFrame > 6) currentFrame -= 6;
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
-		}
-		else if (state == "AttackCombo") {
+		else if (state == "Attack") {
 			if (currentFrame > 10) currentFrame -= 10;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
@@ -372,7 +413,7 @@ struct character {
 
 	// Function to update the texture based on current state
 	void updateTexture() {
-		string stateElement[knight_num_of_textures] = { "Idle", "Walk", "Dash", "Jump", "Roll", "Hit", "Slide", "Attack", "Attack2", "AttackCombo", "Crouch", "CrouchAttack", "CrouchWalk", "Fall", "Death" };
+		string stateElement[knight_num_of_textures] = { "Idle", "Walk", "Dash", "Jump", "Roll", "Hit", "Slide", "Attack", "Crouch", "CrouchAttack", "CrouchWalk", "Fall", "Death" };
 
 		for (int i = 0; i < knight_num_of_textures; i++)
 		{
@@ -433,6 +474,10 @@ struct SecEnemy
 	int dir = 1; // character direction
 	float speed;
 	bool is_attacked;
+	SoundBuffer skDeathBuffer;
+	SoundBuffer wizDeathBuffer;
+	Sound skDeath;
+	Sound wizDeath;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
 	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 	string enemy_type; // to load different enemies and set ther attributes based on thier type (name)
@@ -473,6 +518,11 @@ struct SecEnemy
 			speed = 0.1 + speedfac;
 			//rect.left = 10;
 			//rect.top = 850;
+			if (!skDeathBuffer.loadFromFile("external/SoundEffects/skeletonDeathEffect.wav")) {
+				cout << "Failed to load sound: skeletonDeathEffect" << endl;
+			}
+			skDeath.setBuffer(skDeathBuffer);
+			
 		}
 		else if (enemytype == "EvilWizard")
 		{
@@ -493,6 +543,13 @@ struct SecEnemy
 			rect.left = posx;
 			rect.top = posy;
 			speed = 0.1696969 + speedfac;
+<<<<<<< HEAD
+=======
+			if (!wizDeathBuffer.loadFromFile("external/SoundEffects/evilWizardDeath.wav")) {
+				cout << "Failed to load sound: evilWizardDeath" << endl;
+			}
+			wizDeath.setBuffer(wizDeathBuffer);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		}
 	}
 
@@ -531,6 +588,7 @@ struct SecEnemy
 		currentFrame += 0.05 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
+			skDeath.play();
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 13)
 				dead = true; // player dies after playing the full animation
@@ -602,6 +660,7 @@ struct SecEnemy
 		currentFrame += 0.05 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
+			wizDeath.play();
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 5)
 				dead = true; // player dies after playing the full animation
@@ -1189,7 +1248,11 @@ struct pauseMenu
 }pauseMenu;
 
 // level 1 map code
+<<<<<<< HEAD
 struct LevelOne 
+=======
+struct LevelOne
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 {
 	int currentScene = 0;
 	int noOFEnemies = 0;
@@ -1240,7 +1303,7 @@ struct LevelOne
 			if (pausedtimes == 0)
 			{
 				knight.rect.left = 5;
-				knight.rect.top = 500;
+				knight.rect.top = 700;
 				//put the mobs initializations here
 				//Skeleton_1.rect.left = 670;
 				//Skeleton_1.rect.top = 700;
@@ -2991,7 +3054,11 @@ void healthBox(RenderWindow& window) {
 	window.draw(healthSprite);
 }
 
+<<<<<<< HEAD
 void exechealthBox(RenderWindow& window) 
+=======
+void exechealthBox(RenderWindow& window)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 {
 
 	Texture healthIcon;
@@ -3069,7 +3136,6 @@ void movements();
 void levelOne(RenderWindow& window);
 
 void levelTwo(RenderWindow& window);
-
 
 struct deathMenu
 {
@@ -3169,7 +3235,11 @@ struct deathMenu
 							{
 								if (executioner.dead)
 								{
+<<<<<<< HEAD
 									
+=======
+
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 									levelTwo(window);
 								}
 								else
@@ -3201,7 +3271,7 @@ struct deathMenu
 			window.clear();
 			window.draw(deathMenuBg);
 			window.draw(youDied);
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				window.draw(deathElements[i]);
 			}
@@ -3357,7 +3427,7 @@ struct completedMenu
 			window.clear();
 			window.draw(completedMenuBg);
 			window.draw(TheForestOfDreams);
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				window.draw(completedElements[i]);
 			}
@@ -3553,7 +3623,11 @@ int main()
 			delete[] Evil_Wizard_8.stateTexture;
 			delete[] executioner.stateTexture;
 			delete[] EvilBoss.stateTexture;
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 			break;
 		}
 		if (pageNum == 5)
@@ -3707,15 +3781,8 @@ void movements() {
 		knight.lastKeyPressed = 2;  // Last Key pressed is Right
 	}
 	if (Keyboard::isKeyPressed(Keyboard::E)) {
-		knight.noOfAttacks++;
-		if (knight.noOfAttacks % 2 == 1) {
-			knight.state = "Attack"; knight.noOfAttacks++;
-		}
-		else if (knight.noOfAttacks % 4 == 0)  knight.state = "AttackCombo";
-		else {
-			knight.state = "Attack2";
-			knight.noOfAttacks++;
-		}
+		knight.state = "Attack";
+		
 		knight.updateTexture();
 	}
 	if (knight.moveX == 0 && knight.moveY == 0 && !(Keyboard::isKeyPressed(Keyboard::E) || Keyboard::isKeyPressed(Keyboard::LShift))) {
@@ -3727,7 +3794,6 @@ void movements() {
 
 void store(RenderWindow& window)
 {
-	//RenderWindow window(VideoMode(1920, 1080), "Store", Style::Fullscreen);
 
 	// Load font of store
 	Font storeFont;
@@ -3919,7 +3985,11 @@ void store(RenderWindow& window)
 		string temp;
 		while (getline(skinFile, temp))
 		{
+<<<<<<< HEAD
 			skinCkeck = stoi(temp);
+=======
+			skinCheck = stoi(temp);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		}
 		skinFile.close();
 	}
@@ -4485,12 +4555,20 @@ void store(RenderWindow& window)
 						string temp;
 						while (getline(skinFile, temp))
 						{
+<<<<<<< HEAD
 							skinCkeck = stoi(temp);
+=======
+							skinCheck = stoi(temp);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 						}
 						skinFile.close();
 					}
 
+<<<<<<< HEAD
 					if (skinCkeck == 0)
+=======
+					if (skinCheck == 0)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -4512,7 +4590,11 @@ void store(RenderWindow& window)
 						knightSkin[0].buttonText.setPosition(1607, 827);
 						knightSkin[0].buttonText.setString("Selected");
 					}
+<<<<<<< HEAD
 					if (skinCkeck == 1)
+=======
+					if (skinCheck == 1)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -4538,7 +4620,11 @@ void store(RenderWindow& window)
 				// the skin button hit test
 				if (knightSkin[0].buttonBounds.contains(mouse))
 				{
+<<<<<<< HEAD
 					if (skinCkeck == 1)
+=======
+					if (skinCheck == 1)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < 2; i++)
 						{
@@ -4605,12 +4691,20 @@ void store(RenderWindow& window)
 						string temp;
 						while (getline(skinFile, temp))
 						{
+<<<<<<< HEAD
 							skinCkeck = stoi(temp);
+=======
+							skinCheck = stoi(temp);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 						}
 						skinFile.close();
 					}
 
+<<<<<<< HEAD
 					if (skinCkeck == 1)
+=======
+					if (skinCheck == 1)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -4632,7 +4726,11 @@ void store(RenderWindow& window)
 						knightSkin[1].buttonText.setPosition(1607, 827);
 						knightSkin[1].buttonText.setString("Selected");
 					}
+<<<<<<< HEAD
 					else if (skinCkeck == 0)
+=======
+					else if (skinCheck == 0)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -4689,7 +4787,11 @@ void store(RenderWindow& window)
 							knightSkin[1].buttonText.setString("Selected");
 						}
 					}
+<<<<<<< HEAD
 					if (skinCkeck == 0)
+=======
+					if (skinCheck == 0)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 					{
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
@@ -4750,13 +4852,18 @@ void store(RenderWindow& window)
 		window.draw(displayCoinText);
 		window.draw(coinsText);
 		window.display();
+		knight.loadTextures();
 	}
 }
 
 void levelOne(RenderWindow& window)
 {
 	bool monsterCoins[8] = { 0 };
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 
 	Clock clock;
 
@@ -4820,8 +4927,13 @@ void levelOne(RenderWindow& window)
 
 		if (knight.rect.getPosition().y > 1090)
 		{
+<<<<<<< HEAD
 
 			knight.dead = true;
+=======
+			knight.dead = true;
+			knight.deathSound.play();
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		}
 
 		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
@@ -5011,14 +5123,11 @@ void levelOne(RenderWindow& window)
 			}
 		}
 
-
-
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelOneMap.checkCollision(knight.collisionRect);
 
 		// Clear the window
 		window.clear();
-
 
 		if (!knight.dead)
 		{
@@ -5029,6 +5138,7 @@ void levelOne(RenderWindow& window)
 			}
 			if (!pauseMenu.paused)
 			{
+<<<<<<< HEAD
 				movements();
 				float time = (float)clock.getElapsedTime().asMicroseconds();
 				clock.restart();
@@ -5095,6 +5205,74 @@ void levelOne(RenderWindow& window)
 					window.draw(knight.collisionRect);
 					window.draw(knight.sprite);
 				}
+=======
+				float time = (float)clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time /= 650;
+				if (time > 20)
+					time = 20;
+				window.draw(levelOneMap.backgroundSprite);
+				healthBox(window);
+				coinBox(window);
+				if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
+				{
+					Skeleton_1.update_skeleton_state(time);
+					window.draw(Skeleton_1.sprite);
+					window.draw(Skeleton_1.zone);
+				}
+				if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
+				{
+					Skeleton_2.update_skeleton_state(time);
+					window.draw(Skeleton_2.sprite);
+					window.draw(Skeleton_2.zone);
+				}
+				if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
+				{
+					Skeleton_3.update_skeleton_state(time);
+					window.draw(Skeleton_3.sprite);
+					window.draw(Skeleton_3.zone);
+				}
+				if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
+				{
+					Skeleton_4.update_skeleton_state(time);
+					window.draw(Skeleton_4.sprite);
+					window.draw(Skeleton_4.zone);
+				}
+				if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
+				{
+					Evil_Wizard_1.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_1.sprite);
+					window.draw(Evil_Wizard_1.zone);
+				}
+				if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
+				{
+					Evil_Wizard_2.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_2.sprite);
+					window.draw(Evil_Wizard_2.zone);
+				}
+				if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
+				{
+					Evil_Wizard_3.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_3.sprite);
+					window.draw(Evil_Wizard_3.zone);
+				}
+				if (!executioner.dead && levelOneMap.currentScene == 5)
+				{
+					executioner.update_boss1_state(time);
+					window.draw(executioner.sprite);
+					window.draw(executioner.zone1);
+					window.draw(executioner.zone2);
+					exechealthBox(window);
+				}
+
+				if (!knight.dead)
+				{
+					window.draw(knight.collisionRect);
+					window.draw(knight.sprite);
+				}
+				movements();
+				knight.update(time);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 			}
 			else if (pauseMenu.paused)
 			{
@@ -5113,13 +5291,15 @@ void levelOne(RenderWindow& window)
 			window.draw(currentTiles[i]);
 		}
 
-
-
 		window.display();
 	}
 }
 
+<<<<<<< HEAD
 void levelTwo(RenderWindow& window) 
+=======
+void levelTwo(RenderWindow& window)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 {
 	Clock clock;
 
@@ -5128,6 +5308,10 @@ void levelTwo(RenderWindow& window)
 
 	pauseMenu.PauseMenufunc(1920, 1080);
 	deathMenu.deathMenufunc(1920, 1080);
+<<<<<<< HEAD
+=======
+	completedMenu.completedMenufunc(1920, 1080);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 
 	SoundBuffer clickbuffer;
 	Sound clicksound;
@@ -5141,9 +5325,12 @@ void levelTwo(RenderWindow& window)
 	if (!EvilBoss.dead)
 		EvilBoss.assign_boss_enemy_info("Boss2", 1200, 175, 1200, 10, 20, 2, 300);
 
+<<<<<<< HEAD
 	//if (!Evil_Wizard_4.dead)
 		//Evil_Wizard_4.assign_sec_enemy_info("EvilWizard", 580, 600, 150, 14, 2, 120, 1, 1, -0.05);
 
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 	if (!Skeleton_2.dead)
 		Skeleton_2.assign_sec_enemy_info("skeleton", 1500, 770, 150, 17, 1, 100);
 
@@ -5173,19 +5360,26 @@ void levelTwo(RenderWindow& window)
 		// redRect for collision detection
 		knight.collisionRect = RectCreator(100, 145, knightPos.x + 150, knightPos.y + 150);
 
+<<<<<<< HEAD
 		Vector2f SPos1 = Skeleton_1.sprite.getPosition();
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		Vector2f SPos2 = Skeleton_2.sprite.getPosition();
 		Vector2f SPos4 = Skeleton_4.sprite.getPosition();
 		Vector2f SPos5 = Skeleton_5.sprite.getPosition();
 		Vector2f SPos6 = Skeleton_6.sprite.getPosition();
 		Vector2f EPos1 = Evil_Wizard_1.sprite.getPosition();
+<<<<<<< HEAD
 		Vector2f EPos2 = Evil_Wizard_2.sprite.getPosition();
 		Vector2f EPos3 = Evil_Wizard_3.sprite.getPosition();
 		Vector2f EPos4 = Evil_Wizard_4.sprite.getPosition();
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		Vector2f EPos5 = Evil_Wizard_5.sprite.getPosition();
 		Vector2f EPos6 = Evil_Wizard_6.sprite.getPosition();
 		Vector2f ExecPos = EvilBoss.sprite.getPosition();
 
+<<<<<<< HEAD
 		Skeleton_1.zone = RectCreator(170, 150, SPos1.x + 24, SPos1.y);
 		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
 		Skeleton_4.zone = RectCreator(200, 250, SPos4.x + 80, SPos4.y + 50);
@@ -5194,19 +5388,32 @@ void levelTwo(RenderWindow& window)
 		Skeleton_6.zone = RectCreator(280, 300, SPos6.x + 80, SPos6.y + 50);
 		Evil_Wizard_1.zone = RectCreator(200, 200, EPos1.x + 120, EPos1.y + 100);
 		Evil_Wizard_4.zone = RectCreator(200, 200, EPos4.x + 130, EPos4.y + 110);
+=======
+		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
+		Skeleton_4.zone = RectCreator(200, 250, SPos4.x + 80, SPos4.y + 50);
+		Skeleton_5.zone = RectCreator(280, 300, SPos5.x + 80, SPos5.y + 50);
+		Skeleton_6.zone = RectCreator(280, 300, SPos6.x + 80, SPos6.y + 50);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		Evil_Wizard_5.zone = RectCreator(250, 200, EPos5.x + 230, EPos5.y + 220);
 		Evil_Wizard_6.zone = RectCreator(250, 200, EPos6.x + 230, EPos6.y + 220);
 		EvilBoss.zone1 = RectCreator(300, 350, ExecPos.x + 380, ExecPos.y + 350);
 		EvilBoss.zone2 = RectCreator(2 * EvilBoss.kill_zone, 300, EvilBoss.left_boundary + 300, ExecPos.y + 300);
 
+<<<<<<< HEAD
 		if ((Skeleton_2.state == "attack" || Evil_Wizard_4.state == "attack") && levelTwoMap.currentScene == 0)
+=======
+		if (Skeleton_2.state == "attack" && levelTwoMap.currentScene == 0)
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		{
 			knight.state = "Hit";
 			knight.updateTexture();
 			if (Skeleton_2.state == "attack")
 				knight.health -= (double)(Skeleton_2.attack) * 0.00711;
+<<<<<<< HEAD
 			else
 				knight.health -= (double)(Evil_Wizard_4.attack) * 0.00711;
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		}
 		if (Evil_Wizard_1.state == "attack" && levelTwoMap.currentScene == 1)
 		{
@@ -5304,6 +5511,7 @@ void levelTwo(RenderWindow& window)
 				}
 			}
 		}
+<<<<<<< HEAD
 		if (Evil_Wizard_4.dead)
 		{
 			if (monsterCoins2[4] == false)
@@ -5319,6 +5527,8 @@ void levelTwo(RenderWindow& window)
 				}
 			}
 		}
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		if (Evil_Wizard_5.dead)
 		{
 			if (monsterCoins2[5] == false)
@@ -5398,10 +5608,16 @@ void levelTwo(RenderWindow& window)
 		if (knight.rect.getPosition().y > 1090)
 		{
 			knight.dead = true;
+<<<<<<< HEAD
 		}
 
 
 
+=======
+			knight.deathSound.play();
+		}
+
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelTwoMap.checkCollision(knight.collisionRect);
 
@@ -5421,24 +5637,32 @@ void levelTwo(RenderWindow& window)
 				healthBox(window);
 				coinBox(window);
 
+<<<<<<< HEAD
 				movements();
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 				float time = (float)clock.getElapsedTime().asMicroseconds();
 				clock.restart();
 				time /= 650;
 				if (time > 20)
 					time = 20;
+<<<<<<< HEAD
 				//if (!Evil_Wizard_4.dead && levelTwoMap.currentScene == 0)
 				//{
 				//	Evil_Wizard_4.update_skeleton_state(time);
 				//	window.draw(Evil_Wizard_4.sprite);
 				//	//window.draw(Evil_Wizard_4.zone);
 				//}
+=======
+				
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 				if (!Skeleton_2.dead && levelTwoMap.currentScene == 0)
 				{
 					Skeleton_2.update_skeleton_state(time);
 					window.draw(Skeleton_2.sprite);
 					window.draw(Skeleton_2.zone);
 				}
+<<<<<<< HEAD
 				if (!Skeleton_4.dead && levelTwoMap.currentScene == 4)
 				{
 					Skeleton_4.update_skeleton_state(time);
@@ -5446,11 +5670,49 @@ void levelTwo(RenderWindow& window)
 					window.draw(Skeleton_4.sprite);
 					window.draw(Skeleton_4.zone);
 				}
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 				if (!Evil_Wizard_1.dead && levelTwoMap.currentScene == 1)
 				{
 					Evil_Wizard_1.update_evilwiz_state(time);
 					window.draw(Evil_Wizard_1.sprite);
 					window.draw(Evil_Wizard_1.zone);
+				}
+<<<<<<< HEAD
+				if (!Evil_Wizard_5.dead && levelTwoMap.currentScene == 4)
+				{
+					Evil_Wizard_5.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_5.sprite);
+					window.draw(Evil_Wizard_5.zone);
+				}
+				if (!Evil_Wizard_6.dead && levelTwoMap.currentScene == 4)
+				{
+					Evil_Wizard_6.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_6.sprite);
+					window.draw(Evil_Wizard_6.zone);
+				}
+=======
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
+				if (!Skeleton_5.dead && levelTwoMap.currentScene == 3)
+				{
+					Skeleton_5.update_skeleton_state(time);
+					window.draw(Skeleton_5.sprite);
+					window.draw(Skeleton_5.zone);
+				}
+				if (!Skeleton_6.dead && levelTwoMap.currentScene == 3)
+				{
+					Skeleton_6.update_skeleton_state(time);
+					window.draw(Skeleton_6.sprite);
+					window.draw(Skeleton_6.zone);
+				}
+<<<<<<< HEAD
+=======
+				if (!Skeleton_4.dead && levelTwoMap.currentScene == 4)
+				{
+					Skeleton_4.update_skeleton_state(time);
+					Evil_Wizard_4.update_evilwiz_state(time);
+					window.draw(Skeleton_4.sprite);
+					window.draw(Skeleton_4.zone);
 				}
 				if (!Evil_Wizard_5.dead && levelTwoMap.currentScene == 4)
 				{
@@ -5464,18 +5726,7 @@ void levelTwo(RenderWindow& window)
 					window.draw(Evil_Wizard_6.sprite);
 					window.draw(Evil_Wizard_6.zone);
 				}
-				if (!Skeleton_5.dead && levelTwoMap.currentScene == 3)
-				{
-					Skeleton_5.update_skeleton_state(time);
-					window.draw(Skeleton_5.sprite);
-					window.draw(Skeleton_5.zone);
-				}
-				if (!Skeleton_6.dead && levelTwoMap.currentScene == 3)
-				{
-					Skeleton_6.update_skeleton_state(time);
-					window.draw(Skeleton_6.sprite);
-					window.draw(Skeleton_6.zone);
-				}
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 				if (!EvilBoss.dead && levelTwoMap.currentScene == 5)
 				{
 					EvilBoss.update_boss2_state(time);
@@ -5488,9 +5739,15 @@ void levelTwo(RenderWindow& window)
 				{
 					window.draw(knight.collisionRect);
 					window.draw(knight.sprite);
+<<<<<<< HEAD
 					knight.update(time);
 				}
 
+=======
+				}
+				movements();
+				knight.update(time);
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
 			}
 			else if (pauseMenu.paused)
 			{

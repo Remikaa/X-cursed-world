@@ -1,9 +1,16 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "D:\\Work \u0026 Learn\\Learn\\SP\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+=======
+  "WorkspaceRootPath": "C:\\Users\\nice\\source\\repos\\X-cursed-world\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|C:\\Users\\nice\\source\\repos\\X-cursed-world\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
       "RelativeMoniker": "D:0:0:{CF50C7AD-C7DD-4FBE-847B-C1AD3488F4B1}|x cursed world.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -22,19 +29,31 @@
             },
             {
               "$type": "Bookmark",
+<<<<<<< HEAD
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+=======
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
+<<<<<<< HEAD
               "DocumentMoniker": "D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "D:\\Work \u0026 Learn\\Learn\\SP\\main.cpp",
               "RelativeToolTip": "main.cpp",
               "ViewState": "AQIAAEkQAAAAAAAAAAAiwDASAAAFAAAA",
+=======
+              "DocumentMoniker": "C:\\Users\\nice\\source\\repos\\X-cursed-world\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\nice\\source\\repos\\X-cursed-world\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAACYAAAAAAAAAAAAAAMAAAAACAAAA",
+>>>>>>> 103ee891858098962d82eb2d9a4b9398b76e6765
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-05T09:32:08.57Z",
+              "WhenOpened": "2024-07-01T12:01:10.443Z",
               "EditorCaption": ""
             }
           ]
