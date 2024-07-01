@@ -30,7 +30,7 @@ int ground = 1300;
 float const rightWall = 1680;
 float const leftWall = -180;
 vector<RectangleShape> currentTiles;
-const int knight_num_of_textures = 15;
+const int knight_num_of_textures = 13;
 const int num_of_sec_enemies = 4;
 const int num_of_enemy_textures = 10;
 const int num_of_boss_enemies = 2;
@@ -38,11 +38,11 @@ int pausedtimes = 0;
 bool boss1restarted = false;
 
 // Array to check how many times i click on ubgrade
-int upgradeCheck[3] = {};
+int upgradeCheck[NUMBER_OF_PERKS] = {};
+int skinCheck, isSkinBuyed;
 string totalCoins, tempCheck, tempPowerUP;
-int check;
 int storeCoins;
-fstream coinFile, checkCoinsFile, powerUp1File, powerUp2File, powerUp3File;
+fstream coinFile, powerUp1File, powerUp2File, powerUp3File, skinFile, buySkinFile;
 
 SoundBuffer clickbuffer;
 Sound clicksound;
@@ -53,7 +53,7 @@ RectangleShape RectCreator(float x, float y, float posx = 0, float posy = 0)
 {
 	RectangleShape Rect;
 	Rect.setOutlineThickness(2);
-	Rect.setOutlineColor(Color::Red);
+	Rect.setOutlineColor(Color::Transparent);
 	Rect.setFillColor(Color::Transparent);
 	Rect.setSize(Vector2f(x, y));
 	Rect.setPosition(posx, posy);
@@ -207,15 +207,65 @@ struct character {
 	RectangleShape collisionRect;
 	bool dead = false;
 	bool is_attacked;
-	bool is_Enemy_weapon_touching(const SecEnemy& enemy);
+
+	SoundBuffer jumpBuffer;
+	SoundBuffer deathBuffer;
+	SoundBuffer slideBuffer;
+	Sound jumpSound;
+	Sound deathSound;
+	Sound slideSound;
+
+	void knightattck()
+	{
+		for (int i = 1; i < 5; i++)
+		{
+			if (upgradeCheck[0] == i)
+			{
+				attack = 10 * (i * 2);
+			}
+		}
+	}
+
 	// Function to load textures for different states
 	void loadTextures() {
-		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png", "knight/_Roll.png", "knight/_Hit.png",
-										"knight/_SlideAll.png", "knight/_Attack.png", "knight/_Attack2.png","knight/_AttackCombo.png", "knight/_CrouchAll.png",
-										"knight/_CrouchAttack.png", "knight/_CrouchWalk.png", "knight/_Fall.png", "knight/_Death.png" };  //Array of string for 
 
-		for (int i = 0; i < knight_num_of_textures; i++)
-			stateTexture[i].loadFromFile(stateElementsTX[i]);
+		skinFile.open("skinFile.txt", ios::in);
+		if (skinFile.is_open())
+		{
+			string temp;
+			while (getline(skinFile, temp))
+			{
+				skinCheck = stoi(temp);
+			}
+			skinFile.close();
+		}
+
+		string stateElementsTX[knight_num_of_textures] = { "knight/_Idle.png", "knight/_Run.png", "knight/_Dash.png", "knight/_Jump.png",
+			"knight/_Roll.png", "knight/_Hit.png", "knight/_SlideAll.png","knight/_AttackCombo.png", "knight/_CrouchAll.png","knight/_CrouchAttack.png", 
+			"knight/_CrouchWalk.png", "knight/_Fall.png", "knight/_Death.png" };  //Array of string
+
+		string stateElementsTX2[knight_num_of_textures] = { "knight2/_Idle.png", "knight2/_Run.png", "knight2/_Dash.png", "knight2/_Jump.png",
+			"knight2/_Roll.png", "knight2/_Hit.png", "knight2/_SlideAll.png","knight2/_AttackCombo.png", "knight2/_CrouchAll.png","knight2/_CrouchAttack.png",
+			"knight/_CrouchWalk.png", "knight/_Fall.png", "knight2/_Death.png" };  //Array of string
+
+		for (int i = 0; i < knight_num_of_textures; i++) {
+			if (skinCheck == 0) stateTexture[i].loadFromFile(stateElementsTX[i]);
+			else stateTexture[i].loadFromFile(stateElementsTX2[i]);
+		}
+
+		if (!jumpBuffer.loadFromFile("external/SoundEffects/knightJumpSoundEffect.wav")) {
+			cout << "Failed to load sound: knightJumpSoundEffect" << endl;
+		}
+		if (!deathBuffer.loadFromFile("external/SoundEffects/knightDeathSound.wav")) {
+			cout << "Failed to load sound: knightDeathSound.wav" << endl;
+		}
+		if (!slideBuffer.loadFromFile("external/SoundEffects/knightSlideSoundEffect.wav")) {
+			cout << "Failed to load sound: knightSlideSoundEffect.wav" << endl;
+		}
+
+		jumpSound.setBuffer(jumpBuffer);
+		deathSound.setBuffer(deathBuffer);
+		slideSound.setBuffer(slideBuffer);
 	}
 
 	// Function to assign sprite and initialize properties
@@ -262,6 +312,7 @@ struct character {
 		if (health <= 0)
 		{
 			state = "Death";
+			deathSound.play();
 		}
 
 		// Update animation based on state
@@ -284,6 +335,7 @@ struct character {
 			if (currentFrame > 3) currentFrame -= 3;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
+			jumpSound.play();
 		}
 		else if (state == "Roll") {
 			if (currentFrame > 12) currentFrame -= 12;
@@ -291,10 +343,7 @@ struct character {
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
 		else if (state == "Hit") {
-			if (currentFrame > 20) {
-				currentFrame = 0;
-				state = "";
-			}
+			if (currentFrame > 20) currentFrame -= 20;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
 		}
@@ -305,19 +354,9 @@ struct character {
 			}
 			else if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
+			slideSound.play();
 		}
-		else if (state == "Attack") { // -----------------------------------------------------------------------------
-			if (currentFrame > 4) currentFrame -= 4;
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
-
-		}
-		else if (state == "Attack2") {
-			if (currentFrame > 6) currentFrame -= 6;
-			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
-			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
-		}
-		else if (state == "AttackCombo") {
+		else if (state == "Attack") {
 			if (currentFrame > 10) currentFrame -= 10;
 			if (lastKeyPressed == 1) sprite.setTextureRect(IntRect(120 * int(currentFrame), 0, 120, 80));
 			else sprite.setTextureRect(IntRect(120 * int(currentFrame) + 120, 0, -120, 80));
@@ -360,7 +399,7 @@ struct character {
 
 	// Function to update the texture based on current state
 	void updateTexture() {
-		string stateElement[knight_num_of_textures] = { "Idle", "Walk", "Dash", "Jump", "Roll", "Hit", "Slide", "Attack", "Attack2", "AttackCombo", "Crouch", "CrouchAttack", "CrouchWalk", "Fall", "Death" };
+		string stateElement[knight_num_of_textures] = { "Idle", "Walk", "Dash", "Jump", "Roll", "Hit", "Slide", "Attack", "Crouch", "CrouchAttack", "CrouchWalk", "Fall", "Death" };
 
 		for (int i = 0; i < knight_num_of_textures; i++)
 		{
@@ -386,6 +425,17 @@ struct perk
 	FloatRect upgradeBounds;
 }perks[NUMBER_OF_PERKS];
 
+struct skins
+{
+	Sprite action;
+	Sprite button;
+	Sprite priceTexture;
+	Text buttonText;
+	Text price;
+	FloatRect bounds;
+	FloatRect buttonBounds;
+}knightSkin[2];
+
 //Enemies will be 1 Bosses and 2 small different enemy guards for level 1
 // Enemies for other levels will be determined later
 struct SecEnemy
@@ -410,6 +460,10 @@ struct SecEnemy
 	int dir = 1; // character direction
 	float speed;
 	bool is_attacked;
+	SoundBuffer skDeathBuffer;
+	SoundBuffer wizDeathBuffer;
+	Sound skDeath;
+	Sound wizDeath;
 	// ------------ DYNAMIC ARRAY, DELETED WHEN CLOSING WINDOW ------------
 	Texture* stateTexture = new Texture[0];  // Array of textures for different states
 	string enemy_type; // to load different enemies and set ther attributes based on thier type (name)
@@ -427,7 +481,7 @@ struct SecEnemy
 		"./enemies/Evil_Wizard/Take Hit.png",
 		"./enemies/Evil_Wizard/Death.png"}
 	};
-	void assign_sec_enemy_info(string enemytype, int posx, int posy, int movementrange, int attackpow, int attpause, int hp) {
+	void assign_sec_enemy_info(string enemytype, int posx, int posy, int movementrange, int attackpow, int attpause, int hp, float scalefacx = 0, float scalefacy = 0, float speedfac = 0) {
 		enemy_type = enemytype;
 		if (enemytype == "skeleton")
 		{
@@ -436,7 +490,7 @@ struct SecEnemy
 			state = "walk";
 			health = hp;
 			//attacking_factor = 1; not needed 
-			sprite.setScale(4, 4);
+			sprite.setScale(4 + scalefacx, 4 + scalefacy);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
 			//zone = RectCreator(190, 50, posx + 150, posy + 150);
@@ -447,9 +501,14 @@ struct SecEnemy
 			sprite.setPosition(posx, posy);
 			rect.left = posx;
 			rect.top = posy;
-			speed = 0.1;
+			speed = 0.1 + speedfac;
 			//rect.left = 10;
 			//rect.top = 850;
+			if (!skDeathBuffer.loadFromFile("external/SoundEffects/skeletonDeathEffect.wav")) {
+				cout << "Failed to load sound: skeletonDeathEffect" << endl;
+			}
+			skDeath.setBuffer(skDeathBuffer);
+			
 		}
 		else if (enemytype == "EvilWizard")
 		{
@@ -458,7 +517,7 @@ struct SecEnemy
 			state = "walk";
 			health = hp;
 			//attacking_factor = 1; not needed 
-			sprite.setScale(2.6, 2.6);
+			sprite.setScale(2.6 + scalefacx, 2.6 + scalefacy);
 			left_boundary = posx - movementrange; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + movementrange;
 			//zone = RectCreator(300, 100, posx+150,posy+120);
@@ -469,7 +528,11 @@ struct SecEnemy
 			sprite.setPosition(posx, posy);
 			rect.left = posx;
 			rect.top = posy;
-			speed = 0.1696969;
+			speed = 0.1696969 + speedfac;
+			if (!wizDeathBuffer.loadFromFile("external/SoundEffects/evilWizardDeath.wav")) {
+				cout << "Failed to load sound: evilWizardDeath" << endl;
+			}
+			wizDeath.setBuffer(wizDeathBuffer);
 		}
 	}
 
@@ -483,12 +546,12 @@ struct SecEnemy
 
 		if (knight.lastKeyPressed == 1) // knight is facing right
 		{
-			if (-25 <= diff && diff <= 240 && (-25 <= diff2 && diff2 <= 240))
+			if (-25 <= diff && diff <= 240 && (-200 <= diff2 && diff2 <= 200))
 				is_attacked = true;
 		}
 		else // knight is facing left
 		{
-			if (-100 <= diff && diff <= 110 && (-100 <= diff2 && diff2 <= 110))
+			if (-100 <= diff && diff <= 110 && (-200 <= diff2 && diff2 <= 200))
 				is_attacked = true;
 		}
 		return is_attacked && (knight.state == "Attack" || knight.state == "AttackCombo" || knight.state == "Attack2");
@@ -504,9 +567,11 @@ struct SecEnemy
 	float turn_time = 10, pause_time = 0;
 	void update_skeleton_state(float time)
 	{
+		bool attacked = true;
 		currentFrame += 0.05 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
+			skDeath.play();
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 13)
 				dead = true; // player dies after playing the full animation
@@ -514,8 +579,9 @@ struct SecEnemy
 		//else if (state != "on hit" && abs(knight.rect.left - rect.left + 60) <= 110) // trying to debug/fix on hit animation
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (is_player_in_range_x())
+		else if (is_player_in_range_x()) {
 			state = "attack";
+		}
 		else
 			state = "walk";
 
@@ -527,15 +593,7 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			//if (is_player_in_range_x())
-			//{
-			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-			//		dir = 1;
-			//	else
-			//		dir = -1;
-			//	left_boundary = rect.getPosition().x - movement_range;
-			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			//}
+
 			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
@@ -548,7 +606,9 @@ struct SecEnemy
 			if (pause_time <= 0) {
 				sprite.setTexture(stateTexture[2]);
 				if (currentFrame >= 13)
+				{
 					currentFrame = 0;
+				}
 
 				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
 					dir = -1;
@@ -583,6 +643,7 @@ struct SecEnemy
 		currentFrame += 0.05 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
+			wizDeath.play();
 			sprite.setTexture(stateTexture[4]);
 			if (currentFrame >= 5)
 				dead = true; // player dies after playing the full animation
@@ -603,15 +664,7 @@ struct SecEnemy
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
-			//if (is_player_in_range_x())
-			//{
-			//	if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
-			//		dir = 1;
-			//	else
-			//		dir = -1;
-			//	left_boundary = rect.getPosition().x - movement_range;
-			//	right_boundary = left_boundary + 2 * movement_range; // so we don't use the getPosition() twice ;)
-			//}
+
 			if (turn_time <= 0 && (rect.left >= right_boundary || rect.left <= left_boundary)) // walks left and right and changes directions if reached boundaries
 			{
 				dir *= -1;
@@ -623,9 +676,10 @@ struct SecEnemy
 			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
 			if (pause_time <= 0) {
 				sprite.setTexture(stateTexture[2]);
-				if (currentFrame >= 8)
+				if (currentFrame >= 8) {
 					currentFrame = 0;
-
+					knight.health -= attack;
+				}
 				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
 					dir = -1;
 				else
@@ -654,7 +708,8 @@ struct SecEnemy
 
 	}
 
-}Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Skeleton_5, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3, Evil_Wizard_4;
+}
+Skeleton_1, Skeleton_2, Skeleton_3, Skeleton_4, Skeleton_5, Skeleton_6, Skeleton_7, Skeleton_8, Evil_Wizard_1, Evil_Wizard_2, Evil_Wizard_3, Evil_Wizard_4, Evil_Wizard_5, Evil_Wizard_6, Evil_Wizard_7, Evil_Wizard_8;
 
 struct BossEnemy
 {
@@ -698,6 +753,17 @@ struct BossEnemy
 		"./enemies/Undead_executioner/skill1.png",     // 4
 		"./enemies/Undead_executioner/death.png"}      // 5
 		,
+		{
+		"./enemies/Evil_Wizard_2/Idle.png",			 // 0
+		"./enemies/Evil_Wizard_2/Jump.png",          // 1
+		"./enemies/Evil_Wizard_2/Attack1.png",       // 2
+		"./enemies/Evil_Wizard_2/Attack2.png",       // 3
+		"./enemies/Evil_Wizard_2/Death.png",		 // 4
+		"./enemies/Evil_Wizard_2/Fall.png",			 // 5
+		"./enemies/Evil_Wizard_2/Run.png",			 // 6
+		"./enemies/Evil_Wizard_2/Take hit.png",      // 7
+
+		}
 	};
 	void assign_boss_enemy_info(string enemytype, int posx, int posy, int killzone, int attackpow1, int attackpow2, int attpause, int hp) {
 		enemy_type = enemytype;
@@ -722,11 +788,11 @@ struct BossEnemy
 		}
 		else if (enemytype == "Boss2")
 		{
-			num_of_cur_textures = 5;
+			num_of_cur_textures = 8;
 			cur_enemy_idx = 1;
-			state = "walk";
+			state = "idle";
 			health = hp;
-			sprite.setScale(2.6, 2.6);
+			sprite.setScale(4, 4);
 			left_boundary = posx - killzone; // |   .   | , assigning boundaries on the left/right of the character "."
 			right_boundary = posx + killzone + 100;
 			kill_zone = killzone;
@@ -736,7 +802,7 @@ struct BossEnemy
 			sprite.setPosition(posx, posy);
 			rect.left = posx;
 			rect.top = posy;
-			speed = 0.3;
+			speed = 0.1;
 		}
 	}
 
@@ -751,20 +817,25 @@ struct BossEnemy
 	bool is_knight_sword_touching() { // checking if the sword of knight touching the character
 		is_attacked = false;
 		float diff = rect.left - knight.rect.left;
-		float diff2 = rect.top - knight.rect.top;
-
+		float width = 0, diff2 = rect.top - knight.rect.top;
+		if (enemy_type == "Boss2")
+			diff += 400, width = 150;
 		if (knight.lastKeyPressed == 1) // knight is facing right
 		{
-			if (-25 <= diff && diff <= 240 /*&& (-25 <= diff2 && diff2 <= 240)*/)
+			if (-25 <= diff && diff <= 240 + width /*&& (-25 <= diff2 && diff2 <= 240)*/)
 				is_attacked = true;
 		}
 		else // knight is facing left
 		{
-			if (-100 <= diff && diff <= 110 /* && (-100 <= diff2 && diff2 <= 110)*/)
+			if (enemy_type == "Boss2")
+				width = 240, diff -= 100;
+			if (-100 - width <= diff && diff <= 110  /* && (-100 <= diff2 && diff2 <= 110)*/)
 				is_attacked = true;
 		}
 		return is_attacked && (knight.state == "Attack" || knight.state == "AttackCombo" || knight.state == "Attack2");
+
 	}
+
 
 
 	void load_boss_enemy_textures() {
@@ -833,25 +904,17 @@ struct BossEnemy
 				else
 					sprite.setTexture(stateTexture[2]);
 
-				//if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
-				//	dir = -1;
-				//else
-				//	dir = 1;
-				//left_boundary = rect.getPosition().x - kill_zone;
-				//right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
 				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift <= 4)
 				{
 					if (currentFrame == 0)
-					{
 						knight.health -= attack1;
-					}
+
 				}
 				else if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift > 4)
 				{
 					if (currentFrame == 0)
-					{
 						knight.health -= attack2;
-					}
+
 				}
 				pause_time = attack_pause_time;
 			}
@@ -885,38 +948,37 @@ struct BossEnemy
 			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 
 	}
-	//void tracker()
-	//{
 
-	//}
 	void update_boss2_state(float time)
 	{
-		currentFrame += 0.3 * time * speed;
+		currentFrame += 0.045 * time * speed;
 		if (health <= 0 || state == "dead")
 		{
-			sprite.setTexture(stateTexture[5]);
-			if (currentFrame >= 19)
+			sprite.setTexture(stateTexture[4]);
+			if (currentFrame >= 7)
 				dead = true; // player dies after playing the full animation
 		}
 		else if (is_knight_sword_touching())
 			state = "on hit";
-		else if (abs(knight.rect.left - rect.left + 60) <= 120)
+		else if (is_player_in_attack_zone())
 			state = "attack";
+		else if (is_player_in_range_x())
+			state = "walk";
 		else
 			state = "idle";
 
 
 		if (state == "walk")
 		{
-			sprite.setTexture(stateTexture[1]);
-			if (currentFrame >= 4)
+			sprite.setTexture(stateTexture[6]);
+			if (currentFrame >= 8)
 				currentFrame = 0;
 			rect.left += speed * time * dir;
 			sprite.setPosition(rect.left, rect.top); // setting the new position (i change rect positino the set sprite pos the same)
 			turn_time -= 0.05 * time; // additional time to wait when turning so the skeleton doesn't turn multiple times in the same place
 			if (is_player_in_range_x())
 			{
-				if (knight.rect.getPosition().x > rect.getPosition().x) // walks towards the player (if the player is left or right)
+				if (knight.rect.getPosition().x > rect.getPosition().x + 200) // walks towards the player (if the player is left or right)
 					dir = 1;
 				else
 					dir = -1;
@@ -932,55 +994,50 @@ struct BossEnemy
 		else if (state == "attack")
 		{
 			pause_time -= time; // pause time between every two hits, first hit's pause time = 0
-			if (pause_time <= 0) {
-
-				if (skill_shift >= 4)
-				{
-					//skill_shift = 0;
-					sprite.setTexture(stateTexture[3]);
-				}
-				else
-				{
-					sprite.setTexture(stateTexture[2]);
-				}
-				if (currentFrame >= 6)
+			if (pause_time <= 0)
+			{
+				if (currentFrame >= 8)
 				{
 					currentFrame = 0;
-					skill_shift++;
-					if (skill_shift > 5)
+					skill_shift %= 5;
+					skill_shift++;   // increment attacking times 
+				}
+				if (skill_shift >= 4)
+					sprite.setTexture(stateTexture[3]);
+				else
+					sprite.setTexture(stateTexture[2]);
+
+				//if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
+				//	dir = -1;
+				//else
+				//	dir = 1;
+				//left_boundary = rect.getPosition().x - kill_zone;
+				//right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
+				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift <= 4)
+				{
+					if (currentFrame == 0)
 					{
-						skill_shift = 0;
+						//knight.health -= attack1;
 					}
 				}
-
-				if (knight.rect.getPosition().x + 45 <= rect.getPosition().x)
-					dir = -1;
-				else
-					dir = 1;
-				left_boundary = rect.getPosition().x - kill_zone;
-				right_boundary = left_boundary + 2 * kill_zone; // so we don't use the getPosition() twice ;)
-
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift)
+				else if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && skill_shift > 4)
 				{
-					knight.health -= attack1;
-				}
-				if (sprite.getGlobalBounds().intersects(knight.sprite.getGlobalBounds()) && !skill_shift)
-				{
-					knight.health -= attack2;
+					if (currentFrame == 0)
+					{
+						//knight.health -= attack2;
+					}
 				}
 				pause_time = attack_pause_time;
 			}
-
 		}
 		else if (state == "on hit") {
-			sprite.setTexture(stateTexture[4]);
-			if (currentFrame >= 4)
+			sprite.setTexture(stateTexture[7]);
+			if (currentFrame >= 3)
 			{
 				currentFrame = 0;
 				state = "";
 				health -= knight.attack;
 			}
-
 		}
 		else if (state == "idle")
 		{
@@ -989,15 +1046,15 @@ struct BossEnemy
 				dir = -1;
 			else
 				dir = 1;
-			if (currentFrame >= 4)
+			if (currentFrame >= 8)
 			{
 				currentFrame = 0;
 			}
 		}
 		if (dir > 0)
-			sprite.setTextureRect(IntRect(100 * int(currentFrame), 0, 100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+			sprite.setTextureRect(IntRect(250 * int(currentFrame), 0, 250, 250)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 		else
-			sprite.setTextureRect(IntRect(100 * int(currentFrame) + 100, 0, -100, 100)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
+			sprite.setTextureRect(IntRect(250 * int(currentFrame) + 250, 0, -250, 250)); // update texture rect in the right direction (so we don't update it in every if cond. with the same values)
 	}
 }executioner, EvilBoss;
 
@@ -1012,6 +1069,14 @@ void setBools()
 	Evil_Wizard_2.dead = false;
 	Evil_Wizard_3.dead = false;
 	Evil_Wizard_4.dead = false;
+
+	Skeleton_6.dead = false;
+	Skeleton_7.dead = false;
+	Skeleton_8.dead = false;
+	Evil_Wizard_5.dead = false;
+	Evil_Wizard_6.dead = false;
+	Evil_Wizard_7.dead = false;
+	Evil_Wizard_8.dead = false;
 }
 
 struct pauseMenu
@@ -1166,8 +1231,9 @@ struct pauseMenu
 }pauseMenu;
 
 // level 1 map code
-struct LevelOne {
-	int currentScene = 5;
+struct LevelOne
+{
+	int currentScene = 0;
 	int noOFEnemies = 0;
 	Sprite backgroundSprite;
 	Texture levelTextures[6];
@@ -1216,7 +1282,7 @@ struct LevelOne {
 			if (pausedtimes == 0)
 			{
 				knight.rect.left = 5;
-				knight.rect.top = 500;
+				knight.rect.top = 700;
 				//put the mobs initializations here
 				//Skeleton_1.rect.left = 670;
 				//Skeleton_1.rect.top = 700;
@@ -2412,7 +2478,7 @@ struct levelTwo {
 			if (pausedtimes == 0)
 			{
 				knight.rect.left = -30;
-				knight.rect.top = 420;
+				knight.rect.top = 300;
 				//put the mobs initializations here
 			}
 			else
@@ -2967,6 +3033,42 @@ void healthBox(RenderWindow& window) {
 	window.draw(healthSprite);
 }
 
+void exechealthBox(RenderWindow& window)
+{
+
+	Texture healthIcon;
+	healthIcon.loadFromFile("Store/Textures/darkheart.png");
+
+	Sprite healthSprite;
+	healthSprite.setTexture(healthIcon);
+	healthSprite.setPosition(571, 249);
+
+	RectangleShape healthOutline;
+	healthOutline.setFillColor(Color::Transparent);
+	healthOutline.setOutlineThickness(5);
+	healthOutline.setOutlineColor(Color::Black);
+	healthOutline.setPosition(616, 269);
+	healthOutline.setSize(Vector2f(700, 30));
+
+	RectangleShape healthinline;
+	healthOutline.setFillColor(Color::Black);
+	/*healthOutline.setOutlineThickness(5);
+	healthOutline.setOutlineColor(Color::Black);*/
+	healthOutline.setPosition(616, 269);
+	healthOutline.setSize(Vector2f(700, 30));
+
+	RectangleShape healthBar;
+	healthBar.setFillColor(Color(136, 8, 8));
+	healthBar.setPosition(healthOutline.getPosition().x, healthOutline.getPosition().y);
+	healthBar.setSize(Vector2f(executioner.health * 3.5, healthOutline.getSize().y));
+
+
+
+	window.draw(healthOutline);
+	window.draw(healthBar);
+	window.draw(healthSprite);
+}
+
 void coinBox(RenderWindow& window) {
 
 	Texture coinIcon;
@@ -3009,7 +3111,6 @@ void movements();
 void levelOne(RenderWindow& window);
 
 void levelTwo(RenderWindow& window);
-
 
 struct deathMenu
 {
@@ -3109,6 +3210,7 @@ struct deathMenu
 							{
 								if (executioner.dead)
 								{
+
 									levelTwo(window);
 								}
 								else
@@ -3140,7 +3242,7 @@ struct deathMenu
 			window.clear();
 			window.draw(deathMenuBg);
 			window.draw(youDied);
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				window.draw(deathElements[i]);
 			}
@@ -3296,7 +3398,7 @@ struct completedMenu
 			window.clear();
 			window.draw(completedMenuBg);
 			window.draw(TheForestOfDreams);
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				window.draw(completedElements[i]);
 			}
@@ -3382,7 +3484,7 @@ int main()
 						if (event.key.code == Keyboard::Enter) {
 							clickSound.play();
 							if (menu.pressed() == 0)
-								pageNum = 2;
+								pageNum = 6;
 							if (menu.pressed() == 1)
 								pageNum = 3;
 							if (menu.pressed() == 2)
@@ -3474,6 +3576,25 @@ int main()
 		}
 		if (pageNum == 4) {
 			window.close();
+			delete[] Skeleton_1.stateTexture;
+			delete[] Skeleton_2.stateTexture;
+			delete[] Skeleton_3.stateTexture;
+			delete[] Skeleton_4.stateTexture;
+			delete[] Skeleton_5.stateTexture;
+			delete[] Skeleton_6.stateTexture;
+			delete[] Skeleton_7.stateTexture;
+			delete[] Skeleton_8.stateTexture;
+			delete[] Evil_Wizard_1.stateTexture;
+			delete[] Evil_Wizard_2.stateTexture;
+			delete[] Evil_Wizard_3.stateTexture;
+			delete[] Evil_Wizard_4.stateTexture;
+			delete[] Evil_Wizard_5.stateTexture;
+			delete[] Evil_Wizard_6.stateTexture;
+			delete[] Evil_Wizard_7.stateTexture;
+			delete[] Evil_Wizard_8.stateTexture;
+			delete[] executioner.stateTexture;
+			delete[] EvilBoss.stateTexture;
+
 			break;
 		}
 		if (pageNum == 5)
@@ -3551,7 +3672,7 @@ int main()
 		}
 		if (pageNum == 6)
 		{
-			if (executioner.dead) 
+			if (executioner.dead) /////////////////
 			{
 				levelTwo(window);
 			}
@@ -3627,15 +3748,8 @@ void movements() {
 		knight.lastKeyPressed = 2;  // Last Key pressed is Right
 	}
 	if (Keyboard::isKeyPressed(Keyboard::E)) {
-		knight.noOfAttacks++;
-		if (knight.noOfAttacks % 2 == 1) {
-			knight.state = "Attack"; knight.noOfAttacks++;
-		}
-		else if (knight.noOfAttacks % 4 == 0)  knight.state = "AttackCombo";
-		else {
-			knight.state = "Attack2";
-			knight.noOfAttacks++;
-		}
+		knight.state = "Attack";
+		
 		knight.updateTexture();
 	}
 	if (knight.moveX == 0 && knight.moveY == 0 && !(Keyboard::isKeyPressed(Keyboard::E) || Keyboard::isKeyPressed(Keyboard::LShift))) {
@@ -3647,7 +3761,6 @@ void movements() {
 
 void store(RenderWindow& window)
 {
-	//RenderWindow window(VideoMode(1920, 1080), "Store", Style::Fullscreen);
 
 	// Load font of store
 	Font storeFont;
@@ -3700,10 +3813,12 @@ void store(RenderWindow& window)
 	coinsText.setScale(0.7, 0.7);
 
 	// Load Perks textures
-	Texture heart, resis, sword;
+	Texture heart, resis, sword, knightSkin1, knightSkin2;
 	if (!heart.loadFromFile("Store/Textures/heart1.png") ||
 		!resis.loadFromFile("Store/Textures/resis1.png") ||
-		!sword.loadFromFile("Store/Textures/sword1.png"))
+		!sword.loadFromFile("Store/Textures/sword1.png") ||
+		!knightSkin1.loadFromFile("Store/Textures/knight1.png") ||
+		!knightSkin2.loadFromFile("Store/Textures/knight2.png"))
 	{
 		cerr << "Error loading Perks textures files" << "/n";
 	}
@@ -3761,6 +3876,43 @@ void store(RenderWindow& window)
 		}
 	}
 
+	for (int i = 0; i < 2; i++)
+	{
+		knightSkin[i].button.setTexture(button);
+		knightSkin[i].button.setPosition(-1000, -1000);
+
+		knightSkin[i].buttonText.setFont(storeFont);
+		knightSkin[i].buttonText.setFillColor(Color::White);
+		knightSkin[i].buttonText.setCharacterSize(45);
+		knightSkin[i].buttonText.setPosition(-1000, -1000);
+
+		knightSkin[i].priceTexture.setTexture(coinTexture);
+		knightSkin[i].priceTexture.setPosition(-1000, -1000);
+		knightSkin[i].priceTexture.setScale(0.5, 0.5);
+
+		knightSkin[i].price.setFont(storeFont);
+		knightSkin[i].price.setFillColor(Color::White);
+		knightSkin[i].price.setCharacterSize(40);
+		knightSkin[i].price.setPosition(-1000, -1000);
+
+		switch (i)
+		{
+		case 0:
+			knightSkin[i].action.setTexture(knightSkin1);
+			knightSkin[i].action.setPosition(1550, 435);
+			knightSkin[i].action.setScale(2, 2);
+			knightSkin[i].price.setString("");
+			break;
+
+		case 1:
+			knightSkin[i].action.setTexture(knightSkin2);
+			knightSkin[i].action.setPosition(1700, 485);
+			knightSkin[i].action.setScale(2, 2);
+			knightSkin[i].price.setString("1000");
+			break;
+		}
+	}
+
 	powerUp1File.open("powerUp1File.txt", ios::in);
 	if (powerUp1File.is_open())
 	{
@@ -3794,6 +3946,28 @@ void store(RenderWindow& window)
 		powerUp3File.close();
 	}
 
+	skinFile.open("skinFile.txt", ios::in);
+	if (skinFile.is_open())
+	{
+		string temp;
+		while (getline(skinFile, temp))
+		{
+			skinCheck = stoi(temp);
+		}
+		skinFile.close();
+	}
+
+	buySkinFile.open("buySkinFile.txt", ios::in);
+	if (buySkinFile.is_open())
+	{
+		string temp;
+		while (getline(buySkinFile, temp))
+		{
+			isSkinBuyed = stoi(temp);
+		}
+		buySkinFile.close();
+	}
+
 	if (upgradeCheck[0] == 0) sword.loadFromFile("Store/Textures/sword1.png");
 	if (upgradeCheck[0] == 1) sword.loadFromFile("Store/Textures/sword2.png");
 	if (upgradeCheck[0] == 2) sword.loadFromFile("Store/Textures/sword3.png");
@@ -3812,49 +3986,15 @@ void store(RenderWindow& window)
 	if (upgradeCheck[2] == 3) heart.loadFromFile("Store/Textures/heart4.png");
 	if (upgradeCheck[2] == 4) heart.loadFromFile("Store/Textures/heart5.png");
 
-	checkCoinsFile.open("checkCoinsFile.txt", ios::in);
-	if (checkCoinsFile.is_open())
+	coinFile.open("coinFile.txt", ios::in);
+	if (coinFile.is_open())
 	{
 		string temp;
-		while (getline(checkCoinsFile, temp))
+		while (getline(coinFile, temp))
 		{
-			check = stoi(temp);
+			storeCoins = stoi(temp);
 		}
-		checkCoinsFile.close();
-	}
-
-	if (check == 0)
-	{
-		totalCoins = "500";
-		coinFile.open("coinFile.txt", ios::out);
-		if (coinFile.is_open())
-		{
-			coinFile << totalCoins;
-			coinFile.close();
-		}
-		coinFile.open("coinFile.txt", ios::in);
-		if (coinFile.is_open())
-		{
-			string temp;
-			while (getline(coinFile, temp))
-			{
-				storeCoins = stoi(temp);
-			}
-			coinFile.close();
-		}
-	}
-	else
-	{
-		coinFile.open("coinFile.txt", ios::in);
-		if (coinFile.is_open())
-		{
-			string temp;
-			while (getline(coinFile, temp))
-			{
-				storeCoins = stoi(temp);
-			}
-			coinFile.close();
-		}
+		coinFile.close();
 	}
 
 	while (window.isOpen())
@@ -3897,20 +4037,27 @@ void store(RenderWindow& window)
 				perks[i].upgradeBounds = perks[i].upgradeText.getGlobalBounds();
 			}
 
+			for (int i = 0; i < 2; i++)
+			{
+				knightSkin[i].bounds = knightSkin[i].action.getGlobalBounds();
+				knightSkin[i].buttonBounds = knightSkin[i].buttonText.getGlobalBounds();
+			}
+
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
 				// the sword hit test
 				if (perks[0].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[0] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -3932,6 +4079,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[0] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4050,14 +4204,15 @@ void store(RenderWindow& window)
 				if (perks[1].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[1] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4079,6 +4234,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[1] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4197,14 +4359,15 @@ void store(RenderWindow& window)
 				if (perks[2].bounds.contains(mouse))
 				{
 					tempCheck = "1";
-					checkCoinsFile.open("checkCoinsFile.txt", ios::out);
-					if (checkCoinsFile.is_open())
-					{
-						checkCoinsFile << tempCheck;
-						checkCoinsFile.close();
-					}
 					if (upgradeCheck[2] < 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4226,6 +4389,13 @@ void store(RenderWindow& window)
 					}
 					else if (upgradeCheck[2] == 4)
 					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
 						for (int i = 0; i < NUMBER_OF_PERKS; i++)
 						{
 							perks[i].upgradeButton.setPosition(-1000, -1000);
@@ -4339,6 +4509,248 @@ void store(RenderWindow& window)
 						}
 					}
 				}
+				// the skin hit test
+				if (knightSkin[0].bounds.contains(mouse))
+				{
+					skinFile.open("skinFile.txt", ios::in);
+					if (skinFile.is_open())
+					{
+						string temp;
+						while (getline(skinFile, temp))
+						{
+							skinCheck = stoi(temp);
+						}
+						skinFile.close();
+					}
+
+					if (skinCheck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+					if (skinCheck == 1)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1630, 827);
+						knightSkin[0].buttonText.setString("Select");
+					}
+				}
+				// the skin button hit test
+				if (knightSkin[0].buttonBounds.contains(mouse))
+				{
+					if (skinCheck == 1)
+					{
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						skinFile.open("skinFile.txt", ios::out);
+						if (skinFile.is_open())
+						{
+							skinFile << "0";
+							skinFile.close();
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+				}
+				// the skin hit test
+				if (knightSkin[1].bounds.contains(mouse))
+				{
+					buySkinFile.open("buySkinFile.txt", ios::in);
+					if (buySkinFile.is_open())
+					{
+						string temp;
+						while (getline(buySkinFile, temp))
+						{
+							isSkinBuyed = stoi(temp);
+						}
+						buySkinFile.close();
+					}
+
+					if (isSkinBuyed == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1660, 827);
+						knightSkin[1].buttonText.setString("Buy");
+						knightSkin[1].price.setPosition(150, 640);
+						knightSkin[1].priceTexture.setPosition(235, 650);
+						break;
+					}
+
+					skinFile.open("skinFile.txt", ios::in);
+					if (skinFile.is_open())
+					{
+						string temp;
+						while (getline(skinFile, temp))
+						{
+							skinCheck = stoi(temp);
+						}
+						skinFile.close();
+					}
+
+					if (skinCheck == 1)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1607, 827);
+						knightSkin[1].buttonText.setString("Selected");
+					}
+					else if (skinCheck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						knightSkin[1].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[1].buttonText.setPosition(1630, 827);
+						knightSkin[1].buttonText.setString("Select");
+					}
+				}
+				// the skin button hit test
+				if (knightSkin[1].buttonBounds.contains(mouse))
+				{
+					if (isSkinBuyed == 0)
+					{
+						if (storeCoins >= 1000)
+						{
+							for (int i = 0; i < 2; i++)
+							{
+								knightSkin[i].button.setPosition(-1000, -1000);
+								knightSkin[i].buttonText.setPosition(-1000, -1000);
+								knightSkin[i].price.setPosition(-1000, -1000);
+								knightSkin[i].priceTexture.setPosition(-1000, -1000);
+							}
+							buySkinFile.open("buySkinFile.txt", ios::out);
+							if (buySkinFile.is_open())
+							{
+								buySkinFile << "1";
+								buySkinFile.close();
+							}
+							storeCoins -= 1000;
+							totalCoins = to_string(storeCoins);
+							coinFile.open("coinFile.txt", ios::out);
+							if (coinFile.is_open())
+							{
+								coinFile << totalCoins;
+								coinFile.close();
+							}
+							knightSkin[1].button.setPosition(1550, 800);
+							clickSound.play();
+							knightSkin[1].buttonText.setPosition(1607, 827);
+							knightSkin[1].buttonText.setString("Selected");
+						}
+					}
+					if (skinCheck == 0)
+					{
+						for (int i = 0; i < NUMBER_OF_PERKS; i++)
+						{
+							perks[i].upgradeButton.setPosition(-1000, -1000);
+							perks[i].upgradeText.setPosition(-1000, -1000);
+							perks[i].price.setPosition(-1000, -1000);
+							perks[i].priceTexture.setPosition(-1000, -1000);
+							perks[i].info.setPosition(-1000, -1000);
+						}
+						for (int i = 0; i < 2; i++)
+						{
+							knightSkin[i].button.setPosition(-1000, -1000);
+							knightSkin[i].buttonText.setPosition(-1000, -1000);
+							knightSkin[i].price.setPosition(-1000, -1000);
+							knightSkin[i].priceTexture.setPosition(-1000, -1000);
+						}
+						skinFile.open("skinFile.txt", ios::out);
+						if (skinFile.is_open())
+						{
+							skinFile << "1";
+							skinFile.close();
+						}
+						knightSkin[0].button.setPosition(1550, 800);
+						clickSound.play();
+						knightSkin[0].buttonText.setPosition(1607, 827);
+						knightSkin[0].buttonText.setString("Selected");
+					}
+				}
 			}
 		}
 		// Rendering
@@ -4358,17 +4770,28 @@ void store(RenderWindow& window)
 			window.draw(perks[i].upgradeButton);
 			window.draw(perks[i].priceTexture);
 			window.draw(perks[i].upgradeText);
-			window.draw(perks[i].upgradeText);
 			window.draw(perks[i].info);
+		}
+		for (int i = 0; i < 2; i++)
+		{
+			window.draw(knightSkin[i].action);
+			window.draw(knightSkin[i].price);
+			window.draw(knightSkin[i].button);
+			window.draw(knightSkin[i].priceTexture);
+			window.draw(knightSkin[i].buttonText);
 		}
 		window.draw(displayCoinText);
 		window.draw(coinsText);
 		window.display();
+		knight.loadTextures();
 	}
 }
 
 void levelOne(RenderWindow& window)
 {
+	bool monsterCoins[8] = { 0 };
+
+
 	Clock clock;
 
 	pauseMenu.PauseMenufunc(1920, 1080);
@@ -4403,6 +4826,9 @@ void levelOne(RenderWindow& window)
 		Evil_Wizard_3.assign_sec_enemy_info("EvilWizard", 1300, 695, 150, 11, 2, 130);
 	while (window.isOpen())
 	{
+
+		knight.knightattck();
+
 		Vector2f knightPos = knight.sprite.getPosition();
 		// adjusting the collision rect to be more accurate 
 		// redRect for collision detection
@@ -4424,6 +4850,13 @@ void levelOne(RenderWindow& window)
 		Evil_Wizard_3.zone = RectCreator(200, 200, EPos3.x + 80, EPos3.y + 30);
 		executioner.zone1 = RectCreator(200, 200, ExecPos.x + 80, ExecPos.y + 30);
 		executioner.zone2 = RectCreator(2 * executioner.kill_zone, 300, executioner.left_boundary, ExecPos.y);
+
+
+		if (knight.rect.getPosition().y > 1090)
+		{
+			knight.dead = true;
+			knight.deathSound.play();
+		}
 
 		if ((Skeleton_2.state == "attack" || Skeleton_1.state == "attack") && levelOneMap.currentScene == 0)
 		{
@@ -4454,6 +4887,127 @@ void levelOne(RenderWindow& window)
 			knight.state = "Hit";
 			knight.updateTexture();
 			knight.health -= (double)(executioner.attack1) * 0.011;
+		}
+
+		if (Skeleton_1.dead)
+		{
+			if (monsterCoins[0] == false)
+			{
+				monsterCoins[0] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_2.dead)
+		{
+			if (monsterCoins[1] == false)
+			{
+				monsterCoins[1] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_3.dead)
+		{
+			if (monsterCoins[2] == false)
+			{
+				monsterCoins[2] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_4.dead)
+		{
+			if (monsterCoins[3] == false)
+			{
+				monsterCoins[3] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_1.dead)
+		{
+			if (monsterCoins[4] == false)
+			{
+				monsterCoins[4] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_2.dead)
+		{
+			if (monsterCoins[5] == false)
+			{
+				monsterCoins[5] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_3.dead)
+		{
+			if (monsterCoins[6] == false)
+			{
+				monsterCoins[6] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (executioner.dead)
+		{
+			if (monsterCoins[7] == false)
+			{
+				monsterCoins[7] = true;
+				storeCoins += 100;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
 		}
 
 		if (!knight.isAlive())
@@ -4491,14 +5045,11 @@ void levelOne(RenderWindow& window)
 			}
 		}
 
-
-
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
 		levelOneMap.checkCollision(knight.collisionRect);
 
 		// Clear the window
 		window.clear();
-
 
 		if (!knight.dead)
 		{
@@ -4509,70 +5060,72 @@ void levelOne(RenderWindow& window)
 			}
 			if (!pauseMenu.paused)
 			{
+				float time = (float)clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time /= 650;
+				if (time > 20)
+					time = 20;
 				window.draw(levelOneMap.backgroundSprite);
 				healthBox(window);
 				coinBox(window);
 				if (!Skeleton_1.dead && levelOneMap.currentScene == 0)
 				{
+					Skeleton_1.update_skeleton_state(time);
 					window.draw(Skeleton_1.sprite);
 					window.draw(Skeleton_1.zone);
 				}
 				if (!Skeleton_2.dead && levelOneMap.currentScene == 0)
 				{
+					Skeleton_2.update_skeleton_state(time);
 					window.draw(Skeleton_2.sprite);
 					window.draw(Skeleton_2.zone);
 				}
 				if (!Skeleton_3.dead && levelOneMap.currentScene == 1)
 				{
+					Skeleton_3.update_skeleton_state(time);
 					window.draw(Skeleton_3.sprite);
 					window.draw(Skeleton_3.zone);
 				}
 				if (!Skeleton_4.dead && levelOneMap.currentScene == 4)
 				{
+					Skeleton_4.update_skeleton_state(time);
 					window.draw(Skeleton_4.sprite);
 					window.draw(Skeleton_4.zone);
 				}
 				if (!Evil_Wizard_1.dead && levelOneMap.currentScene == 1)
 				{
+					Evil_Wizard_1.update_evilwiz_state(time);
 					window.draw(Evil_Wizard_1.sprite);
 					window.draw(Evil_Wizard_1.zone);
 				}
 				if (!Evil_Wizard_2.dead && levelOneMap.currentScene == 3)
 				{
+					Evil_Wizard_2.update_evilwiz_state(time);
 					window.draw(Evil_Wizard_2.sprite);
 					window.draw(Evil_Wizard_2.zone);
 				}
 				if (!Evil_Wizard_3.dead && levelOneMap.currentScene == 3)
 				{
+					Evil_Wizard_3.update_evilwiz_state(time);
 					window.draw(Evil_Wizard_3.sprite);
 					window.draw(Evil_Wizard_3.zone);
 				}
 				if (!executioner.dead && levelOneMap.currentScene == 5)
 				{
+					executioner.update_boss1_state(time);
 					window.draw(executioner.sprite);
 					window.draw(executioner.zone1);
 					window.draw(executioner.zone2);
+					exechealthBox(window);
 				}
+
 				if (!knight.dead)
 				{
 					window.draw(knight.collisionRect);
 					window.draw(knight.sprite);
 				}
 				movements();
-				float time = (float)clock.getElapsedTime().asMicroseconds();
-				clock.restart();
-				time /= 650;
-				if (time > 20)
-					time = 20;
 				knight.update(time);
-				Skeleton_1.update_skeleton_state(time);
-				Skeleton_2.update_skeleton_state(time);
-				Skeleton_3.update_skeleton_state(time);
-				Skeleton_4.update_skeleton_state(time);
-				Evil_Wizard_1.update_evilwiz_state(time);
-				Evil_Wizard_2.update_evilwiz_state(time);
-				Evil_Wizard_3.update_evilwiz_state(time);
-				executioner.update_boss1_state(time);
 			}
 			else if (pauseMenu.paused)
 			{
@@ -4591,18 +5144,20 @@ void levelOne(RenderWindow& window)
 			window.draw(currentTiles[i]);
 		}
 
-
-
 		window.display();
 	}
 }
 
-void levelTwo(RenderWindow& window) {
+void levelTwo(RenderWindow& window)
+{
 	Clock clock;
-	//knight.assignSprite(); // Initialize player character
 
+
+	bool monsterCoins2[8] = { 0 };
 
 	pauseMenu.PauseMenufunc(1920, 1080);
+	deathMenu.deathMenufunc(1920, 1080);
+	completedMenu.completedMenufunc(1920, 1080);
 
 	SoundBuffer clickbuffer;
 	Sound clicksound;
@@ -4612,30 +5167,222 @@ void levelTwo(RenderWindow& window) {
 
 	levelTwoMap.loadTextures();
 	levelTwoMap.placeScene();
-	while (window.isOpen()) {
-		// redRect for collision detection
-		RectangleShape collisionRect;
-		collisionRect.setOutlineColor(Color::Transparent);
-		collisionRect.setOutlineThickness(2);
-		collisionRect.setFillColor(Color::Transparent);
-		collisionRect.setSize(Vector2f(90, 150));
+
+	if (!EvilBoss.dead)
+		EvilBoss.assign_boss_enemy_info("Boss2", 1200, 175, 1200, 10, 20, 2, 300);
+
+	if (!Skeleton_2.dead)
+		Skeleton_2.assign_sec_enemy_info("skeleton", 1500, 770, 150, 17, 1, 100);
+
+	if (!Evil_Wizard_1.dead)
+		Evil_Wizard_1.assign_sec_enemy_info("EvilWizard", 1600, 100, 100, 20, 2, 150, 0.5, 0.8, -0.05);
+
+	if (!Skeleton_4.dead)
+		Skeleton_4.assign_sec_enemy_info("skeleton", 1550, 570, 150, 18, 12, 200, 2, 2, -0.05);
+
+	if (!Evil_Wizard_5.dead)
+		Evil_Wizard_5.assign_sec_enemy_info("EvilWizard", 380, 600, 145, 14, 2, 250, 2, 2, -0.08);
+
+	if (!Evil_Wizard_6.dead)
+		Evil_Wizard_6.assign_sec_enemy_info("EvilWizard", 370, 50, 180, 13, 2, 250, 2, 2, -0.08);
+
+	if (!Skeleton_5.dead)
+		Skeleton_5.assign_sec_enemy_info("skeleton", 1250, 340, 90, 23, 12, 140, 2, 2, -0.05);
+
+	if (!Skeleton_6.dead)
+		Skeleton_6.assign_sec_enemy_info("skeleton", 1600, 340, 110, 23, 12, 140, 2, 2, -0.05);
+
+
+	while (window.isOpen())
+	{
 		Vector2f knightPos = knight.sprite.getPosition();
-		collisionRect.setPosition(knightPos.x + 160, knightPos.y + 146);
-		//Skeleton_1.assign_sec_enemy_info("skeleton", 670, 700, 285, 10, 1, 100);
+		// adjusting the collision rect to be more accurate 
+		// redRect for collision detection
+		knight.collisionRect = RectCreator(100, 145, knightPos.x + 150, knightPos.y + 150);
+
+		Vector2f SPos2 = Skeleton_2.sprite.getPosition();
+		Vector2f SPos4 = Skeleton_4.sprite.getPosition();
+		Vector2f SPos5 = Skeleton_5.sprite.getPosition();
+		Vector2f SPos6 = Skeleton_6.sprite.getPosition();
+		Vector2f EPos1 = Evil_Wizard_1.sprite.getPosition();
+		Vector2f EPos5 = Evil_Wizard_5.sprite.getPosition();
+		Vector2f EPos6 = Evil_Wizard_6.sprite.getPosition();
+		Vector2f ExecPos = EvilBoss.sprite.getPosition();
+
+		Skeleton_2.zone = RectCreator(170, 150, SPos2.x + 24, SPos2.y);
+		Skeleton_4.zone = RectCreator(200, 250, SPos4.x + 80, SPos4.y + 50);
+		Skeleton_5.zone = RectCreator(280, 300, SPos5.x + 80, SPos5.y + 50);
+		Skeleton_6.zone = RectCreator(280, 300, SPos6.x + 80, SPos6.y + 50);
+		Evil_Wizard_5.zone = RectCreator(250, 200, EPos5.x + 230, EPos5.y + 220);
+		Evil_Wizard_6.zone = RectCreator(250, 200, EPos6.x + 230, EPos6.y + 220);
+		EvilBoss.zone1 = RectCreator(300, 350, ExecPos.x + 380, ExecPos.y + 350);
+		EvilBoss.zone2 = RectCreator(2 * EvilBoss.kill_zone, 300, EvilBoss.left_boundary + 300, ExecPos.y + 300);
+
+		if (Skeleton_2.state == "attack" && levelTwoMap.currentScene == 0)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			if (Skeleton_2.state == "attack")
+				knight.health -= (double)(Skeleton_2.attack) * 0.00711;
+		}
+		if (Evil_Wizard_1.state == "attack" && levelTwoMap.currentScene == 1)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Evil_Wizard_1.attack) * 0.00711;
+		}
+		if ((Skeleton_5.state == "attack" || Skeleton_6.state == "attack") && levelTwoMap.currentScene == 3)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(Skeleton_5.attack) * 0.00711;
+		}
+
+		if ((Skeleton_4.state == "attack" || Evil_Wizard_5.state == "attack" || Evil_Wizard_6.state == "attack") && levelTwoMap.currentScene == 4)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			if (Skeleton_4.state == "attack")
+				knight.health -= (double)(Skeleton_5.attack) * 0.00711;
+			else
+				knight.health -= (double)(Evil_Wizard_5.attack) * 0.00711;
+
+		}
+		if ((EvilBoss.state == "attack") && levelTwoMap.currentScene == 5)
+		{
+			knight.state = "Hit";
+			knight.updateTexture();
+			knight.health -= (double)(EvilBoss.attack1) * 0.00711;
+		}
+
+		if (!knight.isAlive())
+		{
+			knight.state = "Death";
+			knight.updateTexture();
+		}
+
+		if (Skeleton_2.dead)
+		{
+			if (monsterCoins2[0] == false)
+			{
+				monsterCoins2[0] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_5.dead)
+		{
+			if (monsterCoins2[1] == false)
+			{
+				monsterCoins2[1] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Skeleton_6.dead)
+		{
+			if (monsterCoins2[2] == false)
+			{
+				monsterCoins2[2] = true;
+				storeCoins += 20;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_1.dead)
+		{
+			if (monsterCoins2[3] == false)
+			{
+				monsterCoins2[3] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_5.dead)
+		{
+			if (monsterCoins2[5] == false)
+			{
+				monsterCoins2[5] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (Evil_Wizard_6.dead)
+		{
+			if (monsterCoins2[6] == false)
+			{
+				monsterCoins2[6] = true;
+				storeCoins += 30;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+		if (EvilBoss.dead)
+		{
+			if (monsterCoins2[7] == false)
+			{
+				monsterCoins2[7] = true;
+				storeCoins += 100;
+				totalCoins = to_string(storeCoins);
+				coinFile.open("coinFile.txt", ios::out);
+				if (coinFile.is_open())
+				{
+					coinFile << totalCoins;
+					coinFile.close();
+				}
+			}
+		}
+
 		// Handle events
 		Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == Event::Closed) {
 				window.close();
 			}
-			if (event.mouseButton.button == Mouse::Left) {
-				Vector2i mousePos = Mouse::getPosition(window);
 
-				if (event.type == Event::MouseButtonPressed) {
+			if (event.type == Event::MouseButtonPressed) {
+				if (event.mouseButton.button == Mouse::Left) {
+					Vector2i mousePos = Mouse::getPosition(window);
 					cout << "MousePos x : " << mousePos.x << " MousePos y :  " << mousePos.y << endl;
-
+					cout << "Red Rect Left : " << knight.collisionRect.getGlobalBounds().left << " Red Rect Top " << knight.collisionRect.getGlobalBounds().top << endl;
+					cout << "blue rect left : " << knight.rect.left << "blue rect top : " << knight.rect.top << endl;
 				}
 			}
+
 			if (event.type == Event::KeyPressed)
 			{
 				if (event.key.code == Keyboard::Escape)
@@ -4650,46 +5397,113 @@ void levelTwo(RenderWindow& window) {
 			}
 		}
 
+		if (knight.rect.getPosition().y > 1090)
+		{
+			knight.dead = true;
+			knight.deathSound.play();
+		}
 
-
-		// Update game logic
 		// check player collision (always should be placed before movement fn to avoid silly animation bugs :)
-		levelTwoMap.checkCollision(collisionRect);
+		levelTwoMap.checkCollision(knight.collisionRect);
 
 		// Clear the window
 		window.clear();
+
+		if (!knight.dead)
+		{
+			if (EvilBoss.dead)
+			{
+				completedMenu.show(window, levelTwoMap.currentScene);
+				break;
+			}
+			if (!pauseMenu.paused)
+			{
+				window.draw(levelTwoMap.backgroundSprite);
+				healthBox(window);
+				coinBox(window);
+
+				float time = (float)clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time /= 650;
+				if (time > 20)
+					time = 20;
+				
+				if (!Skeleton_2.dead && levelTwoMap.currentScene == 0)
+				{
+					Skeleton_2.update_skeleton_state(time);
+					window.draw(Skeleton_2.sprite);
+					window.draw(Skeleton_2.zone);
+				}
+				if (!Evil_Wizard_1.dead && levelTwoMap.currentScene == 1)
+				{
+					Evil_Wizard_1.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_1.sprite);
+					window.draw(Evil_Wizard_1.zone);
+				}
+				if (!Skeleton_5.dead && levelTwoMap.currentScene == 3)
+				{
+					Skeleton_5.update_skeleton_state(time);
+					window.draw(Skeleton_5.sprite);
+					window.draw(Skeleton_5.zone);
+				}
+				if (!Skeleton_6.dead && levelTwoMap.currentScene == 3)
+				{
+					Skeleton_6.update_skeleton_state(time);
+					window.draw(Skeleton_6.sprite);
+					window.draw(Skeleton_6.zone);
+				}
+				if (!Skeleton_4.dead && levelTwoMap.currentScene == 4)
+				{
+					Skeleton_4.update_skeleton_state(time);
+					Evil_Wizard_4.update_evilwiz_state(time);
+					window.draw(Skeleton_4.sprite);
+					window.draw(Skeleton_4.zone);
+				}
+				if (!Evil_Wizard_5.dead && levelTwoMap.currentScene == 4)
+				{
+					Evil_Wizard_5.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_5.sprite);
+					window.draw(Evil_Wizard_5.zone);
+				}
+				if (!Evil_Wizard_6.dead && levelTwoMap.currentScene == 4)
+				{
+					Evil_Wizard_6.update_evilwiz_state(time);
+					window.draw(Evil_Wizard_6.sprite);
+					window.draw(Evil_Wizard_6.zone);
+				}
+				if (!EvilBoss.dead && levelTwoMap.currentScene == 5)
+				{
+					EvilBoss.update_boss2_state(time);
+					window.draw(EvilBoss.sprite);
+					window.draw(EvilBoss.zone1);
+					window.draw(EvilBoss.zone2);
+				}
+
+				if (!knight.dead)
+				{
+					window.draw(knight.collisionRect);
+					window.draw(knight.sprite);
+				}
+				movements();
+				knight.update(time);
+			}
+			else if (pauseMenu.paused)
+			{
+				pauseMenu.show(window);
+				break;
+			}
+		}
+		else if (knight.dead)
+		{
+			deathMenu.show(window, levelTwoMap.currentScene);
+			break;
+		}
 
 		for (int i = 0; i < currentTiles.size(); i++)
 		{
 			window.draw(currentTiles[i]);
 		}
 
-		window.draw(collisionRect);
-
-
-
-		if (!pauseMenu.paused)
-		{
-
-			window.draw(levelTwoMap.backgroundSprite);
-			healthBox(window);
-			window.draw(knight.sprite);
-			//window.draw(Skeleton_1.sprite);
-			movements();
-			float time = (float)clock.getElapsedTime().asMicroseconds();
-			clock.restart();
-			time /= 650;
-			if (time > 20)
-				time = 20;
-			knight.update(time);
-			//Skeleton_1.update_skeleton_state(time);
-		}
-		else
-		{
-			pauseMenu.show(window);
-			break;
-
-		}
 		window.display();
 	}
 }
